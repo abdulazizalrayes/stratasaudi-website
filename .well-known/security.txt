@@ -1,0 +1,3 @@
+Contact: mailto:advisory@stratasaudi.com
+Preferred-Languages: en, ar
+Canonical: https://www.stratasaudi.com/.well-known/security.txt
