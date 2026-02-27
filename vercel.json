@@ -55,6 +55,5 @@
         }
       ]
     }
-  ],
-  "regions": ["iad1", "lhr1", "hnd1", "cdg1", "syd1"]
+  ]
 }
