@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insights | Strata Risk Advisory â Construction Risk & FIDIC Analysis</title>
+    <meta name="description" content="Expert insights on construction risk management, FIDIC claims analysis, and Saudi Vision 2030 mega-projects. Industry analysis and technical guidance from Strata Risk Advisory.">
+    <meta name="keywords" content="FIDIC claims, construction risk, Saudi Arabia, Vision 2030, risk management">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Insights | Strata Risk Advisory â Construction Risk & FIDIC Analysis">
+    <meta property="og:description" content="Expert insights on construction risk management, FIDIC claims analysis, and Saudi Vision 2030 mega-projects.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://stratasaudi.com/insights.html">
+    <link rel="canonical" href="https://stratasaudi.com/insights.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --black: #111111;
+            --dark: #1a1a1a;
+            --mid: #444444;
+            --subtle: #777777;
+            --light-border: #d0d0d0;
+            --light-bg: #f7f7f7;
+            --white: #ffffff;
+            --serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+            --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            font-family: var(--sans);
+            color: var(--black);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav#navbar {
+            background-color: var(--white);
+            border-bottom: 1px solid var(--light-border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--serif);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--black);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .logo span {
+            font-family: var(--sans);
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--subtle);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--mid);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--black);
+        }
+
+        .nav-links a.active {
+            color: var(--black);
+            font-weight: 600;
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: var(--black);
+        }
+
+        .nav-contact-btn {
+            background-color: var(--black) !important;
+            color: var(--white) !important;
+            padding: 0.6rem 1.2rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .nav-contact-btn:hover {
+            background-color: var(--dark) !important;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 2px;
+            background-color: var(--black);
+            transition: all 0.3s ease;
+        }
+
+        /* Contact Bar */
+        .contact-bar {
+            background-color: var(--black);
+            color: var(--white);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            font-size: 0.95rem;
+        }
+
+        .contact-bar a {
+            color: var(--white);
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .contact-bar a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--black) 100%);
+            color: var(--white);
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-family: var(--serif);
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.8;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        /* Articles Grid */
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .article-card {
+            background-color: var(--white);
+            border: 1px solid var(--light-border);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .article-card:nth-child(1) { animation-delay: 0.1s; }
+        .article-card:nth-child(2) { animation-delay: 0.2s; }
+        .article-card:nth-child(3) { animation-delay: 0.3s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .article-card:hover {
+            border-color: var(--black);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .article-header {
+            padding: 2rem;
+            border-bottom: 1px solid var(--light-border);
+        }
+
+        .category-tag {
+            display: inline-block;
+            background-color: var(--light-bg);
+            color: var(--mid);
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+        }
+
+        .article-card h2 {
+            font-family: var(--serif);
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--black);
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+
+        .article-excerpt {
+            color: var(--subtle);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .article-footer {
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--light-bg);
+        }
+
+        .article-date {
+            font-size: 0.85rem;
+            color: var(--subtle);
+        }
+
+        .read-more {
+            color: var(--black);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s ease;
+        }
+
+        .read-more:hover {
+            gap: 0.8rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--light-bg);
+            padding: 2.5rem;
+            text-align: center;
+            border-top: 1px solid var(--light-border);
+            margin-top: 4rem;
+        }
+
+        footer p {
+            font-size: 0.95rem;
+            color: var(--mid);
+            margin: 0.5rem 0;
+        }
+
+        footer .footer-geo {
+            color: var(--subtle);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                gap: 1rem;
+                background-color: var(--white);
+                padding: 2rem;
+                border-bottom: 1px solid var(--light-border);
+                display: none;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .contact-bar {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .articles-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .article-card h2 {
+                font-size: 1.4rem;
+            }
+
+            main {
+                padding: 2rem 1rem;
+            }
+
+            .hero {
+                padding: 4rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-inner">
+            <a href="/" class="logo">Strata<span>Risk Advisory</span></a>
+            <div class="nav-links" id="navLinks">
+                <a href="/#about">About</a>
+                <a href="/services.html">Services</a>
+                <a href="/#clients">Clients</a>
+                <a href="/#founder">Founder</a>
+                <a href="/insights.html" class="active">Insights</a>
+                <a href="/#contact" class="nav-contact-btn">Enquire</a>
+            </div>
+            <div class="hamburger" id="hamburger" role="button" tabindex="0" onclick="document.getElementById('navLinks').classList.toggle('open')">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Bar -->
+    <div class="contact-bar">
+        <a href="mailto:advisory@stratasaudi.com">â advisory@stratasaudi.com</a>
+        <a href="tel:+966500000000">ð Call Us</a>
+        <a href="https://wa.me/966500000000">ð¬ WhatsApp</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Insights</h1>
+            <p>Expert analysis on construction risk management, FIDIC disputes, and Saudi Vision 2030 mega-projects. Strategic guidance for navigating complex contractual and technical challenges.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <div class="articles-grid">
+            <!-- Article 1 -->
+            <article class="article-card">
+                <div class="article-header">
+                    <span class="category-tag">Risk Management</span>
+                    <h2>Understanding FIDIC Claims in Saudi Arabia</h2>
+                    <p class="article-excerpt">A comprehensive guide to navigating FIDIC contract claims, notice requirements, and dispute resolution strategies in Saudi Arabian mega-projects. Learn how to protect your interests and manage contractual risks effectively.</p>
+                </div>
+                <div class="article-footer">
+                    <span class="article-date">March 2026</span>
+                    <a href="/fidic-claims-saudi-arabia.html" class="read-more">Read More â</a>
+                </div>
+            </article>
+
+            <!-- Article 2 -->
+            <article class="article-card">
+                <div class="article-header">
+                    <span class="category-tag">Pre-Contract</span>
+                    <h2>Pre-Contract Risk Review: Why It Matters Before You Sign</h2>
+                    <p class="article-excerpt">Early identification of contractual risks can prevent costly disputes later. Discover the critical areas to review before signing, including payment terms, liability clauses, and insurance requirements.</p>
+                </div>
+                <div class="article-footer">
+                    <span class="article-date">Coming Soon</span>
+                    <a href="#" class="read-more">Read More â</a>
+                </div>
+            </article>
+
+            <!-- Article 3 -->
+            <article class="article-card">
+                <div class="article-header">
+                    <span class="category-tag">Dispute Resolution</span>
+                    <h2>Navigating Construction Disputes in the GCC: A Technical Perspective</h2>
+                    <p class="article-excerpt">Construction disputes in the GCC region present unique challenges. Explore technical approaches to dispute resolution, including expert determination, DAB processes, and litigation strategies tailored to regional contexts.</p>
+                </div>
+                <div class="article-footer">
+                    <span class="article-date">Coming Soon</span>
+                    <a href="#" class="read-more">Read More â</a>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>Â© 2026 Strata Risk Advisory. All rights reserved.</p>
+        <p class="footer-geo">Based in the Kingdom of Saudi Arabia Â· Advising Internationally</p>
+    </footer>
+
+    <!-- JSON-LD Blog Posting Collection Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Insights | Strata Risk Advisory",
+        "description": "Expert insights on construction risk management, FIDIC claims analysis, and Saudi Vision 2030 mega-projects.",
+        "url": "https://stratasaudi.com/insights.html",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Strata Risk Advisory",
+            "url": "https://stratasaudi.com"
+        }
+    }
+    </script>
+
+    <script>
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.article-card').forEach(card => {
+            observer.observe(card);
+        });
+
+        // Mobile menu close on link click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('navLinks').classList.remove('open');
+            });
+        });
+    </script>
+</body>
+</html>
