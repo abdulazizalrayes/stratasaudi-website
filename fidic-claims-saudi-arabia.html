@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIDIC Claims in Saudi Arabia: Contractor's Guide to Risk Management | Strata Risk Advisory</title>
+    <meta name="description" content="Comprehensive guide to understanding FIDIC claims in Saudi Arabia. Learn about Clause 20, notice requirements, common pitfalls, and dispute resolution strategies for construction contractors.">
+    <meta name="keywords" content="FIDIC claims Saudi Arabia, construction risk management, FIDIC contract disputes, Saudi Vision 2030 construction, claim procedures">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="FIDIC Claims in Saudi Arabia: Contractor's Guide to Risk Management">
+    <meta property="og:description" content="Expert guide to FIDIC claims, risk management, and dispute resolution in Saudi Arabian construction projects.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://stratasaudi.com/fidic-claims-saudi-arabia.html">
+    <link rel="canonical" href="https://stratasaudi.com/fidic-claims-saudi-arabia.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --black: #111111;
+            --dark: #1a1a1a;
+            --mid: #444444;
+            --subtle: #777777;
+            --light-border: #d0d0d0;
+            --light-bg: #f7f7f7;
+            --white: #ffffff;
+            --serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+            --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            font-family: var(--sans);
+            color: var(--black);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav#navbar {
+            background-color: var(--white);
+            border-bottom: 1px solid var(--light-border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--serif);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--black);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .logo span {
+            font-family: var(--sans);
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--subtle);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--mid);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--black);
+        }
+
+        .nav-links a.active {
+            color: var(--black);
+            font-weight: 600;
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: var(--black);
+        }
+
+        .nav-contact-btn {
+            background-color: var(--black) !important;
+            color: var(--white) !important;
+            padding: 0.6rem 1.2rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .nav-contact-btn:hover {
+            background-color: var(--dark) !important;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 2px;
+            background-color: var(--black);
+            transition: all 0.3s ease;
+        }
+
+        /* Contact Bar */
+        .contact-bar {
+            background-color: var(--black);
+            color: var(--white);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            font-size: 0.95rem;
+        }
+
+        .contact-bar a {
+            color: var(--white);
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .contact-bar a:hover {
+            opacity: 0.8;
+        }
+
+        /* Breadcrumbs */
+        .breadcrumbs {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            font-size: 0.9rem;
+            color: var(--subtle);
+        }
+
+        .breadcrumbs a {
+            color: var(--mid);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumbs a:hover {
+            color: var(--black);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--black) 100%);
+            color: var(--white);
+            padding: 5rem 2rem;
+        }
+
+        .hero-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-family: var(--serif);
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.85);
+            margin-top: 1.5rem;
+        }
+
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .article-content {
+            line-height: 1.85;
+        }
+
+        .article-content p {
+            margin-bottom: 1.8rem;
+            color: var(--mid);
+            font-size: 1rem;
+        }
+
+        .article-content h2 {
+            font-family: var(--serif);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--black);
+            margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        .article-content h3 {
+            font-family: var(--serif);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--black);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .article-content ul, .article-content ol {
+            margin: 1.5rem 0 1.5rem 2rem;
+            color: var(--mid);
+        }
+
+        .article-content li {
+            margin-bottom: 0.8rem;
+            line-height: 1.8;
+        }
+
+        .article-content strong {
+            color: var(--black);
+            font-weight: 600;
+        }
+
+        .highlight-box {
+            background-color: var(--light-bg);
+            border-left: 4px solid var(--black);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 4px;
+        }
+
+        .highlight-box h4 {
+            font-weight: 600;
+            color: var(--black);
+            margin-bottom: 0.8rem;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .highlight-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .cta-section {
+            background-color: var(--light-bg);
+            padding: 2.5rem;
+            border-radius: 8px;
+            margin: 3rem 0;
+            text-align: center;
+        }
+
+        .cta-section h3 {
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            margin-bottom: 1.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--black);
+            color: var(--white);
+            padding: 0.9rem 2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: var(--dark);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--light-bg);
+            padding: 2.5rem;
+            text-align: center;
+            border-top: 1px solid var(--light-border);
+            margin-top: 4rem;
+        }
+
+        footer p {
+            font-size: 0.95rem;
+            color: var(--mid);
+            margin: 0.5rem 0;
+        }
+
+        footer .footer-geo {
+            color: var(--subtle);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                gap: 1rem;
+                background-color: var(--white);
+                padding: 2rem;
+                border-bottom: 1px solid var(--light-border);
+                display: none;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .article-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+
+            .article-content h2 {
+                font-size: 1.6rem;
+            }
+
+            .article-content h3 {
+                font-size: 1.3rem;
+            }
+
+            .breadcrumbs {
+                padding: 1rem 1rem;
+                font-size: 0.85rem;
+            }
+
+            main {
+                padding: 2rem 1rem;
+            }
+
+            .contact-bar {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-inner">
+            <a href="/" class="logo">Strata<span>Risk Advisory</span></a>
+            <div class="nav-links" id="navLinks">
+                <a href="/#about">About</a>
+                <a href="/services.html">Services</a>
+                <a href="/#clients">Clients</a>
+                <a href="/#founder">Founder</a>
+                <a href="/insights.html" class="active">Insights</a>
+                <a href="/#contact" class="nav-contact-btn">Enquire</a>
+            </div>
+            <div class="hamburger" id="hamburger" role="button" tabindex="0" onclick="document.getElementById('navLinks').classList.toggle('open')">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Bar -->
+    <div class="contact-bar">
+        <a href="mailto:advisory@stratasaudi.com">â advisory@stratasaudi.com</a>
+        <a href="tel:+966500000000">ð Call Us</a>
+        <a href="https://wa.me/966500000000">ð¬ WhatsApp</a>
+    </div>
+
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs">
+        <a href="/">Home</a> / <a href="/insights.html">Insights</a> / Understanding FIDIC Claims in Saudi Arabia
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Understanding FIDIC Claims in Saudi Arabia: A Contractor's Guide to Risk Management</h1>
+            <div class="article-meta">
+                <span>âï¸ Strata Risk Advisory</span>
+                <span>ð March 2026</span>
+                <span>â±ï¸ 8 min read</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="article-content">
+        <section>
+            <h2>Introduction: Why FIDIC Contracts Matter in Saudi Construction</h2>
+            <p>
+                The Federal International des IngÃ©nieurs-Conseils (FIDIC) contract forms have become the global standard for construction projects, and Saudi Arabia is no exception. As the Kingdom accelerates its mega-projects under Vision 2030, from NEOM and The Line to the Red Sea Project, contractors operating in Saudi Arabia must understand the intricacies of FIDIC claims and risk management. These contracts are complex, often comprising hundreds of pages of technical and legal provisions, with subtle clauses that can significantly impact project outcomes and profitability.
+            </p>
+            <p>
+                FIDIC contracts introduce a unique framework for managing disputes and claimsâone that differs fundamentally from traditional Fixed-Price or Cost-Plus arrangements. Unlike ad-hoc dispute processes, FIDIC establishes rigorous procedures for raising claims, including strict notice requirements, documentation standards, and escalation protocols. Contractors who fail to navigate these procedures correctly risk losing legitimate entitlements to time and cost adjustments, even when circumstances clearly warrant them.
+            </p>
+            <p>
+                This guide explores the core mechanisms of FIDIC claims in the Saudi Arabian context, identifies common pitfalls that contractors face, and provides actionable strategies for risk mitigation and dispute resolution. Whether you're preparing a bid, mid-project, or facing a dispute, understanding these principles is essential for protecting your business interests.
+            </p>
+        </section>
+
+        <section>
+            <h2>The Saudi Arabian Construction Landscape: Vision 2030 and Mega-Projects</h2>
+            <p>
+                Saudi Arabia's construction sector is undergoing unprecedented transformation under Vision 2030. The Kingdom is investing hundreds of billions of dollars in world-class infrastructure, industrial facilities, and urban development projects that rival any in the world. Key initiatives include:
+            </p>
+            <ul>
+                <li><strong>NEOM:</strong> A $500 billion mega-city in the northwest, featuring advanced manufacturing, tourism, and technology sectors. NEOM encompasses multiple sub-projects including The Line, Trojena, and Oxagon.</li>
+                <li><strong>The Line:</strong> A 170-kilometer linear city with zero-gravity urban planning, requiring unprecedented engineering solutions and coordination across numerous contractors.</li>
+                <li><strong>Red Sea Project:</strong> A luxury resort development featuring exclusive islands and mainland destinations, combining hospitality infrastructure with environmental preservation.</li>
+                <li><strong>Industrial Cities:</strong> New special economic zones designed to attract global manufacturers and boost domestic production capabilities.</li>
+                <li><strong>Transportation Networks:</strong> Expansion of roads, railways, and airports to support Vision 2030 objectives and regional connectivity.</li>
+            </ul>
+            <p>
+                These projects are characterized by several factors that increase contractual complexity and dispute risk:
+            </p>
+            <ul>
+                <li><strong>Scale and Duration:</strong> Multi-year projects involving thousands of workers, sophisticated supply chains, and intricate coordination requirements.</li>
+                <li><strong>Technical Innovation:</strong> Many projects require novel engineering approaches, requiring contractors to manage unforeseen challenges and design changes.</li>
+                <li><strong>Regulatory Evolution:</strong> Saudi regulations are developing rapidly to accommodate Vision 2030 ambitions, sometimes creating ambiguity in compliance requirements.</li>
+                <li><strong>International Teams:</strong> Projects typically involve contractors, consultants, and workers from multiple countries, requiring clear contractual frameworks to manage differing expectations and practices.</li>
+                <li><strong>Commercial Pressure:</strong> The Kingdom's commitment to tight timelines creates pressure to accelerate work, often resulting in claims related to variations, acceleration, and delay.</li>
+            </ul>
+            <p>
+                FIDIC contracts are preferred for these projects because they provide a neutral, internationally recognized framework that both Saudi government entities and international contractors understand and respect. However, this standardization also means that success depends on meticulous compliance with the contract's procedural requirementsâparticularly regarding claims.
+            </p>
+        </section>
+
+        <section>
+            <h2>Key FIDIC Contract Provisions for Risk Management</h2>
+
+            <h3>Understanding Clause 20: Claims, Disputes and Arbitration</h3>
+            <p>
+                Clause 20 of the FIDIC Red Book (which is typical across most FIDIC forms) contains critical provisions governing how contractors pursue claims. This clause defines the entire pathway from initial claim submission through arbitration, and strict compliance with its requirements is essential.
+            </p>
+
+            <div class="highlight-box">
+                <h4>Key Sub-Clauses in Clause 20:</h4>
+                <p><strong>Clause 20.1 - Contractor's Claims:</strong> Requires the contractor to submit a detailed claim within a specified period (typically 28 days) after becoming aware of an event giving rise to the claim. The claim must include full supporting documentation and justification for the entitlement sought.</p>
+                <p><strong>Clause 20.2 - Engineer's Determination:</strong> The engineer has the authority to make a determination on the claim within 42 days. If the contractor disagrees, they may refer the matter to the Dispute Adjudication Board (DAB).</p>
+                <p><strong>Clause 20.3 - Disputes and Arbitration:</strong> If either party disagrees with the engineer's determination, they may refer the dispute to the DAB (if established) or directly to arbitration. Arbitration typically occurs under ICC, LCIA, or local rules.</p>
+            </div>
+
+            <h3>Notice Requirements: The Critical First Step</h3>
+            <p>
+                One of the most common failures in FIDIC claims is inadequate notice. Many contractors believe they can raise a claim retrospectively after work is complete, only to discover that contractual timeframes have expired. FIDIC requires contractors to give notice of potential claims as soon as events occur that might trigger entitlements.
+            </p>
+            <p>
+                Critical aspects of FIDIC notice requirements include:
+            </p>
+            <ul>
+                <li><strong>Immediacy:</strong> Notice must be given as soon as the contractor becomes aware of an event that might result in a claim, not when the financial impact becomes clear.</li>
+                <li><strong>Documentation:</strong> Notices must include relevant documentation and initial assessment of entitlement, even if precise figures are not yet available.</li>
+                <li><strong>Specificity:</strong> The notice must identify the contractual basis for the claim (which clause or provision is allegedly breached).</li>
+                <li><strong>Timeliness:</strong> Different FIDIC forms have different timeframes (28 days is common in the Red Book), and missing the deadline can result in loss of the entire claim.</li>
+            </ul>
+
+            <h3>Time Bars and Entitlement Periods</h3>
+            <p>
+                FIDIC contracts contain several "time bars"âdeadlines after which claims can no longer be pursued. These are strictly enforced and contractors cannot recover entitlements once the time bar has passed, even if the claim itself is meritorious. Understanding these deadlines is crucial:
+            </p>
+            <ul>
+                <li><strong>Notice Period:</strong> Typically 28 days from the date the contractor became aware of the event giving rise to the claim.</li>
+                <li><strong>Day Work Submissions:</strong> Additional provisions govern claims for day work, variations, and other common scenarios, each with specific timeframes.</li>
+                <li><strong>Final Claims:</strong> Some FIDIC forms require all claims to be submitted before practical completion (or within a specified period thereafter), creating a final opportunity to pursue entitlements before they expire.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Common Pitfalls Saudi Contractors Face</h2>
+
+            <h3>1. Missed Notice Periods</h3>
+            <p>
+                The most frequent error is failing to serve notice within the required 28-day window. Contractors often believe they can wait until impacts are fully quantified before raising a claim, but FIDIC requires notice when an event occurs, not when its consequences become financially evident. In Saudi projects involving multiple parties and complex coordination, it's easy for crucial dates to slip away unnoticed.
+            </p>
+
+            <h3>2. Inadequate Documentation During Execution</h3>
+            <p>
+                Claims are only as strong as the supporting documentation. Many contractors focus on daily work execution and fail to contemporaneously record delays, variations, and changed circumstances. When a dispute arises months or years later, reconstructing events from memory is unreliable and unconvincing to arbitrators. Saudi mega-projects with thousands of workers and multiple shifting priorities make meticulous documentation even more critical.
+            </p>
+
+            <h3>3. Variation Order Disputes</h3>
+            <p>
+                Variations are commonplace in Vision 2030 projects, but disputes frequently arise regarding whether work is a variation entitling the contractor to additional time and cost, or whether it's part of the original scope. Contractors sometimes fail to document variations properly at the time they occur, making it difficult to establish entitlements later. Clear contemporaneous records of how variations differ from original scope are essential.
+            </p>
+
+            <h3>4. Delay Claims and Causation Issues</h3>
+            <p>
+                Establishing that the contractor is not responsible for delay is complex. FIDIC requires contractors to prove:
+            </p>
+            <ul>
+                <li>An event occurred that delayed progress (employer's act, weather, etc.)</li>
+                <li>The event was not prevented by the contractor's contractual obligations</li>
+                <li>The event actually caused the delay (causation)</li>
+                <li>The contractor gave proper notice and pursued recovery procedures</li>
+            </ul>
+            <p>
+                Many contractors struggle with the causation element, particularly in multi-faceted projects where several factors contribute to delays. Establishing a clear causal link between a specific event and project delay requires sophisticated analysis and documentation.
+            </p>
+
+            <h3>5. Inadequate Technical Justification</h3>
+            <p>
+                Successful FIDIC claims typically require technical expert evidence demonstrating that the claimed impacts actually occurred. Contractors sometimes submit claims based on assumptions rather than actual site data. In arbitration, weak technical foundations often result in reduced awards or total rejection. Professional engineering assessment of delays, cost impacts, and causation strengthens claims significantly.
+            </p>
+        </section>
+
+        <section>
+            <h2>Pre-Litigation Strategies for Dispute Resolution</h2>
+
+            <h3>The Dispute Adjudication Board (DAB) Process</h3>
+            <p>
+                Before escalating to arbitration, FIDIC contracts typically provide for resolution through the Dispute Adjudication Boardâa neutral panel of technical and commercial experts established specifically to resolve project disputes. The DAB process offers several advantages over arbitration:
+            </p>
+            <ul>
+                <li><strong>Speed:</strong> DAB determinations typically occur within 84 days (compared to years for arbitration).</li>
+                <li><strong>Cost-Effectiveness:</strong> DAB proceedings are significantly less expensive than arbitration.</li>
+                <li><strong>Expertise:</strong> DAB members are selected for specific technical and commercial knowledge relevant to the project.</li>
+                <li><strong>Continuity:</strong> The same DAB members see disputes throughout the project, providing consistency and understanding of project context.</li>
+                <li><strong>Interim Enforcement:</strong> While DAB determinations are not final, they may have interim binding effect under FIDIC, forcing payment of disputed sums pending arbitration.</li>
+            </ul>
+
+            <h3>Amicable Settlement and Negotiation</h3>
+            <p>
+                Many disputes are resolved through direct negotiation between contractor and employer, often facilitated by the project engineer or independent consultants. Successful negotiation requires:
+            </p>
+            <ul>
+                <li><strong>Clear Communication:</strong> Articulate your position based on the contract and supporting facts, avoiding emotional or adversarial language that hardens positions.</li>
+                <li><strong>Objective Analysis:</strong> Base settlement proposals on objective criteria (contractual entitlement, industry standards) rather than subjective preferences.</li>
+                <li><strong>Creative Solutions:</strong> Consider non-monetary remedies such as schedule extensions, additional resources, or shared savings arrangements that benefit both parties.</li>
+                <li><strong>Timing:</strong> Negotiate early while relationships are still functional and before legal positions harden. Mid-project settlements are often more favorable than post-project disputes.</li>
+            </ul>
+
+            <h3>The Role of Technical Advisory in Dispute Prevention</h3>
+            <p>
+                Engaging technical advisors early in the project lifecycle can prevent many disputes. Professional engineers can:
+            </p>
+            <ul>
+                <li>Review contract terms and identify potential sources of dispute during bidding</li>
+                <li>Develop robust project procedures to ensure contemporaneous documentation of variations and delays</li>
+                <li>Analyze causation and quantification of impacts as events occur, rather than reconstructing claims years later</li>
+                <li>Advise on DAB and arbitration strategies before disputes crystallize</li>
+                <li>Represent the contractor's technical position in negotiations and disputes</li>
+            </ul>
+            <p>
+                For Saudi contractors managing Vision 2030 mega-projects, technical advisory support is increasingly essential to managing complexity and protecting commercial interests.
+            </p>
+        </section>
+
+        <section>
+            <h2>How Strata Risk Advisory Can Help</h2>
+            <p>
+                Navigating FIDIC claims in Saudi Arabia requires a combination of contractual expertise, technical understanding, and familiarity with regional practices. Strata Risk Advisory brings specialized knowledge in:
+            </p>
+            <ul>
+                <li><strong>Contract Review and Risk Assessment:</strong> During pre-bid and contract phases, we identify potential claim risks and recommend risk mitigation strategies.</li>
+                <li><strong>Claims Management:</strong> Throughout project execution, we advise on claim procedures, notice requirements, and documentation standards to protect your entitlements.</li>
+                <li><strong>Dispute Resolution:</strong> When disputes arise, we provide technical expert evidence, DAB advocacy, and arbitration support to maximize recovery of legitimate entitlements.</li>
+                <li><strong>Saudi Context:</strong> Our deep understanding of Saudi construction practices, regulatory requirements, and dispute resolution preferences ensures advice tailored to local realities.</li>
+            </ul>
+            <p>
+                Whether you're bidding on a Vision 2030 mega-project, managing contract execution, or defending claims in arbitration, our specialists are available to support your commercial objectives. <a href="/services.html">Explore our services</a> to learn more about how we can help your organization navigate complex construction risks.
+            </p>
+        </section>
+
+        <div class="cta-section">
+            <h3>Protect Your Interests in FIDIC Projects</h3>
+            <p>
+                FIDIC claims require meticulous attention to procedures, comprehensive documentation, and technical rigor. Early engagement with experienced advisors can prevent costly mistakes and protect your commercial position. Whether you're preparing to bid, executing a contract, or facing a dispute, Strata Risk Advisory is here to help.
+            </p>
+            <a href="/#contact" class="cta-button">Enquire About Our Services</a>
+        </div>
+
+        <section>
+            <h2>Conclusion: The Path Forward</h2>
+            <p>
+                FIDIC contracts are designed to provide clarity and fair allocation of risk across construction projects. However, realizing the benefits of FIDIC's framework requires disciplined adherence to its procedures and timely engagement of technical expertise. Contractors who invest in understanding FIDIC claims, maintaining robust documentation, and engaging advisors early significantly improve their probability of recovering legitimate entitlements and resolving disputes efficiently.
+            </p>
+            <p>
+                As Saudi Arabia continues to execute transformational mega-projects under Vision 2030, the construction industry's maturity will increasingly be measured by professionalism in claims management and dispute resolution. Contractors who adopt these practices will not only protect their current projects but also build reputation and competitive advantage for future opportunities in the Kingdom's exciting development agenda.
+            </p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>Â© 2026 Strata Risk Advisory. All rights reserved.</p>
+        <p class="footer-geo">Based in the Kingdom of Saudi Arabia Â· Advising Internationally</p>
+    </footer>
+
+    <!-- JSON-LD Article Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Understanding FIDIC Claims in Saudi Arabia: A Contractor's Guide to Risk Management",
+        "description": "Comprehensive guide to understanding FIDIC claims in Saudi Arabia. Learn about Clause 20, notice requirements, common pitfalls, and dispute resolution strategies for construction contractors.",
+        "image": "https://stratasaudi.com/images/fidic-article.jpg",
+        "datePublished": "2026-03-01",
+        "dateModified": "2026-03-01",
+        "author": {
+            "@type": "Organization",
+            "name": "Strata Risk Advisory",
+            "url": "https://stratasaudi.com"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Strata Risk Advisory",
+            "url": "https://stratasaudi.com",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://stratasaudi.com/logo.png"
+            }
+        },
+        "url": "https://stratasaudi.com/fidic-claims-saudi-arabia.html",
+        "keywords": "FIDIC claims Saudi Arabia, construction risk management, FIDIC contract disputes, Saudi Vision 2030 construction, claim procedures",
+        "articleBody": "The Federal International des IngÃ©nieurs-Conseils (FIDIC) contract forms have become the global standard for construction projects, and Saudi Arabia is no exception. As the Kingdom accelerates its mega-projects under Vision 2030, contractors must understand the intricacies of FIDIC claims and risk management. This article provides a comprehensive guide to FIDIC claims, covering key provisions, common pitfalls, and dispute resolution strategies tailored to the Saudi Arabian context."
+    }
+    </script>
+
+    <script>
+        // Mobile menu close on link click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('navLinks').classList.remove('open');
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
