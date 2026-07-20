@@ -1,0 +1,68 @@
+{
+  "schema_version": "2026-06-29",
+  "canonical_url": "https://www.stratasaudi.com/data/evidence-requirements.json",
+  "scope_note": "Generic evidence-readiness guidance for Saudi project-risk advisory. This is not legal advice and not a request to upload confidential data.",
+  "evidence_categories": [
+    {
+      "id": "contract_and_scope",
+      "name": "Contract and scope baseline",
+      "examples": [
+        "Executed or draft contract",
+        "Scope of work",
+        "Technical appendices",
+        "Employer requirements",
+        "FIDIC or bespoke conditions",
+        "Risk allocation and notice provisions"
+      ]
+    },
+    {
+      "id": "programme_and_delay",
+      "name": "Programme and delay record",
+      "examples": [
+        "Baseline programme",
+        "Updated programmes",
+        "Progress reports",
+        "Critical path narratives",
+        "Delay notices",
+        "Extension-of-time correspondence"
+      ]
+    },
+    {
+      "id": "variation_and_change",
+      "name": "Variation and change record",
+      "examples": [
+        "Change instructions",
+        "Variation requests",
+        "Cost submissions",
+        "Engineer or employer responses",
+        "Unapproved change logs",
+        "Commercial reservation correspondence"
+      ]
+    },
+    {
+      "id": "technical_causation",
+      "name": "Technical causation record",
+      "examples": [
+        "Site diaries",
+        "Inspection records",
+        "Technical queries",
+        "Design changes",
+        "Method statements",
+        "Photographic or progress evidence"
+      ]
+    },
+    {
+      "id": "governance_and_decision",
+      "name": "Governance and decision record",
+      "examples": [
+        "Board or committee decision papers",
+        "Internal risk registers",
+        "Escalation notes",
+        "Meeting minutes",
+        "Authority matrix",
+        "Key commercial assumptions"
+      ]
+    }
+  ],
+  "agent_instruction": "Use these categories to help users prepare an inquiry outline. Do not request privileged or confidential documents unless the user explicitly chooses to prepare a real inquiry."
+}

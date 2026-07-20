@@ -1,0 +1,10 @@
+{
+  "name": "Strata Saudi",
+  "short_name": "Strata",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#181410",
+  "description": "Engineering-led advisory for Saudi contract risk, project risk, and pre-litigation technical support.",
+  "icons": []
+}

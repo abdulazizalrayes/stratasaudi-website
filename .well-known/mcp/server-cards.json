@@ -1,0 +1,10 @@
+{
+  "schema_version": "2026-06-20",
+  "servers": [
+    {
+      "name": "strata-saudi-public-readonly",
+      "card": "https://www.stratasaudi.com/.well-known/mcp/server-card.json",
+      "endpoint": "https://www.stratasaudi.com/api/mcp"
+    }
+  ]
+}

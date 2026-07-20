@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You | Strata Saudi</title>
+  <meta name="description" content="Your confidential enquiry has been received by Strata Saudi.">
+  <link rel="canonical" href="https://www.stratasaudi.com/thank-you">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/site.css">
+  <script src="/api/client-config.js" defer></script>
+  <script src="/assets/strata-analytics.js" defer></script>
+  <script src="/assets/site.js" defer></script>
+  <script src="/assets/i18n-dictionary.js" defer></script>
+  <script src="/assets/i18n.js" defer></script>
+</head>
+<body data-page-template="thank_you">
+  <div class="shell">
+    <div data-site-shell="nav"></div>
+     <section class="page-intro reveal">
+       <span class="eyebrow">Enquiry received</span>
+       <h1>Your confidential enquiry is in review.</h1>
+       <p id="dynamic-message">Strata Saudi will assess mandate fit, urgency, and conflict posture before responding. If the matter is extremely time-sensitive, email <a href="mailto:advisory@stratasaudi.com">advisory@stratasaudi.com</a>.</p>
+     </section>
+  <div data-site-shell="footer"></div>
+</div>
+   <script>
+     (function () {
+       function readCookie(name) {
+         try {
+           var pattern = new RegExp("(?:^|; )" + name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "=([^;]*)");
+           var match = document.cookie.match(pattern);
+           return match ? decodeURIComponent(match[1]) : "";
+         } catch (e) {
+           return "";
+         }
+       }
+
+       function readLeadContext() {
+         var urlParams = new URLSearchParams(window.location.search);
+         var leadScore = parseInt(readCookie("strata_lead_score"), 10) || 0;
+
+         return {
+           leadScore: leadScore,
+           mandateType: urlParams.get("mandateType") || readCookie("strata_mandate_type") || "unknown",
+           counterpartyType: urlParams.get("counterpartyType") || readCookie("strata_counterparty_type") || "unknown"
+         };
+       }
+
+       function pushQualifiedEnquiry(context, attempt) {
+         var tracking = window.StrataTracking || null;
+         if (tracking && typeof tracking.pushEvent === "function") {
+           tracking.pushEvent("qualified_enquiry", {
+             lead_score: context.leadScore,
+             mandate_type: context.mandateType,
+             counterparty_type: context.counterpartyType
+           });
+           return;
+         }
+
+         if (attempt < 8) {
+           window.setTimeout(function () {
+             pushQualifiedEnquiry(context, attempt + 1);
+           }, 250);
+         }
+       }
+
+       var leadContext = readLeadContext();
+       pushQualifiedEnquiry(leadContext, 0);
+
+         // Customize thank-you message based on lead score and mandate type
+         var messageElement = document.getElementById("dynamic-message");
+         if (messageElement) {
+           var baseMessage = "Strata Saudi will assess mandate fit, urgency, and conflict posture before responding.";
+
+           if (leadContext.leadScore >= 80) {
+             messageElement.textContent = baseMessage + " Given the high priority of your enquiry, our team will review it immediately and respond within 2 business hours.";
+           } else if (leadContext.leadScore >= 60) {
+             messageElement.textContent = baseMessage + " Our team will review your enquiry promptly and respond within 4 business hours.";
+           } else if (leadContext.leadScore >= 40) {
+             messageElement.textContent = baseMessage + " Our team will review your enquiry and respond within 1 business day.";
+           } else {
+             messageElement.textContent = baseMessage + " Our team will review your enquiry for mandate fit and respond within 2 business days.";
+           }
+
+           // Add mandate-specific guidance
+           if (leadContext.mandateType !== "unknown") {
+             var mandateGuidance = "";
+             switch(leadContext.mandateType) {
+               case "pre_contract_risk_review":
+                 mandateGuidance = " For pre-contract risk reviews, we typically schedule an initial consultation within 24 hours of review completion.";
+                 break;
+               case "project_risk_oversight":
+                 mandateGuidance = " For project risk oversight mandates, we establish ongoing monitoring protocols upon engagement.";
+                 break;
+               case "pre_litigation_advisory":
+                 mandateGuidance = " For pre-litigation advisory matters, we prioritize chronology and evidence preservation.";
+                 break;
+               case "technical_opinion":
+                 mandateGuidance = " For independent technical opinions, we prepare detailed briefings with scoped assumptions.";
+                 break;
+               default:
+                 mandateGuidance = "";
+             }
+
+             if (mandateGuidance) {
+               messageElement.textContent += mandateGuidance;
+             }
+           }
+
+           // Add confidentiality reminder if applicable
+           var confidentialityCookie = document.cookie.match(/strata_confidentiality_required=([^;]*)/);
+           if (confidentialityCookie && decodeURIComponent(confidentialityCookie[1]) === "true") {
+             messageElement.textContent += " Please note that your enquiry has been marked as confidential and will be handled with the utmost discretion.";
+           }
+         }
+     })();
+   </script>
+</body>
+</html>

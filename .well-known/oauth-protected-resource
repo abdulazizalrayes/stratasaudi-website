@@ -1,0 +1,16 @@
+{
+  "resource": "https://www.stratasaudi.com",
+  "resource_name": "Strata Saudi Public Read-Only Resources",
+  "resource_documentation": "https://www.stratasaudi.com/auth.md",
+  "authorization_servers": [],
+  "scopes_supported": [
+    "public.read"
+  ],
+  "bearer_methods_supported": [
+    "header"
+  ],
+  "public_read_only": true,
+  "authentication_required": false,
+  "agent_registration_required": false,
+  "note": "Strata Saudi public discovery, data, LLM, OpenAPI, and read-only MCP resources do not require authentication. Contact submission and outbound actions require explicit user approval and are not public OAuth-protected agent flows."
+}

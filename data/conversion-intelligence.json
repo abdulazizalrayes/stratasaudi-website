@@ -1,0 +1,40 @@
+{
+  "schema_version": "2026-06-29",
+  "canonical_url": "https://www.stratasaudi.com/data/conversion-intelligence.json",
+  "purpose": "Privacy-safe measurement taxonomy for agent, crawler, API, MCP, and inquiry-preparation activity.",
+  "privacy_rules": [
+    "Do not log names, emails, phone numbers, message bodies, privileged material, or confidential project facts.",
+    "Log event type, path, resource id, tool name, fit classification, user-agent class, and timestamp only.",
+    "Treat inquiry preparation as separate from inquiry submission.",
+    "Do not infer client identity from crawler or agent activity."
+  ],
+  "event_types": [
+    "llms_read",
+    "llms_full_read",
+    "openapi_read",
+    "agent_card_read",
+    "structured_data_read",
+    "mcp_discovery_read",
+    "mcp_tool_call",
+    "mcp_resource_read",
+    "inquiry_scope_match",
+    "inquiry_preparation",
+    "non_fit_routing"
+  ],
+  "quality_dimensions": [
+    "fit",
+    "matched_service",
+    "non_fit_reason",
+    "resource_id",
+    "tool_name",
+    "agent_or_crawler_family",
+    "canonical_path"
+  ],
+  "board_report_questions": [
+    "Which resources are agents reading?",
+    "Which MCP tools are called most often?",
+    "How many inquiry preparations are strong fit, possible fit, information only, or not fit?",
+    "Are non-fit requests being routed away before contact?",
+    "Which AI/search/referral user agents are reaching the site?"
+  ]
+}

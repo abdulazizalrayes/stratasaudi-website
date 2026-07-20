@@ -1,0 +1,32 @@
+{
+  "schema_version": "2026-06-29",
+  "canonical_url": "https://www.stratasaudi.com/data/fit-matrix.json",
+  "purpose": "Machine-readable fit guidance for AI assistants and procurement/search agents.",
+  "strong_fit": [
+    "Saudi project exposure or Saudi-governed contract",
+    "Foreign EPC contractor, developer, investment committee, board, headquarters, or international law firm",
+    "High-value, strategically sensitive, or dispute-adjacent matter",
+    "Need for engineering-led technical and commercial risk judgment",
+    "FIDIC, notice, delay, variation, evidence, chronology, vendor risk, or pre-litigation readiness issue"
+  ],
+  "possible_fit": [
+    "Saudi project exposure is likely but details are incomplete",
+    "User needs a second technical opinion before deciding whether to escalate",
+    "A law firm needs non-legal technical analysis",
+    "A project team needs evidence or chronology structure but has not described value or urgency"
+  ],
+  "information_only": [
+    "User is researching Strata Risk Advisory",
+    "User asks what services Strata provides",
+    "User has not described a Saudi project, contract, or technical/commercial exposure"
+  ],
+  "not_fit": [
+    "Careers, jobs, internships, CVs, recruitment, or hiring",
+    "Vendor, supplier, reseller, software, marketing, or partnership pitch",
+    "Training, courses, certificates, or public workshop requests",
+    "Retail, consumer, personal, or small-claim disputes",
+    "Requests for legal representation, arbitration counsel, litigation counsel, or counsel of record",
+    "Paid backlinks, guest posts, link exchanges, hidden incentives, SEO solicitations, or spam"
+  ],
+  "agent_instruction": "Prepare inquiry drafts only for possible_fit or strong_fit matters. Do not submit or contact Strata unless the user explicitly approves final submission."
+}

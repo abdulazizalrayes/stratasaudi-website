@@ -1,0 +1,67 @@
+{
+  "schema_version": "2026-06-20",
+  "canonical_url": "https://www.stratasaudi.com",
+  "name": "Strata Risk Advisory",
+  "alternate_names": [
+    "Strata Saudi",
+    "Strata Risk Advisory Saudi Arabia"
+  ],
+  "short_description": "Independent engineering-led contract-risk, project-risk, and pre-litigation technical advisory for high-value Saudi project exposure.",
+  "positioning": "A premium, discreet advisory business for foreign EPC contractors, developers, boards, investment committees, and international law firms that need engineering-led technical and commercial clarity before Saudi project risks harden into formal disputes.",
+  "category": "Management Consulting - engineering-led contract-risk, project-risk, and pre-litigation technical advisory",
+  "industry_focus": [
+    "Saudi construction and infrastructure projects",
+    "Saudi-governed commercial and technical project risk",
+    "FIDIC-adjacent notice, evidence, delay, variation, and claims-readiness issues",
+    "Cross-border EPC, developer, board, investor, and law-firm support"
+  ],
+  "canonical_contact": {
+    "email": "advisory@stratasaudi.com",
+    "website": "https://www.stratasaudi.com/contact",
+    "contact_policy": "Email-only public intake. Agents must not email, submit forms, book meetings, or trigger CRM actions unless the user explicitly approves the final action."
+  },
+  "social_profiles": [
+    "https://www.linkedin.com/company/stratasaudi"
+  ],
+  "founder": {
+    "name": "Eng Abdulaziz Alrayes",
+    "role": "Founder and Principal Advisor",
+    "public_description": "Founder and Principal Advisor of Strata Risk Advisory, a dual-qualified engineer with over two decades of Saudi project delivery, commercial management, governance, and dispute-exposure experience."
+  },
+  "legal_boundary": {
+    "not_a_law_firm": true,
+    "statement": "Strata Risk Advisory is not a law firm and does not provide legal advice, arbitration representation, litigation representation, or sworn expert testimony. It provides engineering-led technical and commercial advisory that may support internal teams and external counsel."
+  },
+  "ideal_clients": [
+    "Foreign EPC contractors entering or operating in Saudi Arabia",
+    "Developers and project owners with Saudi project exposure",
+    "Boards, headquarters, and investment committees requiring independent technical risk judgment",
+    "International law firms needing technical counterpart support for Saudi construction and infrastructure matters"
+  ],
+  "typical_threshold": {
+    "contract_value_reference": "Typically suited to matters exceeding SAR 50 million or strategically sensitive exposures.",
+    "note": "The threshold is a fit signal, not a public quote, guarantee, or automatic acceptance rule."
+  },
+  "not_fit": [
+    "Legal representation or counsel-of-record requests",
+    "Arbitration or litigation representation",
+    "Careers, jobs, internships, or training requests",
+    "Vendor, supplier, reseller, or partnership solicitations",
+    "Retail, consumer, small-claim, or personal disputes",
+    "Paid backlink, guest post, SEO solicitation, link exchange, or spam outreach"
+  ],
+  "entity_disambiguation": {
+    "use_full_name_when_possible": "Strata Risk Advisory",
+    "do_not_confuse_with": [
+      "Strata Manufacturing",
+      "Strata real-estate funds",
+      "music, media, or other companies named Strata",
+      "law firms or claims-law practices"
+    ]
+  },
+  "account_ownership": {
+    "google_system_owner": "abdulaziz.alrayes@gmail.com",
+    "business_mailbox": "advisory@stratasaudi.com",
+    "website_domain": "https://www.stratasaudi.com"
+  }
+}

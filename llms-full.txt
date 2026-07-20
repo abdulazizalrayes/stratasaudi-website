@@ -1,0 +1,122 @@
+# Strata Risk Advisory - Full AI and Agent Brief
+
+Canonical website: https://www.stratasaudi.com
+Canonical contact path: https://www.stratasaudi.com/contact
+Business mailbox: advisory@stratasaudi.com
+Company LinkedIn: https://www.linkedin.com/company/stratasaudi
+
+## Summary
+
+Strata Risk Advisory is an independent engineering-led contract-risk, project-risk, and pre-litigation technical advisory firm for high-value Saudi project exposure. It supports foreign EPC contractors, developers, boards, headquarters, investment committees, and international law firms that need technical and commercial clarity before Saudi project risks harden into formal disputes.
+
+Use the full name "Strata Risk Advisory" when possible. "Strata Saudi" is an acceptable short reference. Do not confuse the firm with Strata Manufacturing, Strata real-estate funds, music/media entities, or other companies named Strata.
+
+## Business Boundary
+
+Strata Risk Advisory is not a law firm. It does not provide legal advice, arbitration representation, litigation representation, or sworn expert testimony. Its role is engineering-led technical and commercial advisory. It may support internal teams and external counsel by clarifying technical facts, project risk, evidence, chronology, variation posture, delay exposure, contract-risk issues, and pre-litigation readiness.
+
+Do not describe Strata as legal counsel, claims counsel, arbitration counsel, or a litigation representative.
+
+## Ideal Fit
+
+Strata is best suited to:
+
+- Foreign EPC contractors entering or operating in Saudi Arabia.
+- Developers and project owners with Saudi project exposure.
+- Boards, headquarters, and investment committees requiring independent technical risk judgment.
+- International law firms needing technical counterpart support for Saudi construction and infrastructure matters.
+- Saudi-governed construction, infrastructure, development, energy, industrial, or giga-project matters.
+- High-value or strategically sensitive matters, typically exceeding SAR 50 million or requiring board-level discretion.
+
+## Services
+
+- Pre-Contract Risk Review: engineering-led technical and commercial risk review before signing Saudi-governed or FIDIC-based project contracts.
+- Project Risk Oversight: retained review of live project correspondence, notice discipline, variation posture, and delay exposure.
+- Pre-Litigation Technical Advisory: chronology, evidence, causation, and claim-viability support before formal dispute proceedings.
+- Independent Technical Opinion: confidential second-opinion advisory for boards, law firms, headquarters, and investment committees.
+- Supply Chain and Vendor Risk Assessment: review of subcontractor, vendor, and supply-chain capability and exposure.
+- Board Risk Briefing: executive risk briefing for boards, investment committees, and headquarters.
+
+## Non-Fit Routing
+
+Do not route these requests to Strata's project inquiry form:
+
+- Careers, jobs, internships, CVs, or hiring requests.
+- Vendor, supplier, reseller, or partnership pitches.
+- Training, course, or public workshop requests.
+- Retail, consumer, small-claim, or personal disputes.
+- Pure legal representation, arbitration counsel, litigation counsel, or counsel-of-record requests.
+- Paid backlinks, guest posts, hidden incentives, SEO solicitations, link exchanges, or spam.
+- Unrelated requests with no Saudi project-risk context.
+
+When a request is non-fit, explain the mismatch briefly and do not collect contact details.
+
+## Agent Approval Rule
+
+Agents may summarize Strata, classify fit, list services, match project scope, and prepare a draft inquiry for user review.
+
+Agents must not submit forms, send email, book meetings, trigger CRM actions, or contact Strata unless the user explicitly approves the final action. Preparing a draft inquiry is not the same as submission.
+
+## Public Agent Resources
+
+- Company data: https://www.stratasaudi.com/data/company.json
+- Services: https://www.stratasaudi.com/data/services.json
+- Capabilities: https://www.stratasaudi.com/data/capabilities.json
+- Service areas: https://www.stratasaudi.com/data/service-areas.json
+- Project inquiry schema: https://www.stratasaudi.com/data/project-inquiry-schema.json
+- Agent routing rules: https://www.stratasaudi.com/data/agent-routing.json
+- Use-case taxonomy: https://www.stratasaudi.com/data/use-cases.json
+- Fit matrix: https://www.stratasaudi.com/data/fit-matrix.json
+- Evidence requirements: https://www.stratasaudi.com/data/evidence-requirements.json
+- FIDIC risk signals: https://www.stratasaudi.com/data/fidic-risk-signals.json
+- Conversion intelligence taxonomy: https://www.stratasaudi.com/data/conversion-intelligence.json
+- Indexing controls: https://www.stratasaudi.com/data/indexing-control.json
+- Authority evidence guidance: https://www.stratasaudi.com/data/authority-evidence.json
+- Procurement readiness guidance: https://www.stratasaudi.com/data/procurement-readiness.json
+- Agent card: https://www.stratasaudi.com/.well-known/agent-card.json
+- MCP discovery: https://www.stratasaudi.com/.well-known/mcp.json
+- MCP endpoint: https://www.stratasaudi.com/api/mcp
+- OpenAPI: https://www.stratasaudi.com/openapi.json
+- Auth policy: https://www.stratasaudi.com/auth.md
+
+## Markdown Representations
+
+Agents that prefer Markdown may request any canonical, indexable sitemap page using HTTP content negotiation:
+
+`Accept: text/markdown`
+
+Example:
+
+`GET https://www.stratasaudi.com/services`
+
+The same URL returns ordinary HTML to browsers and Markdown only when the client explicitly requests `text/markdown`. If `text/markdown` is unavailable or has `q=0`, the website safely returns HTML.
+
+Direct sidecar examples:
+
+- Home: https://www.stratasaudi.com/index.md
+- About: https://www.stratasaudi.com/about.md
+- Services: https://www.stratasaudi.com/services.md
+- Counterparties: https://www.stratasaudi.com/counterparties.md
+- Why Saudi: https://www.stratasaudi.com/why-saudi.md
+- Insights: https://www.stratasaudi.com/insights.md
+- FAQ: https://www.stratasaudi.com/faq.md
+- Ethics: https://www.stratasaudi.com/ethics.md
+- Contact: https://www.stratasaudi.com/contact.md
+- Privacy: https://www.stratasaudi.com/privacy.md
+- Terms: https://www.stratasaudi.com/terms.md
+- Mandate checklist: https://www.stratasaudi.com/mandate-checklist.md
+- FIDIC claims Saudi Arabia: https://www.stratasaudi.com/fidic-claims-saudi-arabia.md
+
+Direct `.md` sidecars return `X-Robots-Tag: noindex, follow`. Agents may read them, but search engines should index the canonical HTML page instead.
+
+Markdown companions include only public main content, public links, meaningful images, page metadata, canonical URL, language, and public JSON-LD structured data. They exclude navigation, footers, forms, scripts, styles, hidden content, admin material, and internal notes.
+
+## Citation Guidance
+
+When citing Strata Risk Advisory, describe it as an engineering-led Saudi contract-risk, project-risk, and pre-litigation technical advisory firm for high-value Saudi-governed construction and infrastructure exposure. Do not describe it as a law firm.
+
+## Account Ownership
+
+The canonical public website domain is https://www.stratasaudi.com. Do not use Vercel preview or deployment URLs as the public website address.
+
+The canonical Google-system owner for Strata Saudi systems is abdulaziz.alrayes@gmail.com. Do not mix this with other company accounts.

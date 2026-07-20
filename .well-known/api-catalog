@@ -1,1 +1,175 @@
-{"linkset":[{"anchor":"https://stratasaudi.com/","service-doc":[{"href":"https://stratasaudi.com/llms.txt","type":"text/plain"},{"href":"https://stratasaudi.com/index.md","type":"text/markdown"}],"describedby":[{"href":"https://stratasaudi.com/sitemap.xml","type":"application/xml"}],"status":[{"href":"https://stratasaudi.com/","type":"text/html"}]}]}
+{
+  "linkset": [
+    {
+      "anchor": "https://www.stratasaudi.com",
+      "service-desc": [
+        {
+          "href": "https://www.stratasaudi.com/openapi.json",
+          "type": "application/openapi+json",
+          "title": "Strata Saudi Public Agent Readiness API"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://www.stratasaudi.com/auth.md",
+          "type": "text/markdown",
+          "title": "Strata Saudi auth.md"
+        },
+        {
+          "href": "https://www.stratasaudi.com/.well-known/oauth-protected-resource",
+          "type": "application/json",
+          "title": "Public read-only protected resource metadata"
+        },
+        {
+          "href": "https://www.stratasaudi.com/llms.txt",
+          "type": "text/plain",
+          "title": "LLM summary"
+        },
+        {
+          "href": "https://www.stratasaudi.com/llms-full.txt",
+          "type": "text/plain",
+          "title": "Expanded LLM brief"
+        },
+        {
+          "href": "https://www.stratasaudi.com/index.md",
+          "type": "text/markdown",
+          "title": "Markdown sidecar index for canonical sitemap pages",
+          "robots": "noindex, follow"
+        }
+      ],
+      "describedby": [
+        {
+          "href": "https://www.stratasaudi.com/.well-known/agent-card.json",
+          "type": "application/json",
+          "title": "A2A Agent Card"
+        },
+        {
+          "href": "https://www.stratasaudi.com/.well-known/mcp.json",
+          "type": "application/json",
+          "title": "MCP discovery"
+        },
+        {
+          "href": "https://www.stratasaudi.com/.well-known/mcp/server-card.json",
+          "type": "application/json",
+          "title": "MCP server card"
+        },
+        {
+          "href": "https://www.stratasaudi.com/.well-known/mcp/server-cards.json",
+          "type": "application/json",
+          "title": "MCP server cards index"
+        },
+        {
+          "href": "https://www.stratasaudi.com/.well-known/agent-skills/index.json",
+          "type": "application/json",
+          "title": "Agent skills index"
+        }
+      ]
+    },
+    {
+      "anchor": "https://www.stratasaudi.com/api/mcp",
+      "service-desc": [
+        {
+          "href": "https://www.stratasaudi.com/.well-known/mcp/server-card.json",
+          "type": "application/json",
+          "title": "Read-only MCP server card"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://www.stratasaudi.com/auth.md",
+          "type": "text/markdown",
+          "title": "Approval and authentication policy"
+        }
+      ],
+      "describedby": [
+        {
+          "href": "https://www.stratasaudi.com/data/company.json",
+          "type": "application/json",
+          "title": "Company overview"
+        },
+        {
+          "href": "https://www.stratasaudi.com/data/services.json",
+          "type": "application/json",
+          "title": "Services"
+        },
+        {
+          "href": "https://www.stratasaudi.com/data/capabilities.json",
+          "type": "application/json",
+          "title": "Capabilities"
+        },
+        {
+          "href": "https://www.stratasaudi.com/data/service-areas.json",
+          "type": "application/json",
+          "title": "Service areas"
+        },
+        {
+          "href": "https://www.stratasaudi.com/data/project-inquiry-schema.json",
+          "type": "application/json",
+          "title": "Project inquiry preparation schema"
+        },
+        {
+          "href": "https://www.stratasaudi.com/data/agent-routing.json",
+          "type": "application/json",
+          "title": "Agent routing rules"
+        },
+        {
+          "href": "https://www.stratasaudi.com/data/use-cases.json",
+          "type": "application/json",
+          "title": "Use-case taxonomy"
+        },
+        {
+          "href": "https://www.stratasaudi.com/data/fit-matrix.json",
+          "type": "application/json",
+          "title": "Fit matrix"
+        },
+        {
+          "href": "https://www.stratasaudi.com/data/evidence-requirements.json",
+          "type": "application/json",
+          "title": "Evidence requirements"
+        },
+        {
+          "href": "https://www.stratasaudi.com/data/fidic-risk-signals.json",
+          "type": "application/json",
+          "title": "FIDIC risk signals"
+        },
+        {
+          "href": "https://www.stratasaudi.com/data/conversion-intelligence.json",
+          "type": "application/json",
+          "title": "Conversion intelligence"
+        },
+        {
+          "href": "https://www.stratasaudi.com/data/indexing-control.json",
+          "type": "application/json",
+          "title": "Indexing control"
+        },
+        {
+          "href": "https://www.stratasaudi.com/data/authority-evidence.json",
+          "type": "application/json",
+          "title": "Authority evidence"
+        },
+        {
+          "href": "https://www.stratasaudi.com/data/procurement-readiness.json",
+          "type": "application/json",
+          "title": "Procurement readiness"
+        }
+      ]
+    },
+    {
+      "anchor": "https://www.stratasaudi.com/api/contact",
+      "service-desc": [
+        {
+          "href": "https://www.stratasaudi.com/openapi.json",
+          "type": "application/openapi+json",
+          "title": "Project inquiry endpoint schema"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://www.stratasaudi.com/auth.md",
+          "type": "text/markdown",
+          "title": "Explicit user approval required before submission"
+        }
+      ]
+    }
+  ]
+}

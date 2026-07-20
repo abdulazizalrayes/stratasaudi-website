@@ -1,19 +1,296 @@
 {
+  "version": 2,
+  "name": "strata-saudi-website",
+  "builds": [
+    {
+      "src": "api/**/*.js",
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": [
+          "markdown/**/*.md"
+        ]
+      }
+    },
+    {
+      "src": "site/**/*.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "assets/**/*.js",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "assets/**/*.css",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "webmcp.js",
+      "use": "@vercel/static"
+    },
+    {
+      "src": ".well-known/**/*.txt",
+      "use": "@vercel/static"
+    },
+    {
+      "src": ".well-known/**/*.json",
+      "use": "@vercel/static"
+    },
+    {
+      "src": ".well-known/api-catalog",
+      "use": "@vercel/static"
+    },
+    {
+      "src": ".well-known/oauth-protected-resource",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "data/**/*.json",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "llms-full.txt",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "openapi.json",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "auth.md",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "0957b4b1b950a90f9ac51a5a737203ec.txt",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "robots.txt",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "llms.txt",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "sitemap.xml",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "image-sitemap.xml",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "manifest.json",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "favicon.svg",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "favicon.png",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "apple-touch-icon.png",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "og-image.png",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "og-image.svg",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "assets/**/*.{png,jpg,jpeg,gif,svg,ico,webp,woff,woff2}",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/contact",
+      "dest": "/api/lead-intake.js"
+    },
+    {
+      "src": "/api/mcp",
+      "dest": "/api/mcp.js"
+    },
+    {
+      "src": "/mcp",
+      "dest": "/api/mcp.js"
+    },
+    {
+      "src": "/0957b4b1b950a90f9ac51a5a737203ec.txt",
+      "dest": "/api/indexnow-key.js"
+    },
+    {
+      "src": "/BingSiteAuth.xml",
+      "dest": "/api/BingSiteAuth.xml.js"
+    },
+    {
+      "src": "/api/client-config.js",
+      "dest": "/api/runtime-config.js"
+    },
+    {
+      "src": "/auth\\.md",
+      "dest": "/auth.md"
+    },
+    {
+      "src": "/index\\.md",
+      "dest": "/api/page.js"
+    },
+    {
+      "src": "/(.+)\\.md",
+      "dest": "/api/page.js"
+    },
+    {
+      "src": "/about",
+      "dest": "/api/page.js"
+    },
+    {
+      "src": "/about.html",
+      "dest": "/api/page.js"
+    },
+    {
+      "src": "/privacy",
+      "dest": "/api/page.js"
+    },
+    {
+      "src": "/privacy.html",
+      "dest": "/api/page.js"
+    },
+    {
+      "src": "/terms",
+      "dest": "/api/page.js"
+    },
+    {
+      "src": "/terms.html",
+      "dest": "/api/page.js"
+    },
+    {
+      "src": "/ethics",
+      "dest": "/api/page.js"
+    },
+    {
+      "src": "/ethics.html",
+      "dest": "/api/page.js"
+    },
+    {
+      "src": "/contact",
+      "dest": "/api/page.js"
+    },
+    {
+      "src": "/contact.html",
+      "dest": "/api/page.js"
+    },
+    {
+      "src": "/thank-you",
+      "dest": "/api/page.js"
+    },
+    {
+      "src": "/thank-you.html",
+      "dest": "/api/page.js"
+    },
+    {
+      "src": "/counterparties",
+      "dest": "/api/page.js"
+    },
+    {
+      "src": "/counterparties.html",
+      "dest": "/api/page.js"
+    },
+    {
+      "src": "/why-saudi",
+      "dest": "/api/page.js"
+    },
+    {
+      "src": "/why-saudi.html",
+      "dest": "/api/page.js"
+    },
+    {
+      "src": "/faq",
+      "dest": "/api/page.js"
+    },
+    {
+      "src": "/faq.html",
+      "dest": "/api/page.js"
+    },
+    {
+      "src": "/mandate-checklist",
+      "dest": "/api/page.js"
+    },
+    {
+      "src": "/mandate-checklist.html",
+      "dest": "/api/page.js"
+    },
+    {
+      "src": "/",
+      "dest": "/api/page.js"
+    },
+    {
+      "src": "/services",
+      "dest": "/api/page.js"
+    },
+    {
+      "src": "/services.html",
+      "dest": "/api/page.js"
+    },
+    {
+      "src": "/insights",
+      "dest": "/api/page.js"
+    },
+    {
+      "src": "/insights.html",
+      "dest": "/api/page.js"
+    },
+    {
+      "src": "/fidic-claims-saudi-arabia",
+      "dest": "/api/page.js"
+    },
+    {
+      "src": "/fidic-claims-saudi-arabia.html",
+      "dest": "/api/page.js"
+    }
+  ],
   "headers": [
+    {
+      "source": "/.well-known/api-catalog",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/linkset+json; charset=utf-8"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/.well-known/oauth-protected-resource",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json; charset=utf-8"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
     {
       "source": "/(.*)",
       "headers": [
-        {
-          "key": "Strict-Transport-Security",
-          "value": "max-age=63072000; includeSubDomains; preload"
-        },
         {
           "key": "X-Content-Type-Options",
           "value": "nosniff"
         },
         {
           "key": "X-Frame-Options",
-          "value": "SAMEORIGIN"
+          "value": "DENY"
         },
         {
           "key": "X-XSS-Protection",
@@ -28,13 +305,17 @@
           "value": "camera=(), microphone=(), geolocation=()"
         },
         {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=31536000; includeSubDomains; preload"
+        },
+        {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://cdn.mxpnl.com https://*.mixpanel.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.google-analytics.com https://*.mixpanel.com; connect-src 'self' https://www.google-analytics.com https://*.mixpanel.com https://api-js.mixpanel.com https://region1.google-analytics.com"
+          "value": "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://www.googletagmanager.com; frame-src https://www.googletagmanager.com; upgrade-insecure-requests"
         }
       ]
     },
     {
-      "source": "/og-image.png",
+      "source": "/(.*)\\.(js|css|ico|png|jpg|jpeg|gif|svg|woff|woff2)",
       "headers": [
         {
           "key": "Cache-Control",
@@ -43,44 +324,32 @@
       ]
     },
     {
-      "source": "/llms.txt",
+      "source": "/(.*)\\.(html)",
       "headers": [
-        {
-          "key": "Content-Type",
-          "value": "text/plain; charset=utf-8"
-        },
         {
           "key": "Cache-Control",
-          "value": "public, max-age=86400"
+          "value": "public, max-age=0, must-revalidate"
         }
       ]
     },
     {
-      "source": "/",
+      "source": "/assets/(.*)",
       "headers": [
         {
-          "key": "Link",
-          "value": "</.well-known/api-catalog>; rel=\"api-catalog\"; type=\"application/linkset+json\", </llms.txt>; rel=\"service-doc\"; type=\"text/plain\", </sitemap.xml>; rel=\"sitemap\"; type=\"application/xml\", </.well-known/agent-skills/index.json>; rel=\"agent-skills\"; type=\"application/json\", </.well-known/mcp/server-card.json>; rel=\"mcp-server-card\"; type=\"application/json\""
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
         }
       ]
     },
     {
-      "source": "/.well-known/api-catalog",
+      "source": "/(.*\\.(?:ico|png|jpg|jpeg|gif|svg|webp|woff|woff2))",
       "headers": [
         {
-          "key": "Content-Type",
-          "value": "application/linkset+json; charset=utf-8"
-        }
-      ]
-    },
-    {
-      "source": "/index.md",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "text/markdown; charset=utf-8"
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
         }
       ]
     }
-  ]
+  ],
+  "trailingSlash": false
 }

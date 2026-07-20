@@ -1,0 +1,39 @@
+{
+  "name": "strata-saudi-website",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "validate:instructions": "node scripts/validate-instruction-integrity.js",
+    "validate:agents": "node scripts/validate-agent-registry.js",
+    "validate:seo": "node scripts/audit-multilingual-seo.js",
+    "validate:agent-readiness": "node scripts/validate-agent-readiness.js",
+    "generate:markdown": "node scripts/generate-markdown-companions.js",
+    "validate:markdown": "node scripts/validate-markdown-layer.js",
+    "validate:vercel": "node scripts/validate-vercel-project.js",
+    "validate:domain": "node scripts/validate-domain-alignment.js",
+    "validate:release": "npm run validate:instructions && npm run validate:seo && npm run validate:agent-readiness && npm run validate:markdown && npm run validate:vercel",
+    "audit:monthly": "node scripts/audit-agent-readiness-monthly.js",
+    "report:agent-observability": "node scripts/report-agent-observability.js",
+    "generate:paperclip-assets": "node scripts/generate-paperclip-assets.js",
+    "generate:sitemap": "node scripts/generate-multilingual-sitemap.js",
+    "sync:paperclip-company": "node scripts/sync-paperclip-company.js",
+    "sync:paperclip-routines": "node scripts/sync-paperclip-routines.js",
+    "update:paperclip-org": "node scripts/update-paperclip-org.js",
+    "export:paperclip-agent-inventory": "node scripts/export-paperclip-agent-inventory.js",
+    "report:agent-board": "node scripts/generate-agent-board-report.js",
+    "reconcile:premium-adapters": "node scripts/reconcile-premium-adapters.js",
+    "test:hubspot-connector": "node scripts/test-hubspot-connector.js",
+    "test:hubspot-lead-sync": "node scripts/test-hubspot-lead-sync.js",
+    "test:private-email-connector": "node scripts/test-private-email-connector.js",
+    "smoke:contact-intake": "node scripts/smoke-contact-intake.js",
+    "sync:hubspot-properties": "node scripts/sync-hubspot-properties.js",
+    "recover:premium-agents": "node scripts/recover-premium-agents.js",
+    "submit:indexnow": "node scripts/submit-indexnow.js",
+    "enrich:contact": "node scripts/contact_enrichment.js --input ops/crm/enrichment_seed_input.json",
+    "enrich:contact:batch": "node scripts/batch_contact_enrichment.js --input ops/crm/enrichment_seed_batch_input.json"
+  },
+  "dependencies": {
+    "imapflow": "^1.3.1",
+    "node-html-parser": "^7.1.0"
+  }
+}

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confidential Enquiry | Strata Saudi</title>
+  <meta name="description" content="Confidential enquiry intake for premium Saudi contract risk, project risk, and pre-litigation technical advisory mandates.">
+  <link rel="canonical" href="https://www.stratasaudi.com/contact">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/site.css">
+  <script src="/api/client-config.js" defer></script>
+  <script src="/assets/strata-analytics.js" defer></script>
+  <script src="/assets/site.js" defer></script>
+  <script src="/assets/i18n-dictionary.js" defer></script>
+  <script src="/assets/i18n.js" defer></script>
+</head>
+<body data-page-template="contact">
+  <div class="shell">
+    <div data-site-shell="nav"></div>
+    <section class="page-intro reveal">
+      <span class="eyebrow">Selective intake</span>
+      <h1>Submit a confidential enquiry for mandate review.</h1>
+      <p>Use this channel for serious Saudi project exposure only. We review mandate fit, urgency, conflict posture, and escalation requirements before responding.</p>
+    </section>
+    <section class="page-grid">
+      <div class="form-card reveal">
+        <h2>Mandate intake</h2>
+        <form id="contactForm" method="post" action="/api/contact">
+          <div class="field-row">
+            <label>Name<input name="name" required autocomplete="name"></label>
+            <label>Email<input name="email" type="email" required autocomplete="email"></label>
+          </div>
+          <div class="field-row">
+            <label>Role<input name="role" autocomplete="organization-title"></label>
+            <label>Company<input name="company" required autocomplete="organization"></label>
+          </div>
+          <div class="field-row">
+            <label>Country<input name="country" required></label>
+            <label>Counterparty type
+              <select name="counterpartyType" required>
+                <option value="">Select</option>
+                <option value="epc">Foreign EPC contractor</option>
+                <option value="developer">Foreign developer / sponsor</option>
+                <option value="law_firm">International law firm</option>
+                <option value="investor">Investment group</option>
+                <option value="board">Board / committee</option>
+                <option value="other">Other sophisticated counterparty</option>
+              </select>
+            </label>
+          </div>
+          <div class="field-row">
+            <label>Mandate type
+              <select name="mandateType" required>
+                <option value="">Select</option>
+                <option value="pre_contract_risk_review">Pre-contract risk review</option>
+                <option value="project_risk_oversight">Project risk oversight</option>
+                <option value="pre_litigation_advisory">Pre-litigation technical advisory</option>
+                <option value="technical_opinion">Independent technical opinion</option>
+                <option value="vendor_risk_assessment">Vendor / supply-chain risk assessment</option>
+                <option value="board_risk_briefing">Board / investment committee briefing</option>
+              </select>
+            </label>
+            <label>Project stage
+              <select name="projectStage">
+                <option value="">Select</option>
+                <option value="tender">Bid / negotiation</option>
+                <option value="pre_contract_award">Mobilization</option>
+                <option value="live_project">Active delivery</option>
+                <option value="claim_dispute_pre_litigation">Stress / delay event</option>
+                <option value="claim_dispute_pre_litigation">Pre-dispute</option>
+              </select>
+            </label>
+          </div>
+          <div class="field-row">
+            <label>Project value band
+              <select name="projectValueBand">
+                <option value="">Select</option>
+                <option value="under_50m">Below USD 50M</option>
+                <option value="50m_250m">USD 50M - 250M</option>
+                <option value="250m_500m">USD 250M - 500M</option>
+                <option value="500m_plus">Above USD 500M</option>
+              </select>
+            </label>
+            <label>Urgency
+              <select name="urgency">
+                <option value="">Select</option>
+                <option value="immediate">Immediate</option>
+                <option value="this_month">This month</option>
+                <option value="this_quarter">This quarter</option>
+                <option value="monitoring">Monitoring</option>
+              </select>
+            </label>
+          </div>
+          <label>Context<textarea name="message" required placeholder="Describe the project exposure, pressure point, and what judgment you need."></textarea></label>
+          <label><input type="checkbox" name="confidentialityRequired" value="true"> This enquiry is sensitive and should be treated as confidential.</label>
+          <label><input type="checkbox" name="conflictCheckAcknowledged" value="true" required> I understand mandate review is subject to conflict and fit checks.</label>
+          <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;width:1px;height:1px;opacity:0;pointer-events:none;clip-path:inset(50%)" aria-hidden="true">
+          <button class="button button--primary" type="submit" data-cta="contact_submit">Request confidential review</button>
+          <p class="status" id="formStatus" aria-live="polite"></p>
+        </form>
+      </div>
+      <aside class="grid">
+        <article class="note reveal">
+          <h2>What happens next</h2>
+          <ul class="list">
+            <li>Intake is screened for fit, downside significance, and conflict posture.</li>
+            <li>Qualified enquiries are routed into the Strata RevOps pipeline with source and ICP tagging.</li>
+            <li>Where manual verification or extra context is needed, we follow up directly.</li>
+          </ul>
+        </article>
+        <article class="note reveal">
+          <h2>Direct channel</h2>
+          <p><a href="mailto:advisory@stratasaudi.com">advisory@stratasaudi.com</a></p>
+        </article>
+      </aside>
+    </section>
+    <div data-site-shell="footer"></div>
+  </div>
+  <script>
+    (function () {
+      var form = document.getElementById("contactForm");
+      var status = document.getElementById("formStatus");
+      function translateStatus(message) {
+        return window.StrataI18n ? window.StrataI18n.translateText(message) : message;
+      }
+      function getTracking() {
+        return window.StrataTracking || null;
+      }
+
+       // Track field-level interactions to identify friction points
+       Array.prototype.forEach.call(form.querySelectorAll("input, select, textarea"), function (field) {
+         field.addEventListener("focus", function () {
+           var tracking = getTracking();
+           if (!form.dataset.started && tracking) {
+             form.dataset.started = "true";
+             tracking.pushEvent("form_start", { form_name: "confidential_enquiry", form_id: "contactForm" });
+           }
+           // Track which specific field is being interacted with
+           if (tracking) {
+             tracking.pushEvent("form_field_focus", {
+               form_name: "confidential_enquiry",
+               form_id: "contactForm",
+               field_name: field.name,
+               field_type: field.type || field.tagName.toLowerCase()
+             });
+           }
+         });
+
+         // Track when fields are modified (to detect hesitation/abandonment)
+         field.addEventListener("input", function () {
+           var tracking = getTracking();
+           if (tracking) {
+             tracking.pushEvent("form_field_input", {
+               form_name: "confidential_enquiry",
+               form_id: "contactForm",
+               field_name: field.name,
+               field_value_length: field.value.length
+             });
+           }
+         });
+
+         // Track when fields lose focus (to detect validation issues)
+         field.addEventListener("blur", function () {
+           var tracking = getTracking();
+           if (tracking) {
+             tracking.pushEvent("form_field_blur", {
+               form_name: "confidential_enquiry",
+               form_id: "contactForm",
+               field_name: field.name,
+               field_value: field.value
+             });
+           }
+         });
+       });
+
+      // Attempt to set smart default for country field if not already set
+      var countryField = form.elements.country;
+      if (countryField && !countryField.value) {
+         // Try to infer country from browser language or other signals
+         var userLanguage = navigator.language || navigator.userLanguage;
+         if (userLanguage) {
+            // Map common language codes to countries - this is a simplified mapping
+            var languageToCountryMap = {
+               'ae': 'United Arab Emirates', 'ar': 'United Arab Emirates',
+               'bh': 'Bahrain',
+               'eg': 'Egypt',
+               'iq': 'Iraq',
+               'jo': 'Jordan',
+               'kw': 'Kuwait',
+               'lb': 'Lebanon',
+               'om': 'Oman',
+               'qa': 'Qatar',
+               'sa': 'Saudi Arabia',
+               'sy': 'Syria',
+               'ye': 'Yemen',
+               'en': 'United Kingdom', 'en-gb': 'United Kingdom', 'en-us': 'United States',
+               'fr': 'France', 'fr-fr': 'France', 'fr-ca': 'Canada',
+               'de': 'Germany', 'de-de': 'Germany',
+               'es': 'Spain', 'es-es': 'Spain', 'es-mx': 'Mexico',
+               'zh': 'China', 'zh-cn': 'China', 'zh-tw': 'Taiwan',
+               'ja': 'Japan',
+               // Default to Saudi Arabia for unknown languages (strategic choice for Strata Saudi)
+            };
+
+            var normalizedLanguage = userLanguage.toLowerCase();
+            var languageCode = normalizedLanguage.split('-')[0];
+            var countryName = languageToCountryMap[normalizedLanguage] || languageToCountryMap[languageCode];
+            if (countryName) countryField.value = countryName;
+         }
+      }
+
+      form.addEventListener("submit", async function (event) {
+         event.preventDefault();
+         status.textContent = translateStatus("Submitting securely...");
+         status.dataset.variant = "";
+
+         var data = Object.fromEntries(new FormData(form).entries());
+         var tracking = getTracking();
+         var attribution = tracking ? tracking.attribution() : { first_touch: null, latest_touch: null, session_id: "" };
+         var payload = Object.assign({}, data, {
+           pageUrl: window.location.href,
+           referrer: document.referrer || "",
+           sessionId: attribution.session_id || "",
+           firstTouch: attribution.first_touch || null,
+           latestTouch: attribution.latest_touch || null,
+           leadSource: "website_confidential_enquiry",
+           confidentialityRequired: data.confidentialityRequired === "true",
+           conflictCheckAcknowledged: data.conflictCheckAcknowledged === "true"
+         });
+
+        try {
+          var response = await fetch("/api/contact", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload)
+          });
+
+          var result = await response.json();
+
+          if (!response.ok) {
+            throw new Error(result.error || "Unable to send enquiry.");
+          }
+
+          if (tracking) {
+            var conversionPayload = {
+              form_name: "confidential_enquiry",
+              form_id: "contactForm",
+              mandate_type: payload.mandateType,
+              counterparty_type: payload.counterpartyType
+            };
+            var queued = typeof tracking.queuePendingEvent === "function" &&
+              tracking.queuePendingEvent("form_submit_success", conversionPayload);
+
+            if (!queued) {
+              tracking.pushEvent("form_submit_success", conversionPayload);
+            }
+          }
+
+          window.location.href = "/thank-you";
+        } catch (error) {
+          status.textContent = translateStatus(error.message || "Unable to send enquiry.");
+          status.dataset.variant = "error";
+          if (tracking) {
+            tracking.pushEvent("form_submit_error", {
+              form_name: "confidential_enquiry",
+              form_id: "contactForm"
+            });
+          }
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

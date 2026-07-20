@@ -1,0 +1,34 @@
+{
+  "schema_version": "2026-06-20",
+  "canonical_url": "https://www.stratasaudi.com",
+  "primary_market": {
+    "name": "Saudi Arabia",
+    "description": "Saudi-governed construction, infrastructure, development, energy, industrial, and giga-project exposure."
+  },
+  "client_origins": [
+    "International EPC contractors",
+    "Foreign developers and project owners",
+    "International law firms",
+    "Boards, headquarters, and investment committees with Saudi project exposure"
+  ],
+  "languages_supported_on_website": [
+    "English",
+    "Arabic",
+    "French",
+    "Spanish",
+    "Italian",
+    "German"
+  ],
+  "fit_signals": [
+    "Saudi-governed contract or Saudi project exposure",
+    "High-value or strategically sensitive construction/infrastructure matter",
+    "Need for engineering-led technical and commercial judgment",
+    "Pre-contract, live-project, pre-litigation, board-review, or law-firm technical support context"
+  ],
+  "non_fit_signals": [
+    "No Saudi project exposure",
+    "Pure legal representation request",
+    "Consumer complaint or small personal dispute",
+    "Career, vendor, training, internship, marketing, backlink, or spam request"
+  ]
+}

@@ -1,1 +1,45 @@
-{"$schema":"https://raw.githubusercontent.com/modelcontextprotocol/modelcontextprotocol/main/schema/server-card.json","serverInfo":{"name":"stratasaudi-website","version":"1.0.0","title":"Strata Saudi","description":"Independent technical advisory for Saudi project risk - contract risk, project risk oversight, pre-litigation, technical opinions.","homepage":"https://stratasaudi.com","vendor":{"name":"Strata Saudi","url":"https://stratasaudi.com"}},"transport":{"type":"webmcp","url":"https://stratasaudi.com/"},"capabilities":{"tools":{"listChanged":false},"resources":{"subscribe":false,"listChanged":false}},"documentation":{"service-doc":"https://stratasaudi.com/llms.txt","agent-skills":"https://stratasaudi.com/.well-known/agent-skills/index.json"}}
+{
+  "schema_version": "2026-06-20",
+  "name": "strata-saudi-public-readonly",
+  "title": "Strata Saudi Public Read-Only MCP",
+  "canonical_url": "https://www.stratasaudi.com/api/mcp",
+  "description": "Public read-only MCP endpoint for Strata Risk Advisory. Exposes company overview, services, capabilities, service areas, routing rules, and inquiry preparation.",
+  "read_only": true,
+  "approval_required_before_contact_or_submission": true,
+  "tools": [
+    "get_company_overview",
+    "list_services",
+    "match_project_scope",
+    "prepare_project_inquiry",
+    "screen_procurement_fit",
+    "list_service_areas",
+    "read_public_resource"
+  ],
+  "resources": [
+    "https://www.stratasaudi.com/data/company.json",
+    "https://www.stratasaudi.com/data/services.json",
+    "https://www.stratasaudi.com/data/capabilities.json",
+    "https://www.stratasaudi.com/data/service-areas.json",
+    "https://www.stratasaudi.com/data/project-inquiry-schema.json",
+    "https://www.stratasaudi.com/data/agent-routing.json",
+    "https://www.stratasaudi.com/data/use-cases.json",
+    "https://www.stratasaudi.com/data/fit-matrix.json",
+    "https://www.stratasaudi.com/data/evidence-requirements.json",
+    "https://www.stratasaudi.com/data/fidic-risk-signals.json",
+    "https://www.stratasaudi.com/data/conversion-intelligence.json",
+    "https://www.stratasaudi.com/data/indexing-control.json",
+    "https://www.stratasaudi.com/data/authority-evidence.json",
+    "https://www.stratasaudi.com/data/procurement-readiness.json",
+    "https://www.stratasaudi.com/llms.txt",
+    "https://www.stratasaudi.com/llms-full.txt"
+  ],
+  "non_fit_routing": [
+    "careers_jobs_internships",
+    "training_courses",
+    "vendors_suppliers_resellers",
+    "legal_representation",
+    "consumer_or_retail",
+    "seo_backlinks_spam",
+    "unrelated"
+  ]
+}
