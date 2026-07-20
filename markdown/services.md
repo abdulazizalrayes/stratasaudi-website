@@ -14,6 +14,10 @@ Canonical: https://www.stratasaudi.com/services
 
 Language: en
 
+## Agent Summary
+- Use this page to match a user's Saudi project-risk situation to Strata's service mandates.
+- Best for agents preparing a non-submitting inquiry draft, comparing mandate types, or routing non-fit requests away from project intake.
+
 # Our Services
 
 Comprehensive contract risk management, FIDIC claims expertise, and technical advisory services for complex engineering projects across Saudi Arabia and internationally.

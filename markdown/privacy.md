@@ -14,6 +14,10 @@ Canonical: https://www.stratasaudi.com/privacy
 
 Language: en
 
+## Agent Summary
+- Use this page to understand public privacy, analytics, and enquiry-data handling statements.
+- Best for agents explaining what information should and should not be collected before an approved inquiry.
+
 Privacy
 
 # Strata Saudi uses enquiry data only for mandate review, response, and operating analytics.

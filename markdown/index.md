@@ -14,6 +14,10 @@ Canonical: https://www.stratasaudi.com/
 
 Language: en
 
+## Agent Summary
+- Use this page to understand Strata Risk Advisory's core positioning, buyer fit, service universe, and legal-boundary language.
+- Best for agents answering who Strata is, what it does, who it serves, and why Saudi project-risk exposure needs engineering-led review.
+
 [advisory@stratasaudi.com](mailto:advisory@stratasaudi.com)
 
 Engineering-Led Contract Risk & Pre-Litigation Advisory

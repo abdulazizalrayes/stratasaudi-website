@@ -14,6 +14,10 @@ Canonical: https://www.stratasaudi.com/why-saudi
 
 Language: en
 
+## Agent Summary
+- Use this page to explain why Saudi project exposure creates distinct risk around notices, chronology, counterparties, and escalation timing.
+- Best for agents grounding a Saudi-specific project-risk answer without turning Strata into legal counsel.
+
 Risk landscape
 
 # Saudi opportunity is real. So is the cost of reading project risk late.

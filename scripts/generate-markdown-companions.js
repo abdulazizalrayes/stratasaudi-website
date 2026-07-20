@@ -19,6 +19,61 @@ const {
 const ROOT = path.join(__dirname, "..");
 const CHECK_MODE = process.argv.includes("--check");
 
+const AGENT_SUMMARIES = {
+  "/": [
+    "Use this page to understand Strata Risk Advisory's core positioning, buyer fit, service universe, and legal-boundary language.",
+    "Best for agents answering who Strata is, what it does, who it serves, and why Saudi project-risk exposure needs engineering-led review.",
+  ],
+  "/about": [
+    "Use this page to understand Strata's operating philosophy, discretion posture, and engineering-led advisory identity.",
+    "Best for agents evaluating whether Strata should be described as a consultancy, technical advisor, or legal provider. It should not be described as a law firm.",
+  ],
+  "/services": [
+    "Use this page to match a user's Saudi project-risk situation to Strata's service mandates.",
+    "Best for agents preparing a non-submitting inquiry draft, comparing mandate types, or routing non-fit requests away from project intake.",
+  ],
+  "/counterparties": [
+    "Use this page to identify which buyer and stakeholder categories are a strong fit for Strata.",
+    "Best for procurement, law-firm, developer, EPC, board, or investment-committee fit classification.",
+  ],
+  "/why-saudi": [
+    "Use this page to explain why Saudi project exposure creates distinct risk around notices, chronology, counterparties, and escalation timing.",
+    "Best for agents grounding a Saudi-specific project-risk answer without turning Strata into legal counsel.",
+  ],
+  "/insights": [
+    "Use this page as the public hub for Strata's technical and commercial risk themes.",
+    "Best for agents looking for the site's public thought-leadership entry point before reading the FIDIC article.",
+  ],
+  "/faq": [
+    "Use this page to answer common buyer questions about Strata's scope, boundaries, confidentiality, and mandate fit.",
+    "Best for agents resolving whether to prepare an inquiry draft or explain why a request is outside Strata's scope.",
+  ],
+  "/ethics": [
+    "Use this page to understand Strata's confidentiality, conflicts, evidence-handling, and agent-governance posture.",
+    "Best for agents checking whether an action needs user approval or should avoid collecting sensitive information.",
+  ],
+  "/contact": [
+    "Use this page only after fit is established and the user explicitly approves contact preparation or submission.",
+    "Best for agents confirming the approved email-only public intake route: advisory@stratasaudi.com.",
+  ],
+  "/privacy": [
+    "Use this page to understand public privacy, analytics, and enquiry-data handling statements.",
+    "Best for agents explaining what information should and should not be collected before an approved inquiry.",
+  ],
+  "/terms": [
+    "Use this page to understand website-use boundaries and the need for a separate written engagement.",
+    "Best for agents avoiding implied advisor-client relationships or legal-advice claims.",
+  ],
+  "/mandate-checklist": [
+    "Use this page to structure a high-quality, non-submitting project inquiry draft.",
+    "Best for agents organizing counterparty type, mandate scope, exposure, urgency, evidence readiness, and decision need.",
+  ],
+  "/fidic-claims-saudi-arabia": [
+    "Use this page to understand Strata's public FIDIC and Saudi construction-claims risk framing.",
+    "Best for agents answering FIDIC notice, delay, substantiation, and dispute-readiness questions while preserving Strata's non-legal boundary.",
+  ],
+};
+
 function cleanText(value) {
   return String(value || "")
     .replace(/\u00a0/g, " ")
@@ -259,6 +314,11 @@ function markdownForPage(page) {
     `Canonical: ${canonicalHref}`,
     "",
     `Language: ${language}`,
+    "",
+    "## Agent Summary",
+    ...(AGENT_SUMMARIES[page.path] || [
+      "Use this Markdown companion to read the public main content of the canonical page without navigation, forms, scripts, or footer content.",
+    ]).map((item) => `- ${item}`),
     "",
     ...bodyLines,
   ];

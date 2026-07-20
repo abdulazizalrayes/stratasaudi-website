@@ -90,6 +90,7 @@ function validateJsonAndMetadata() {
     assert(markdown.includes(`canonical: "${SITE_ORIGIN}${page.path === "/" ? "/" : page.path}"`), `${page.path}: canonical metadata missing`);
     assert(markdown.includes('language: "en"'), `${page.path}: language metadata missing`);
     assert(markdown.includes(`content_signal: "${CONTENT_SIGNAL}"`), `${page.path}: Content-Signal metadata missing`);
+    assert(markdown.includes("## Agent Summary"), `${page.path}: agent summary missing`);
     assert(markdown.includes("## Public JSON-LD Structured Data"), `${page.path}: public JSON-LD block missing`);
     assert(!markdown.includes("First Name"), `${page.path}: form field leaked into Markdown`);
     assert(!markdown.includes("Last Name"), `${page.path}: form field leaked into Markdown`);

@@ -14,6 +14,10 @@ Canonical: https://www.stratasaudi.com/insights
 
 Language: en
 
+## Agent Summary
+- Use this page as the public hub for Strata's technical and commercial risk themes.
+- Best for agents looking for the site's public thought-leadership entry point before reading the FIDIC article.
+
 Risk Management
 
 ## Understanding FIDIC Claims in Saudi Arabia

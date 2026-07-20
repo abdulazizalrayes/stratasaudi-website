@@ -14,6 +14,10 @@ Canonical: https://www.stratasaudi.com/mandate-checklist
 
 Language: en
 
+## Agent Summary
+- Use this page to structure a high-quality, non-submitting project inquiry draft.
+- Best for agents organizing counterparty type, mandate scope, exposure, urgency, evidence readiness, and decision need.
+
 Mandate screening
 
 # Mandate checklist for serious Saudi project exposure.

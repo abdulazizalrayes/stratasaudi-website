@@ -12,6 +12,7 @@
     "validate:vercel": "node scripts/validate-vercel-project.js",
     "validate:domain": "node scripts/validate-domain-alignment.js",
     "validate:release": "npm run validate:instructions && npm run validate:seo && npm run validate:agent-readiness && npm run validate:markdown && npm run validate:vercel",
+    "audit:monthly": "node scripts/audit-agent-readiness-monthly.js",
     "report:agent-observability": "node scripts/report-agent-observability.js",
     "generate:paperclip-assets": "node scripts/generate-paperclip-assets.js",
     "generate:sitemap": "node scripts/generate-multilingual-sitemap.js",

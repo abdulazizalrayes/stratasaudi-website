@@ -14,6 +14,10 @@ Canonical: https://www.stratasaudi.com/about
 
 Language: en
 
+## Agent Summary
+- Use this page to understand Strata's operating philosophy, discretion posture, and engineering-led advisory identity.
+- Best for agents evaluating whether Strata should be described as a consultancy, technical advisor, or legal provider. It should not be described as a law firm.
+
 Firm profile
 
 # Engineering-led advisory built for high-consequence Saudi decisions.

@@ -36,6 +36,33 @@ function classifyUserAgent(value) {
   return "browser_or_unknown_agent";
 }
 
+function readHeader(entry, name) {
+  const headers = entry.headers || entry.requestHeaders || {};
+  const lower = name.toLowerCase();
+  for (const [key, value] of Object.entries(headers)) {
+    if (String(key).toLowerCase() === lower) return String(value || "");
+  }
+  return String(entry[name] || entry[lower] || "");
+}
+
+function requestPath(entry) {
+  const raw = entry.requestPath || entry.path || entry.url || entry.requestUrl || "";
+  if (!raw) return "";
+  try {
+    return new URL(raw, "https://www.stratasaudi.com").pathname;
+  } catch (_error) {
+    return String(raw).split("?")[0];
+  }
+}
+
+function isMarkdownSidecar(path) {
+  return /^\/(?:index|about|services|counterparties|why-saudi|insights|faq|ethics|contact|privacy|terms|mandate-checklist|fidic-claims-saudi-arabia)\.md$/.test(path);
+}
+
+function isAgentDiscoveryPath(path) {
+  return /^(?:\/llms(?:-full)?\.txt|\/openapi\.json|\/auth\.md|\/api\/mcp|\/\.well-known\/|\/data\/)/.test(path);
+}
+
 function extractAgentEvent(entry) {
   const message = typeof entry.message === "string" ? entry.message : "";
   if (!message.includes("strata_agent_readiness_event")) return null;
@@ -60,6 +87,12 @@ function main() {
     source_entries: entries.length,
     agent_events: 0,
     reads_by_path: {},
+    markdown_negotiated_reads: {},
+    markdown_sidecar_reads: {},
+    discovery_reads: {},
+    openapi_reads: 0,
+    llms_reads: 0,
+    mcp_reads: 0,
     tool_calls: {},
     resource_reads: {},
     fit_classifications: {},
@@ -72,14 +105,21 @@ function main() {
   };
 
   for (const entry of entries) {
-    const path = entry.requestPath || entry.path || "";
+    const path = requestPath(entry);
     const userAgent = entry.userAgent || entry.user_agent || "";
+    const accept = readHeader(entry, "accept").toLowerCase();
     if (path) increment(report.reads_by_path, path);
     increment(report.user_agent_families, classifyUserAgent(userAgent));
 
-    if (/llms|openapi|agent-card|mcp|\/data\//.test(path)) {
+    if (accept.includes("text/markdown")) increment(report.markdown_negotiated_reads, path || "unknown");
+    if (isMarkdownSidecar(path)) increment(report.markdown_sidecar_reads, path);
+    if (isAgentDiscoveryPath(path)) {
+      increment(report.discovery_reads, path);
       increment(report.crawler_or_agent_reads, path);
     }
+    if (path === "/openapi.json") report.openapi_reads += 1;
+    if (path === "/llms.txt" || path === "/llms-full.txt") report.llms_reads += 1;
+    if (path === "/api/mcp" || path.startsWith("/.well-known/mcp")) report.mcp_reads += 1;
 
     const event = extractAgentEvent(entry);
     if (!event) continue;

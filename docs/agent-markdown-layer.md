@@ -63,6 +63,7 @@ It preserves:
 - page title and meta description
 - canonical URL
 - language
+- Markdown-only agent summaries that explain the correct use of each companion page
 - headings, paragraphs, lists, details, tables, blockquotes, and code blocks
 - public links
 - images with meaningful alt text
@@ -88,6 +89,20 @@ npm run validate:agent-readiness
 npm run validate:seo
 npm run validate:release
 ```
+
+Run the monthly advanced readiness audit:
+
+```sh
+npm run audit:monthly
+```
+
+Generate a privacy-safe weekly agent/crawler report from Vercel or server log JSONL:
+
+```sh
+npm run report:agent-observability -- path/to/logs.jsonl
+```
+
+The weekly report summarizes discovery reads, Markdown negotiation, direct `.md` sidecar reads, MCP reads, OpenAPI reads, tool calls, resource reads, fit classes, and user-agent families. It must not include names, emails, message bodies, or confidential project facts.
 
 Before deployment, also run:
 

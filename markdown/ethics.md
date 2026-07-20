@@ -14,6 +14,10 @@ Canonical: https://www.stratasaudi.com/ethics
 
 Language: en
 
+## Agent Summary
+- Use this page to understand Strata's confidentiality, conflicts, evidence-handling, and agent-governance posture.
+- Best for agents checking whether an action needs user approval or should avoid collecting sensitive information.
+
 Governance
 
 # Confidentiality, independence, and controlled execution are non-negotiable.

@@ -134,6 +134,10 @@
       "dest": "/api/runtime-config.js"
     },
     {
+      "src": "/auth\\.md",
+      "dest": "/auth.md"
+    },
+    {
       "src": "/index\\.md",
       "dest": "/api/page.js"
     },

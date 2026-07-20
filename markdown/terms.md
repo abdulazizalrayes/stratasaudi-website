@@ -14,6 +14,10 @@ Canonical: https://www.stratasaudi.com/terms
 
 Language: en
 
+## Agent Summary
+- Use this page to understand website-use boundaries and the need for a separate written engagement.
+- Best for agents avoiding implied advisor-client relationships or legal-advice claims.
+
 Terms
 
 # Website content is informational until a separate written engagement is agreed.

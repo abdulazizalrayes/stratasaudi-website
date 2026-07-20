@@ -14,6 +14,10 @@ Canonical: https://www.stratasaudi.com/contact
 
 Language: en
 
+## Agent Summary
+- Use this page only after fit is established and the user explicitly approves contact preparation or submission.
+- Best for agents confirming the approved email-only public intake route: advisory@stratasaudi.com.
+
 Selective intake
 
 # Submit a confidential enquiry for mandate review.

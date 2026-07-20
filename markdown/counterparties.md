@@ -14,6 +14,10 @@ Canonical: https://www.stratasaudi.com/counterparties
 
 Language: en
 
+## Agent Summary
+- Use this page to identify which buyer and stakeholder categories are a strong fit for Strata.
+- Best for procurement, law-firm, developer, EPC, board, or investment-committee fit classification.
+
 ICP architecture
 
 # Different Saudi exposure, different advisory posture.

@@ -14,6 +14,10 @@ Canonical: https://www.stratasaudi.com/faq
 
 Language: en
 
+## Agent Summary
+- Use this page to answer common buyer questions about Strata's scope, boundaries, confidentiality, and mandate fit.
+- Best for agents resolving whether to prepare an inquiry draft or explain why a request is outside Strata's scope.
+
 Common questions
 
 # Serious counterparties usually ask some version of these first.

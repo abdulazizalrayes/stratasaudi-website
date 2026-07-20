@@ -14,6 +14,10 @@ Canonical: https://www.stratasaudi.com/fidic-claims-saudi-arabia
 
 Language: en
 
+## Agent Summary
+- Use this page to understand Strata's public FIDIC and Saudi construction-claims risk framing.
+- Best for agents answering FIDIC notice, delay, substantiation, and dispute-readiness questions while preserving Strata's non-legal boundary.
+
 ## Introduction: Why FIDIC Contracts Matter in Saudi Construction
 
 The Fédération Internationale des Ingénieurs-Conseils (FIDIC) contract forms have become the global standard for construction projects, and Saudi Arabia is no exception. As the Kingdom accelerates its mega-projects under Vision 2030, from NEOM and The Line to the Red Sea Project, contractors operating in Saudi Arabia must understand the intricacies of FIDIC claims and risk management. These contracts are complex, often comprising hundreds of pages of technical and legal provisions, with subtle clauses that can significantly impact project outcomes and profitability.
