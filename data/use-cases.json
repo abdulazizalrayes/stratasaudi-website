@@ -1,0 +1,82 @@
+{
+  "schema_version": "2026-06-29",
+  "canonical_url": "https://www.stratasaudi.com/data/use-cases.json",
+  "scope_note": "Non-confidential, generic use-case taxonomy. This file does not describe client engagements, results, confidential matters, or implied case studies.",
+  "use_cases": [
+    {
+      "id": "pre_award_contract_risk",
+      "name": "Pre-award Saudi contract risk review",
+      "description": "A foreign contractor, developer, board, or investment committee needs an engineering-led view of Saudi-governed technical, commercial, notice, variation, delay, and evidence risks before final commitment.",
+      "best_fit_services": [
+        "pre_contract_risk_review",
+        "board_risk_briefing"
+      ],
+      "typical_questions": [
+        "Which contract provisions create technical or commercial exposure?",
+        "Where are notice, variation, delay, payment, or evidence obligations most fragile?",
+        "What should leadership understand before signing or approving?"
+      ],
+      "non_fit_boundary": "Not legal advice, negotiation counsel, or investment advice."
+    },
+    {
+      "id": "live_project_risk_drift",
+      "name": "Live project risk drift",
+      "description": "A live Saudi project is accumulating correspondence, delay events, variation issues, or documentation gaps that need independent technical and commercial oversight before positions harden.",
+      "best_fit_services": [
+        "project_risk_oversight",
+        "technical_opinion"
+      ],
+      "typical_questions": [
+        "Is the project team preserving the right technical and commercial record?",
+        "Which issues are becoming board-level or dispute-adjacent?",
+        "What evidence gaps need immediate attention?"
+      ],
+      "non_fit_boundary": "Not site supervision, claims filing, or project management outsourcing."
+    },
+    {
+      "id": "pre_litigation_evidence_readiness",
+      "name": "Pre-litigation evidence readiness",
+      "description": "A project matter is becoming dispute-adjacent and needs engineering-led chronology, evidence, causation, and claim-readiness structure before legal strategy is finalized.",
+      "best_fit_services": [
+        "pre_litigation_advisory",
+        "technical_opinion"
+      ],
+      "typical_questions": [
+        "What is the technical chronology?",
+        "Which facts are supported by records and which remain assumptions?",
+        "What should external counsel or leadership understand before escalation?"
+      ],
+      "non_fit_boundary": "Not arbitration representation, litigation representation, or sworn expert testimony."
+    },
+    {
+      "id": "law_firm_technical_counterpart",
+      "name": "Law-firm technical counterpart support",
+      "description": "External counsel needs independent engineering and commercial analysis to understand Saudi project records, chronology, causation, or technical exposure.",
+      "best_fit_services": [
+        "pre_litigation_advisory",
+        "technical_opinion"
+      ],
+      "typical_questions": [
+        "What do the engineering records actually show?",
+        "Which technical assumptions should be challenged?",
+        "How should chronology and evidence be structured for counsel review?"
+      ],
+      "non_fit_boundary": "Strata supports counsel technically but does not act as legal counsel."
+    },
+    {
+      "id": "board_sensitive_decision",
+      "name": "Board-sensitive project decision",
+      "description": "A board, headquarters team, or investment committee needs a concise independent view before approving, escalating, settling, reserving, or continuing a Saudi project exposure.",
+      "best_fit_services": [
+        "board_risk_briefing",
+        "technical_opinion"
+      ],
+      "typical_questions": [
+        "What is the practical exposure?",
+        "What decision options are technically and commercially credible?",
+        "Which evidence gaps or assumptions change the decision?"
+      ],
+      "non_fit_boundary": "Not legal advice, financial advice, or public investor communication."
+    }
+  ]
+}

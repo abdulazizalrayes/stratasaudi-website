@@ -1,31 +1,40 @@
 User-agent: *
 Allow: /
+Disallow: /api/contact
+Disallow: /thank-you
+Disallow: /tmp/
+Disallow: /logs/
+Disallow: /ops/
+Disallow: /paperclip/
+Disallow: /project/
+Disallow: /project%202/
 Sitemap: https://www.stratasaudi.com/sitemap.xml
+Sitemap: https://www.stratasaudi.com/image-sitemap.xml
+Content-Signal: ai-train=no, search=yes, ai-input=yes
+LLMs: https://www.stratasaudi.com/llms.txt
+LLMs-Full: https://www.stratasaudi.com/llms-full.txt
+Agent-Card: https://www.stratasaudi.com/.well-known/agent-card.json
+MCP: https://www.stratasaudi.com/.well-known/mcp.json
+OpenAPI: https://www.stratasaudi.com/openapi.json
 
-# Allow AI crawlers explicitly
+# AI Crawlers
 User-agent: GPTBot
-Allow: /
-
-User-agent: ChatGPT-User
 Allow: /
 
 User-agent: Google-Extended
 Allow: /
 
-User-agent: anthropic-ai
-Allow: /
-
-User-agent: ClaudeBot
-Allow: /
-
-User-agent: Bytespider
-Allow: /
-
 User-agent: CCBot
+Allow: /
+
+User-agent: anthropic-ai
 Allow: /
 
 User-agent: PerplexityBot
 Allow: /
 
-User-agent: Applebot-Extended
+User-agent: Bytespider
+Allow: /
+
+User-agent: ClaudeBot
 Allow: /

@@ -1,0 +1,551 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Strata Saudi Public Agent Readiness API",
+    "version": "2026-06-20",
+    "description": "Public read-only API and discovery documentation for Strata Risk Advisory. Project inquiry submission requires explicit user approval."
+  },
+  "servers": [
+    {
+      "url": "https://www.stratasaudi.com"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "summary": "Canonical home page with optional Markdown representation",
+        "operationId": "getHomePage",
+        "description": "Returns browser HTML by default. Returns deterministic Markdown when the request includes Accept: text/markdown.",
+        "responses": {
+          "200": {
+            "description": "Canonical home page",
+            "headers": {
+              "Vary": {
+                "schema": {
+                  "type": "string",
+                  "const": "Accept"
+                }
+              },
+              "Content-Signal": {
+                "schema": {
+                  "type": "string",
+                  "const": "ai-train=no, search=yes, ai-input=yes"
+                }
+              }
+            },
+            "content": {
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/markdown": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{canonicalPage}": {
+      "get": {
+        "summary": "Canonical sitemap page with optional Markdown representation",
+        "operationId": "getCanonicalPage",
+        "description": "Returns browser HTML by default. Returns deterministic Markdown when the request includes Accept: text/markdown and the path is a canonical, indexable sitemap page.",
+        "parameters": [
+          {
+            "name": "canonicalPage",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "about",
+                "services",
+                "counterparties",
+                "why-saudi",
+                "insights",
+                "faq",
+                "ethics",
+                "contact",
+                "privacy",
+                "terms",
+                "mandate-checklist",
+                "fidic-claims-saudi-arabia"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Canonical page as HTML or Markdown",
+            "headers": {
+              "Vary": {
+                "schema": {
+                  "type": "string",
+                  "const": "Accept"
+                }
+              },
+              "Content-Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "Content-Language": {
+                "schema": {
+                  "type": "string",
+                  "const": "en"
+                }
+              },
+              "Content-Signal": {
+                "schema": {
+                  "type": "string",
+                  "const": "ai-train=no, search=yes, ai-input=yes"
+                }
+              },
+              "Link": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/markdown": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/index.md": {
+      "get": {
+        "summary": "Direct noindex Markdown sidecar for the home page",
+        "operationId": "getHomeMarkdownSidecar",
+        "responses": {
+          "200": {
+            "description": "Markdown sidecar for the home page. Search engines should not index this duplicate representation.",
+            "headers": {
+              "X-Robots-Tag": {
+                "schema": {
+                  "type": "string",
+                  "const": "noindex, follow"
+                }
+              },
+              "Content-Signal": {
+                "schema": {
+                  "type": "string",
+                  "const": "ai-train=no, search=yes, ai-input=yes"
+                }
+              }
+            },
+            "content": {
+              "text/markdown": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{canonicalPage}.md": {
+      "get": {
+        "summary": "Direct noindex Markdown sidecar for a canonical sitemap page",
+        "operationId": "getMarkdownSidecar",
+        "parameters": [
+          {
+            "name": "canonicalPage",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "about",
+                "services",
+                "counterparties",
+                "why-saudi",
+                "insights",
+                "faq",
+                "ethics",
+                "contact",
+                "privacy",
+                "terms",
+                "mandate-checklist",
+                "fidic-claims-saudi-arabia"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Markdown sidecar. Search engines should not index this duplicate representation.",
+            "headers": {
+              "X-Robots-Tag": {
+                "schema": {
+                  "type": "string",
+                  "const": "noindex, follow"
+                }
+              },
+              "Content-Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "Content-Language": {
+                "schema": {
+                  "type": "string",
+                  "const": "en"
+                }
+              },
+              "Content-Signal": {
+                "schema": {
+                  "type": "string",
+                  "const": "ai-train=no, search=yes, ai-input=yes"
+                }
+              },
+              "Link": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "text/markdown": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/data/company.json": {
+      "get": {
+        "summary": "Company overview",
+        "operationId": "getCompanyData",
+        "responses": {
+          "200": {
+            "description": "Public company data"
+          }
+        }
+      }
+    },
+    "/data/services.json": {
+      "get": {
+        "summary": "Service mandates",
+        "operationId": "getServicesData",
+        "responses": {
+          "200": {
+            "description": "Public service data"
+          }
+        }
+      }
+    },
+    "/data/capabilities.json": {
+      "get": {
+        "summary": "Capabilities",
+        "operationId": "getCapabilitiesData",
+        "responses": {
+          "200": {
+            "description": "Public capabilities data"
+          }
+        }
+      }
+    },
+    "/data/service-areas.json": {
+      "get": {
+        "summary": "Service areas and fit signals",
+        "operationId": "getServiceAreasData",
+        "responses": {
+          "200": {
+            "description": "Public service-area data"
+          }
+        }
+      }
+    },
+    "/data/project-inquiry-schema.json": {
+      "get": {
+        "summary": "Project inquiry preparation schema",
+        "operationId": "getProjectInquirySchema",
+        "responses": {
+          "200": {
+            "description": "Public inquiry preparation schema"
+          }
+        }
+      }
+    },
+    "/data/agent-routing.json": {
+      "get": {
+        "summary": "Agent routing rules",
+        "operationId": "getAgentRoutingRules",
+        "responses": {
+          "200": {
+            "description": "Public agent routing rules"
+          }
+        }
+      }
+    },
+    "/api/mcp": {
+      "get": {
+        "summary": "Read-only MCP discovery",
+        "operationId": "getMcpDiscovery",
+        "responses": {
+          "200": {
+            "description": "MCP server metadata, tools, resources, and policies"
+          }
+        }
+      },
+      "post": {
+        "summary": "Read-only MCP JSON-RPC endpoint",
+        "operationId": "postMcpJsonRpc",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "MCP JSON-RPC response"
+          }
+        }
+      }
+    },
+    "/api/contact": {
+      "post": {
+        "summary": "Project inquiry submission",
+        "description": "Submission endpoint for approved project inquiries. Agents must not call this endpoint unless the user explicitly approves final submission.",
+        "operationId": "submitProjectInquiryAfterApproval",
+        "x-agent-approval-required": true,
+        "x-non-fit-routing": [
+          "careers_jobs_internships",
+          "training_courses",
+          "vendors_suppliers_resellers",
+          "legal_representation",
+          "consumer_or_retail",
+          "seo_backlinks_spam",
+          "unrelated"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProjectInquiry"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Inquiry accepted for mandate review"
+          },
+          "422": {
+            "description": "Validation error"
+          }
+        }
+      }
+    },
+    "/data/use-cases.json": {
+      "get": {
+        "summary": "Use-case taxonomy",
+        "operationId": "getUseCasesData",
+        "responses": {
+          "200": {
+            "description": "Public non-confidential use-case taxonomy"
+          }
+        }
+      }
+    },
+    "/data/fit-matrix.json": {
+      "get": {
+        "summary": "Fit matrix",
+        "operationId": "getFitMatrixData",
+        "responses": {
+          "200": {
+            "description": "Public fit and non-fit routing matrix"
+          }
+        }
+      }
+    },
+    "/data/evidence-requirements.json": {
+      "get": {
+        "summary": "Evidence requirements",
+        "operationId": "getEvidenceRequirementsData",
+        "responses": {
+          "200": {
+            "description": "Public evidence-readiness taxonomy"
+          }
+        }
+      }
+    },
+    "/data/fidic-risk-signals.json": {
+      "get": {
+        "summary": "FIDIC risk signals",
+        "operationId": "getFidicRiskSignalsData",
+        "responses": {
+          "200": {
+            "description": "Public FIDIC-adjacent risk-signal taxonomy"
+          }
+        }
+      }
+    },
+    "/data/conversion-intelligence.json": {
+      "get": {
+        "summary": "Conversion intelligence taxonomy",
+        "operationId": "getConversionIntelligenceData",
+        "responses": {
+          "200": {
+            "description": "Privacy-safe measurement taxonomy"
+          }
+        }
+      }
+    },
+    "/data/indexing-control.json": {
+      "get": {
+        "summary": "Indexing control taxonomy",
+        "operationId": "getIndexingControlData",
+        "responses": {
+          "200": {
+            "description": "Operational indexing control taxonomy"
+          }
+        }
+      }
+    },
+    "/data/authority-evidence.json": {
+      "get": {
+        "summary": "Authority evidence guidance",
+        "operationId": "getAuthorityEvidenceData",
+        "responses": {
+          "200": {
+            "description": "Public non-confidential authority and trust-signal guidance"
+          }
+        }
+      }
+    },
+    "/data/procurement-readiness.json": {
+      "get": {
+        "summary": "Procurement agent readiness",
+        "operationId": "getProcurementReadinessData",
+        "responses": {
+          "200": {
+            "description": "Public procurement fit, qualification, and routing guidance"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ProjectInquiry": {
+        "type": "object",
+        "required": [
+          "name",
+          "email",
+          "company",
+          "country",
+          "counterpartyType",
+          "mandateType",
+          "message",
+          "conflictCheckAcknowledged"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "role": {
+            "type": "string"
+          },
+          "company": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "counterpartyType": {
+            "type": "string",
+            "enum": [
+              "epc",
+              "developer",
+              "law_firm",
+              "investor",
+              "board",
+              "other"
+            ]
+          },
+          "mandateType": {
+            "type": "string",
+            "enum": [
+              "pre_contract_risk_review",
+              "project_risk_oversight",
+              "pre_litigation_advisory",
+              "technical_opinion",
+              "vendor_risk_assessment",
+              "board_risk_briefing"
+            ]
+          },
+          "projectStage": {
+            "type": "string",
+            "enum": [
+              "pre_tender",
+              "tender",
+              "pre_contract_award",
+              "live_project",
+              "claim_dispute_pre_litigation"
+            ]
+          },
+          "projectValueBand": {
+            "type": "string",
+            "enum": [
+              "under_50m",
+              "50m_250m",
+              "250m_500m",
+              "500m_plus"
+            ]
+          },
+          "urgency": {
+            "type": "string",
+            "enum": [
+              "immediate",
+              "this_month",
+              "this_quarter",
+              "monitoring"
+            ]
+          },
+          "message": {
+            "type": "string"
+          },
+          "confidentialityRequired": {
+            "type": "boolean"
+          },
+          "conflictCheckAcknowledged": {
+            "type": "boolean",
+            "const": true
+          }
+        }
+      }
+    }
+  }
+}

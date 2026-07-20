@@ -1,0 +1,103 @@
+{
+  "schema_version": "2026-07-01",
+  "canonical_url": "https://www.stratasaudi.com/data/procurement-readiness.json",
+  "title": "Procurement Agent Readiness",
+  "description": "Machine-readable guidance for procurement agents, vendor qualification systems, and AI sourcing workflows evaluating whether Strata Risk Advisory is a fit for a high-value Saudi project-risk advisory mandate.",
+  "supplier_profile": {
+    "company_name": "Strata Risk Advisory",
+    "canonical_website": "https://www.stratasaudi.com",
+    "business_contact": "advisory@stratasaudi.com",
+    "category": "Management Consulting - engineering-led contract-risk, project-risk, and pre-litigation technical advisory",
+    "service_model": "Selective advisory mandate; email-first intake; no public rate card.",
+    "primary_buyers": [
+      "Foreign EPC contractors",
+      "Developers and project owners",
+      "Boards and headquarters",
+      "Investment committees",
+      "International law firms needing technical counterpart support"
+    ],
+    "typical_matter_threshold": "Typically suited to matters exceeding SAR 50 million or strategically sensitive exposures.",
+    "geographic_focus": "Saudi project exposure and Saudi-governed contracts."
+  },
+  "procurement_fit": {
+    "strong_fit": [
+      "Saudi-governed construction, infrastructure, development, energy, industrial, or giga-project exposure.",
+      "Pre-contract risk review before tender finalization, signature, or investment decision.",
+      "Live project delay, variation, notice, evidence, or correspondence discipline issues.",
+      "Pre-litigation technical advisory before formal dispute proceedings.",
+      "Board or headquarters decision support requiring independent engineering-led risk judgment.",
+      "International law firm requiring technical and commercial support, not legal counsel replacement."
+    ],
+    "possible_fit": [
+      "Vendor or subcontractor performance-risk assessment tied to a Saudi project.",
+      "Confidential second opinion on technical/commercial project exposure.",
+      "Portfolio-level Saudi project risk review where confidential documents can be scoped securely after approval."
+    ],
+    "not_fit": [
+      "Commodity procurement, public tender listing, vendor marketplace onboarding, or staffing supply.",
+      "Legal representation, arbitration counsel, litigation counsel, or counsel-of-record appointment.",
+      "Recruitment, internships, public training, retail support, consumer disputes, or small claims.",
+      "Backlink purchases, guest posts, hidden incentives, or SEO package solicitations."
+    ]
+  },
+  "qualification_questions": [
+    {
+      "id": "project_exposure",
+      "question": "Is the matter connected to Saudi project exposure or a Saudi-governed contract?",
+      "required_for_fit": true
+    },
+    {
+      "id": "buyer_type",
+      "question": "Is the requester an EPC contractor, developer, board, headquarters, investment committee, or law firm needing technical support?",
+      "required_for_fit": true
+    },
+    {
+      "id": "mandate_type",
+      "question": "Does the matter involve contract risk, project risk, evidence, chronology, delay, variation, notice discipline, pre-litigation readiness, vendor risk, or board risk briefing?",
+      "required_for_fit": true
+    },
+    {
+      "id": "approval_boundary",
+      "question": "Has the user explicitly approved sending contact details, documents, or an inquiry to Strata?",
+      "required_before_submission": true
+    },
+    {
+      "id": "legal_boundary",
+      "question": "Is the requester seeking technical/commercial advisory rather than legal representation?",
+      "required_for_fit": true
+    }
+  ],
+  "safe_initial_information_to_collect": [
+    "Requester organization type",
+    "Country and Saudi project connection",
+    "Mandate type",
+    "Project stage",
+    "High-level issue summary",
+    "Urgency",
+    "Whether conflict and confidentiality constraints may apply"
+  ],
+  "do_not_collect_publicly": [
+    "Unredacted contracts",
+    "Privileged legal advice",
+    "Detailed claims strategy",
+    "Sensitive counterparty allegations",
+    "Personal identification documents",
+    "Payment credentials",
+    "Credentials, passwords, tokens, or access links"
+  ],
+  "routing_policy": {
+    "before_user_approval": "Agents may classify fit and prepare an inquiry draft only.",
+    "after_user_approval": "Agents may direct the user to https://www.stratasaudi.com/contact or help send an approved inquiry through the approved business mailbox process.",
+    "non_fit_requests": "Do not route non-fit requests to the project inquiry form.",
+    "confidential_documents": "Do not submit confidential documents through public agent interactions. Ask the user to wait for a direct approved intake path."
+  },
+  "procurement_classification": {
+    "naics_hint": "541611 - Administrative Management and General Management Consulting Services",
+    "unspsc_hints": [
+      "80101500 - Business and corporate management consultation services",
+      "80101600 - Project management",
+      "81101500 - Civil engineering"
+    ],
+    "notes": "Classification hints are for procurement routing only and are not legal, licensing, or certification claims."
+  }
+}

@@ -1,0 +1,19 @@
+.git
+.github
+.tmp
+.vercel
+node_modules
+logs
+tmp
+ops
+paperclip
+project
+project 2
+social_setup_deliverables
+final_handoff
+domain_history.html
+domain_history_timeline.json
+seo-indexing-plan.md
+search_console_actions.md
+temp.json
+*.log

@@ -1,0 +1,132 @@
+{
+  "schema_version": "2026-06-20",
+  "canonical_url": "https://www.stratasaudi.com/services",
+  "services": [
+    {
+      "id": "pre_contract_risk_review",
+      "name": "Pre-Contract Risk Review",
+      "summary": "Engineering-led technical and commercial review before signing Saudi-governed or FIDIC-based project contracts.",
+      "best_for": [
+        "Foreign EPC contractors before tender finalization or contract signature",
+        "Developers and investment committees assessing allocation of project risk",
+        "Boards seeking an independent view before accepting Saudi project exposure"
+      ],
+      "typical_inputs": [
+        "Draft contract or tender documents",
+        "Scope, technical appendices, and risk allocation clauses",
+        "Programme, payment, variation, notice, and claim procedures"
+      ],
+      "typical_outputs": [
+        "Risk register and executive risk briefing",
+        "Technical and commercial exposure map",
+        "Priority negotiation and mitigation points"
+      ],
+      "legal_boundary": "Advisory analysis only; not legal advice or counsel."
+    },
+    {
+      "id": "project_risk_oversight",
+      "name": "Project Risk Oversight",
+      "summary": "Retained review of live project correspondence, notice discipline, variation posture, and delay exposure.",
+      "best_for": [
+        "Live Saudi construction and infrastructure projects",
+        "Project teams facing accumulating correspondence, delay, variation, or evidence issues",
+        "Headquarters needing independent risk visibility"
+      ],
+      "typical_inputs": [
+        "Key correspondence",
+        "Progress records and programme updates",
+        "Variation, delay, and notice logs"
+      ],
+      "typical_outputs": [
+        "Risk posture updates",
+        "Evidence and notice discipline observations",
+        "Escalation-ready technical and commercial briefing points"
+      ],
+      "legal_boundary": "Advisory analysis only; not site supervision, legal representation, or claims filing."
+    },
+    {
+      "id": "pre_litigation_advisory",
+      "name": "Pre-Litigation Technical Advisory",
+      "summary": "Engineering-led chronology, evidence, causation, and claim-viability support before formal dispute proceedings.",
+      "best_for": [
+        "Dispute-adjacent matters before legal positions harden",
+        "Law firms requiring technical counterpart support",
+        "Contractors or developers preparing evidence and chronology"
+      ],
+      "typical_inputs": [
+        "Contract and key correspondence",
+        "Programme, delay, variation, and payment records",
+        "Technical reports, site records, and decision logs"
+      ],
+      "typical_outputs": [
+        "Chronology and evidence map",
+        "Technical exposure assessment",
+        "Claim-readiness and dispute-preparation briefing"
+      ],
+      "legal_boundary": "Not arbitration counsel, litigation counsel, or sworn expert testimony."
+    },
+    {
+      "id": "technical_opinion",
+      "name": "Independent Technical Opinion",
+      "summary": "Confidential second-opinion advisory for boards, law firms, headquarters, and investment committees evaluating Saudi project exposure.",
+      "best_for": [
+        "Board or executive decision support",
+        "Independent technical review before a strategic decision",
+        "External counsel needing engineering perspective"
+      ],
+      "typical_inputs": [
+        "Decision question",
+        "Relevant contract, correspondence, schedule, and technical evidence",
+        "Known constraints, assumptions, and urgency"
+      ],
+      "typical_outputs": [
+        "Independent technical opinion memo",
+        "Assumption and evidence limitation notes",
+        "Executive-ready risk and action framing"
+      ],
+      "legal_boundary": "Advisory opinion only; not sworn expert testimony unless separately approved and verified."
+    },
+    {
+      "id": "vendor_risk_assessment",
+      "name": "Supply Chain and Vendor Risk Assessment",
+      "summary": "Independent review of subcontractor, vendor, and supply-chain capability, risk exposure, and execution readiness.",
+      "best_for": [
+        "Projects with critical subcontractor or vendor dependency",
+        "Pre-award or recovery-stage supply chain decisions",
+        "Boards or project teams concerned about execution capability"
+      ],
+      "typical_inputs": [
+        "Vendor scope and technical obligations",
+        "Delivery history, programme dependencies, and performance records",
+        "Commercial exposure and recovery options"
+      ],
+      "typical_outputs": [
+        "Vendor risk profile",
+        "Dependency and exposure map",
+        "Recommended controls and escalation points"
+      ],
+      "legal_boundary": "Commercial and technical advisory only; not procurement brokerage or vendor endorsement."
+    },
+    {
+      "id": "board_risk_briefing",
+      "name": "Board Risk Briefing",
+      "summary": "Concise executive briefing for boards, investment committees, and headquarters facing Saudi project risk decisions.",
+      "best_for": [
+        "Board-level go/no-go or escalation decisions",
+        "Portfolio exposure reviews",
+        "Sensitive matters requiring discreet technical and commercial framing"
+      ],
+      "typical_inputs": [
+        "Decision context",
+        "Project status and exposure summary",
+        "Material contracts, correspondence, and technical records"
+      ],
+      "typical_outputs": [
+        "Board-ready risk briefing",
+        "Options and consequence framing",
+        "Evidence gaps and next-step recommendations"
+      ],
+      "legal_boundary": "Executive advisory only; not legal advice or investment advice."
+    }
+  ]
+}

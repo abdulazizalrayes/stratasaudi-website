@@ -1,26 +1,107 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.stratasaudi.com/</loc>
-    <lastmod>2026-03-06</lastmod>
-    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/" />
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.stratasaudi.com/services.html</loc>
-    <lastmod>2026-03-06</lastmod>
+    <loc>https://www.stratasaudi.com/about</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/about" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/about" />
+    <lastmod>2026-05-30</lastmod>
     <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/services</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/services" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/services" />
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.stratasaudi.com/insights.html</loc>
-    <lastmod>2026-03-06</lastmod>
+    <loc>https://www.stratasaudi.com/counterparties</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/counterparties" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/counterparties" />
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/why-saudi</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/why-saudi" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/why-saudi" />
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/insights</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/insights" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/insights" />
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.stratasaudi.com/fidic-claims-saudi-arabia.html</loc>
-    <lastmod>2026-03-06</lastmod>
+    <loc>https://www.stratasaudi.com/faq</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/faq" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/faq" />
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/ethics</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/ethics" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/ethics" />
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/contact</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/contact" />
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/privacy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/privacy" />
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/terms</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/terms" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/terms" />
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/mandate-checklist</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/mandate-checklist" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/mandate-checklist" />
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/fidic-claims-saudi-arabia</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/fidic-claims-saudi-arabia" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/fidic-claims-saudi-arabia" />
+    <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

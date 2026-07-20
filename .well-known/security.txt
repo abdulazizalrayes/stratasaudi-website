@@ -1,3 +1,6 @@
-Contact: mailto:advisory@stratasaudi.com
+Contact: advisory@stratasaudi.com
 Preferred-Languages: en, ar
 Canonical: https://www.stratasaudi.com/.well-known/security.txt
+Policy: https://www.stratasaudi.com/privacy
+Hiring: https://www.stratasaudi.com/.well-known/security.txt
+Expires: 2027-06-29T00:00:00Z

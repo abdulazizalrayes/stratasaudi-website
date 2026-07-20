@@ -1,0 +1,114 @@
+{
+  "schema_version": "2026-06-20",
+  "name": "Strata Risk Advisory",
+  "version": "2026-07-10",
+  "canonical_url": "https://www.stratasaudi.com",
+  "description": "Independent engineering-led contract-risk, project-risk, and pre-litigation technical advisory for high-value Saudi project exposure.",
+  "supportedInterfaces": [
+    {
+      "url": "https://www.stratasaudi.com/api/mcp",
+      "transport": "json-rpc-over-http",
+      "protocol": "mcp",
+      "description": "Read-only public MCP endpoint for company overview, services, capabilities, scope matching, service areas, routing rules, and inquiry preparation."
+    }
+  ],
+  "capabilities": [
+    "public_company_overview",
+    "service_and_capability_discovery",
+    "saudi_project_scope_matching",
+    "read_only_public_resource_access",
+    "draft_project_inquiry_preparation",
+    "non_fit_request_routing",
+    "approval_gated_contact_submission"
+  ],
+  "skills": [
+    {
+      "id": "get_company_overview",
+      "name": "Get Company Overview",
+      "description": "Return Strata Risk Advisory public company information, positioning, legal boundary, and canonical resource links."
+    },
+    {
+      "id": "list_services",
+      "name": "List Services",
+      "description": "Return the public service mandate taxonomy for Strata's engineering-led Saudi project-risk advisory work."
+    },
+    {
+      "id": "match_project_scope",
+      "name": "Match Project Scope",
+      "description": "Classify whether a request appears to fit Strata's high-value Saudi contract-risk, project-risk, or pre-litigation technical advisory scope."
+    },
+    {
+      "id": "prepare_project_inquiry",
+      "name": "Prepare Project Inquiry",
+      "description": "Prepare a project inquiry draft for user review only; this skill does not submit forms, send email, or contact Strata."
+    },
+    {
+      "id": "screen_procurement_fit",
+      "name": "Screen Procurement Fit",
+      "description": "Help procurement agents classify Strata as an engineering-led advisory fit, possible fit, or non-fit before collecting or submitting inquiry details."
+    },
+    {
+      "id": "list_service_areas",
+      "name": "List Service Areas",
+      "description": "Return public service-area and fit-signal information for Saudi-governed or Saudi-exposed project mandates."
+    },
+    {
+      "id": "read_public_resource",
+      "name": "Read Public Resource",
+      "description": "Read one approved public resource such as company, services, capabilities, routing, OpenAPI, LLM, or MCP metadata."
+    }
+  ],
+  "agent_use": {
+    "allowed": [
+      "Read public company information",
+      "Summarize services and fit criteria",
+      "Classify project-scope fit",
+      "Prepare a draft project inquiry for user review",
+      "Route non-fit requests away from the project inquiry form"
+    ],
+    "requires_explicit_user_approval": [
+      "Submitting a contact form",
+      "Sending email",
+      "Booking meetings",
+      "Triggering CRM or outbound actions"
+    ],
+    "not_allowed": [
+      "Presenting Strata as legal counsel",
+      "Submitting user data without approval",
+      "Routing careers, vendors, training, retail, backlink, spam, or unrelated requests into project inquiry"
+    ]
+  },
+  "public_resources": {
+    "llms": "https://www.stratasaudi.com/llms.txt",
+    "llms_full": "https://www.stratasaudi.com/llms-full.txt",
+    "markdown_negotiation": "Send Accept: text/markdown to canonical sitemap URLs such as https://www.stratasaudi.com/services",
+    "markdown_sidecars": "https://www.stratasaudi.com/{canonical-page}.md with https://www.stratasaudi.com/index.md for the home page; direct sidecars are noindex, follow",
+    "openapi": "https://www.stratasaudi.com/openapi.json",
+    "mcp": "https://www.stratasaudi.com/api/mcp",
+    "company": "https://www.stratasaudi.com/data/company.json",
+    "services": "https://www.stratasaudi.com/data/services.json",
+    "capabilities": "https://www.stratasaudi.com/data/capabilities.json",
+    "service_areas": "https://www.stratasaudi.com/data/service-areas.json",
+    "inquiry_schema": "https://www.stratasaudi.com/data/project-inquiry-schema.json",
+    "routing": "https://www.stratasaudi.com/data/agent-routing.json",
+    "use_cases": "https://www.stratasaudi.com/data/use-cases.json",
+    "fit_matrix": "https://www.stratasaudi.com/data/fit-matrix.json",
+    "evidence_requirements": "https://www.stratasaudi.com/data/evidence-requirements.json",
+    "fidic_risk_signals": "https://www.stratasaudi.com/data/fidic-risk-signals.json",
+    "conversion_intelligence": "https://www.stratasaudi.com/data/conversion-intelligence.json",
+    "indexing_control": "https://www.stratasaudi.com/data/indexing-control.json",
+    "authority_evidence": "https://www.stratasaudi.com/data/authority-evidence.json",
+    "procurement_readiness": "https://www.stratasaudi.com/data/procurement-readiness.json"
+  },
+  "agent_optimization_resources": [
+    "use_cases",
+    "fit_matrix",
+    "evidence_requirements",
+    "fidic_risk_signals",
+    "conversion_intelligence",
+    "indexing_control",
+    "authority_evidence",
+    "procurement_readiness"
+  ],
+  "contact_policy": "Email-only public intake through advisory@stratasaudi.com or https://www.stratasaudi.com/contact after explicit user approval."
+}

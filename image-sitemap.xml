@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://www.stratasaudi.com/</loc>
+    <image:image>
+      <image:loc>https://www.stratasaudi.com/og-image.png</image:loc>
+      <image:title>Strata Risk Advisory</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/services</loc>
+    <image:image>
+      <image:loc>https://www.stratasaudi.com/og-image.png</image:loc>
+      <image:title>Strata Risk Advisory Services</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/insights</loc>
+    <image:image>
+      <image:loc>https://www.stratasaudi.com/og-image.png</image:loc>
+      <image:title>Strata Risk Advisory Insights</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/fidic-claims-saudi-arabia</loc>
+    <image:image>
+      <image:loc>https://www.stratasaudi.com/og-image.png</image:loc>
+      <image:title>FIDIC Claims Saudi Arabia</image:title>
+    </image:image>
+  </url>
+</urlset>

@@ -1,0 +1,53 @@
+{
+  "schema_version": "2026-06-20",
+  "canonical_url": "https://www.stratasaudi.com",
+  "capabilities": [
+    {
+      "id": "contract_risk_mapping",
+      "name": "Contract Risk Mapping",
+      "description": "Identify technical, commercial, notice, variation, delay, and evidence risks in Saudi-governed project documents."
+    },
+    {
+      "id": "fidic_notice_discipline",
+      "name": "FIDIC Notice and Procedure Discipline",
+      "description": "Assess whether project teams have the technical records, timing discipline, and procedural awareness needed to preserve commercial positions."
+    },
+    {
+      "id": "technical_evidence_mapping",
+      "name": "Technical Evidence Mapping",
+      "description": "Map correspondence, site records, programme updates, and technical evidence into a coherent decision or dispute-readiness structure."
+    },
+    {
+      "id": "delay_variation_exposure",
+      "name": "Delay, Variation, and Disruption Exposure Review",
+      "description": "Review delay, variation, disruption, and causation signals from an engineering-led commercial perspective."
+    },
+    {
+      "id": "pre_litigation_readiness",
+      "name": "Pre-Litigation Readiness",
+      "description": "Prepare technical chronology, evidence gaps, and claim-readiness analysis before legal strategy is finalized."
+    },
+    {
+      "id": "board_decision_support",
+      "name": "Board and Headquarters Decision Support",
+      "description": "Convert complex Saudi project exposure into concise executive risk framing for leadership decisions."
+    },
+    {
+      "id": "law_firm_technical_counterpart",
+      "name": "Law-Firm Technical Counterpart Support",
+      "description": "Support external counsel with technical, engineering, and commercial analysis while preserving the boundary that Strata is not legal counsel."
+    },
+    {
+      "id": "vendor_supply_chain_risk",
+      "name": "Vendor and Supply-Chain Risk Review",
+      "description": "Assess subcontractor, vendor, and supply-chain performance exposure for complex Saudi projects."
+    }
+  ],
+  "excluded_capabilities": [
+    "Legal advice",
+    "Legal representation",
+    "Arbitration or litigation advocacy",
+    "Sworn expert testimony unless separately verified and approved",
+    "Recruitment, training, internships, vendor sales, retail support, paid backlinks, or link exchanges"
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "schema_version": "2026-06-29",
+  "canonical_url": "https://www.stratasaudi.com/data/indexing-control.json",
+  "purpose": "Operational indexation controls for Strata public pages and machine-readable discovery resources.",
+  "canonical_domain": "https://www.stratasaudi.com",
+  "must_index_or_fetch": [
+    "/",
+    "/about",
+    "/services",
+    "/counterparties",
+    "/why-saudi",
+    "/insights",
+    "/faq",
+    "/ethics",
+    "/contact",
+    "/mandate-checklist",
+    "/fidic-claims-saudi-arabia",
+    "/llms.txt",
+    "/llms-full.txt",
+    "/openapi.json",
+    "/.well-known/agent-card.json",
+    "/.well-known/mcp.json",
+    "/data/company.json",
+    "/data/services.json",
+    "/data/capabilities.json",
+    "/data/service-areas.json",
+    "/data/agent-routing.json",
+    "/data/fit-matrix.json",
+    "/data/fidic-risk-signals.json"
+  ],
+  "must_not_index": [
+    "/thank-you",
+    "/api/contact",
+    "/tmp/",
+    "/logs/",
+    "/ops/",
+    "/paperclip/",
+    "/project/",
+    "/project%202/"
+  ],
+  "old_url_consolidation": [
+    "Legacy .html routes should redirect or canonicalize to extensionless routes.",
+    "Vercel preview or deployment URLs must never be used as public website addresses."
+  ],
+  "search_console_checks": [
+    "Inspect canonical pages after major sitemap or schema updates.",
+    "Confirm old .html URLs consolidate to extensionless canonicals.",
+    "Confirm no Vercel preview URLs are indexed.",
+    "Submit sitemap after major content or discovery-file additions."
+  ]
+}

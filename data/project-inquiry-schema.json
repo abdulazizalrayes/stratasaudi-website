@@ -1,0 +1,113 @@
+{
+  "schema_version": "2026-06-20",
+  "purpose": "Prepare a project inquiry package for human review. This schema must not be used by agents to submit forms or email Strata without explicit user approval.",
+  "canonical_submission_url": "https://www.stratasaudi.com/contact",
+  "approval_required_before_submission": true,
+  "fields": {
+    "name": {
+      "type": "string",
+      "required_for_submission": true,
+      "agent_collection_note": "Only collect if the user wants to prepare a real inquiry."
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "required_for_submission": true,
+      "agent_collection_note": "Do not transmit without explicit user approval."
+    },
+    "company": {
+      "type": "string",
+      "required_for_submission": true
+    },
+    "role": {
+      "type": "string",
+      "required_for_submission": false
+    },
+    "country": {
+      "type": "string",
+      "required_for_submission": true
+    },
+    "counterpartyType": {
+      "type": "string",
+      "allowed_values": [
+        "epc",
+        "developer",
+        "law_firm",
+        "investor",
+        "board",
+        "other"
+      ],
+      "required_for_submission": true
+    },
+    "mandateType": {
+      "type": "string",
+      "allowed_values": [
+        "pre_contract_risk_review",
+        "project_risk_oversight",
+        "pre_litigation_advisory",
+        "technical_opinion",
+        "vendor_risk_assessment",
+        "board_risk_briefing"
+      ],
+      "required_for_submission": true
+    },
+    "projectStage": {
+      "type": "string",
+      "allowed_values": [
+        "pre_tender",
+        "tender",
+        "pre_contract_award",
+        "live_project",
+        "claim_dispute_pre_litigation"
+      ],
+      "required_for_submission": false
+    },
+    "projectValueBand": {
+      "type": "string",
+      "allowed_values": [
+        "under_50m",
+        "50m_250m",
+        "250m_500m",
+        "500m_plus"
+      ],
+      "required_for_submission": false
+    },
+    "urgency": {
+      "type": "string",
+      "allowed_values": [
+        "immediate",
+        "this_month",
+        "this_quarter",
+        "monitoring"
+      ],
+      "required_for_submission": false
+    },
+    "message": {
+      "type": "string",
+      "required_for_submission": true,
+      "recommended_contents": [
+        "Saudi project context",
+        "Contract or delivery stage",
+        "Technical/commercial pressure point",
+        "Decision needed",
+        "Urgency",
+        "Known confidentiality constraints"
+      ]
+    },
+    "confidentialityRequired": {
+      "type": "boolean",
+      "required_for_submission": false
+    },
+    "conflictCheckAcknowledged": {
+      "type": "boolean",
+      "required_for_submission": true,
+      "required_value": true
+    }
+  },
+  "agent_rules": [
+    "Prepare only; do not submit unless the user explicitly approves the final submission.",
+    "Route non-fit requests away from the project inquiry form.",
+    "Do not imply Strata provides legal advice or legal representation.",
+    "Do not include privileged, confidential, or personal data in a draft unless the user provides it and approves its use."
+  ]
+}

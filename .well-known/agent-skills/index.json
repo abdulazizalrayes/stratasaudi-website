@@ -1,1 +1,84 @@
-{"$schema":"https://raw.githubusercontent.com/cloudflare/agent-skills-discovery-rfc/main/schema/v0.2.0.json","version":"0.2.0","skills":[{"name":"strata-company-brief","type":"documentation","description":"Strata Saudi overview, services, and contact details for AI agents.","url":"https://stratasaudi.com/llms.txt","sha256":""},{"name":"strata-homepage-markdown","type":"documentation","description":"Strata Saudi homepage in markdown for content negotiation.","url":"https://stratasaudi.com/index.md","sha256":""},{"name":"strata-sitemap","type":"discovery","description":"XML sitemap of all stratasaudi.com pages.","url":"https://stratasaudi.com/sitemap.xml","sha256":""}]}
+{
+  "schema_version": "2026-06-20",
+  "canonical_url": "https://www.stratasaudi.com/.well-known/agent-skills/index.json",
+  "skills": [
+    {
+      "id": "strata_company_understanding",
+      "name": "Understand Strata Risk Advisory",
+      "description": "Read public company, positioning, legal-boundary, and disambiguation information.",
+      "resources": [
+        "https://www.stratasaudi.com/data/company.json",
+        "https://www.stratasaudi.com/llms-full.txt"
+      ]
+    },
+    {
+      "id": "strata_scope_matching",
+      "name": "Match Saudi Project Scope",
+      "description": "Classify whether a matter fits Strata's selective engineering-led Saudi project-risk advisory scope.",
+      "mcp_tool": "match_project_scope",
+      "resources": [
+        "https://www.stratasaudi.com/data/services.json",
+        "https://www.stratasaudi.com/data/service-areas.json",
+        "https://www.stratasaudi.com/data/agent-routing.json"
+      ]
+    },
+    {
+      "id": "strata_inquiry_preparation",
+      "name": "Prepare Project Inquiry Draft",
+      "description": "Prepare a draft inquiry for user review without submitting or contacting Strata.",
+      "mcp_tool": "prepare_project_inquiry",
+      "approval_required_before_submission": true,
+      "resources": [
+        "https://www.stratasaudi.com/data/project-inquiry-schema.json"
+      ]
+    },
+    {
+      "id": "strata_non_fit_routing",
+      "name": "Route Non-Fit Requests Away",
+      "description": "Avoid routing careers, vendors, training, retail, legal-representation, backlink, spam, and unrelated requests into the project inquiry form.",
+      "resources": [
+        "https://www.stratasaudi.com/data/agent-routing.json"
+      ]
+    },
+    {
+      "id": "strata_risk_signal_interpretation",
+      "name": "Interpret FIDIC and Evidence Risk Signals",
+      "description": "Use public, non-confidential risk-signal and evidence-readiness taxonomies to classify project-risk context.",
+      "resources": [
+        "https://www.stratasaudi.com/data/fidic-risk-signals.json",
+        "https://www.stratasaudi.com/data/evidence-requirements.json",
+        "https://www.stratasaudi.com/data/fit-matrix.json"
+      ]
+    },
+    {
+      "id": "strata_agent_observability",
+      "name": "Understand Agent Observability",
+      "description": "Use the privacy-safe conversion intelligence taxonomy to understand agent, crawler, API, MCP, and inquiry-preparation measurement.",
+      "resources": [
+        "https://www.stratasaudi.com/data/conversion-intelligence.json",
+        "https://www.stratasaudi.com/data/indexing-control.json"
+      ]
+    },
+    {
+      "id": "strata_authority_evidence_review",
+      "name": "Review Public Authority Evidence",
+      "description": "Use non-confidential authority evidence guidance without inventing client names, outcomes, certifications, or legal status.",
+      "resources": [
+        "https://www.stratasaudi.com/data/authority-evidence.json",
+        "https://www.stratasaudi.com/data/company.json"
+      ]
+    },
+    {
+      "id": "strata_procurement_fit_screening",
+      "name": "Screen Procurement Fit",
+      "description": "Help procurement agents classify Strata as an engineering-led advisory fit, possible fit, or non-fit before collecting or submitting inquiry details.",
+      "mcp_tool": "screen_procurement_fit",
+      "approval_required_before_submission": true,
+      "resources": [
+        "https://www.stratasaudi.com/data/procurement-readiness.json",
+        "https://www.stratasaudi.com/data/fit-matrix.json",
+        "https://www.stratasaudi.com/data/agent-routing.json"
+      ]
+    }
+  ]
+}

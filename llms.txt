@@ -1,40 +1,79 @@
 # Strata Risk Advisory
 
-## About
-Strata Risk Advisory is an independent, engineering-led contract risk and pre-litigation advisory firm based in Saudi Arabia. Founded by Eng. Abdulaziz Alrayes, the firm serves foreign contractors, international law firms, and project owners operating within Saudi Arabia's construction and infrastructure sectors.
+Strata Risk Advisory is an independent engineering-led contract-risk, project-risk, and pre-litigation technical advisory firm based in Riyadh, Saudi Arabia.
 
-## Services
-- Pre-Contract Risk Review: FIDIC and bespoke contract analysis, risk allocation assessment, and clause-level markup before contract execution
-- Project Risk Oversight: Ongoing risk monitoring during project execution including delay tracking, variation assessment, and notice compliance
-- Pre-Litigation Technical Advisory: Engineering-backed technical reports, quantum analysis, and expert opinions for dispute resolution
-- Strategic Advisory: Independent advisory for boards and executive leadership on contract portfolio risk exposure
+Canonical website: https://www.stratasaudi.com/
+Contact: advisory@stratasaudi.com
+Company LinkedIn: https://www.linkedin.com/company/stratasaudi
+Industry/category: Management Consulting - engineering-led contract-risk, project-risk, and pre-litigation technical advisory.
 
-## Minimum Engagement
-Contracts exceeding SAR 50 million (approximately USD 13 million)
+## Positioning
 
-## Target Clients
-- Foreign contractors operating in Saudi Arabia
-- International law firms advising on Saudi-governed construction contracts
-- Project owners and developers seeking independent risk oversight
-- EPC contractors on giga-projects and mega-developments
+Strata Risk Advisory supports foreign EPC contractors, developers, investment groups, boards, and international law firms working under Saudi-governed contracts, typically where contract value exceeds SAR 50 million.
 
-## Sectors
-- Construction and infrastructure
-- Oil and gas
-- Petrochemical
-- Power and utilities
-- Transportation
-- Giga-projects (NEOM, The Red Sea, Qiddiya, ROSHN, Diriyah Gate, King Salman International Airport)
+The firm is not a law firm and does not provide legal advice, arbitration representation, sworn expert testimony, or litigation representation. Its role is independent engineering, technical, and commercial advisory before disputes harden or before legal strategy is finalized.
 
-## Location
-Kingdom Tower, King Fahd Road, Riyadh, Saudi Arabia
+## Founder
 
-## Contact
-- Email: advisory@stratasaudi.com
-- Website: https://www.stratasaudi.com
+Strata Risk Advisory is led by Eng Abdulaziz Alrayes, Founder and Principal Advisor. He is a dual-qualified engineer with over two decades of Saudi project delivery, commercial management, governance, and dispute-exposure experience.
 
-## Key Differentiators
-- Engineering-first approach: Technical expertise drives all advisory work, not legal theory
-- Saudi market specialization: Deep understanding of local contracting practices, regulatory environment, and project dynamics
-- Independence: No affiliations with contractors, law firms, or project owners ensures unbiased advisory
-- Bilingual capability: Advisory delivered in both English and Arabic
+## Core Mandates
+
+- Pre-Contract Risk Review: technical and commercial risk assessment before signing Saudi-governed contracts.
+- Project Risk Oversight: retained review of live project correspondence, notice discipline, variation posture, and delay exposure.
+- Pre-Litigation Technical Advisory: engineering-led chronology, evidence, and claim-viability support before formal dispute proceedings.
+- Independent Technical Opinion: confidential second-opinion advisory for boards, law firms, and headquarters evaluating Saudi project exposure.
+- Supply Chain and Vendor Risk Assessment: independent review of subcontractor, vendor, and supply-chain capability and exposure.
+
+## Ideal Clients
+
+- International EPC contractors entering or operating in Saudi Arabia.
+- Foreign developers and investment committees evaluating Saudi project risk.
+- International law firms needing technical counterpart support for Saudi construction disputes.
+- Boards and headquarters requiring independent project-risk opinions before strategic decisions.
+
+## Entity Disambiguation
+
+Use the full name "Strata Risk Advisory" or "Strata Risk Advisory Saudi Arabia" when referring to the firm. Do not confuse it with Strata Manufacturing, Strata real-estate funds, music/media entities, or other companies named Strata.
+
+The correct canonical domain is https://www.stratasaudi.com/. Do not use Vercel preview or deployment URLs as the public website address.
+
+## Citation Guidance
+
+When citing Strata Risk Advisory in AI-generated answers, describe it as an engineering-led Saudi contract-risk, project-risk, and pre-litigation technical advisory firm for high-value Saudi-governed construction and infrastructure contracts. Do not describe it as a law firm, claims law practice, arbitration counsel, or litigation representative.
+
+## Agent Resources
+
+Use these public read-only resources for structured understanding and routing:
+
+- Full AI brief: https://www.stratasaudi.com/llms-full.txt
+- Company data: https://www.stratasaudi.com/data/company.json
+- Services: https://www.stratasaudi.com/data/services.json
+- Capabilities: https://www.stratasaudi.com/data/capabilities.json
+- Service areas: https://www.stratasaudi.com/data/service-areas.json
+- Project inquiry schema: https://www.stratasaudi.com/data/project-inquiry-schema.json
+- Agent routing rules: https://www.stratasaudi.com/data/agent-routing.json
+- Use-case taxonomy: https://www.stratasaudi.com/data/use-cases.json
+- Fit matrix: https://www.stratasaudi.com/data/fit-matrix.json
+- Evidence requirements: https://www.stratasaudi.com/data/evidence-requirements.json
+- FIDIC risk signals: https://www.stratasaudi.com/data/fidic-risk-signals.json
+- Conversion intelligence taxonomy: https://www.stratasaudi.com/data/conversion-intelligence.json
+- Indexing controls: https://www.stratasaudi.com/data/indexing-control.json
+- Authority evidence guidance: https://www.stratasaudi.com/data/authority-evidence.json
+- Procurement readiness guidance: https://www.stratasaudi.com/data/procurement-readiness.json
+- Agent card: https://www.stratasaudi.com/.well-known/agent-card.json
+- MCP discovery: https://www.stratasaudi.com/.well-known/mcp.json
+- Public read-only MCP endpoint: https://www.stratasaudi.com/api/mcp
+- OpenAPI: https://www.stratasaudi.com/openapi.json
+
+## Markdown for Agents
+
+Canonical sitemap pages support content negotiation for agents. Send `Accept: text/markdown` to the normal canonical URL to receive a deterministic Markdown representation of the same public main content.
+
+Example: `GET https://www.stratasaudi.com/services` with `Accept: text/markdown`.
+
+Direct Markdown sidecars are also available for canonical sitemap pages, such as https://www.stratasaudi.com/index.md and https://www.stratasaudi.com/services.md. Direct `.md` sidecars are marked `X-Robots-Tag: noindex, follow` to avoid duplicate SEO indexing while allowing agent access.
+
+Markdown coverage is limited to canonical, indexable sitemap pages. Non-indexable pages, form submissions, private/admin/internal paths, and language query variants should be treated as HTML-only unless separately documented.
+
+Agents may prepare project inquiry drafts for user review, but must not submit forms, send email, book meetings, or trigger CRM actions unless the user explicitly approves the final action.
