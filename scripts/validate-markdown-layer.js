@@ -90,11 +90,21 @@ function validateJsonAndMetadata() {
     assert(markdown.includes(`canonical: "${SITE_ORIGIN}${page.path === "/" ? "/" : page.path}"`), `${page.path}: canonical metadata missing`);
     assert(markdown.includes('language: "en"'), `${page.path}: language metadata missing`);
     assert(markdown.includes(`content_signal: "${CONTENT_SIGNAL}"`), `${page.path}: Content-Signal metadata missing`);
+    assert(markdown.includes("generated_from_sitemap: true"), `${page.path}: sitemap provenance missing`);
+    assert(markdown.includes("approval_required_before_contact: true"), `${page.path}: approval metadata missing`);
+    assert(markdown.includes("not_a_law_firm: true"), `${page.path}: legal-boundary metadata missing`);
     assert(markdown.includes("## Agent Summary"), `${page.path}: agent summary missing`);
+    assert(markdown.includes("## Agent Use Contract"), `${page.path}: agent use contract missing`);
+    assert(markdown.includes("## Structured Resources For Agents"), `${page.path}: structured resource links missing`);
+    assert(markdown.includes("## Source Provenance"), `${page.path}: source provenance missing`);
+    assert(markdown.includes("must not submit forms"), `${page.path}: no-submission rule missing`);
+    assert(markdown.includes("https://www.stratasaudi.com/data/agent-routing.json"), `${page.path}: agent routing resource missing`);
     assert(markdown.includes("## Public JSON-LD Structured Data"), `${page.path}: public JSON-LD block missing`);
     assert(!markdown.includes("First Name"), `${page.path}: form field leaked into Markdown`);
     assert(!markdown.includes("Last Name"), `${page.path}: form field leaked into Markdown`);
     assert(!markdown.includes("+966XXXXXXXXX"), `${page.path}: phone placeholder leaked into Markdown`);
+    assert(!markdown.includes("Email advisory@stratasaudi.com"), `${page.path}: contact bar leaked into Markdown`);
+    assert(!markdown.includes("Home /"), `${page.path}: breadcrumb chrome leaked into Markdown`);
   }
 }
 
@@ -123,6 +133,7 @@ async function validateWorkerBehavior() {
   assert.strictEqual(markdown.headers.vary, "Accept");
   assert.strictEqual(markdown.headers["content-language"], "en");
   assert.strictEqual(markdown.headers["content-signal"], CONTENT_SIGNAL);
+  assert.strictEqual(markdown.headers["x-content-type-options"], "nosniff");
   assert.strictEqual(markdown.headers["content-location"], `${SITE_ORIGIN}/services.md`);
   assert.strictEqual(markdown.headers.link, `<${SITE_ORIGIN}/services>; rel="canonical"`);
   assert(markdown.body.startsWith("---\n"), "negotiated Markdown body should use generated sidecar");

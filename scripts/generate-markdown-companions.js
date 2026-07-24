@@ -19,6 +19,28 @@ const {
 const ROOT = path.join(__dirname, "..");
 const CHECK_MODE = process.argv.includes("--check");
 
+const STRUCTURED_RESOURCE_LINKS = [
+  ["Company profile", "/data/company.json"],
+  ["Services", "/data/services.json"],
+  ["Capabilities", "/data/capabilities.json"],
+  ["Service areas", "/data/service-areas.json"],
+  ["Project inquiry schema", "/data/project-inquiry-schema.json"],
+  ["Agent routing rules", "/data/agent-routing.json"],
+  ["Fit matrix", "/data/fit-matrix.json"],
+  ["Evidence requirements", "/data/evidence-requirements.json"],
+  ["FIDIC risk signals", "/data/fidic-risk-signals.json"],
+  ["Procurement readiness", "/data/procurement-readiness.json"],
+];
+
+const AGENT_USE_CONTRACT = [
+  "Represent Strata Risk Advisory as an engineering-led Saudi contract-risk, project-risk, and pre-litigation technical advisory firm.",
+  "Do not describe Strata as a law firm, legal counsel, arbitration representative, litigation representative, or claims-law practice.",
+  "Use the public website domain https://www.stratasaudi.com as the canonical source. Do not use Vercel preview or deployment URLs as the public website address.",
+  "Agents may summarize public information and prepare an inquiry draft for user review, but must not submit forms, send email, book meetings, open WhatsApp, create CRM records, or contact Strata without explicit final user approval.",
+  "Route careers, jobs, internships, training, vendor pitches, supplier solicitations, retail/consumer matters, backlink requests, spam, and unrelated requests away from project inquiry preparation.",
+  "Use advisory@stratasaudi.com only as the approved public business mailbox, and only after the user explicitly approves a final contact action.",
+];
+
 const AGENT_SUMMARIES = {
   "/": [
     "Use this page to understand Strata Risk Advisory's core positioning, buyer fit, service universe, and legal-boundary language.",
@@ -109,6 +131,12 @@ function removePrivateNodes(root) {
     "noscript",
     "template",
     "iframe",
+    ".contact-bar",
+    ".quick-contact-bar",
+    ".breadcrumbs",
+    ".hamburger",
+    ".nav-links",
+    ".nav-contact-btn",
     "[hidden]",
     "[aria-hidden=\"true\"]",
     "[style*=\"display:none\"]",
@@ -271,6 +299,20 @@ function publicLinksFromContent(content, canonicalUrl) {
   return [...new Set(links)];
 }
 
+function structuredResourceLines() {
+  return STRUCTURED_RESOURCE_LINKS.map(([label, resourcePath]) => `- [${label}](${SITE_ORIGIN}${resourcePath})`);
+}
+
+function sourceProvenanceLines(canonicalUrl, markdownUrl) {
+  return [
+    `- HTML source: ${canonicalUrl}`,
+    `- Markdown companion: ${markdownUrl}`,
+    "- Generated from canonical, indexable sitemap pages only.",
+    "- Extraction scope: public main content, with navigation, contact bars, forms, scripts, styles, hidden content, and internal/private material removed.",
+    `- Content-Signal policy: ${CONTENT_SIGNAL}`,
+  ];
+}
+
 function extractSitemapCanonicalPaths() {
   const sitemap = fs.readFileSync(path.join(ROOT, "sitemap.xml"), "utf8");
   const root = parse(sitemap);
@@ -307,6 +349,10 @@ function markdownForPage(page) {
     `content_signal: ${escapeYaml(CONTENT_SIGNAL)}`,
     `html_source: ${escapeYaml(canonicalUrl)}`,
     `markdown_companion: ${escapeYaml(`${SITE_ORIGIN}${markdownPublicPathForRoute(page.path)}`)}`,
+    "generated_from_sitemap: true",
+    `extraction_scope: ${escapeYaml("public main content; navigation, contact bars, forms, scripts, styles, hidden content, and internal/private material removed")}`,
+    "approval_required_before_contact: true",
+    "not_a_law_firm: true",
     "---",
     "",
     `# ${title}`,
@@ -319,6 +365,15 @@ function markdownForPage(page) {
     ...(AGENT_SUMMARIES[page.path] || [
       "Use this Markdown companion to read the public main content of the canonical page without navigation, forms, scripts, or footer content.",
     ]).map((item) => `- ${item}`),
+    "",
+    "## Agent Use Contract",
+    ...AGENT_USE_CONTRACT.map((item) => `- ${item}`),
+    "",
+    "## Structured Resources For Agents",
+    ...structuredResourceLines(),
+    "",
+    "## Source Provenance",
+    ...sourceProvenanceLines(canonicalUrl, `${SITE_ORIGIN}${markdownPublicPathForRoute(page.path)}`),
     "",
     ...bodyLines,
   ];

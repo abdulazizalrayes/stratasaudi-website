@@ -76,4 +76,6 @@ Direct Markdown sidecars are also available for canonical sitemap pages, such as
 
 Markdown coverage is limited to canonical, indexable sitemap pages. Non-indexable pages, form submissions, private/admin/internal paths, and language query variants should be treated as HTML-only unless separately documented.
 
+Each Markdown companion includes an agent-use contract, structured-resource links, and source provenance. Use those sections to preserve Strata's engineering-led advisory positioning, legal boundary, approval requirement, and non-fit routing rules.
+
 Agents may prepare project inquiry drafts for user review, but must not submit forms, send email, book meetings, or trigger CRM actions unless the user explicitly approves the final action.

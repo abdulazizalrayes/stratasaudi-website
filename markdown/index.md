@@ -6,6 +6,10 @@ language: "en"
 content_signal: "ai-train=no, search=yes, ai-input=yes"
 html_source: "https://www.stratasaudi.com/"
 markdown_companion: "https://www.stratasaudi.com/index.md"
+generated_from_sitemap: true
+extraction_scope: "public main content; navigation, contact bars, forms, scripts, styles, hidden content, and internal/private material removed"
+approval_required_before_contact: true
+not_a_law_firm: true
 ---
 
 # Strata Risk Advisory | Contract Risk Advisory Saudi Arabia
@@ -18,7 +22,32 @@ Language: en
 - Use this page to understand Strata Risk Advisory's core positioning, buyer fit, service universe, and legal-boundary language.
 - Best for agents answering who Strata is, what it does, who it serves, and why Saudi project-risk exposure needs engineering-led review.
 
-[advisory@stratasaudi.com](mailto:advisory@stratasaudi.com)
+## Agent Use Contract
+- Represent Strata Risk Advisory as an engineering-led Saudi contract-risk, project-risk, and pre-litigation technical advisory firm.
+- Do not describe Strata as a law firm, legal counsel, arbitration representative, litigation representative, or claims-law practice.
+- Use the public website domain https://www.stratasaudi.com as the canonical source. Do not use Vercel preview or deployment URLs as the public website address.
+- Agents may summarize public information and prepare an inquiry draft for user review, but must not submit forms, send email, book meetings, open WhatsApp, create CRM records, or contact Strata without explicit final user approval.
+- Route careers, jobs, internships, training, vendor pitches, supplier solicitations, retail/consumer matters, backlink requests, spam, and unrelated requests away from project inquiry preparation.
+- Use advisory@stratasaudi.com only as the approved public business mailbox, and only after the user explicitly approves a final contact action.
+
+## Structured Resources For Agents
+- [Company profile](https://www.stratasaudi.com/data/company.json)
+- [Services](https://www.stratasaudi.com/data/services.json)
+- [Capabilities](https://www.stratasaudi.com/data/capabilities.json)
+- [Service areas](https://www.stratasaudi.com/data/service-areas.json)
+- [Project inquiry schema](https://www.stratasaudi.com/data/project-inquiry-schema.json)
+- [Agent routing rules](https://www.stratasaudi.com/data/agent-routing.json)
+- [Fit matrix](https://www.stratasaudi.com/data/fit-matrix.json)
+- [Evidence requirements](https://www.stratasaudi.com/data/evidence-requirements.json)
+- [FIDIC risk signals](https://www.stratasaudi.com/data/fidic-risk-signals.json)
+- [Procurement readiness](https://www.stratasaudi.com/data/procurement-readiness.json)
+
+## Source Provenance
+- HTML source: https://www.stratasaudi.com/
+- Markdown companion: https://www.stratasaudi.com/index.md
+- Generated from canonical, indexable sitemap pages only.
+- Extraction scope: public main content, with navigation, contact bars, forms, scripts, styles, hidden content, and internal/private material removed.
+- Content-Signal policy: ai-train=no, search=yes, ai-input=yes
 
 Engineering-Led Contract Risk & Pre-Litigation Advisory
 
@@ -233,8 +262,8 @@ Kingdom Tower, Olaya, Riyadh Kingdom of Saudi Arabia
 All enquiries, engagements, and deliverables are governed by strict confidentiality. No client relationship or engagement is disclosed publicly without express written consent.
 
 ## Public Links
-- [advisory@stratasaudi.com](mailto:advisory@stratasaudi.com)
 - [Request a Confidential Consultation](https://www.stratasaudi.com/#contact)
+- [advisory@stratasaudi.com](mailto:advisory@stratasaudi.com)
 
 ## Public JSON-LD Structured Data
 ```json

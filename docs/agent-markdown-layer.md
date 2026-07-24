@@ -64,6 +64,9 @@ It preserves:
 - canonical URL
 - language
 - Markdown-only agent summaries that explain the correct use of each companion page
+- Markdown-only agent use contract covering positioning, legal boundary, approval requirements, and non-fit routing
+- source provenance for the HTML source, Markdown sidecar, extraction scope, sitemap basis, and Content-Signal policy
+- links to the canonical structured resources agents should prefer for routing and inquiry preparation
 - headings, paragraphs, lists, details, tables, blockquotes, and code blocks
 - public links
 - images with meaningful alt text
@@ -130,6 +133,7 @@ Expected Markdown headers:
 - `Content-Language: en`
 - `Content-Signal: ai-train=no, search=yes, ai-input=yes`
 - `Link: <https://www.stratasaudi.com/{page}>; rel="canonical"`
+- `X-Content-Type-Options: nosniff`
 - direct `.md` only: `X-Robots-Tag: noindex, follow`
 
 ## Copy Pattern For Other Companies
