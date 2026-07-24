@@ -136,6 +136,13 @@ async function main() {
   const bingIndexNow = await auditBingAndIndexNow();
   const htmlBytes = pages.reduce((sum, row) => sum + row.html_bytes, 0);
   const markdownBytes = pages.reduce((sum, row) => sum + row.markdown_bytes, 0);
+  const notes = [
+    "Search Console status still requires UI/API review because Google processing is asynchronous.",
+    "Direct Markdown sidecars should remain noindex, follow; canonical HTML remains the indexable surface.",
+  ];
+  if (!bingIndexNow.bing_site_auth_ok) {
+    notes.push("BingSiteAuth.xml requires the exact Bing-provided XML value in Vercel as BING_SITE_AUTH_XML before it can return 200.");
+  }
   const failures = [
     ...localChecks.filter((check) => !check.ok).map((check) => `local check failed: ${check.command}`),
     ...pages
@@ -160,11 +167,7 @@ async function main() {
         failures,
         pages,
         discovery,
-        notes: [
-          "Search Console status still requires UI/API review because Google processing is asynchronous.",
-          "Direct Markdown sidecars should remain noindex, follow; canonical HTML remains the indexable surface.",
-          "BingSiteAuth.xml requires the exact Bing-provided XML value in Vercel as BING_SITE_AUTH_XML before it can return 200.",
-        ],
+        notes,
       },
       null,
       2,
