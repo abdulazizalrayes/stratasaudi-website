@@ -1,6 +1,5 @@
 const net = require("net");
 const tls = require("tls");
-const { hasHubSpotConfig, syncLeadToHubSpot } = require("../lib/hubspot-client");
 const { APPROVED_BUSINESS_MAILBOX } = require("../lib/private-email-client");
 
 const MAX_BODY_BYTES = 32 * 1024;
@@ -537,11 +536,6 @@ async function sendWebhook(payload) {
   }
 }
 
-async function sendHubSpot(payload) {
-  if (!hasHubSpotConfig()) return;
-  await syncLeadToHubSpot(payload);
-}
-
 async function sendGa4MeasurementProtocolEvent(payload) {
   const measurementId = process.env.GA_MEASUREMENT_ID;
   const apiSecret = process.env.GA_API_SECRET;
@@ -673,14 +667,13 @@ module.exports = async (req, res) => {
 
       const auxiliaryResults = await Promise.allSettled([
         sendWebhook(payload),
-        sendHubSpot(payload),
         sendGa4MeasurementProtocolEvent(payload),
       ]);
 
       auxiliaryResults.forEach((result, index) => {
         if (result.status === "rejected") {
           console.warn("strata_contact_auxiliary_delivery_warning", {
-            target: ["webhook", "hubspot", "ga4"][index],
+            target: ["webhook", "ga4"][index],
             message: result.reason && result.reason.message ? result.reason.message : "Unknown error",
           });
         }
