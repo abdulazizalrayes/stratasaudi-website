@@ -5,6 +5,8 @@ const path = require("path");
 
 const ROOT = path.join(__dirname, "..");
 const CANONICAL_ORIGIN = "https://www.stratasaudi.com";
+const EXPECTED_PROJECT_ID = "prj_G5hsWnWwyIVPnLjGb9sf8eCGj3Lj";
+const EXPECTED_ORG_ID = "team_AnOdxEeUwCwUtPdqTk5I1Dkt";
 const REQUIRED_ROUTES = new Map([
   ["/api/contact", "/api/lead-intake.js"],
   ["/api/mcp", "/api/mcp.js"],
@@ -84,8 +86,12 @@ function main() {
   const builds = buildSources(vercelConfig);
 
   expect(projectConfig.projectName === "stratasaudi-website", ".vercel/project.json: unexpected project name");
-  expect(projectConfig.settings.rootDirectory === null, "Vercel project root should remain repository root");
-  expect(projectConfig.settings.nodeVersion === "24.x", "Vercel Node version should be 24.x");
+  expect(projectConfig.projectId === EXPECTED_PROJECT_ID, ".vercel/project.json: unexpected project id");
+  expect(projectConfig.orgId === EXPECTED_ORG_ID, ".vercel/project.json: unexpected organization id");
+  if (projectConfig.settings) {
+    expect(projectConfig.settings.rootDirectory === null, "Vercel project root should remain repository root");
+    expect(projectConfig.settings.nodeVersion === "24.x", "Vercel Node version should be 24.x");
+  }
   expect(vercelConfig.name === "strata-saudi-website", "vercel.json: deployment name mismatch");
   expect(vercelConfig.version === 2, "vercel.json: version must be 2");
 

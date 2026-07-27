@@ -24,7 +24,25 @@ async function readBody(req) {
   for await (const chunk of req) chunks.push(Buffer.isBuffer(chunk) ? chunk : Buffer.from(String(chunk)));
   const raw = Buffer.concat(chunks).toString("utf8");
   if (!raw) return {};
-  return JSON.parse(raw);
+  try {
+    return JSON.parse(raw);
+  } catch (_error) {
+    throw rpcError(-32700, "Parse error.");
+  }
+}
+
+function rpcError(code, message) {
+  const error = new Error(message);
+  error.rpcCode = code;
+  return error;
+}
+
+function jsonRpcError(id, code, message) {
+  return {
+    jsonrpc: "2.0",
+    id,
+    error: { code, message },
+  };
 }
 
 function toolDefinitions() {
@@ -169,6 +187,9 @@ function callTool(name, args, req) {
   }
   if (name === "read_public_resource") {
     const resourceId = args && args.resource_id;
+    if (!resourceId || typeof resourceId !== "string") {
+      throw rpcError(-32602, "Invalid params: resource_id is required.");
+    }
     logAgentEvent("mcp_resource_read", {
       resource_id: resourceId,
       tool_name: name,
@@ -179,10 +200,10 @@ function callTool(name, args, req) {
     if (json) return json;
     const text = readTextResource(resourceId);
     if (text) return { resource_id: resourceId, text };
-    throw new Error("Unknown public resource.");
+    throw rpcError(-32602, "Invalid params: unknown public resource.");
   }
   if (name === "list_capabilities") return listCapabilities();
-  throw new Error("Unknown tool.");
+  throw rpcError(-32602, "Invalid params: unknown tool.");
 }
 
 function asMcpContent(payload) {
@@ -190,6 +211,9 @@ function asMcpContent(payload) {
 }
 
 function handleJsonRpc(body, req) {
+  if (!body || typeof body !== "object" || Array.isArray(body) || typeof body.method !== "string") {
+    throw rpcError(-32600, "Invalid Request.");
+  }
   const id = Object.prototype.hasOwnProperty.call(body, "id") ? body.id : null;
   if (body.method === "initialize") {
     return {
@@ -216,6 +240,12 @@ function handleJsonRpc(body, req) {
   if (body.method === "tools/call") {
     const name = body.params && body.params.name;
     const args = (body.params && body.params.arguments) || {};
+    if (!name || typeof name !== "string") {
+      throw rpcError(-32602, "Invalid params: tool name is required.");
+    }
+    if (!args || typeof args !== "object" || Array.isArray(args)) {
+      throw rpcError(-32602, "Invalid params: arguments must be an object.");
+    }
     const result = callTool(name, args, req);
     return { jsonrpc: "2.0", id, result: { content: asMcpContent(result), isError: false } };
   }
@@ -236,10 +266,13 @@ function handleJsonRpc(body, req) {
 
   if (body.method === "resources/read") {
     const uri = body.params && body.params.uri;
+    if (!uri || typeof uri !== "string") {
+      throw rpcError(-32602, "Invalid params: resource uri is required.");
+    }
     const resource = require("../lib/agent-public-data")
       .listPublicResources()
       .find((item) => item.uri === uri || item.path === uri || item.id === uri);
-    if (!resource) throw new Error("Unknown resource.");
+    if (!resource) throw rpcError(-32602, "Invalid params: unknown resource.");
     logAgentEvent("mcp_resource_read", {
       resource_id: resource.id,
       user_agent: req.headers["user-agent"] || "",
@@ -261,11 +294,7 @@ function handleJsonRpc(body, req) {
     };
   }
 
-  return {
-    jsonrpc: "2.0",
-    id,
-    error: { code: -32601, message: "Method not found" },
-  };
+  return jsonRpcError(id, -32601, "Method not found.");
 }
 
 module.exports = async (req, res) => {
@@ -304,17 +333,20 @@ module.exports = async (req, res) => {
       return;
     }
 
-    const body = await readBody(req);
-    sendJson(res, 200, handleJsonRpc(body, req));
+    let body;
+    let id = null;
+    try {
+      body = await readBody(req);
+      id = body && Object.prototype.hasOwnProperty.call(body, "id") ? body.id : null;
+      sendJson(res, 200, handleJsonRpc(body, req));
+    } catch (error) {
+      sendJson(res, 200, jsonRpcError(
+        id,
+        error && error.rpcCode ? error.rpcCode : -32000,
+        error && error.message ? error.message : "MCP request failed.",
+      ));
+    }
   } catch (error) {
-    const id = null;
-    sendJson(res, 200, {
-      jsonrpc: "2.0",
-      id,
-      error: {
-        code: -32000,
-        message: error && error.message ? error.message : "MCP request failed.",
-      },
-    });
+    sendJson(res, 200, jsonRpcError(null, -32000, error && error.message ? error.message : "MCP request failed."));
   }
 };

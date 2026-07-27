@@ -238,6 +238,9 @@ function validateMcpImplementation() {
   }
   expect(mcpSource.includes("approval_required_before_contact_or_submission"), "api/mcp.js: approval policy missing");
   expect(mcpSource.includes("logAgentEvent"), "api/mcp.js: privacy-safe analytics hook missing");
+  expect(mcpSource.includes("-32700"), "api/mcp.js: malformed JSON parse-error handling missing");
+  expect(mcpSource.includes("-32602"), "api/mcp.js: invalid-params handling missing");
+  expect(mcpSource.includes("-32601"), "api/mcp.js: method-not-found handling missing");
   expect(
     read("lib/agent-public-data.js").includes("strata_agent_readiness_event"),
     "lib/agent-public-data.js: privacy-safe analytics event name missing",
