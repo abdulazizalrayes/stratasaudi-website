@@ -66,6 +66,7 @@ function toolDefinitions() {
           description: { type: "string" },
           project_context: { type: "string" },
           matter_type: { type: "string" },
+          request_type: { type: "string" },
           counterparty_type: { type: "string" },
           country: { type: "string" },
         },
