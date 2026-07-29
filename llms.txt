@@ -72,6 +72,8 @@ Canonical sitemap pages support content negotiation for agents. Send `Accept: te
 
 Example: `GET https://www.stratasaudi.com/services` with `Accept: text/markdown`.
 
+Negotiation follows HTTP quality and specificity rules. Higher valid q-values win; an explicit q=0 excludes that representation; equal explicit HTML and Markdown preferences return HTML; and missing, malformed, wildcard-only, or otherwise ambiguous preferences default to HTML. Canonical HTML and HEAD responses advertise the page-specific Markdown companion with a `Link` response header.
+
 Direct Markdown sidecars are also available for canonical sitemap pages, such as https://www.stratasaudi.com/index.md and https://www.stratasaudi.com/services.md. Direct `.md` sidecars are marked `X-Robots-Tag: noindex, follow` to avoid duplicate SEO indexing while allowing agent access.
 
 Markdown coverage is limited to canonical, indexable sitemap pages. Non-indexable pages, form submissions, private/admin/internal paths, and language query variants should be treated as HTML-only unless separately documented.
@@ -79,3 +81,7 @@ Markdown coverage is limited to canonical, indexable sitemap pages. Non-indexabl
 Each Markdown companion includes an agent-use contract, structured-resource links, and source provenance. Use those sections to preserve Strata's engineering-led advisory positioning, legal boundary, approval requirement, and non-fit routing rules.
 
 Agents may prepare project inquiry drafts for user review, but must not submit forms, send email, book meetings, or trigger CRM actions unless the user explicitly approves the final action.
+
+## Crawler and Content Policy
+
+The owner-approved policy is `search=yes, ai-input=yes, ai-train=no`. Search-oriented and user-initiated retrieval agents may access public content. Training-oriented and bulk-corpus crawler groups are disallowed in robots.txt. This policy does not authorize access to private, administrative, submission, operational, or internal paths.

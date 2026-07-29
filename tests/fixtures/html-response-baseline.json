@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "purpose": "Board-approved HTML response baseline before non-visual Markdown negotiation hardening on 2026-07-29",
+  "routes": {
+    "/": {
+      "sha256": "970e511adaa988f18b17da64426b607b58854a2f2eeb75e51b7b7b04ea36b930",
+      "bytes": 68579
+    },
+    "/about": {
+      "sha256": "67be6eb4e59476359259fb12648544e357d0b973d9863b07eee9053509914110",
+      "bytes": 16306
+    },
+    "/services": {
+      "sha256": "8d60ec7746aac1be9cc3216967eecc031e2e42572ca27ff6be663a5d6007cd13",
+      "bytes": 42656
+    },
+    "/counterparties": {
+      "sha256": "cdbd9c04d8396729b0846ab0968e89ec56527f12f26637d2a10b505ea4a38a0b",
+      "bytes": 17749
+    },
+    "/why-saudi": {
+      "sha256": "66dbc73d503198140828414e4ac7088a2792f17b8123e4c6f330505376cb18d2",
+      "bytes": 15874
+    },
+    "/insights": {
+      "sha256": "d051b81b9e885a3f41c81f03e9b1613ff374342477c57c945df7633ded017cf0",
+      "bytes": 31297
+    },
+    "/faq": {
+      "sha256": "596be4b3c76520140a53fcaf9804b287b70eca2313a23e30f11c0d4a1048c170",
+      "bytes": 19065
+    },
+    "/ethics": {
+      "sha256": "6e3a6c2b953f7b11096b5ab4977d17bc274e76c1b4c57ebec0eeebe4c7bd82df",
+      "bytes": 15730
+    },
+    "/contact": {
+      "sha256": "e67d4ff6fc01bdc4e7f063d147d8c020ac498e23fd9ec60231936113d3e34172",
+      "bytes": 26059
+    },
+    "/privacy": {
+      "sha256": "033ec25bf695b9be17f81d5fcaffd2c9b65725ff3bb4f9295732912e09577b34",
+      "bytes": 15093
+    },
+    "/terms": {
+      "sha256": "feb296e2523479fc361256cf7d296ce95f79e9d9113a5b7d27fcf57f1980d091",
+      "bytes": 14888
+    },
+    "/mandate-checklist": {
+      "sha256": "79693eba62f5b2db629b15ed613e087d733ee1eeda9f1e70824136811fd886ff",
+      "bytes": 18031
+    },
+    "/fidic-claims-saudi-arabia": {
+      "sha256": "55c87dc2c213e3f9e7bb08be134d606d2a5bfe067b53a70ef4ae0a2795badca8",
+      "bytes": 49860
+    }
+  }
+}

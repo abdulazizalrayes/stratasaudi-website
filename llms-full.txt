@@ -89,7 +89,9 @@ Example:
 
 `GET https://www.stratasaudi.com/services`
 
-The same URL returns ordinary HTML to browsers and Markdown only when the client explicitly requests `text/markdown`. If `text/markdown` is unavailable or has `q=0`, the website safely returns HTML.
+The same URL returns ordinary HTML to browsers and Markdown only when the client prefers an available `text/markdown` representation. Valid q-values and media-range specificity are honored. An explicit q=0 excludes that representation. Equal explicit HTML and Markdown preferences, missing Accept headers, malformed preferences, wildcard-only preferences, and other ambiguous requests default to HTML.
+
+Canonical HTML and HEAD responses advertise their page-specific Markdown companion using `Link: <https://www.stratasaudi.com/page.md>; rel="alternate"; type="text/markdown"`. Markdown responses link back to the clean HTML canonical.
 
 Direct sidecar examples:
 
@@ -110,6 +112,16 @@ Direct sidecar examples:
 Direct `.md` sidecars return `X-Robots-Tag: noindex, follow`. Agents may read them, but search engines should index the canonical HTML page instead.
 
 Markdown companions include only public main content, public links, meaningful images, page metadata, canonical URL, language, and public JSON-LD structured data. They exclude navigation, footers, forms, scripts, styles, hidden content, admin material, and internal notes.
+
+## Crawler and Content Policy
+
+The owner-approved public-content policy is:
+
+- Search use: yes.
+- Real-time AI input and user-directed retrieval: yes.
+- AI model training: no.
+
+The HTTP `Content-Signal` value is `ai-train=no, search=yes, ai-input=yes`. Search and user-initiated retrieval crawlers remain allowed. Training-oriented and bulk-corpus crawler groups are disallowed in robots.txt. Google-Extended is disallowed because its current control combines future Gemini training with grounding; ordinary Google Search crawling remains allowed.
 
 ## Citation Guidance
 

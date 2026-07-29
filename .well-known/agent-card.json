@@ -1,7 +1,7 @@
 {
   "schema_version": "2026-06-20",
   "name": "Strata Risk Advisory",
-  "version": "2026-07-10",
+  "version": "2026-07-29",
   "canonical_url": "https://www.stratasaudi.com",
   "description": "Independent engineering-led contract-risk, project-risk, and pre-litigation technical advisory for high-value Saudi project exposure.",
   "supportedInterfaces": [
@@ -81,8 +81,9 @@
   "public_resources": {
     "llms": "https://www.stratasaudi.com/llms.txt",
     "llms_full": "https://www.stratasaudi.com/llms-full.txt",
-    "markdown_negotiation": "Send Accept: text/markdown to canonical sitemap URLs such as https://www.stratasaudi.com/services",
+    "markdown_negotiation": "Send Accept: text/markdown to canonical sitemap URLs such as https://www.stratasaudi.com/services. Valid q-values and specificity are honored; equal explicit preferences and ambiguous requests default to HTML.",
     "markdown_sidecars": "https://www.stratasaudi.com/{canonical-page}.md with https://www.stratasaudi.com/index.md for the home page; direct sidecars are noindex, follow",
+    "content_signal": "ai-train=no, search=yes, ai-input=yes",
     "openapi": "https://www.stratasaudi.com/openapi.json",
     "mcp": "https://www.stratasaudi.com/api/mcp",
     "company": "https://www.stratasaudi.com/data/company.json",

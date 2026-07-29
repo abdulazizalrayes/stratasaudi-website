@@ -2,8 +2,24 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Strata Saudi Public Agent Readiness API",
-    "version": "2026-06-20",
-    "description": "Public read-only API and discovery documentation for Strata Risk Advisory. Project inquiry submission requires explicit user approval."
+    "version": "2026-07-29",
+    "description": "Public read-only API and discovery documentation for Strata Risk Advisory. Project inquiry submission requires explicit user approval. Public-content policy: ai-train=no, search=yes, ai-input=yes."
+  },
+  "x-content-negotiation": {
+    "representations": [
+      "text/html",
+      "text/markdown"
+    ],
+    "rules": [
+      "Valid q-values from 0 to 1 are honored.",
+      "An explicit q=0 excludes that representation.",
+      "Higher representation quality wins.",
+      "Equal quality uses the more specific matching media range.",
+      "Equal explicit HTML and Markdown preference defaults to HTML.",
+      "Missing, malformed, wildcard-only, or otherwise ambiguous Accept preferences default to HTML."
+    ],
+    "html_alternate_link": "Canonical HTML and HEAD responses advertise the page-specific Markdown sidecar with rel=alternate and type=text/markdown.",
+    "language_variants": "Language query variants remain HTML-only; canonical indexable sitemap pages provide English Markdown companions."
   },
   "servers": [
     {
@@ -15,21 +31,44 @@
       "get": {
         "summary": "Canonical home page with optional Markdown representation",
         "operationId": "getHomePage",
-        "description": "Returns browser HTML by default. Returns deterministic Markdown when the request includes Accept: text/markdown.",
+        "x-head-supported": true,
+        "description": "Returns browser HTML by default. Returns deterministic Markdown when the request prefers text/markdown under the documented quality, specificity, exclusion, and HTML tie-break rules.",
         "responses": {
           "200": {
             "description": "Canonical home page",
             "headers": {
               "Vary": {
+                "description": "Present on canonical HTML and Markdown representations.",
                 "schema": {
                   "type": "string",
                   "const": "Accept"
                 }
               },
+              "Content-Language": {
+                "description": "Language of the selected representation.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "en",
+                    "ar",
+                    "fr",
+                    "es",
+                    "it",
+                    "de"
+                  ]
+                }
+              },
               "Content-Signal": {
+                "description": "Owner-approved public-content policy.",
                 "schema": {
                   "type": "string",
                   "const": "ai-train=no, search=yes, ai-input=yes"
+                }
+              },
+              "Link": {
+                "description": "HTML advertises the Markdown alternate. Markdown links to the canonical HTML page.",
+                "schema": {
+                  "type": "string"
                 }
               }
             },
@@ -53,7 +92,8 @@
       "get": {
         "summary": "Canonical sitemap page with optional Markdown representation",
         "operationId": "getCanonicalPage",
-        "description": "Returns browser HTML by default. Returns deterministic Markdown when the request includes Accept: text/markdown and the path is a canonical, indexable sitemap page.",
+        "x-head-supported": true,
+        "description": "Returns browser HTML by default. Returns deterministic Markdown when the request prefers text/markdown and the path is a canonical, indexable sitemap page. Language query variants remain HTML-only.",
         "parameters": [
           {
             "name": "canonicalPage",
@@ -83,30 +123,42 @@
             "description": "Canonical page as HTML or Markdown",
             "headers": {
               "Vary": {
+                "description": "Present on canonical HTML and Markdown representations.",
                 "schema": {
                   "type": "string",
                   "const": "Accept"
                 }
               },
               "Content-Location": {
+                "description": "Present on Markdown responses and points to the direct Markdown sidecar.",
                 "schema": {
                   "type": "string",
                   "format": "uri"
                 }
               },
               "Content-Language": {
+                "description": "English for Markdown companions; canonical HTML language variants may use another supported language.",
                 "schema": {
                   "type": "string",
-                  "const": "en"
+                  "enum": [
+                    "en",
+                    "ar",
+                    "fr",
+                    "es",
+                    "it",
+                    "de"
+                  ]
                 }
               },
               "Content-Signal": {
+                "description": "Owner-approved public-content policy.",
                 "schema": {
                   "type": "string",
                   "const": "ai-train=no, search=yes, ai-input=yes"
                 }
               },
               "Link": {
+                "description": "HTML advertises the page-specific Markdown alternate. Markdown links to the canonical HTML page.",
                 "schema": {
                   "type": "string"
                 }
@@ -132,10 +184,29 @@
       "get": {
         "summary": "Direct noindex Markdown sidecar for the home page",
         "operationId": "getHomeMarkdownSidecar",
+        "x-head-supported": true,
         "responses": {
           "200": {
             "description": "Markdown sidecar for the home page. Search engines should not index this duplicate representation.",
             "headers": {
+              "Vary": {
+                "schema": {
+                  "type": "string",
+                  "const": "Accept"
+                }
+              },
+              "Content-Location": {
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "Content-Language": {
+                "schema": {
+                  "type": "string",
+                  "const": "en"
+                }
+              },
               "X-Robots-Tag": {
                 "schema": {
                   "type": "string",
@@ -146,6 +217,12 @@
                 "schema": {
                   "type": "string",
                   "const": "ai-train=no, search=yes, ai-input=yes"
+                }
+              },
+              "Link": {
+                "description": "Canonical link to the corresponding HTML home page.",
+                "schema": {
+                  "type": "string"
                 }
               }
             },
@@ -164,6 +241,7 @@
       "get": {
         "summary": "Direct noindex Markdown sidecar for a canonical sitemap page",
         "operationId": "getMarkdownSidecar",
+        "x-head-supported": true,
         "parameters": [
           {
             "name": "canonicalPage",
@@ -192,6 +270,12 @@
           "200": {
             "description": "Markdown sidecar. Search engines should not index this duplicate representation.",
             "headers": {
+              "Vary": {
+                "schema": {
+                  "type": "string",
+                  "const": "Accept"
+                }
+              },
               "X-Robots-Tag": {
                 "schema": {
                   "type": "string",

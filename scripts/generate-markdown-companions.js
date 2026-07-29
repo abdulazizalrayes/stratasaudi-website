@@ -281,7 +281,7 @@ function extractJsonLd(root) {
     const raw = String(node.textContent || "").trim();
     if (!raw) continue;
     try {
-      blocks.push(JSON.stringify(JSON.parse(raw), null, 2));
+      blocks.push(JSON.stringify(JSON.parse(raw)));
     } catch (_error) {}
   }
   return blocks;

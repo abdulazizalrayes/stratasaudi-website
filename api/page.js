@@ -1,21 +1,61 @@
 const {
+  PAGE_SEO_ROUTES,
   SITE_ORIGIN,
   canonicalPathForRoute,
+  languageFromPath,
   normalizePath,
   readHtmlForPath,
 } = require("../lib/page-renderer");
 const {
+  CONTENT_SIGNAL,
   canonicalPathForMarkdownPath,
+  markdownPublicPathForRoute,
   readMarkdownForRoute,
   setMarkdownHeaders,
   wantsMarkdown,
 } = require("../lib/markdown-layer");
 
-const LINK_HEADER_VALUE = [
+const ROOT_SERVICE_LINKS = [
   '</robots.txt>; rel="service-doc"; type="text/plain"',
   '</sitemap.xml>; rel="service-doc"; type="application/xml"',
   '</api/client-config.js>; rel="service-desc"; type="application/javascript"',
-].join(", ");
+];
+
+function isHeadRequest(req) {
+  return String(req && req.method || "GET").toUpperCase() === "HEAD";
+}
+
+function endRepresentation(req, res, body) {
+  res.end(isHeadRequest(req) ? "" : body);
+}
+
+function isIndexableCanonicalPath(canonicalPath) {
+  return PAGE_SEO_ROUTES.some((page) => page.path === canonicalPath);
+}
+
+function markdownAlternateLink(canonicalPath) {
+  const markdownUrl = `${SITE_ORIGIN}${markdownPublicPathForRoute(canonicalPath)}`;
+  return `<${markdownUrl}>; rel="alternate"; type="text/markdown"`;
+}
+
+function setCanonicalHtmlHeaders(res, canonicalPath, languageCode) {
+  const links = [markdownAlternateLink(canonicalPath)];
+  if (canonicalPath === "/") links.push(...ROOT_SERVICE_LINKS);
+  res.setHeader("Content-Type", "text/html; charset=utf-8");
+  res.setHeader("Vary", "Accept");
+  res.setHeader("Content-Language", languageCode);
+  res.setHeader("Content-Signal", CONTENT_SIGNAL);
+  res.setHeader("Link", links.join(", "));
+  res.setHeader("X-Content-Type-Options", "nosniff");
+}
+
+function hasLanguageQuery(inputPath) {
+  try {
+    return new URL(String(inputPath || "/"), SITE_ORIGIN).searchParams.has("lang");
+  } catch (_error) {
+    return false;
+  }
+}
 
 function redirectLegacyHtml(req, res, requestedPath) {
   const route = normalizePath(requestedPath);
@@ -44,16 +84,16 @@ module.exports = async (req, res) => {
       if (!html) {
         res.statusCode = 404;
         res.setHeader("Content-Type", "text/plain; charset=utf-8");
-        res.end("Not found");
+        endRepresentation(req, res, "Not found");
         return;
       }
       res.setHeader("Content-Type", "text/html; charset=utf-8");
-      res.end(html);
+      endRepresentation(req, res, html);
       return;
     }
 
     setMarkdownHeaders(res, sidecarCanonicalPath, { directSidecar: true });
-    res.end(markdown);
+    endRepresentation(req, res, markdown);
     return;
   }
 
@@ -64,24 +104,28 @@ module.exports = async (req, res) => {
   if (!html) {
     res.statusCode = 404;
     res.setHeader("Content-Type", "text/plain; charset=utf-8");
-    res.end("Not found");
+    endRepresentation(req, res, "Not found");
     return;
   }
 
-  if (route === "/") {
-    res.setHeader("Link", LINK_HEADER_VALUE);
-  }
+  const canonicalPath = canonicalPathForRoute(route);
+  const indexable = isIndexableCanonicalPath(canonicalPath);
+  const languageCode = languageFromPath(requestedPath);
 
-  if (wantsMarkdown(req) && !String(requestedPath).includes("?")) {
-    const canonicalPath = canonicalPathForRoute(route);
+  if (indexable && wantsMarkdown(req) && !hasLanguageQuery(requestedPath)) {
     const markdown = readMarkdownForRoute(canonicalPath);
     if (markdown) {
       setMarkdownHeaders(res, canonicalPath);
-      res.end(markdown);
+      endRepresentation(req, res, markdown);
       return;
     }
   }
 
-  res.setHeader("Content-Type", "text/html; charset=utf-8");
-  res.end(html);
+  if (indexable) {
+    setCanonicalHtmlHeaders(res, canonicalPath, languageCode);
+  } else {
+    res.setHeader("Content-Type", "text/html; charset=utf-8");
+    res.setHeader("Content-Language", languageCode);
+  }
+  endRepresentation(req, res, html);
 };

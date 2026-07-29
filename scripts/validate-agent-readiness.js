@@ -215,7 +215,12 @@ function validateDiscovery() {
   expect(read("auth.md").includes("\"agent_auth\""), "auth.md: agent_auth marker missing");
   expect(read("auth.md").includes("## Step 3 - Register"), "auth.md: registration step missing");
   expect(robots.includes("ai-input=yes"), "robots: ai-input=yes missing");
+  expect(robots.includes("ai-train=no"), "robots: ai-train=no missing");
   expect(robots.includes("Disallow: /api/contact"), "robots: /api/contact should be disallowed for crawlers");
+  expect(robots.includes("User-agent: GPTBot\nDisallow: /"), "robots: GPTBot training opt-out missing");
+  expect(robots.includes("User-agent: ClaudeBot\nDisallow: /"), "robots: ClaudeBot training opt-out missing");
+  expect(robots.includes("User-agent: OAI-SearchBot\nAllow: /"), "robots: OAI search access missing");
+  expect(robots.includes("User-agent: Claude-SearchBot\nAllow: /"), "robots: Claude search access missing");
   expect(robots.includes("MCP: https://www.stratasaudi.com/.well-known/mcp.json"), "robots: MCP pointer missing");
   expect(openapi.paths["/data/fit-matrix.json"], "openapi: fit matrix endpoint missing");
   expect(openapi.paths["/data/fidic-risk-signals.json"], "openapi: FIDIC risk signals endpoint missing");

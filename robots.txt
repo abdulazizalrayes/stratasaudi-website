@@ -17,24 +17,37 @@ Agent-Card: https://www.stratasaudi.com/.well-known/agent-card.json
 MCP: https://www.stratasaudi.com/.well-known/mcp.json
 OpenAPI: https://www.stratasaudi.com/openapi.json
 
-# AI Crawlers
-User-agent: GPTBot
+# AI search and user-initiated retrieval
+User-agent: OAI-SearchBot
 Allow: /
 
-User-agent: Google-Extended
+User-agent: ChatGPT-User
 Allow: /
 
-User-agent: CCBot
+User-agent: Claude-SearchBot
 Allow: /
 
-User-agent: anthropic-ai
+User-agent: Claude-User
 Allow: /
 
 User-agent: PerplexityBot
 Allow: /
 
+# AI training and bulk-corpus collection opt-out
+User-agent: GPTBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
 User-agent: Bytespider
-Allow: /
+Disallow: /
 
 User-agent: ClaudeBot
-Allow: /
+Disallow: /
