@@ -1,6 +1,6 @@
 ---
 title: "Terms | Strata Saudi"
-description: "Terms for use of the Strata Saudi website and confidential enquiry channel."
+description: "Terms governing use of the Strata Risk Advisory website and its public engineering-led Saudi project-risk information."
 canonical: "https://www.stratasaudi.com/terms"
 language: "en"
 content_signal: "ai-train=no, search=yes, ai-input=yes"

@@ -1,13 +1,21 @@
 {
   "version": 2,
   "name": "strata-saudi-website",
+  "regions": [
+    "bom1"
+  ],
   "builds": [
     {
       "src": "api/**/*.js",
       "use": "@vercel/node",
       "config": {
         "includeFiles": [
-          "markdown/**/*.md"
+          "markdown/**/*.md",
+          "llms*.txt",
+          "openapi.json",
+          "auth.md",
+          ".well-known/**/*",
+          "data/**/*.json"
         ]
       }
     },
@@ -109,6 +117,18 @@
     }
   ],
   "routes": [
+    {
+      "src": "/(llms(?:-full)?\\.txt|openapi\\.json|auth\\.md)",
+      "dest": "/api/public-resource.js?resource=$1"
+    },
+    {
+      "src": "/(\\.well-known/(?:agent-card\\.json|api-catalog|oauth-protected-resource|security\\.txt|mcp\\.json|agent-skills/index\\.json|mcp/server-card\\.json|mcp/server-cards\\.json))",
+      "dest": "/api/public-resource.js?resource=$1"
+    },
+    {
+      "src": "/(data/[^/]+\\.json)",
+      "dest": "/api/public-resource.js?resource=$1"
+    },
     {
       "src": "/api/contact",
       "dest": "/api/lead-intake.js"
@@ -294,7 +314,7 @@
         },
         {
           "key": "X-XSS-Protection",
-          "value": "1; mode=block"
+          "value": "0"
         },
         {
           "key": "Referrer-Policy",
@@ -310,7 +330,7 @@
         },
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://www.googletagmanager.com; frame-src https://www.googletagmanager.com; upgrade-insecure-requests"
+          "value": "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com; upgrade-insecure-requests"
         }
       ]
     },

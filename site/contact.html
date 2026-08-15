@@ -129,48 +129,13 @@
         return window.StrataTracking || null;
       }
 
-       // Track field-level interactions to identify friction points
+       // Record only that the form was started. Never send field values to analytics.
        Array.prototype.forEach.call(form.querySelectorAll("input, select, textarea"), function (field) {
          field.addEventListener("focus", function () {
            var tracking = getTracking();
            if (!form.dataset.started && tracking) {
              form.dataset.started = "true";
              tracking.pushEvent("form_start", { form_name: "confidential_enquiry", form_id: "contactForm" });
-           }
-           // Track which specific field is being interacted with
-           if (tracking) {
-             tracking.pushEvent("form_field_focus", {
-               form_name: "confidential_enquiry",
-               form_id: "contactForm",
-               field_name: field.name,
-               field_type: field.type || field.tagName.toLowerCase()
-             });
-           }
-         });
-
-         // Track when fields are modified (to detect hesitation/abandonment)
-         field.addEventListener("input", function () {
-           var tracking = getTracking();
-           if (tracking) {
-             tracking.pushEvent("form_field_input", {
-               form_name: "confidential_enquiry",
-               form_id: "contactForm",
-               field_name: field.name,
-               field_value_length: field.value.length
-             });
-           }
-         });
-
-         // Track when fields lose focus (to detect validation issues)
-         field.addEventListener("blur", function () {
-           var tracking = getTracking();
-           if (tracking) {
-             tracking.pushEvent("form_field_blur", {
-               form_name: "confidential_enquiry",
-               form_id: "contactForm",
-               field_name: field.name,
-               field_value: field.value
-             });
            }
          });
        });

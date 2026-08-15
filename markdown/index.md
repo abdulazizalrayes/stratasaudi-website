@@ -1,6 +1,6 @@
 ---
 title: "Strata Risk Advisory | Contract Risk Advisory Saudi Arabia"
-description: "Independent engineering-led contract risk and pre-litigation advisory for foreign contractors and law firms in Saudi Arabia. Based in KSA, advising internationally."
+description: "Independent engineering-led contract risk and pre-litigation technical advisory for international parties working under Saudi-governed contracts."
 canonical: "https://www.stratasaudi.com/"
 language: "en"
 content_signal: "ai-train=no, search=yes, ai-input=yes"

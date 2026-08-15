@@ -11,11 +11,6 @@ Disallow: /project%202/
 Sitemap: https://www.stratasaudi.com/sitemap.xml
 Sitemap: https://www.stratasaudi.com/image-sitemap.xml
 Content-Signal: ai-train=no, search=yes, ai-input=yes
-LLMs: https://www.stratasaudi.com/llms.txt
-LLMs-Full: https://www.stratasaudi.com/llms-full.txt
-Agent-Card: https://www.stratasaudi.com/.well-known/agent-card.json
-MCP: https://www.stratasaudi.com/.well-known/mcp.json
-OpenAPI: https://www.stratasaudi.com/openapi.json
 
 # AI search and user-initiated retrieval
 User-agent: OAI-SearchBot

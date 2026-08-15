@@ -14,6 +14,8 @@ const {
   setMarkdownHeaders,
   wantsMarkdown,
 } = require("../lib/markdown-layer");
+const { classifyUserAgent, recordAgentEvent } = require("../lib/agent-observability");
+const { setSecurityHeaders } = require("../lib/security-headers");
 
 const ROOT_SERVICE_LINKS = [
   '</robots.txt>; rel="service-doc"; type="text/plain"',
@@ -46,7 +48,7 @@ function setCanonicalHtmlHeaders(res, canonicalPath, languageCode) {
   res.setHeader("Content-Language", languageCode);
   res.setHeader("Content-Signal", CONTENT_SIGNAL);
   res.setHeader("Link", links.join(", "));
-  res.setHeader("X-Content-Type-Options", "nosniff");
+  setSecurityHeaders(res);
 }
 
 function hasLanguageQuery(inputPath) {
@@ -67,6 +69,7 @@ function redirectLegacyHtml(req, res, requestedPath) {
   const url = new URL(req.url || requestedPath, SITE_ORIGIN);
   url.pathname = canonicalPath;
   res.statusCode = 308;
+  setSecurityHeaders(res, { cacheControl: "public, max-age=0, s-maxage=86400" });
   res.setHeader("Location", `${url.pathname}${url.search}`);
   res.end();
   return true;
@@ -84,15 +87,23 @@ module.exports = async (req, res) => {
       if (!html) {
         res.statusCode = 404;
         res.setHeader("Content-Type", "text/plain; charset=utf-8");
+        setSecurityHeaders(res, { cacheControl: "no-store" });
         endRepresentation(req, res, "Not found");
         return;
       }
       res.setHeader("Content-Type", "text/html; charset=utf-8");
+      setSecurityHeaders(res);
       endRepresentation(req, res, html);
       return;
     }
 
     setMarkdownHeaders(res, sidecarCanonicalPath, { directSidecar: true });
+    await recordAgentEvent("agent_resource_read", {
+      user_agent: req.headers["user-agent"] || "",
+      resource_type: "markdown_sidecar",
+      resource_path: markdownPublicPathForRoute(sidecarCanonicalPath),
+      representation: "text/markdown",
+    });
     endRepresentation(req, res, markdown);
     return;
   }
@@ -104,6 +115,7 @@ module.exports = async (req, res) => {
   if (!html) {
     res.statusCode = 404;
     res.setHeader("Content-Type", "text/plain; charset=utf-8");
+    setSecurityHeaders(res, { cacheControl: "no-store" });
     endRepresentation(req, res, "Not found");
     return;
   }
@@ -116,6 +128,12 @@ module.exports = async (req, res) => {
     const markdown = readMarkdownForRoute(canonicalPath);
     if (markdown) {
       setMarkdownHeaders(res, canonicalPath);
+      await recordAgentEvent("agent_resource_read", {
+        user_agent: req.headers["user-agent"] || "",
+        resource_type: "markdown_negotiation",
+        resource_path: canonicalPath,
+        representation: "text/markdown",
+      });
       endRepresentation(req, res, markdown);
       return;
     }
@@ -123,9 +141,24 @@ module.exports = async (req, res) => {
 
   if (indexable) {
     setCanonicalHtmlHeaders(res, canonicalPath, languageCode);
+    if (hasLanguageQuery(requestedPath)) {
+      res.setHeader("X-Robots-Tag", "noindex, follow");
+    }
   } else {
     res.setHeader("Content-Type", "text/html; charset=utf-8");
     res.setHeader("Content-Language", languageCode);
+    res.setHeader("X-Robots-Tag", "noindex, nofollow");
+    setSecurityHeaders(res, { cacheControl: "no-store" });
+  }
+
+  const agentFamily = classifyUserAgent(req.headers["user-agent"] || "");
+  if (agentFamily !== "browser_or_unknown_agent") {
+    await recordAgentEvent("crawler_page_read", {
+      agent_family: agentFamily,
+      resource_type: "html_page",
+      resource_path: canonicalPath,
+      representation: "text/html",
+    });
   }
   endRepresentation(req, res, html);
 };

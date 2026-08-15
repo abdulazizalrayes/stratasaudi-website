@@ -11,10 +11,12 @@ const {
   readTextResource,
   screenProcurementFit,
 } = require("../lib/agent-public-data");
+const { setSecurityHeaders } = require("../lib/security-headers");
 
 function sendJson(res, statusCode, payload) {
   res.statusCode = statusCode;
   res.setHeader("Content-Type", "application/json; charset=utf-8");
+  setSecurityHeaders(res, { cache: false });
   res.setHeader("Cache-Control", "no-store");
   res.end(JSON.stringify(payload, null, 2));
 }
@@ -145,8 +147,8 @@ function toolDefinitions() {
   ];
 }
 
-function callTool(name, args, req) {
-  logAgentEvent("mcp_tool_call", {
+async function callTool(name, args, req) {
+  await logAgentEvent("mcp_tool_call", {
     tool_name: name,
     user_agent: req.headers["user-agent"] || "",
     fit: "",
@@ -158,7 +160,7 @@ function callTool(name, args, req) {
   if (name === "list_service_areas") return listServiceAreas();
   if (name === "match_project_scope") {
     const result = matchProjectScope(args || {});
-    logAgentEvent("inquiry_scope_match", {
+    await logAgentEvent("inquiry_scope_match", {
       tool_name: name,
       fit: result.fit,
       user_agent: req.headers["user-agent"] || "",
@@ -168,7 +170,7 @@ function callTool(name, args, req) {
   }
   if (name === "prepare_project_inquiry") {
     const result = prepareProjectInquiry(args || {});
-    logAgentEvent("inquiry_preparation", {
+    await logAgentEvent("inquiry_preparation", {
       tool_name: name,
       fit: result.match && result.match.fit,
       user_agent: req.headers["user-agent"] || "",
@@ -178,7 +180,7 @@ function callTool(name, args, req) {
   }
   if (name === "screen_procurement_fit") {
     const result = screenProcurementFit(args || {});
-    logAgentEvent("procurement_fit_screen", {
+    await logAgentEvent("procurement_fit_screen", {
       tool_name: name,
       fit: result.fit,
       user_agent: req.headers["user-agent"] || "",
@@ -191,7 +193,7 @@ function callTool(name, args, req) {
     if (!resourceId || typeof resourceId !== "string") {
       throw rpcError(-32602, "Invalid params: resource_id is required.");
     }
-    logAgentEvent("mcp_resource_read", {
+    await logAgentEvent("mcp_resource_read", {
       resource_id: resourceId,
       tool_name: name,
       user_agent: req.headers["user-agent"] || "",
@@ -211,7 +213,7 @@ function asMcpContent(payload) {
   return [{ type: "text", text: JSON.stringify(payload, null, 2) }];
 }
 
-function handleJsonRpc(body, req) {
+async function handleJsonRpc(body, req) {
   if (!body || typeof body !== "object" || Array.isArray(body) || typeof body.method !== "string") {
     throw rpcError(-32600, "Invalid Request.");
   }
@@ -247,7 +249,7 @@ function handleJsonRpc(body, req) {
     if (!args || typeof args !== "object" || Array.isArray(args)) {
       throw rpcError(-32602, "Invalid params: arguments must be an object.");
     }
-    const result = callTool(name, args, req);
+    const result = await callTool(name, args, req);
     return { jsonrpc: "2.0", id, result: { content: asMcpContent(result), isError: false } };
   }
 
@@ -274,7 +276,7 @@ function handleJsonRpc(body, req) {
       .listPublicResources()
       .find((item) => item.uri === uri || item.path === uri || item.id === uri);
     if (!resource) throw rpcError(-32602, "Invalid params: unknown resource.");
-    logAgentEvent("mcp_resource_read", {
+    await logAgentEvent("mcp_resource_read", {
       resource_id: resource.id,
       user_agent: req.headers["user-agent"] || "",
       path: "/api/mcp",
@@ -311,7 +313,7 @@ module.exports = async (req, res) => {
 
   try {
     if (req.method === "GET") {
-      logAgentEvent("mcp_discovery_read", {
+      await logAgentEvent("mcp_discovery_read", {
         user_agent: req.headers["user-agent"] || "",
         path: "/api/mcp",
       });
@@ -339,7 +341,7 @@ module.exports = async (req, res) => {
     try {
       body = await readBody(req);
       id = body && Object.prototype.hasOwnProperty.call(body, "id") ? body.id : null;
-      sendJson(res, 200, handleJsonRpc(body, req));
+      sendJson(res, 200, await handleJsonRpc(body, req));
     } catch (error) {
       sendJson(res, 200, jsonRpcError(
         id,

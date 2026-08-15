@@ -1,13 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr" prefix="og: https://ogp.me/ns#">
 <head>
-    <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-K7V7L2DG');</script>
-<!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -45,8 +38,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <!-- Geo Targeting -->
     <meta name="geo.region" content="SA">
     <meta name="geo.placename" content="Saudi Arabia">
-    <meta name="geo.position" content="24.7136;46.6753">
-    <meta name="ICBM" content="24.7136, 46.6753">
     <meta name="distribution" content="global">
     <meta name="target" content="all">
     <meta name="audience" content="all">
@@ -64,25 +55,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"></noscript>
-
-    <!-- Google Analytics 4 -->
-    <!-- GA4 Measurement ID: G-B0GCPQNGYX | Stream: Strata Risk Advisory -->
-    <!-- To get your ID: Go to analytics.google.com > Admin > Data Streams > Web > Measurement ID -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0GCPQNGYX"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-B0GCPQNGYX');
-    </script>
-
-    <!-- Mixpanel -->
-    <!-- INSTRUCTIONS: Replace 5abe5419183e7604f66f73da04e5ff73 with your actual Mixpanel project token -->
-    <!-- To get your token: Go to mixpanel.com > Settings > Project Settings > Project Token -->
-    <script>
-        (function(f,b){if(!b.__SV){var e,g,i,h;window.mixpanel=b;b._i=[];b.init=function(e,f,c){function g(a,d){var b=d.split(".");2==b.length&&(a=a[b[0]],d=b[1]);a[d]=function(){a.push([d].concat(Array.prototype.slice.call(arguments,0)))}}var a=b;"undefined"!==typeof c?a=b[c]=[]:c="mixpanel";a.people=a.people||[];a.toString=function(a){var d="mixpanel";"mixpanel"!==c&&(d+="."+c);a||(d+=" (stub)");return d};a.people.toString=function(){return a.toString(1)+".people (stub)"};i="disable time_event track track_pageview track_links track_forms track_with_groups add_group set_group remove_group register register_once alias unregister identify name_tag set_config reset opt_in_tracking opt_out_tracking has_opted_in_tracking has_opted_out_tracking clear_opt_in_out_tracking start_batch_senders people.set people.set_once people.unset people.increment people.append people.union people.track_charge people.clear_charges people.delete_user people.remove".split(" ");for(h=0;h<i.length;h++)g(a,i[h]);var j="set set_once union unset remove delete".split(" ");a.get_group=function(){function b(c){d[c]=function(){call2_args=arguments;call2=[c].concat(Array.prototype.slice.call(call2_args,0));a.push([e,call2])}}for(var d={},e=["get_group"].concat(Array.prototype.slice.call(arguments,0)),c=0;c<j.length;c++)b(j[c]);return d};b._i.push([e,f,c])};b.__SV=1.2;e=f.createElement("script");e.type="text/javascript";e.async=!0;e.src="https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";g=f.getElementsByTagName("script")[0];g.parentNode.insertBefore(e,g)}})(document,window.mixpanel||[]);
-        mixpanel.init('5abe5419183e7604f66f73da04e5ff73', {track_pageview: "url-with-path"});
-    </script>
 
     <!-- Schema.org Structured Data (JSON-LD) — Critical for AI discoverability -->
     <script type="application/ld+json">
@@ -950,11 +922,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <script src="/assets/i18n.js" defer></script>
 </head>
 <body>
-    <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K7V7L2DG"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-
 <!-- Navigation -->
 <nav id="navbar" role="navigation" aria-label="Main navigation">
     <div class="nav-inner">
@@ -1313,7 +1280,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         });
     });
 </script>
-<script src="/assets/live-analytics.js" defer></script>
+<script src="/api/client-config.js" defer></script>
+<script src="/assets/strata-analytics.js" defer></script>
 
 </body>
 </html>

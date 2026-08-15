@@ -1,6 +1,6 @@
 ---
 title: "Confidential Enquiry | Strata Saudi"
-description: "Confidential enquiry intake for premium Saudi contract risk, project risk, and pre-litigation technical advisory mandates."
+description: "Request a confidential fit and conflict review for a serious engineering-led Saudi project-risk or contract-risk advisory mandate."
 canonical: "https://www.stratasaudi.com/contact"
 language: "en"
 content_signal: "ai-train=no, search=yes, ai-input=yes"

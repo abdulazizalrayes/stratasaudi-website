@@ -1,6 +1,6 @@
 ---
 title: "About | Strata Saudi"
-description: "Strata Saudi is a premium engineering-led advisory business for Saudi contract risk, project risk, and pre-litigation technical support."
+description: "Meet Strata Risk Advisory and Eng Abdulaziz Alrayes, delivering engineering-led judgment for complex Saudi project and contract exposure."
 canonical: "https://www.stratasaudi.com/about"
 language: "en"
 content_signal: "ai-train=no, search=yes, ai-input=yes"

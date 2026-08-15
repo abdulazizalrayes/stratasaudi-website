@@ -78,6 +78,9 @@ It preserves:
 - `scripts/validate-markdown-layer.js`: repeatable validation suite.
 - `lib/markdown-layer.js`: Accept negotiation, sidecar mapping, and Markdown response headers.
 - `api/page.js`: canonical URL Markdown negotiation and direct `.md` sidecar serving.
+- `api/public-resource.js`: allowlisted delivery and privacy-safe observability for public agent-discovery and structured-data files.
+- `lib/agent-observability.js`: aggregates crawler families and resource classes, without retaining raw user agents, IP addresses, enquiry text, names, or email addresses.
+- `lib/security-headers.js`: shared dynamic response security and public caching policy.
 - `markdown/*.md`: generated companions.
 - `llms.txt`, `llms-full.txt`, `.well-known/agent-card.json`, `.well-known/api-catalog`, and `openapi.json`: discovery updates.
 
@@ -90,6 +93,8 @@ npm run generate:markdown
 npm run validate:markdown
 npm run validate:agent-readiness
 npm run validate:seo
+npm run validate:analytics
+npm run test:agent-observability
 npm run validate:release
 ```
 
@@ -106,6 +111,32 @@ npm run report:agent-observability -- path/to/logs.jsonl
 ```
 
 The weekly report summarizes discovery reads, Markdown negotiation, direct `.md` sidecar reads, MCP reads, OpenAPI reads, tool calls, resource reads, fit classes, and user-agent families. It must not include names, emails, message bodies, or confidential project facts.
+
+Production functions also send aggregate GA4 events when `GA_MEASUREMENT_ID` and `GA_API_SECRET` are configured. These events use daily, agent-family aggregate client identifiers and contain only:
+
+- event type
+- agent family
+- resource type and public path
+- representation type
+- MCP tool name
+- fit class
+
+They never contain raw user agents, IP addresses, form values, enquiry text, names, companies, or email addresses. Preview and local environments do not send these events. In GA4, use an Exploration filtered to the event names `agent_resource_read`, `crawler_page_read`, `mcp_discovery_read`, `mcp_resource_read`, `mcp_tool_call`, `inquiry_preparation`, `inquiry_scope_match`, and `procurement_fit_screen`. Break down by `agent_family`, `resource_type`, `resource_path`, `representation`, and `tool_name` after registering those event parameters as event-scoped custom dimensions.
+
+## Privacy-Safe Analytics
+
+Browser analytics use one direct GA4 loader through `/api/client-config.js` and `/assets/strata-analytics.js`. GTM, Mixpanel, and the legacy analytics loader are not used. The enquiry form records only form start, privacy-safe submission diagnostics, and errors. Field names, field values, value lengths, names, emails, company details, and enquiry text are never sent as browser analytics events.
+
+The production conversion candidate is the server-confirmed `lead_submission` event. It is emitted only after the confidential enquiry email is accepted for delivery. Keep browser `form_submit_success` as a diagnostic event and do not mark both as GA4 key events.
+
+## Indexing And Runtime Controls
+
+- Canonical English pages remain indexable.
+- Every URL containing `?lang=` returns both HTML meta `noindex, follow` and HTTP `X-Robots-Tag: noindex, follow`, preventing query-language duplicates while keeping the language experience available.
+- Direct Markdown sidecars remain `noindex, follow`.
+- Public page and Markdown functions run in Vercel's Mumbai region (`bom1`), the nearest currently deployable Vercel runtime after Dubai returned unavailable at deployment.
+- HTML and Markdown use one-hour shared caching with stale-while-revalidate; `Vary: Accept` keeps HTML and Markdown representations separate.
+- Dynamic responses use CSP, HSTS, clickjacking protection, MIME protection, a strict referrer policy, and a restricted permissions policy.
 
 Before deployment, also run:
 
@@ -134,6 +165,8 @@ Expected Markdown headers:
 - `Content-Signal: ai-train=no, search=yes, ai-input=yes`
 - `Link: <https://www.stratasaudi.com/{page}>; rel="canonical"`
 - `X-Content-Type-Options: nosniff`
+- `X-Frame-Options: DENY`
+- `Content-Security-Policy: ... frame-ancestors 'none' ...`
 - direct `.md` only: `X-Robots-Tag: noindex, follow`
 
 ## Copy Pattern For Other Companies
@@ -152,7 +185,7 @@ Do not copy Strata's AI policy, contact details, category, service claims, or ac
 
 Rollback is low risk because the layer is additive and non-visual:
 
-1. Revert `api/page.js`, `lib/markdown-layer.js`, `scripts/generate-markdown-companions.js`, `scripts/validate-markdown-layer.js`, `markdown/*.md`, and discovery/doc updates.
+1. Revert `api/page.js`, `api/public-resource.js`, `lib/markdown-layer.js`, `lib/agent-observability.js`, `lib/security-headers.js`, analytics changes, generated `markdown/*.md`, and discovery/doc updates.
 2. Remove `node-html-parser` from `package.json` and `package-lock.json` if no longer used.
 3. Redeploy the previous known-good Vercel production deployment.
 4. Verify `Accept: text/markdown` returns HTML fallback and direct `.md` routes no longer resolve.

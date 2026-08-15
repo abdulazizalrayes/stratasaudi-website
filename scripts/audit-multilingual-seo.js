@@ -33,6 +33,12 @@ for (const page of PAGE_SEO_ROUTES) {
     expect(html.includes(`dir="${language.dir}"`), `${route}: html dir missing`);
     expect(!html.includes("https://stratasaudi.com"), `${route}: bare domain remains`);
     expect(countMatches(/rel="alternate"\s+hreflang="/g, html) === 2, `${route}: hreflang count mismatch`);
+    expect(html.includes('<meta property="og:title"'), `${route}: Open Graph title missing`);
+    expect(html.includes('<meta property="og:description"'), `${route}: Open Graph description missing`);
+    expect(html.includes('<meta property="og:image" content="https://www.stratasaudi.com/og-image.png">'), `${route}: Open Graph image missing`);
+    expect(html.includes('<meta name="twitter:card" content="summary_large_image">'), `${route}: Twitter card missing`);
+    expect(html.includes('<meta name="twitter:title"'), `${route}: Twitter title missing`);
+    expect(html.includes('<meta name="twitter:description"'), `${route}: Twitter description missing`);
 
     expect(
       html.includes(`hreflang="en" href="${publicUrlForRoute(page.path, "en")}"`),

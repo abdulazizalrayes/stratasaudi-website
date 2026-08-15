@@ -70,13 +70,18 @@ function extractAgentEvent(entry) {
   const toolMatch = message.match(/tool_name['"]?\s*[:=]\s*['"]?([a-zA-Z0-9_/-]+)/);
   const resourceMatch = message.match(/resource_id['"]?\s*[:=]\s*['"]?([a-zA-Z0-9_/-]+)/);
   const fitMatch = message.match(/fit['"]?\s*[:=]\s*['"]?([a-zA-Z0-9_/-]+)/);
+  const familyMatch = message.match(/agent_family['"]?\s*[:=]\s*['"]?([a-zA-Z0-9_/-]+)/);
+  const typeMatch = message.match(/resource_type['"]?\s*[:=]\s*['"]?([a-zA-Z0-9_./-]+)/);
+  const pathMatch = message.match(/resource_path['"]?\s*[:=]\s*['"]?([a-zA-Z0-9_./-]+)/);
   return {
     event_type: eventTypeMatch ? eventTypeMatch[1] : "strata_agent_readiness_event",
     tool_name: toolMatch ? toolMatch[1] : "",
     resource_id: resourceMatch ? resourceMatch[1] : "",
     fit: fitMatch ? fitMatch[1] : "",
+    agent_family: familyMatch ? familyMatch[1] : "",
+    resource_type: typeMatch ? typeMatch[1] : "",
     user_agent: entry.userAgent || entry.user_agent || "",
-    path: entry.requestPath || entry.path || "",
+    path: pathMatch ? pathMatch[1] : entry.requestPath || entry.path || "",
   };
 }
 
@@ -96,6 +101,8 @@ function main() {
     tool_calls: {},
     resource_reads: {},
     fit_classifications: {},
+    event_user_agent_families: {},
+    resource_types: {},
     user_agent_families: {},
     crawler_or_agent_reads: {},
     notes: [
@@ -127,6 +134,8 @@ function main() {
     increment(report.tool_calls, event.tool_name || event.event_type);
     increment(report.resource_reads, event.resource_id);
     increment(report.fit_classifications, event.fit);
+    increment(report.event_user_agent_families, event.agent_family);
+    increment(report.resource_types, event.resource_type);
   }
 
   console.log(JSON.stringify(report, null, 2));

@@ -174,16 +174,6 @@
     });
   }
 
-  function initGtm() {
-    if (!runtime.gtmId || document.querySelector("[data-strata-gtm='true']")) return;
-    dataLayer.push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-    var script = document.createElement("script");
-    script.async = true;
-    script.dataset.strataGtm = "true";
-    script.src = "https://www.googletagmanager.com/gtm.js?id=" + encodeURIComponent(runtime.gtmId);
-    document.head.appendChild(script);
-  }
-
   function queuePendingEvent(name, payload) {
     var session = storage("sessionStorage");
     var existing = readJson(session, PENDING_EVENTS_KEY);
@@ -202,7 +192,6 @@
 
   function pushEvent(name, payload) {
     var body = Object.assign({ event: name }, buildBase(), payload || {});
-    dataLayer.push(body);
     if (typeof window.gtag === "function" && runtime.gaMeasurementId) {
       var gtagBody = Object.assign({}, body);
       delete gtagBody.event;
@@ -260,7 +249,6 @@
   }
 
   initGa();
-  initGtm();
   bindClicks();
   markPageView();
   flushPendingEvents();

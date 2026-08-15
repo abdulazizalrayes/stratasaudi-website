@@ -1,6 +1,6 @@
 ---
 title: "Governance | Strata Saudi"
-description: "Governance posture for Strata Saudi covering confidentiality, conflicts, evidence handling, browser governance, and agent controls."
+description: "Strata's governance, independence, confidentiality, conflict-screening, evidence discipline, and engineering-led advisory boundaries."
 canonical: "https://www.stratasaudi.com/ethics"
 language: "en"
 content_signal: "ai-train=no, search=yes, ai-input=yes"

@@ -1,6 +1,6 @@
 ---
 title: "Services | Strata Risk Advisory Saudi Arabia"
-description: "Contract risk management, FIDIC claims, and pre-litigation advisory services in Saudi Arabia. Expert engineering consultancy for project risk oversight, technical opinions, and vendor assessments."
+description: "Engineering-led contract review, project-risk oversight, technical opinion, pre-litigation support, and vendor-risk assessment in Saudi Arabia."
 canonical: "https://www.stratasaudi.com/services"
 language: "en"
 content_signal: "ai-train=no, search=yes, ai-input=yes"

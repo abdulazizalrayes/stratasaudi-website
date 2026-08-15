@@ -1,6 +1,7 @@
 const net = require("net");
 const tls = require("tls");
 const { APPROVED_BUSINESS_MAILBOX } = require("../lib/private-email-client");
+const { setSecurityHeaders } = require("../lib/security-headers");
 
 const MAX_BODY_BYTES = 32 * 1024;
 const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
@@ -561,15 +562,9 @@ async function sendGa4MeasurementProtocolEvent(payload) {
           mandate_type: payload.mandateType,
           urgency: payload.urgency,
           confidentiality_required: payload.confidentialityRequired ? 1 : 0,
-          country: payload.country,
           counterparty_type: payload.counterpartyType,
           project_value_band: payload.projectValueBand || "",
-          source: (payload.firstTouch && payload.firstTouch.source) || "",
-          medium: (payload.firstTouch && payload.firstTouch.medium) || "",
-          campaign: (payload.firstTouch && payload.firstTouch.campaign) || "",
-          term: (payload.firstTouch && payload.firstTouch.term) || "",
-          content: (payload.firstTouch && payload.firstTouch.content) || "",
-          form_page: payload.pageUrl || "https://www.stratasaudi.com/contact"
+          form_page: "https://www.stratasaudi.com/contact"
         }
       }]
     };
@@ -598,6 +593,7 @@ function generateRandomClientId() {
 }
 
 module.exports = async (req, res) => {
+  setSecurityHeaders(res, { cache: false });
   const requestOrigin = String(req.headers.origin || "");
   const requestHost = String(req.headers.host || "");
   const allowedOrigin = getCorsOrigin(requestOrigin, requestHost);

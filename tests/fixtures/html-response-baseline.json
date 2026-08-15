@@ -1,58 +1,58 @@
 {
   "schema_version": "1.0",
-  "purpose": "Board-approved HTML response baseline before non-visual Markdown negotiation hardening on 2026-07-29",
+  "purpose": "Approved non-visual privacy, analytics, SEO metadata, and agent-observability release baseline on 2026-08-15",
   "routes": {
     "/": {
-      "sha256": "970e511adaa988f18b17da64426b607b58854a2f2eeb75e51b7b7b04ea36b930",
-      "bytes": 68579
+      "sha256": "f0459462848216cec73e905d8dfda2b1dae7a24dcec8075722277b9b400449ff",
+      "bytes": 65270
     },
     "/about": {
-      "sha256": "67be6eb4e59476359259fb12648544e357d0b973d9863b07eee9053509914110",
-      "bytes": 16306
+      "sha256": "a330d158854cc30305c1ff5960de12749bf6991b404adb32e5f589fd8fc434a3",
+      "bytes": 17426
     },
     "/services": {
-      "sha256": "8d60ec7746aac1be9cc3216967eecc031e2e42572ca27ff6be663a5d6007cd13",
-      "bytes": 42656
+      "sha256": "e9c656c3f90d68dd006d559fc70583fe9ccbc5175508c24f79af794bc6f60b0e",
+      "bytes": 42496
     },
     "/counterparties": {
-      "sha256": "cdbd9c04d8396729b0846ab0968e89ec56527f12f26637d2a10b505ea4a38a0b",
-      "bytes": 17749
+      "sha256": "b91c31f439645f00aaec14971898a8848e8526cdc780b439ffe1049c19de4467",
+      "bytes": 18126
     },
     "/why-saudi": {
-      "sha256": "66dbc73d503198140828414e4ac7088a2792f17b8123e4c6f330505376cb18d2",
-      "bytes": 15874
+      "sha256": "e748efd6da515f7354ca05c7c8a75355d8c6a3ee3df87576f53844df8739d256",
+      "bytes": 17025
     },
     "/insights": {
-      "sha256": "d051b81b9e885a3f41c81f03e9b1613ff374342477c57c945df7633ded017cf0",
-      "bytes": 31297
+      "sha256": "b24f4c4c8d0cc3595cfb7d54bdc335c496ac2d9ab8fa55e80ea07cdc3926b561",
+      "bytes": 31371
     },
     "/faq": {
-      "sha256": "596be4b3c76520140a53fcaf9804b287b70eca2313a23e30f11c0d4a1048c170",
-      "bytes": 19065
+      "sha256": "acc8ed5bd8181b98210d27f86a5777b2ac7f26fca29ac1260c98a719d7c33b8d",
+      "bytes": 19846
     },
     "/ethics": {
-      "sha256": "6e3a6c2b953f7b11096b5ab4977d17bc274e76c1b4c57ebec0eeebe4c7bd82df",
-      "bytes": 15730
+      "sha256": "77458aef9d8e73f521dad87d3f533f2c425454ea925809b2d22dd790494408d7",
+      "bytes": 16819
     },
     "/contact": {
-      "sha256": "e67d4ff6fc01bdc4e7f063d147d8c020ac498e23fd9ec60231936113d3e34172",
-      "bytes": 26059
+      "sha256": "6047ee0bc54ca401a3ad777239f8bf9aa9ed66660b962c19f0ebaacba68d003b",
+      "bytes": 25867
     },
     "/privacy": {
-      "sha256": "033ec25bf695b9be17f81d5fcaffd2c9b65725ff3bb4f9295732912e09577b34",
-      "bytes": 15093
+      "sha256": "8a71033013e4a55caf2193d6f2e32f1987e075f0c2d5e440a8c529a4cd3080b8",
+      "bytes": 16173
     },
     "/terms": {
-      "sha256": "feb296e2523479fc361256cf7d296ce95f79e9d9113a5b7d27fcf57f1980d091",
-      "bytes": 14888
+      "sha256": "9381c1ac16bbe0c1a897a4ba20b7955d9870473a19bc8ad16e94cda5641027f1",
+      "bytes": 15972
     },
     "/mandate-checklist": {
-      "sha256": "79693eba62f5b2db629b15ed613e087d733ee1eeda9f1e70824136811fd886ff",
-      "bytes": 18031
+      "sha256": "63fc7d5711b03a0c0eaa06b637d51d4c9cea4a05af7a37f0e4de233cf6a32654",
+      "bytes": 19069
     },
     "/fidic-claims-saudi-arabia": {
-      "sha256": "55c87dc2c213e3f9e7bb08be134d606d2a5bfe067b53a70ef4ae0a2795badca8",
-      "bytes": 49860
+      "sha256": "c30c406112a98a86e58137340fc988c955c571eb2c8769c106c7443bb71f74ff",
+      "bytes": 49911
     }
   }
 }

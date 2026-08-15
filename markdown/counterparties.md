@@ -1,6 +1,6 @@
 ---
 title: "Counterparties | Strata Saudi"
-description: "How Strata Saudi works with foreign EPC contractors, developers, law firms, boards, and investors exposed to Saudi projects."
+description: "Advisory for foreign EPC contractors, developers, international law firms, investors, boards, and committees facing material Saudi project exposure."
 canonical: "https://www.stratasaudi.com/counterparties"
 language: "en"
 content_signal: "ai-train=no, search=yes, ai-input=yes"

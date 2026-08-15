@@ -1,6 +1,6 @@
 ---
 title: "Insights | Strata Risk Advisory Saudi Arabia"
-description: "Expert insights on construction risk management, FIDIC claims analysis, and Saudi Vision 2030 mega-projects. Industry analysis and technical guidance from Strata Risk Advisory."
+description: "Engineering-led analysis of Saudi construction risk, FIDIC claims discipline, technical evidence, and major-project decision support."
 canonical: "https://www.stratasaudi.com/insights"
 language: "en"
 content_signal: "ai-train=no, search=yes, ai-input=yes"

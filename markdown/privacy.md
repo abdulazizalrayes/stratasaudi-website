@@ -1,6 +1,6 @@
 ---
 title: "Privacy | Strata Saudi"
-description: "Privacy notice for Strata Saudi website enquiries and analytics handling."
+description: "How Strata Risk Advisory handles public website data and confidential mandate enquiries for Saudi project-risk advisory."
 canonical: "https://www.stratasaudi.com/privacy"
 language: "en"
 content_signal: "ai-train=no, search=yes, ai-input=yes"

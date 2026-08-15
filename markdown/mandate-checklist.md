@@ -1,6 +1,6 @@
 ---
 title: "Mandate Checklist | Strata Saudi"
-description: "A structured mandate checklist for serious Saudi project exposure, covering counterparty type, mandate scope, exposure, urgency, evidence readiness, and decision need."
+description: "Screen whether a material Saudi contract or project exposure fits Strata's selective engineering-led advisory mandate."
 canonical: "https://www.stratasaudi.com/mandate-checklist"
 language: "en"
 content_signal: "ai-train=no, search=yes, ai-input=yes"

@@ -145,6 +145,9 @@ async function validateWorkerBehavior() {
   assert.strictEqual(markdown.headers["content-language"], "en");
   assert.strictEqual(markdown.headers["content-signal"], CONTENT_SIGNAL);
   assert.strictEqual(markdown.headers["x-content-type-options"], "nosniff");
+  assert.strictEqual(markdown.headers["x-frame-options"], "DENY");
+  assert(markdown.headers["content-security-policy"].includes("frame-ancestors 'none'"));
+  assert(markdown.headers["cache-control"].includes("s-maxage=3600"));
   assert.strictEqual(markdown.headers["content-location"], `${SITE_ORIGIN}/services.md`);
   assert.strictEqual(markdown.headers.link, `<${SITE_ORIGIN}/services>; rel="canonical"`);
   assert(markdown.body.startsWith("---\n"), "negotiated Markdown body should use generated sidecar");
@@ -155,6 +158,9 @@ async function validateWorkerBehavior() {
   assert.strictEqual(html.headers["content-language"], "en");
   assert.strictEqual(html.headers["content-signal"], CONTENT_SIGNAL);
   assert.strictEqual(html.headers.link, alternateLink);
+  assert.strictEqual(html.headers["x-frame-options"], "DENY");
+  assert.strictEqual(html.headers["referrer-policy"], "strict-origin-when-cross-origin");
+  assert(html.headers["cache-control"].includes("stale-while-revalidate=86400"));
   assert.strictEqual(html.body, readHtmlForPath("/services"), "explicit HTML body must remain byte-identical");
 
   const strongerHtml = await callPage("/services", "text/html;q=0.9,text/markdown;q=0.4");
@@ -213,11 +219,16 @@ async function validateWorkerBehavior() {
     const languageQuery = await callPage(`/services?lang=${language.code}`, "text/markdown");
     assert.strictEqual(languageQuery.headers["content-type"], "text/html; charset=utf-8");
     assert.strictEqual(languageQuery.headers["content-language"], language.code);
+    assert.strictEqual(languageQuery.headers["x-robots-tag"], "noindex, follow");
     assert(
       languageQuery.body.includes(`lang="${language.code}"`),
       `${language.code}: language query should preserve HTML language rendering`,
     );
   }
+
+  const invalidLanguageQuery = await callPage("/services?lang=invalid", "text/html");
+  assert.strictEqual(invalidLanguageQuery.headers["x-robots-tag"], "noindex, follow");
+  assert.strictEqual(invalidLanguageQuery.headers["content-language"], "en");
 
   const trackingQuery = await callPage("/services?utm_source=agent", "text/markdown");
   assert.strictEqual(trackingQuery.headers["content-type"], "text/markdown; charset=utf-8");
@@ -263,8 +274,13 @@ function validateDiscoveryDocs() {
   assert(JSON.stringify(openapi).includes("text/markdown"), "openapi.json: Markdown media type missing");
   assert(JSON.stringify(vercel).includes("markdown/**/*.md"), "vercel.json: Markdown includeFiles missing");
   assert(JSON.stringify(vercel).includes("/(.+)\\\\.md"), "vercel.json: direct .md route missing");
+  assert.deepStrictEqual(vercel.regions, ["bom1"], "vercel.json: Saudi-near runtime region must be Mumbai");
+  assert(JSON.stringify(vercel).includes("public-resource.js?resource=$1"), "vercel.json: observable public-resource route missing");
 
   const robots = read("robots.txt");
+  for (const nonstandardDirective of ["LLMs:", "LLMs-Full:", "Agent-Card:", "MCP:", "OpenAPI:"]) {
+    assert(!robots.includes(nonstandardDirective), `robots.txt: nonstandard ${nonstandardDirective} directive remains`);
+  }
   for (const trainingBot of ["GPTBot", "Google-Extended", "CCBot", "anthropic-ai", "Bytespider", "ClaudeBot"]) {
     assert(
       robots.includes(`User-agent: ${trainingBot}\nDisallow: /`),

@@ -1,4 +1,5 @@
 const { checkMailboxHealth } = require("../lib/private-email-client");
+const { setSecurityHeaders } = require("../lib/security-headers");
 
 function json(res, statusCode, payload) {
   res.statusCode = statusCode;
@@ -44,6 +45,7 @@ function isAuthorized(req) {
 }
 
 module.exports = async (req, res) => {
+  setSecurityHeaders(res, { cache: false });
   const origin = allowedOrigin(req.headers.origin || "", req.headers.host || "");
   res.setHeader("Access-Control-Allow-Origin", origin);
   res.setHeader("Access-Control-Allow-Methods", "GET, OPTIONS");

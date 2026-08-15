@@ -1,6 +1,6 @@
 ---
 title: "FIDIC Claims Saudi Arabia | Strata Risk Advisory"
-description: "Comprehensive guide to understanding FIDIC claims in Saudi Arabia. Learn about Clause 20, notice requirements, common pitfalls, and dispute resolution strategies for construction contractors."
+description: "Engineering-led guidance on FIDIC notice discipline, Clause 20, evidence, claim readiness, and dispute exposure on Saudi projects."
 canonical: "https://www.stratasaudi.com/fidic-claims-saudi-arabia"
 language: "en"
 content_signal: "ai-train=no, search=yes, ai-input=yes"

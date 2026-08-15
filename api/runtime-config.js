@@ -1,3 +1,5 @@
+const { setSecurityHeaders } = require("../lib/security-headers");
+
 module.exports = async (_req, res) => {
   const bool = (value) => String(value || "").toLowerCase() === "true";
   const approvedMailbox = "advisory@stratasaudi.com";
@@ -42,10 +44,10 @@ module.exports = async (_req, res) => {
     linkedinCompanyUrl: safeCompanyLinkedInUrl(process.env.LINKEDIN_COMPANY_URL),
     linkedinFounderUrl: optionalSafeUrl(process.env.LINKEDIN_FOUNDER_URL),
     gaMeasurementId: process.env.GA_MEASUREMENT_ID || "",
-    gtmId: process.env.GTM_ID || "",
     gaDebugMode: bool(process.env.GA_DEBUG_MODE),
   };
 
   res.setHeader("Content-Type", "application/javascript; charset=utf-8");
+  setSecurityHeaders(res, { cacheControl: "public, max-age=0, s-maxage=300" });
   res.end(`window.STRATA_RUNTIME_CONFIG = ${JSON.stringify(payload)};`);
 };

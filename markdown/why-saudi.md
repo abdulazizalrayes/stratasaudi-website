@@ -1,6 +1,6 @@
 ---
 title: "Saudi Risk Landscape | Strata Saudi"
-description: "Saudi project exposure creates asymmetric risk around notices, chronology, counterpart performance, vendor reliability, and escalation timing."
+description: "Understand the delivery, governance, evidence, notice, and commercial pressures that shape major Saudi construction and infrastructure projects."
 canonical: "https://www.stratasaudi.com/why-saudi"
 language: "en"
 content_signal: "ai-train=no, search=yes, ai-input=yes"

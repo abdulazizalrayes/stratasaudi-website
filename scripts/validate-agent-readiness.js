@@ -221,7 +221,11 @@ function validateDiscovery() {
   expect(robots.includes("User-agent: ClaudeBot\nDisallow: /"), "robots: ClaudeBot training opt-out missing");
   expect(robots.includes("User-agent: OAI-SearchBot\nAllow: /"), "robots: OAI search access missing");
   expect(robots.includes("User-agent: Claude-SearchBot\nAllow: /"), "robots: Claude search access missing");
-  expect(robots.includes("MCP: https://www.stratasaudi.com/.well-known/mcp.json"), "robots: MCP pointer missing");
+  expect(
+    llms.includes("https://www.stratasaudi.com/.well-known/mcp.json") ||
+      JSON.stringify(mcpDiscovery).includes("https://www.stratasaudi.com/api/mcp"),
+    "discovery: MCP pointer missing from standards-appropriate resources",
+  );
   expect(openapi.paths["/data/fit-matrix.json"], "openapi: fit matrix endpoint missing");
   expect(openapi.paths["/data/fidic-risk-signals.json"], "openapi: FIDIC risk signals endpoint missing");
   expect(openapi.paths["/data/authority-evidence.json"], "openapi: authority evidence endpoint missing");
@@ -247,8 +251,8 @@ function validateMcpImplementation() {
   expect(mcpSource.includes("-32602"), "api/mcp.js: invalid-params handling missing");
   expect(mcpSource.includes("-32601"), "api/mcp.js: method-not-found handling missing");
   expect(
-    read("lib/agent-public-data.js").includes("strata_agent_readiness_event"),
-    "lib/agent-public-data.js: privacy-safe analytics event name missing",
+    read("lib/agent-observability.js").includes("strata_agent_readiness_event"),
+    "lib/agent-observability.js: privacy-safe analytics event name missing",
   );
 }
 

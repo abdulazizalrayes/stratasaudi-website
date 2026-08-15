@@ -228,20 +228,8 @@
       return;
     }
 
-    if (window.StrataLiveTracking && typeof window.StrataLiveTracking.pushEvent === "function") {
-      window.StrataLiveTracking.pushEvent("language_select", payload);
-      return;
-    }
-
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push(Object.assign({ event: "language_select" }, payload));
-
     if (typeof window.gtag === "function") {
       window.gtag("event", "language_select", payload);
-    }
-
-    if (window.mixpanel && typeof window.mixpanel.track === "function") {
-      window.mixpanel.track("language_select", payload);
     }
   }
 
