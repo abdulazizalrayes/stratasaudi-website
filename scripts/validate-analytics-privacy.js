@@ -31,6 +31,12 @@ const analytics = read("assets/strata-analytics.js");
 assert(!analytics.includes("initGtm"), "strata-analytics.js: GTM initialization remains");
 assert(!analytics.includes("runtime.gtmId"), "strata-analytics.js: GTM runtime configuration remains");
 assert(!analytics.toLowerCase().includes("mixpanel"), "strata-analytics.js: Mixpanel reference remains");
+assert(analytics.includes("allow_google_signals: false"), "strata-analytics.js: Google advertising signals must be disabled");
+assert(analytics.includes("allow_ad_personalization_signals: false"), "strata-analytics.js: ad personalization signals must be disabled");
+assert(analytics.includes('ad_storage: "denied"'), "strata-analytics.js: advertising storage must default to denied");
+assert(analytics.includes('ad_user_data: "denied"'), "strata-analytics.js: advertising user data must default to denied");
+assert(analytics.includes('ad_personalization: "denied"'), "strata-analytics.js: advertising personalization must default to denied");
+assert(analytics.includes('ads_data_redaction", true'), "strata-analytics.js: advertising data redaction must be enabled");
 
 const runtimeConfig = read("api/runtime-config.js");
 assert(!runtimeConfig.includes("gtmId"), "runtime-config.js: public GTM id remains");

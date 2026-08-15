@@ -166,10 +166,19 @@
     }
 
     window.gtag = window.gtag || function () { dataLayer.push(arguments); };
+    window.gtag("consent", "default", {
+      analytics_storage: "granted",
+      ad_storage: "denied",
+      ad_user_data: "denied",
+      ad_personalization: "denied",
+    });
+    window.gtag("set", "ads_data_redaction", true);
     window.gtag("js", new Date());
     window.gtag("config", runtime.gaMeasurementId, {
       debug_mode: runtime.gaDebugMode === true,
       anonymize_ip: true,
+      allow_google_signals: false,
+      allow_ad_personalization_signals: false,
       send_page_view: false,
     });
   }
