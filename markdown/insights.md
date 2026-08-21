@@ -1,5 +1,5 @@
 ---
-title: "Insights | Strata Risk Advisory Saudi Arabia"
+title: "Saudi Contract Risk & FIDIC Insights | Strata"
 description: "Engineering-led analysis of Saudi construction risk, FIDIC claims discipline, technical evidence, and major-project decision support."
 canonical: "https://www.stratasaudi.com/insights"
 language: "en"
@@ -12,7 +12,7 @@ approval_required_before_contact: true
 not_a_law_firm: true
 ---
 
-# Insights | Strata Risk Advisory Saudi Arabia
+# Saudi Contract Risk & FIDIC Insights | Strata
 
 Canonical: https://www.stratasaudi.com/insights
 
@@ -41,6 +41,7 @@ Language: en
 - [Evidence requirements](https://www.stratasaudi.com/data/evidence-requirements.json)
 - [FIDIC risk signals](https://www.stratasaudi.com/data/fidic-risk-signals.json)
 - [Procurement readiness](https://www.stratasaudi.com/data/procurement-readiness.json)
+- [ARD capability catalog](https://www.stratasaudi.com/.well-known/ai-catalog.json)
 
 ## Source Provenance
 - HTML source: https://www.stratasaudi.com/insights

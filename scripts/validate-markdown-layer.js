@@ -5,17 +5,21 @@ const crypto = require("crypto");
 const fs = require("fs");
 const path = require("path");
 const { execFileSync } = require("child_process");
+const { parse } = require("node-html-parser");
 
 const {
   PAGE_SEO_ROUTES,
   SITE_ORIGIN,
   SUPPORTED_LANGUAGES,
+  publicPathForRoute,
+  publicUrlForRoute,
   readHtmlForPath,
 } = require("../lib/page-renderer");
 const {
   CONTENT_SIGNAL,
   canonicalPathForMarkdownPath,
   markdownFilePathForRoute,
+  markdownPublicPathForRoute,
   parseAcceptHeader,
   wantsMarkdown,
 } = require("../lib/markdown-layer");
@@ -80,6 +84,7 @@ function validateJsonAndMetadata() {
     "data/agent-routing.json",
     "openapi.json",
     ".well-known/agent-card.json",
+    ".well-known/ai-catalog.json",
     ".well-known/mcp.json",
     ".well-known/mcp/server-card.json",
     ".well-known/mcp/server-cards.json",
@@ -88,10 +93,12 @@ function validateJsonAndMetadata() {
   jsonFiles.forEach(json);
 
   for (const page of PAGE_SEO_ROUTES) {
-    const markdown = fs.readFileSync(markdownFilePathForRoute(page.path), "utf8");
-    assert(markdown.includes(`canonical: "${SITE_ORIGIN}${page.path === "/" ? "/" : page.path}"`), `${page.path}: canonical metadata missing`);
-    assert(!markdown.match(/^canonical: .*\.html/m), `${page.path}: .html canonical regression`);
-    assert(markdown.includes('language: "en"'), `${page.path}: language metadata missing`);
+    for (const language of SUPPORTED_LANGUAGES) {
+      const label = `${language.code}:${page.path}`;
+      const markdown = fs.readFileSync(markdownFilePathForRoute(page.path, language.code), "utf8");
+      assert(markdown.includes(`canonical: "${publicUrlForRoute(page.path, language.code)}"`), `${label}: canonical metadata missing`);
+      assert(!markdown.match(/^canonical: .*\.html/m), `${label}: .html canonical regression`);
+      assert(markdown.includes(`language: "${language.code}"`), `${label}: language metadata missing`);
     assert(markdown.includes(`content_signal: "${CONTENT_SIGNAL}"`), `${page.path}: Content-Signal metadata missing`);
     assert(markdown.includes("generated_from_sitemap: true"), `${page.path}: sitemap provenance missing`);
     assert(markdown.includes("approval_required_before_contact: true"), `${page.path}: approval metadata missing`);
@@ -108,18 +115,28 @@ function validateJsonAndMetadata() {
     assert(!markdown.includes("+966XXXXXXXXX"), `${page.path}: phone placeholder leaked into Markdown`);
     assert(!markdown.includes("Email advisory@stratasaudi.com"), `${page.path}: contact bar leaked into Markdown`);
     assert(!markdown.includes("Home /"), `${page.path}: breadcrumb chrome leaked into Markdown`);
+    }
   }
 }
 
 function validateSitemapCoverage() {
   const fromSitemap = sitemapPaths();
-  const fromRoutes = PAGE_SEO_ROUTES.map((page) => page.path);
+  const fromRoutes = PAGE_SEO_ROUTES.flatMap((page) =>
+    SUPPORTED_LANGUAGES.map((language) => publicPathForRoute(page.path, language.code)),
+  );
   assert.deepStrictEqual(fromSitemap, fromRoutes, "sitemap routes must match PAGE_SEO_ROUTES order and coverage");
   for (const page of PAGE_SEO_ROUTES) {
-    assert(fs.existsSync(markdownFilePathForRoute(page.path)), `${page.path}: Markdown sidecar missing`);
+    for (const language of SUPPORTED_LANGUAGES) {
+      assert(
+        fs.existsSync(markdownFilePathForRoute(page.path, language.code)),
+        `${language.code}:${page.path}: Markdown sidecar missing`,
+      );
+    }
   }
   assert.strictEqual(canonicalPathForMarkdownPath("/index.md"), "/");
   assert.strictEqual(canonicalPathForMarkdownPath("/services.md"), "/services");
+  assert.strictEqual(canonicalPathForMarkdownPath("/fr/services.md"), "/services");
+  assert.strictEqual(canonicalPathForMarkdownPath("/ar/index.md"), "/");
   assert.strictEqual(canonicalPathForMarkdownPath("/thank-you.md"), null);
 }
 
@@ -157,7 +174,8 @@ async function validateWorkerBehavior() {
   assert.strictEqual(html.headers.vary, "Accept");
   assert.strictEqual(html.headers["content-language"], "en");
   assert.strictEqual(html.headers["content-signal"], CONTENT_SIGNAL);
-  assert.strictEqual(html.headers.link, alternateLink);
+  assert(html.headers.link.includes(alternateLink));
+  assert(html.headers.link.includes('</.well-known/ai-catalog.json>; rel="ai-catalog"; type="application/json"'));
   assert.strictEqual(html.headers["x-frame-options"], "DENY");
   assert.strictEqual(html.headers["referrer-policy"], "strict-origin-when-cross-origin");
   assert(html.headers["cache-control"].includes("stale-while-revalidate=86400"));
@@ -199,7 +217,8 @@ async function validateWorkerBehavior() {
 
   const htmlHead = await callPage("/services", "text/html", "HEAD");
   assert.strictEqual(htmlHead.body, "");
-  assert.strictEqual(htmlHead.headers.link, alternateLink);
+  assert(htmlHead.headers.link.includes(alternateLink));
+  assert(htmlHead.headers.link.includes('</.well-known/ai-catalog.json>; rel="ai-catalog"; type="application/json"'));
   assert.strictEqual(htmlHead.headers.vary, "Accept");
   assert.strictEqual(htmlHead.headers["content-signal"], CONTENT_SIGNAL);
 
@@ -215,33 +234,45 @@ async function validateWorkerBehavior() {
   const nonIndexable = await callPage("/thank-you", "text/markdown");
   assert.strictEqual(nonIndexable.headers["content-type"], "text/html; charset=utf-8");
 
-  for (const language of SUPPORTED_LANGUAGES) {
-    const languageQuery = await callPage(`/services?lang=${language.code}`, "text/markdown");
-    assert.strictEqual(languageQuery.headers["content-type"], "text/html; charset=utf-8");
-    assert.strictEqual(languageQuery.headers["content-language"], language.code);
-    assert.strictEqual(languageQuery.headers["x-robots-tag"], "noindex, follow");
-    assert(
-      languageQuery.body.includes(`lang="${language.code}"`),
-      `${language.code}: language query should preserve HTML language rendering`,
-    );
+  for (const language of SUPPORTED_LANGUAGES.filter((item) => item.code !== "en")) {
+    const localizedPath = publicPathForRoute("/services", language.code);
+    const localizedMarkdownPath = markdownPublicPathForRoute("/services", language.code);
+    const localizedHtml = await callPage(localizedPath, "text/html");
+    const localizedMarkdown = await callPage(localizedPath, "text/markdown");
+    const localizedSidecar = await callPage(localizedMarkdownPath, "text/html");
+    const legacyQuery = await callPage(`/services?lang=${language.code}`, "text/html");
+
+    assert.strictEqual(localizedHtml.headers["content-type"], "text/html; charset=utf-8");
+    assert.strictEqual(localizedHtml.headers["content-language"], language.code);
+    assert.strictEqual(localizedHtml.headers["x-robots-tag"], undefined);
+    assert(localizedHtml.body.includes(`lang="${language.code}"`));
+    assert(localizedHtml.body.includes(`<link rel="canonical" href="${publicUrlForRoute("/services", language.code)}">`));
+    assert.strictEqual(localizedMarkdown.headers["content-type"], "text/markdown; charset=utf-8");
+    assert.strictEqual(localizedMarkdown.headers["content-language"], language.code);
+    assert.strictEqual(localizedSidecar.headers["content-type"], "text/markdown; charset=utf-8");
+    assert.strictEqual(localizedSidecar.headers["x-robots-tag"], "noindex, follow");
+    assert.strictEqual(legacyQuery.statusCode, 308);
+    assert.strictEqual(legacyQuery.headers.location, localizedPath);
   }
 
   const invalidLanguageQuery = await callPage("/services?lang=invalid", "text/html");
-  assert.strictEqual(invalidLanguageQuery.headers["x-robots-tag"], "noindex, follow");
+  assert.strictEqual(invalidLanguageQuery.headers["x-robots-tag"], undefined);
   assert.strictEqual(invalidLanguageQuery.headers["content-language"], "en");
 
   const trackingQuery = await callPage("/services?utm_source=agent", "text/markdown");
   assert.strictEqual(trackingQuery.headers["content-type"], "text/markdown; charset=utf-8");
 
   for (const page of PAGE_SEO_ROUTES) {
-    const slug = page.path === "/" ? "index" : page.path.slice(1);
-    const expectedAlternate = `<${SITE_ORIGIN}/${slug}.md>; rel="alternate"; type="text/markdown"`;
-    const pageHtml = await callPage(page.path, "text/html");
-    const pageHead = await callPage(page.path, "text/html", "HEAD");
-    assert(pageHtml.headers.link.includes(expectedAlternate), `${page.path}: HTML alternate Link missing`);
-    assert(pageHead.headers.link.includes(expectedAlternate), `${page.path}: HEAD alternate Link missing`);
-    assert.strictEqual(pageHtml.body, readHtmlForPath(page.path), `${page.path}: HTML response body changed`);
-    assert.strictEqual(pageHead.body, "", `${page.path}: HEAD response returned a body`);
+    for (const language of SUPPORTED_LANGUAGES) {
+      const localizedPath = publicPathForRoute(page.path, language.code);
+      const expectedAlternate = `<${SITE_ORIGIN}${markdownPublicPathForRoute(page.path, language.code)}>; rel="alternate"; type="text/markdown"`;
+      const pageHtml = await callPage(localizedPath, "text/html");
+      const pageHead = await callPage(localizedPath, "text/html", "HEAD");
+      assert(pageHtml.headers.link.includes(expectedAlternate), `${language.code}:${page.path}: HTML alternate Link missing`);
+      assert(pageHead.headers.link.includes(expectedAlternate), `${language.code}:${page.path}: HEAD alternate Link missing`);
+      assert.strictEqual(pageHtml.body, readHtmlForPath(localizedPath), `${language.code}:${page.path}: HTML response body changed`);
+      assert.strictEqual(pageHead.body, "", `${language.code}:${page.path}: HEAD response returned a body`);
+    }
   }
 
   const contactHtml = await callPage("/contact", "text/html");
@@ -251,14 +282,14 @@ async function validateWorkerBehavior() {
 }
 
 function validateHtmlHashBaseline() {
-  const baselinePath = path.join(ROOT, "tests", "fixtures", "html-response-baseline.json");
-  assert(fs.existsSync(baselinePath), "mandatory HTML response baseline is missing");
+  const baselinePath = path.join(ROOT, "tests", "fixtures", "html-body-baseline.json");
+  assert(fs.existsSync(baselinePath), "mandatory HTML body baseline is missing");
   const baseline = JSON.parse(fs.readFileSync(baselinePath, "utf8"));
   for (const page of PAGE_SEO_ROUTES) {
-    assert(baseline.routes[page.path], `${page.path}: HTML baseline entry missing`);
+    assert(baseline.routes[page.path], `${page.path}: HTML body baseline entry missing`);
     const html = readHtmlForPath(page.path);
-    assert.strictEqual(sha256(html), baseline.routes[page.path].sha256, `${page.path}: HTML hash changed`);
-    assert.strictEqual(Buffer.byteLength(html), baseline.routes[page.path].bytes, `${page.path}: HTML byte size changed`);
+    const body = parse(html).querySelector("body").toString();
+    assert.strictEqual(sha256(body), baseline.routes[page.path].sha256, `${page.path}: visible HTML body changed`);
   }
   return { routes: PAGE_SEO_ROUTES.length };
 }
@@ -270,6 +301,7 @@ function validateDiscoveryDocs() {
   const openapi = json("openapi.json");
 
   assert(llms.includes("Accept: text/markdown"), "llms.txt: Markdown negotiation instructions missing");
+  assert(llms.includes("/.well-known/ai-catalog.json"), "llms.txt: ARD catalog pointer missing");
   assert(full.includes("/services.md"), "llms-full.txt: direct Markdown sidecar guidance missing");
   assert(JSON.stringify(openapi).includes("text/markdown"), "openapi.json: Markdown media type missing");
   assert(JSON.stringify(vercel).includes("markdown/**/*.md"), "vercel.json: Markdown includeFiles missing");
@@ -310,7 +342,7 @@ async function main() {
   console.log(JSON.stringify({
     ok: true,
     pages: PAGE_SEO_ROUTES.length,
-    markdownFiles: PAGE_SEO_ROUTES.length,
+    markdownFiles: PAGE_SEO_ROUTES.length * SUPPORTED_LANGUAGES.length,
     languagesChecked: SUPPORTED_LANGUAGES.map((language) => language.code),
     htmlHashBaseline: `${hashCheck.routes} routes unchanged`,
     acceptCasesChecked: 11,

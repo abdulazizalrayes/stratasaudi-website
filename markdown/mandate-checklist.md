@@ -1,5 +1,5 @@
 ---
-title: "Mandate Checklist | Strata Saudi"
+title: "Saudi Project-Risk Mandate Fit Checklist | Strata"
 description: "Screen whether a material Saudi contract or project exposure fits Strata's selective engineering-led advisory mandate."
 canonical: "https://www.stratasaudi.com/mandate-checklist"
 language: "en"
@@ -12,7 +12,7 @@ approval_required_before_contact: true
 not_a_law_firm: true
 ---
 
-# Mandate Checklist | Strata Saudi
+# Saudi Project-Risk Mandate Fit Checklist | Strata
 
 Canonical: https://www.stratasaudi.com/mandate-checklist
 
@@ -41,6 +41,7 @@ Language: en
 - [Evidence requirements](https://www.stratasaudi.com/data/evidence-requirements.json)
 - [FIDIC risk signals](https://www.stratasaudi.com/data/fidic-risk-signals.json)
 - [Procurement readiness](https://www.stratasaudi.com/data/procurement-readiness.json)
+- [ARD capability catalog](https://www.stratasaudi.com/.well-known/ai-catalog.json)
 
 ## Source Provenance
 - HTML source: https://www.stratasaudi.com/mandate-checklist

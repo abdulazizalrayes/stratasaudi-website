@@ -4,104 +4,1014 @@
   <url>
     <loc>https://www.stratasaudi.com/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/" />
-    <lastmod>2026-05-30</lastmod>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/ar</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/" />
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/fr</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/" />
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/" />
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/it</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/" />
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/de</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/" />
+    <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.stratasaudi.com/about</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/about" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/about" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/about" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/about" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/about" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/about" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/about" />
-    <lastmod>2026-05-30</lastmod>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/ar/about</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/about" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/about" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/about" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/about" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/about" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/about" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/about" />
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/fr/about</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/about" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/about" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/about" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/about" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/about" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/about" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/about" />
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/es/about</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/about" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/about" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/about" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/about" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/about" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/about" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/about" />
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/it/about</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/about" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/about" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/about" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/about" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/about" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/about" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/about" />
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/de/about</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/about" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/about" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/about" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/about" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/about" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/about" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/about" />
+    <lastmod>2026-08-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.stratasaudi.com/services</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/services" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/services" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/services" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/services" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/services" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/services" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/services" />
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/ar/services</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/services" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/services" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/services" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/services" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/services" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/services" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/services" />
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/fr/services</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/services" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/services" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/services" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/services" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/services" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/services" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/services" />
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/es/services</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/services" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/services" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/services" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/services" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/services" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/services" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/services" />
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/it/services</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/services" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/services" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/services" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/services" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/services" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/services" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/services" />
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/de/services</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/services" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/services" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/services" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/services" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/services" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/services" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/services" />
+    <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.stratasaudi.com/counterparties</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/counterparties" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/counterparties" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/counterparties" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/counterparties" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/counterparties" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/counterparties" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/counterparties" />
-    <lastmod>2026-05-30</lastmod>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/ar/counterparties</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/counterparties" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/counterparties" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/counterparties" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/counterparties" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/counterparties" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/counterparties" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/counterparties" />
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/fr/counterparties</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/counterparties" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/counterparties" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/counterparties" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/counterparties" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/counterparties" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/counterparties" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/counterparties" />
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/es/counterparties</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/counterparties" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/counterparties" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/counterparties" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/counterparties" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/counterparties" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/counterparties" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/counterparties" />
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/it/counterparties</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/counterparties" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/counterparties" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/counterparties" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/counterparties" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/counterparties" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/counterparties" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/counterparties" />
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/de/counterparties</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/counterparties" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/counterparties" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/counterparties" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/counterparties" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/counterparties" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/counterparties" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/counterparties" />
+    <lastmod>2026-08-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.stratasaudi.com/why-saudi</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/why-saudi" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/why-saudi" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/why-saudi" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/why-saudi" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/why-saudi" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/why-saudi" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/why-saudi" />
-    <lastmod>2026-05-30</lastmod>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/ar/why-saudi</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/why-saudi" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/why-saudi" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/why-saudi" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/why-saudi" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/why-saudi" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/why-saudi" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/why-saudi" />
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/fr/why-saudi</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/why-saudi" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/why-saudi" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/why-saudi" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/why-saudi" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/why-saudi" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/why-saudi" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/why-saudi" />
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/es/why-saudi</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/why-saudi" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/why-saudi" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/why-saudi" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/why-saudi" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/why-saudi" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/why-saudi" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/why-saudi" />
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/it/why-saudi</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/why-saudi" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/why-saudi" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/why-saudi" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/why-saudi" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/why-saudi" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/why-saudi" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/why-saudi" />
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/de/why-saudi</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/why-saudi" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/why-saudi" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/why-saudi" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/why-saudi" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/why-saudi" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/why-saudi" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/why-saudi" />
+    <lastmod>2026-08-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.stratasaudi.com/insights</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/insights" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/insights" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/insights" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/insights" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/insights" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/insights" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/insights" />
-    <lastmod>2026-05-30</lastmod>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/ar/insights</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/insights" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/insights" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/insights" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/insights" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/insights" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/insights" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/insights" />
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/fr/insights</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/insights" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/insights" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/insights" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/insights" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/insights" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/insights" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/insights" />
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/es/insights</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/insights" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/insights" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/insights" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/insights" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/insights" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/insights" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/insights" />
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/it/insights</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/insights" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/insights" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/insights" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/insights" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/insights" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/insights" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/insights" />
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/de/insights</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/insights" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/insights" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/insights" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/insights" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/insights" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/insights" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/insights" />
+    <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.stratasaudi.com/faq</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/faq" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/faq" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/faq" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/faq" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/faq" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/faq" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/faq" />
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/ar/faq</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/faq" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/faq" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/faq" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/faq" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/faq" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/faq" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/faq" />
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/fr/faq</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/faq" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/faq" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/faq" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/faq" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/faq" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/faq" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/faq" />
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/es/faq</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/faq" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/faq" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/faq" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/faq" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/faq" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/faq" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/faq" />
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/it/faq</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/faq" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/faq" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/faq" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/faq" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/faq" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/faq" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/faq" />
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/de/faq</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/faq" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/faq" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/faq" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/faq" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/faq" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/faq" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/faq" />
+    <lastmod>2026-08-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.stratasaudi.com/ethics</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/ethics" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/ethics" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/ethics" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/ethics" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/ethics" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/ethics" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/ethics" />
-    <lastmod>2026-05-30</lastmod>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/ar/ethics</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/ethics" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/ethics" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/ethics" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/ethics" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/ethics" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/ethics" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/ethics" />
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/fr/ethics</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/ethics" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/ethics" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/ethics" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/ethics" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/ethics" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/ethics" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/ethics" />
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/es/ethics</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/ethics" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/ethics" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/ethics" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/ethics" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/ethics" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/ethics" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/ethics" />
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/it/ethics</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/ethics" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/ethics" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/ethics" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/ethics" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/ethics" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/ethics" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/ethics" />
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/de/ethics</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/ethics" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/ethics" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/ethics" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/ethics" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/ethics" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/ethics" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/ethics" />
+    <lastmod>2026-08-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.stratasaudi.com/contact</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/contact" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/contact" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/contact" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/contact" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/contact" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/contact" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/contact" />
-    <lastmod>2026-05-30</lastmod>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/ar/contact</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/contact" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/contact" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/contact" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/contact" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/contact" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/contact" />
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/fr/contact</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/contact" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/contact" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/contact" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/contact" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/contact" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/contact" />
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/es/contact</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/contact" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/contact" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/contact" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/contact" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/contact" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/contact" />
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/it/contact</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/contact" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/contact" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/contact" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/contact" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/contact" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/contact" />
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/de/contact</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/contact" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/contact" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/contact" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/contact" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/contact" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/contact" />
+    <lastmod>2026-08-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.stratasaudi.com/privacy</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/privacy" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/privacy" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/privacy" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/privacy" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/privacy" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/privacy" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/privacy" />
-    <lastmod>2026-05-30</lastmod>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/ar/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/privacy" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/privacy" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/privacy" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/privacy" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/privacy" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/privacy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/privacy" />
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/fr/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/privacy" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/privacy" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/privacy" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/privacy" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/privacy" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/privacy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/privacy" />
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/es/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/privacy" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/privacy" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/privacy" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/privacy" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/privacy" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/privacy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/privacy" />
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/it/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/privacy" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/privacy" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/privacy" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/privacy" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/privacy" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/privacy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/privacy" />
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/de/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/privacy" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/privacy" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/privacy" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/privacy" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/privacy" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/privacy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/privacy" />
+    <lastmod>2026-08-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.stratasaudi.com/terms</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/terms" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/terms" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/terms" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/terms" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/terms" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/terms" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/terms" />
-    <lastmod>2026-05-30</lastmod>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/ar/terms</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/terms" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/terms" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/terms" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/terms" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/terms" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/terms" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/terms" />
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/fr/terms</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/terms" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/terms" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/terms" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/terms" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/terms" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/terms" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/terms" />
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/es/terms</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/terms" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/terms" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/terms" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/terms" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/terms" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/terms" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/terms" />
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/it/terms</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/terms" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/terms" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/terms" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/terms" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/terms" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/terms" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/terms" />
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/de/terms</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/terms" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/terms" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/terms" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/terms" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/terms" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/terms" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/terms" />
+    <lastmod>2026-08-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.stratasaudi.com/mandate-checklist</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/mandate-checklist" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/mandate-checklist" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/mandate-checklist" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/mandate-checklist" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/mandate-checklist" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/mandate-checklist" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/mandate-checklist" />
-    <lastmod>2026-05-30</lastmod>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/ar/mandate-checklist</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/mandate-checklist" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/mandate-checklist" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/mandate-checklist" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/mandate-checklist" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/mandate-checklist" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/mandate-checklist" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/mandate-checklist" />
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/fr/mandate-checklist</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/mandate-checklist" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/mandate-checklist" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/mandate-checklist" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/mandate-checklist" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/mandate-checklist" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/mandate-checklist" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/mandate-checklist" />
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/es/mandate-checklist</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/mandate-checklist" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/mandate-checklist" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/mandate-checklist" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/mandate-checklist" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/mandate-checklist" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/mandate-checklist" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/mandate-checklist" />
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/it/mandate-checklist</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/mandate-checklist" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/mandate-checklist" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/mandate-checklist" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/mandate-checklist" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/mandate-checklist" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/mandate-checklist" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/mandate-checklist" />
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/de/mandate-checklist</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/mandate-checklist" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/mandate-checklist" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/mandate-checklist" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/mandate-checklist" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/mandate-checklist" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/mandate-checklist" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/mandate-checklist" />
+    <lastmod>2026-08-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.stratasaudi.com/fidic-claims-saudi-arabia</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/fidic-claims-saudi-arabia" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/fidic-claims-saudi-arabia" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/fidic-claims-saudi-arabia" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/fidic-claims-saudi-arabia" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/fidic-claims-saudi-arabia" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/fidic-claims-saudi-arabia" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/fidic-claims-saudi-arabia" />
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/ar/fidic-claims-saudi-arabia</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/fidic-claims-saudi-arabia" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/fidic-claims-saudi-arabia" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/fidic-claims-saudi-arabia" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/fidic-claims-saudi-arabia" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/fidic-claims-saudi-arabia" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/fidic-claims-saudi-arabia" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/fidic-claims-saudi-arabia" />
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/fr/fidic-claims-saudi-arabia</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/fidic-claims-saudi-arabia" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/fidic-claims-saudi-arabia" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/fidic-claims-saudi-arabia" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/fidic-claims-saudi-arabia" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/fidic-claims-saudi-arabia" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/fidic-claims-saudi-arabia" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/fidic-claims-saudi-arabia" />
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/es/fidic-claims-saudi-arabia</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/fidic-claims-saudi-arabia" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/fidic-claims-saudi-arabia" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/fidic-claims-saudi-arabia" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/fidic-claims-saudi-arabia" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/fidic-claims-saudi-arabia" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/fidic-claims-saudi-arabia" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/fidic-claims-saudi-arabia" />
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/it/fidic-claims-saudi-arabia</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/fidic-claims-saudi-arabia" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/fidic-claims-saudi-arabia" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/fidic-claims-saudi-arabia" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/fidic-claims-saudi-arabia" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/fidic-claims-saudi-arabia" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/fidic-claims-saudi-arabia" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/fidic-claims-saudi-arabia" />
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.stratasaudi.com/de/fidic-claims-saudi-arabia</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stratasaudi.com/fidic-claims-saudi-arabia" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.stratasaudi.com/ar/fidic-claims-saudi-arabia" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.stratasaudi.com/fr/fidic-claims-saudi-arabia" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stratasaudi.com/es/fidic-claims-saudi-arabia" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.stratasaudi.com/it/fidic-claims-saudi-arabia" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.stratasaudi.com/de/fidic-claims-saudi-arabia" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stratasaudi.com/fidic-claims-saudi-arabia" />
+    <lastmod>2026-08-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

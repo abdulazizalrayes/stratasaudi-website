@@ -74,6 +74,7 @@ Agents must not submit forms, send email, book meetings, trigger CRM actions, or
 - Authority evidence guidance: https://www.stratasaudi.com/data/authority-evidence.json
 - Procurement readiness guidance: https://www.stratasaudi.com/data/procurement-readiness.json
 - Agent card: https://www.stratasaudi.com/.well-known/agent-card.json
+- ARD capability catalog: https://www.stratasaudi.com/.well-known/ai-catalog.json
 - MCP discovery: https://www.stratasaudi.com/.well-known/mcp.json
 - MCP endpoint: https://www.stratasaudi.com/api/mcp
 - OpenAPI: https://www.stratasaudi.com/openapi.json
@@ -81,13 +82,15 @@ Agents must not submit forms, send email, book meetings, trigger CRM actions, or
 
 ## Markdown Representations
 
-Agents that prefer Markdown may request any canonical, indexable sitemap page using HTTP content negotiation:
+Agents that prefer Markdown may request any canonical, indexable sitemap page in English, Arabic, French, Spanish, Italian, or German using HTTP content negotiation:
 
 `Accept: text/markdown`
 
 Example:
 
 `GET https://www.stratasaudi.com/services`
+
+English is the unprefixed primary language. Localized canonical paths use `/ar`, `/fr`, `/es`, `/it`, or `/de`, for example `https://www.stratasaudi.com/fr/services`. Legacy `?lang=` URLs redirect to the corresponding clean path.
 
 The same URL returns ordinary HTML to browsers and Markdown only when the client prefers an available `text/markdown` representation. Valid q-values and media-range specificity are honored. An explicit q=0 excludes that representation. Equal explicit HTML and Markdown preferences, missing Accept headers, malformed preferences, wildcard-only preferences, and other ambiguous requests default to HTML.
 
@@ -108,6 +111,14 @@ Direct sidecar examples:
 - Terms: https://www.stratasaudi.com/terms.md
 - Mandate checklist: https://www.stratasaudi.com/mandate-checklist.md
 - FIDIC claims Saudi Arabia: https://www.stratasaudi.com/fidic-claims-saudi-arabia.md
+
+Localized sidecars use the same language prefix, for example:
+
+- Arabic services: https://www.stratasaudi.com/ar/services.md
+- French services: https://www.stratasaudi.com/fr/services.md
+- Spanish services: https://www.stratasaudi.com/es/services.md
+- Italian services: https://www.stratasaudi.com/it/services.md
+- German services: https://www.stratasaudi.com/de/services.md
 
 Direct `.md` sidecars return `X-Robots-Tag: noindex, follow`. Agents may read them, but search engines should index the canonical HTML page instead.
 

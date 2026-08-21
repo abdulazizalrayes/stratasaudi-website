@@ -23,16 +23,16 @@ function countMatches(pattern, value) {
 
 for (const page of PAGE_SEO_ROUTES) {
   for (const language of SUPPORTED_LANGUAGES) {
-    const route = language.code === "en" ? page.path : `${page.path}?lang=${language.code}`;
+    const route = publicUrlForRoute(page.path, language.code).replace(SITE_ORIGIN, "");
     const html = readHtmlForPath(route);
-    const expectedCanonical = publicUrlForRoute(page.path, "en");
+    const expectedCanonical = publicUrlForRoute(page.path, language.code);
 
     expect(!!html, `${route}: rendered HTML missing`);
     expect(html.includes(`<link rel="canonical" href="${expectedCanonical}">`), `${route}: canonical mismatch`);
     expect(html.includes(`lang="${language.code}"`), `${route}: html lang missing`);
     expect(html.includes(`dir="${language.dir}"`), `${route}: html dir missing`);
     expect(!html.includes("https://stratasaudi.com"), `${route}: bare domain remains`);
-    expect(countMatches(/rel="alternate"\s+hreflang="/g, html) === 2, `${route}: hreflang count mismatch`);
+    expect(countMatches(/rel="alternate"\s+hreflang="/g, html) === SUPPORTED_LANGUAGES.length + 1, `${route}: hreflang count mismatch`);
     expect(html.includes('<meta property="og:title"'), `${route}: Open Graph title missing`);
     expect(html.includes('<meta property="og:description"'), `${route}: Open Graph description missing`);
     expect(html.includes('<meta property="og:image" content="https://www.stratasaudi.com/og-image.png">'), `${route}: Open Graph image missing`);
@@ -40,13 +40,15 @@ for (const page of PAGE_SEO_ROUTES) {
     expect(html.includes('<meta name="twitter:title"'), `${route}: Twitter title missing`);
     expect(html.includes('<meta name="twitter:description"'), `${route}: Twitter description missing`);
 
-    expect(
-      html.includes(`hreflang="en" href="${publicUrlForRoute(page.path, "en")}"`),
-      `${route}: missing en alternate`,
-    );
-    if (language.code !== "en") {
-      expect(html.includes('content="noindex, follow"'), `${route}: non-English query page should be noindex`);
+    for (const alternateLanguage of SUPPORTED_LANGUAGES) {
+      expect(
+        html.includes(
+          `hreflang="${alternateLanguage.hreflang}" href="${publicUrlForRoute(page.path, alternateLanguage.code)}"`,
+        ),
+        `${route}: missing ${alternateLanguage.code} alternate`,
+      );
     }
+    expect(!html.includes('content="noindex, follow"'), `${route}: indexable localized page is noindex`);
     expect(
       html.includes(`hreflang="x-default" href="${publicUrlForRoute(page.path, "en")}"`),
       `${route}: missing x-default alternate`,
@@ -74,7 +76,18 @@ expect(!sitemap.includes(".html"), "sitemap: .html URL remains");
 expect(!sitemap.includes("https://stratasaudi.com"), "sitemap: bare domain remains");
 expect(!sitemap.includes("?lang="), "sitemap: language query URL remains");
 expect(!sitemap.includes("/thank-you"), "sitemap: thank-you should not be indexable");
-expect(countMatches(/<loc>/g, sitemap) === PAGE_SEO_ROUTES.length, "sitemap: URL count mismatch");
+expect(
+  countMatches(/<loc>/g, sitemap) === PAGE_SEO_ROUTES.length * SUPPORTED_LANGUAGES.length,
+  "sitemap: URL count mismatch",
+);
+for (const page of PAGE_SEO_ROUTES) {
+  for (const language of SUPPORTED_LANGUAGES) {
+    expect(
+      sitemap.includes(`<loc>${publicUrlForRoute(page.path, language.code)}</loc>`),
+      `sitemap: ${language.code} ${page.path} URL missing`,
+    );
+  }
+}
 expect(!imageSitemap.includes(".html"), "image sitemap: .html URL remains");
 expect(!imageSitemap.includes("https://stratasaudi.com"), "image sitemap: bare domain remains");
 expect(imageSitemap.includes(`${SITE_ORIGIN}/og-image.png`), "image sitemap: canonical image URL missing");
@@ -119,7 +132,7 @@ console.log(
         ok: true,
         pagesChecked: PAGE_SEO_ROUTES.length,
         languagesChecked: SUPPORTED_LANGUAGES.map((language) => language.code),
-        sitemapUrls: PAGE_SEO_ROUTES.length,
+        sitemapUrls: PAGE_SEO_ROUTES.length * SUPPORTED_LANGUAGES.length,
       },
     null,
     2,

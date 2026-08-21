@@ -19,7 +19,22 @@
       "Missing, malformed, wildcard-only, or otherwise ambiguous Accept preferences default to HTML."
     ],
     "html_alternate_link": "Canonical HTML and HEAD responses advertise the page-specific Markdown sidecar with rel=alternate and type=text/markdown.",
-    "language_variants": "Language query variants remain HTML-only; canonical indexable sitemap pages provide English Markdown companions."
+    "language_variants": "English is unprefixed. Arabic, French, Spanish, Italian, and German use clean /ar, /fr, /es, /it, and /de canonical paths. Every localized sitemap page provides HTML and Markdown representations. Legacy ?lang= URLs redirect to the clean localized path."
+  },
+  "x-language-routing": {
+    "primary_language": "en",
+    "supported_languages": [
+      "en",
+      "ar",
+      "fr",
+      "es",
+      "it",
+      "de"
+    ],
+    "localized_path_pattern": "/{language}/{canonicalPage}",
+    "localized_home_pattern": "/{language}",
+    "localized_markdown_pattern": "/{language}/{canonicalPage}.md",
+    "legacy_query_behavior": "Permanent redirect to the corresponding clean language-prefixed canonical URL."
   },
   "servers": [
     {
@@ -93,7 +108,7 @@
         "summary": "Canonical sitemap page with optional Markdown representation",
         "operationId": "getCanonicalPage",
         "x-head-supported": true,
-        "description": "Returns browser HTML by default. Returns deterministic Markdown when the request prefers text/markdown and the path is a canonical, indexable sitemap page. Language query variants remain HTML-only.",
+        "description": "Returns browser HTML by default. Returns deterministic Markdown when the request prefers text/markdown and the path is a canonical, indexable sitemap page. Localized pages use the language-prefixed operations documented below.",
         "parameters": [
           {
             "name": "canonicalPage",
@@ -137,7 +152,7 @@
                 }
               },
               "Content-Language": {
-                "description": "English for Markdown companions; canonical HTML language variants may use another supported language.",
+                "description": "Language of the selected HTML or Markdown representation.",
                 "schema": {
                   "type": "string",
                   "enum": [
@@ -176,6 +191,117 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/{language}": {
+      "get": {
+        "summary": "Localized canonical home page with optional Markdown representation",
+        "operationId": "getLocalizedHomePage",
+        "x-head-supported": true,
+        "parameters": [
+          {
+            "name": "language",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": ["ar", "fr", "es", "it", "de"]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Localized home page as HTML or Markdown",
+            "content": {
+              "text/html": { "schema": { "type": "string" } },
+              "text/markdown": { "schema": { "type": "string" } }
+            }
+          }
+        }
+      }
+    },
+    "/{language}/{canonicalPage}": {
+      "get": {
+        "summary": "Localized canonical sitemap page with optional Markdown representation",
+        "operationId": "getLocalizedCanonicalPage",
+        "x-head-supported": true,
+        "parameters": [
+          {
+            "name": "language",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": ["ar", "fr", "es", "it", "de"]
+            }
+          },
+          {
+            "name": "canonicalPage",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": ["about", "services", "counterparties", "why-saudi", "insights", "faq", "ethics", "contact", "privacy", "terms", "mandate-checklist", "fidic-claims-saudi-arabia"]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Localized canonical page as HTML or Markdown",
+            "content": {
+              "text/html": { "schema": { "type": "string" } },
+              "text/markdown": { "schema": { "type": "string" } }
+            }
+          }
+        }
+      }
+    },
+    "/{language}/index.md": {
+      "get": {
+        "summary": "Direct noindex localized Markdown sidecar for the home page",
+        "operationId": "getLocalizedHomeMarkdownSidecar",
+        "x-head-supported": true,
+        "parameters": [
+          {
+            "name": "language",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string", "enum": ["ar", "fr", "es", "it", "de"] }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Localized Markdown home sidecar with X-Robots-Tag: noindex, follow.",
+            "content": { "text/markdown": { "schema": { "type": "string" } } }
+          }
+        }
+      }
+    },
+    "/{language}/{canonicalPage}.md": {
+      "get": {
+        "summary": "Direct noindex localized Markdown sidecar",
+        "operationId": "getLocalizedMarkdownSidecar",
+        "x-head-supported": true,
+        "parameters": [
+          {
+            "name": "language",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string", "enum": ["ar", "fr", "es", "it", "de"] }
+          },
+          {
+            "name": "canonicalPage",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Localized Markdown sidecar with X-Robots-Tag: noindex, follow.",
+            "content": { "text/markdown": { "schema": { "type": "string" } } }
           }
         }
       }
@@ -409,6 +535,24 @@
         "responses": {
           "200": {
             "description": "MCP JSON-RPC response"
+          }
+        }
+      }
+    },
+    "/.well-known/ai-catalog.json": {
+      "get": {
+        "summary": "ARD capability catalog",
+        "operationId": "getAgenticResourceCatalog",
+        "responses": {
+          "200": {
+            "description": "Public ARD catalog for Strata's Agent Card, read-only MCP server, and OpenAPI contract",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
           }
         }
       }

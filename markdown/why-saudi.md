@@ -1,5 +1,5 @@
 ---
-title: "Saudi Risk Landscape | Strata Saudi"
+title: "Saudi Construction & Contract-Risk Landscape | Strata"
 description: "Understand the delivery, governance, evidence, notice, and commercial pressures that shape major Saudi construction and infrastructure projects."
 canonical: "https://www.stratasaudi.com/why-saudi"
 language: "en"
@@ -12,7 +12,7 @@ approval_required_before_contact: true
 not_a_law_firm: true
 ---
 
-# Saudi Risk Landscape | Strata Saudi
+# Saudi Construction & Contract-Risk Landscape | Strata
 
 Canonical: https://www.stratasaudi.com/why-saudi
 
@@ -41,6 +41,7 @@ Language: en
 - [Evidence requirements](https://www.stratasaudi.com/data/evidence-requirements.json)
 - [FIDIC risk signals](https://www.stratasaudi.com/data/fidic-risk-signals.json)
 - [Procurement readiness](https://www.stratasaudi.com/data/procurement-readiness.json)
+- [ARD capability catalog](https://www.stratasaudi.com/.well-known/ai-catalog.json)
 
 ## Source Provenance
 - HTML source: https://www.stratasaudi.com/why-saudi

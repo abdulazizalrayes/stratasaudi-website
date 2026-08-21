@@ -62,21 +62,24 @@ Use these public read-only resources for structured understanding and routing:
 - Authority evidence guidance: https://www.stratasaudi.com/data/authority-evidence.json
 - Procurement readiness guidance: https://www.stratasaudi.com/data/procurement-readiness.json
 - Agent card: https://www.stratasaudi.com/.well-known/agent-card.json
+- ARD capability catalog: https://www.stratasaudi.com/.well-known/ai-catalog.json
 - MCP discovery: https://www.stratasaudi.com/.well-known/mcp.json
 - Public read-only MCP endpoint: https://www.stratasaudi.com/api/mcp
 - OpenAPI: https://www.stratasaudi.com/openapi.json
 
 ## Markdown for Agents
 
-Canonical sitemap pages support content negotiation for agents. Send `Accept: text/markdown` to the normal canonical URL to receive a deterministic Markdown representation of the same public main content.
+Canonical sitemap pages in English, Arabic, French, Spanish, Italian, and German support content negotiation for agents. Send `Accept: text/markdown` to the normal canonical URL to receive a deterministic Markdown representation of the same public main content and language.
 
 Example: `GET https://www.stratasaudi.com/services` with `Accept: text/markdown`.
 
+Localized examples: `https://www.stratasaudi.com/ar/services`, `https://www.stratasaudi.com/fr/services`, `https://www.stratasaudi.com/es/services`, `https://www.stratasaudi.com/it/services`, and `https://www.stratasaudi.com/de/services`. English remains the unprefixed primary language.
+
 Negotiation follows HTTP quality and specificity rules. Higher valid q-values win; an explicit q=0 excludes that representation; equal explicit HTML and Markdown preferences return HTML; and missing, malformed, wildcard-only, or otherwise ambiguous preferences default to HTML. Canonical HTML and HEAD responses advertise the page-specific Markdown companion with a `Link` response header.
 
-Direct Markdown sidecars are also available for canonical sitemap pages, such as https://www.stratasaudi.com/index.md and https://www.stratasaudi.com/services.md. Direct `.md` sidecars are marked `X-Robots-Tag: noindex, follow` to avoid duplicate SEO indexing while allowing agent access.
+Direct Markdown sidecars are also available for canonical sitemap pages, such as https://www.stratasaudi.com/index.md, https://www.stratasaudi.com/services.md, and https://www.stratasaudi.com/fr/services.md. Direct `.md` sidecars are marked `X-Robots-Tag: noindex, follow` to avoid duplicate SEO indexing while allowing agent access.
 
-Markdown coverage is limited to canonical, indexable sitemap pages. Non-indexable pages, form submissions, private/admin/internal paths, and language query variants should be treated as HTML-only unless separately documented.
+Markdown coverage is limited to canonical, indexable sitemap pages. Legacy `?lang=` URLs redirect to clean language-prefixed canonical URLs. Non-indexable pages, form submissions, and private/admin/internal paths remain HTML-only unless separately documented.
 
 Each Markdown companion includes an agent-use contract, structured-resource links, and source provenance. Use those sections to preserve Strata's engineering-led advisory positioning, legal boundary, approval requirement, and non-fit routing rules.
 

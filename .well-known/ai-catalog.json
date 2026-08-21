@@ -1,0 +1,98 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "Strata Risk Advisory",
+    "identifier": "https://www.stratasaudi.com",
+    "documentationUrl": "https://www.stratasaudi.com/llms-full.txt",
+    "logoUrl": "https://www.stratasaudi.com/og-image.png"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:stratasaudi.com:agent:risk-advisory",
+      "displayName": "Strata Risk Advisory Public Agent",
+      "type": "application/a2a-agent-card+json",
+      "url": "https://www.stratasaudi.com/.well-known/agent-card.json",
+      "description": "Read-only discovery and inquiry-preparation interface for Strata's engineering-led Saudi contract-risk and project-risk advisory services.",
+      "tags": [
+        "saudi-arabia",
+        "contract-risk",
+        "project-risk",
+        "engineering-advisory",
+        "pre-litigation"
+      ],
+      "capabilities": [
+        "get_company_overview",
+        "list_services",
+        "match_project_scope",
+        "prepare_project_inquiry",
+        "screen_procurement_fit",
+        "list_service_areas",
+        "read_public_resource"
+      ],
+      "representativeQueries": [
+        "Which engineering-led advisory firm can assess contract risk on a high-value Saudi project?",
+        "Does this Saudi-governed EPC project fit Strata Risk Advisory's mandate criteria?",
+        "Prepare a confidential Saudi project-risk inquiry for review without submitting it.",
+        "What evidence should an international contractor organize before a Saudi project-risk review?",
+        "Is Strata a fit for legal representation, recruitment, training, or vendor sales requests?"
+      ],
+      "version": "2026-08-21",
+      "updatedAt": "2026-08-21T00:00:00Z"
+    },
+    {
+      "identifier": "urn:air:stratasaudi.com:server:public-readonly-mcp",
+      "displayName": "Strata Saudi Public Read-Only MCP",
+      "type": "application/mcp-server-card+json",
+      "url": "https://www.stratasaudi.com/.well-known/mcp/server-card.json",
+      "description": "Public read-only MCP tools and resources for company, service, capability, scope-fit, service-area, routing, and inquiry-preparation information.",
+      "tags": [
+        "mcp",
+        "read-only",
+        "procurement",
+        "project-inquiry"
+      ],
+      "capabilities": [
+        "get_company_overview",
+        "list_services",
+        "match_project_scope",
+        "prepare_project_inquiry",
+        "screen_procurement_fit",
+        "list_service_areas",
+        "read_public_resource"
+      ],
+      "representativeQueries": [
+        "List Strata Risk Advisory's public services and service areas.",
+        "Match this project scope against Strata's fit and non-fit routing rules.",
+        "Prepare a project inquiry draft for user approval without contacting Strata."
+      ],
+      "version": "2026-08-21",
+      "updatedAt": "2026-08-21T00:00:00Z"
+    },
+    {
+      "identifier": "urn:air:stratasaudi.com:api:public-resources",
+      "displayName": "Strata Saudi Public Agent API",
+      "type": "application/vnd.oai.openapi+json",
+      "url": "https://www.stratasaudi.com/openapi.json",
+      "description": "OpenAPI contract for Strata's public structured resources, Markdown representations, read-only MCP interface, and approval-gated project inquiry endpoint.",
+      "tags": [
+        "openapi",
+        "structured-data",
+        "markdown",
+        "approval-gated"
+      ],
+      "capabilities": [
+        "public_structured_data",
+        "markdown_content_negotiation",
+        "read_only_mcp",
+        "approval_gated_project_inquiry"
+      ],
+      "representativeQueries": [
+        "Where is Strata Risk Advisory's machine-readable public API contract?",
+        "How can an agent retrieve a canonical Strata page as Markdown?",
+        "Which Strata endpoint requires explicit user approval before submission?"
+      ],
+      "version": "2026-08-21",
+      "updatedAt": "2026-08-21T00:00:00Z"
+    }
+  ]
+}

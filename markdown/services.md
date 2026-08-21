@@ -1,6 +1,6 @@
 ---
-title: "Services | Strata Risk Advisory Saudi Arabia"
-description: "Engineering-led contract review, project-risk oversight, technical opinion, pre-litigation support, and vendor-risk assessment in Saudi Arabia."
+title: "Saudi Contract & Project-Risk Advisory Services | Strata"
+description: "Five structured mandates for Saudi contract and project risk: pre-contract review, live oversight, technical opinions, pre-litigation support and vendor assessment."
 canonical: "https://www.stratasaudi.com/services"
 language: "en"
 content_signal: "ai-train=no, search=yes, ai-input=yes"
@@ -12,7 +12,7 @@ approval_required_before_contact: true
 not_a_law_firm: true
 ---
 
-# Services | Strata Risk Advisory Saudi Arabia
+# Saudi Contract & Project-Risk Advisory Services | Strata
 
 Canonical: https://www.stratasaudi.com/services
 
@@ -41,6 +41,7 @@ Language: en
 - [Evidence requirements](https://www.stratasaudi.com/data/evidence-requirements.json)
 - [FIDIC risk signals](https://www.stratasaudi.com/data/fidic-risk-signals.json)
 - [Procurement readiness](https://www.stratasaudi.com/data/procurement-readiness.json)
+- [ARD capability catalog](https://www.stratasaudi.com/.well-known/ai-catalog.json)
 
 ## Source Provenance
 - HTML source: https://www.stratasaudi.com/services

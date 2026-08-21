@@ -106,52 +106,18 @@
     document.documentElement.dataset.language = lang;
   }
 
-  function updateUrlLanguage(lang) {
-    try {
-      var url = new URL(window.location.href);
-      if (lang === "en") {
-        url.searchParams.delete("lang");
-      } else {
-        url.searchParams.set("lang", lang);
-      }
-      window.history.replaceState(null, "", url.toString());
-    } catch (_error) {}
-  }
-
   function canonicalPath() {
     var path = window.location.pathname.replace(/\/$/, "") || "/";
+    path = path.replace(/^\/(ar|fr|es|it|de)(?=\/|$)/, "") || "/";
     if (path !== "/" && /\.html$/i.test(path)) path = path.slice(0, -5);
     return path || "/";
   }
 
   function languageUrl(lang) {
     var path = canonicalPath();
-    var url = new URL(path === "/" ? "/" : path, "https://www.stratasaudi.com");
-    if (lang !== "en") url.searchParams.set("lang", lang);
+    var localizedPath = lang === "en" ? path : "/" + lang + (path === "/" ? "" : path);
+    var url = new URL(localizedPath, "https://www.stratasaudi.com");
     return url.toString();
-  }
-
-  function upsertHeadLink(rel, attributes) {
-    var selector = 'link[rel="' + rel + '"]';
-    if (attributes.hreflang) selector += '[hreflang="' + attributes.hreflang + '"]';
-    var link = document.querySelector(selector);
-    if (!link) {
-      link = document.createElement("link");
-      link.setAttribute("rel", rel);
-      document.head.appendChild(link);
-    }
-    Object.keys(attributes).forEach(function (key) {
-      link.setAttribute(key, attributes[key]);
-    });
-  }
-
-  function updateSeoLinks(lang) {
-    upsertHeadLink("canonical", { href: languageUrl("en") });
-    upsertHeadLink("alternate", { hreflang: "en", href: languageUrl("en") });
-    upsertHeadLink("alternate", { hreflang: "x-default", href: languageUrl("en") });
-
-    var ogUrl = document.querySelector('meta[property="og:url"]');
-    if (ogUrl) ogUrl.setAttribute("content", languageUrl("en"));
   }
 
   function updateSwitcherState(lang) {
@@ -165,31 +131,36 @@
   function applyLanguage(lang, options) {
     var next = languages[lang] ? lang : "en";
     currentLanguage = next;
-    setLanguageMetadata(next);
-    translateHead(next);
-    translateTextNodes(next);
-    translateAttributes(next);
-    updateSwitcherState(next);
-    updateSeoLinks(next);
-    if (!options || options.persist !== false) {
+    var serverLanguage = document.documentElement.dataset.language || "en";
+
+    if (!options || options.initial !== true) {
       try {
         window.localStorage.setItem("strata.language", next);
       } catch (_error) {}
-      updateUrlLanguage(next);
+      window.location.assign(languageUrl(next));
+      return;
     }
+
+    setLanguageMetadata(next);
+    if (serverLanguage !== next) {
+      translateHead(next);
+      translateTextNodes(next);
+      translateAttributes(next);
+    }
+    updateSwitcherState(next);
   }
 
   function requestedLanguage() {
     try {
+      var pathMatch = window.location.pathname.match(/^\/(ar|fr|es|it|de)(?=\/|$)/);
+      if (pathMatch && languages[pathMatch[1]]) return pathMatch[1];
       var params = new URLSearchParams(window.location.search);
       var fromUrl = params.get("lang");
       if (languages[fromUrl]) return fromUrl;
     } catch (_error) {}
-    try {
-      var saved = window.localStorage.getItem("strata.language");
-      if (languages[saved]) return saved;
-    } catch (_error) {}
-    return "en";
+    return languages[document.documentElement.dataset.language]
+      ? document.documentElement.dataset.language
+      : "en";
   }
 
   function languageButton(lang) {
@@ -288,8 +259,8 @@
       if (!button) return;
       var next = button.getAttribute("data-language-option");
       var previous = currentLanguage;
-      applyLanguage(next);
       if (next !== previous) trackLanguageSelection(next, previous);
+      applyLanguage(next);
     });
   }
 
@@ -297,7 +268,7 @@
     injectStyles();
     injectSwitcher();
     bindSwitcher();
-    applyLanguage(requestedLanguage(), { persist: false });
+    applyLanguage(requestedLanguage(), { initial: true });
   }
 
   window.StrataI18n = {

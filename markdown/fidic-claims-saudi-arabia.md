@@ -1,6 +1,6 @@
 ---
 title: "FIDIC Claims Saudi Arabia | Strata Risk Advisory"
-description: "Engineering-led guidance on FIDIC notice discipline, Clause 20, evidence, claim readiness, and dispute exposure on Saudi projects."
+description: "Engineering-led FIDIC claim-readiness guidance for Saudi projects: notices, Clause 20, evidence sufficiency, chronology and pre-litigation technical review."
 canonical: "https://www.stratasaudi.com/fidic-claims-saudi-arabia"
 language: "en"
 content_signal: "ai-train=no, search=yes, ai-input=yes"
@@ -41,6 +41,7 @@ Language: en
 - [Evidence requirements](https://www.stratasaudi.com/data/evidence-requirements.json)
 - [FIDIC risk signals](https://www.stratasaudi.com/data/fidic-risk-signals.json)
 - [Procurement readiness](https://www.stratasaudi.com/data/procurement-readiness.json)
+- [ARD capability catalog](https://www.stratasaudi.com/.well-known/ai-catalog.json)
 
 ## Source Provenance
 - HTML source: https://www.stratasaudi.com/fidic-claims-saudi-arabia

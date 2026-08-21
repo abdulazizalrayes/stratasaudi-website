@@ -4,6 +4,7 @@ const {
   canonicalPathForRoute,
   languageFromPath,
   normalizePath,
+  publicPathForRoute,
   readHtmlForPath,
 } = require("../lib/page-renderer");
 const {
@@ -18,6 +19,7 @@ const { classifyUserAgent, recordAgentEvent } = require("../lib/agent-observabil
 const { setSecurityHeaders } = require("../lib/security-headers");
 
 const ROOT_SERVICE_LINKS = [
+  '</.well-known/ai-catalog.json>; rel="ai-catalog"; type="application/json"',
   '</robots.txt>; rel="service-doc"; type="text/plain"',
   '</sitemap.xml>; rel="service-doc"; type="application/xml"',
   '</api/client-config.js>; rel="service-desc"; type="application/javascript"',
@@ -35,14 +37,17 @@ function isIndexableCanonicalPath(canonicalPath) {
   return PAGE_SEO_ROUTES.some((page) => page.path === canonicalPath);
 }
 
-function markdownAlternateLink(canonicalPath) {
-  const markdownUrl = `${SITE_ORIGIN}${markdownPublicPathForRoute(canonicalPath)}`;
+function markdownAlternateLink(canonicalPath, languageCode) {
+  const markdownUrl = `${SITE_ORIGIN}${markdownPublicPathForRoute(canonicalPath, languageCode)}`;
   return `<${markdownUrl}>; rel="alternate"; type="text/markdown"`;
 }
 
 function setCanonicalHtmlHeaders(res, canonicalPath, languageCode) {
-  const links = [markdownAlternateLink(canonicalPath)];
-  if (canonicalPath === "/") links.push(...ROOT_SERVICE_LINKS);
+  const links = [
+    markdownAlternateLink(canonicalPath, languageCode),
+    '</.well-known/ai-catalog.json>; rel="ai-catalog"; type="application/json"',
+  ];
+  if (canonicalPath === "/" && languageCode === "en") links.push(...ROOT_SERVICE_LINKS.slice(1));
   res.setHeader("Content-Type", "text/html; charset=utf-8");
   res.setHeader("Vary", "Accept");
   res.setHeader("Content-Language", languageCode);
@@ -64,10 +69,31 @@ function redirectLegacyHtml(req, res, requestedPath) {
   if (route === "/" || !route.endsWith(".html")) return false;
 
   const canonicalPath = canonicalPathForRoute(requestedPath);
-  if (!canonicalPath || canonicalPath === route) return false;
+  if (!canonicalPath) return false;
 
-  const url = new URL(req.url || requestedPath, SITE_ORIGIN);
-  url.pathname = canonicalPath;
+  const url = new URL(requestedPath, SITE_ORIGIN);
+  url.pathname = publicPathForRoute(canonicalPath, languageFromPath(requestedPath));
+  res.statusCode = 308;
+  setSecurityHeaders(res, { cacheControl: "public, max-age=0, s-maxage=86400" });
+  res.setHeader("Location", `${url.pathname}${url.search}`);
+  res.end();
+  return true;
+}
+
+function redirectLegacyLanguageQuery(req, res, requestedPath) {
+  let url;
+  try {
+    url = new URL(String(requestedPath || "/"), SITE_ORIGIN);
+  } catch (_error) {
+    return false;
+  }
+
+  const languageCode = url.searchParams.get("lang");
+  if (!languageCode || !["en", "ar", "fr", "es", "it", "de"].includes(languageCode)) return false;
+
+  url.searchParams.delete("lang");
+  const canonicalPath = canonicalPathForRoute(url.pathname);
+  url.pathname = publicPathForRoute(canonicalPath, languageCode);
   res.statusCode = 308;
   setSecurityHeaders(res, { cacheControl: "public, max-age=0, s-maxage=86400" });
   res.setHeader("Location", `${url.pathname}${url.search}`);
@@ -76,14 +102,19 @@ function redirectLegacyHtml(req, res, requestedPath) {
 }
 
 module.exports = async (req, res) => {
-  const requestedPath = (req.query && req.query.path) || req.url || "/";
+  const rewrittenPath = req.query && req.query.path;
+  const rewrittenLanguage = req.query && req.query.lang;
+  const requestedPath = rewrittenPath
+    ? publicPathForRoute(rewrittenPath, rewrittenLanguage || "en")
+    : req.url || "/";
   const route = normalizePath(requestedPath);
   const sidecarCanonicalPath = canonicalPathForMarkdownPath(route);
 
   if (sidecarCanonicalPath) {
-    const markdown = readMarkdownForRoute(sidecarCanonicalPath);
+    const sidecarLanguage = languageFromPath(route);
+    const markdown = readMarkdownForRoute(sidecarCanonicalPath, sidecarLanguage);
     if (!markdown) {
-      const html = readHtmlForPath(sidecarCanonicalPath);
+      const html = readHtmlForPath(publicPathForRoute(sidecarCanonicalPath, sidecarLanguage));
       if (!html) {
         res.statusCode = 404;
         res.setHeader("Content-Type", "text/plain; charset=utf-8");
@@ -97,17 +128,18 @@ module.exports = async (req, res) => {
       return;
     }
 
-    setMarkdownHeaders(res, sidecarCanonicalPath, { directSidecar: true });
+    setMarkdownHeaders(res, sidecarCanonicalPath, { directSidecar: true, language: sidecarLanguage });
     await recordAgentEvent("agent_resource_read", {
       user_agent: req.headers["user-agent"] || "",
       resource_type: "markdown_sidecar",
-      resource_path: markdownPublicPathForRoute(sidecarCanonicalPath),
+      resource_path: markdownPublicPathForRoute(sidecarCanonicalPath, sidecarLanguage),
       representation: "text/markdown",
     });
     endRepresentation(req, res, markdown);
     return;
   }
 
+  if (!rewrittenPath && redirectLegacyLanguageQuery(req, res, requestedPath)) return;
   if (redirectLegacyHtml(req, res, requestedPath)) return;
 
   const html = readHtmlForPath(requestedPath);
@@ -125,9 +157,9 @@ module.exports = async (req, res) => {
   const languageCode = languageFromPath(requestedPath);
 
   if (indexable && wantsMarkdown(req) && !hasLanguageQuery(requestedPath)) {
-    const markdown = readMarkdownForRoute(canonicalPath);
+    const markdown = readMarkdownForRoute(canonicalPath, languageCode);
     if (markdown) {
-      setMarkdownHeaders(res, canonicalPath);
+      setMarkdownHeaders(res, canonicalPath, { language: languageCode });
       await recordAgentEvent("agent_resource_read", {
         user_agent: req.headers["user-agent"] || "",
         resource_type: "markdown_negotiation",
@@ -141,9 +173,6 @@ module.exports = async (req, res) => {
 
   if (indexable) {
     setCanonicalHtmlHeaders(res, canonicalPath, languageCode);
-    if (hasLanguageQuery(requestedPath)) {
-      res.setHeader("X-Robots-Tag", "noindex, follow");
-    }
   } else {
     res.setHeader("Content-Type", "text/html; charset=utf-8");
     res.setHeader("Content-Language", languageCode);

@@ -1,6 +1,6 @@
 ---
-title: "FAQ | Engineering-Led Saudi Contract Risk Advisory | Strata Saudi"
-description: "Frequently asked questions about Strata Saudi's independent engineering-led technical and commercial advisory for Saudi project, FIDIC, and contract risk."
+title: "Saudi Contract-Risk Advisory FAQ | Strata"
+description: "Answers on Strata's engineering-led Saudi contract-risk mandates, fit, confidentiality, legal boundary, process, and international client focus."
 canonical: "https://www.stratasaudi.com/faq"
 language: "en"
 content_signal: "ai-train=no, search=yes, ai-input=yes"
@@ -12,7 +12,7 @@ approval_required_before_contact: true
 not_a_law_firm: true
 ---
 
-# FAQ | Engineering-Led Saudi Contract Risk Advisory | Strata Saudi
+# Saudi Contract-Risk Advisory FAQ | Strata
 
 Canonical: https://www.stratasaudi.com/faq
 
@@ -41,6 +41,7 @@ Language: en
 - [Evidence requirements](https://www.stratasaudi.com/data/evidence-requirements.json)
 - [FIDIC risk signals](https://www.stratasaudi.com/data/fidic-risk-signals.json)
 - [Procurement readiness](https://www.stratasaudi.com/data/procurement-readiness.json)
+- [ARD capability catalog](https://www.stratasaudi.com/.well-known/ai-catalog.json)
 
 ## Source Provenance
 - HTML source: https://www.stratasaudi.com/faq

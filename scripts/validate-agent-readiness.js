@@ -20,6 +20,7 @@ const REQUIRED_JSON_FILES = [
   "data/authority-evidence.json",
   "data/procurement-readiness.json",
   ".well-known/agent-card.json",
+  ".well-known/ai-catalog.json",
   ".well-known/mcp.json",
   ".well-known/mcp/server-card.json",
   ".well-known/mcp/server-cards.json",
@@ -54,6 +55,7 @@ const REQUIRED_ENDPOINTS = [
   "/llms.txt",
   "/llms-full.txt",
   "/.well-known/agent-card.json",
+  "/.well-known/ai-catalog.json",
   "/.well-known/api-catalog",
   "/.well-known/mcp.json",
   "/.well-known/mcp/server-card.json",
@@ -110,6 +112,7 @@ function validateBusinessRules() {
   const routing = parseJson("data/agent-routing.json");
   const inquiry = parseJson("data/project-inquiry-schema.json");
   const agentCard = parseJson(".well-known/agent-card.json");
+  const aiCatalog = parseJson(".well-known/ai-catalog.json");
   const oauthProtectedResource = parseJson(".well-known/oauth-protected-resource");
   const openapi = parseJson("openapi.json");
   const conversion = parseJson("data/conversion-intelligence.json");
@@ -140,6 +143,13 @@ function validateBusinessRules() {
   );
   expect(Array.isArray(agentCard.skills) && agentCard.skills.length > 0, "agent card: skills missing");
   expect(Array.isArray(agentCard.capabilities) && agentCard.capabilities.length > 0, "agent card: capabilities missing");
+  expect(aiCatalog.specVersion === "1.0", "ARD catalog: unsupported specVersion");
+  expect(Array.isArray(aiCatalog.entries) && aiCatalog.entries.length >= 3, "ARD catalog: entries missing");
+  for (const entry of aiCatalog.entries) {
+    expect(/^urn:air:stratasaudi\.com:/.test(entry.identifier), "ARD catalog: Strata domain-anchored identifier missing");
+    expect(Boolean(entry.url) !== Boolean(entry.data), "ARD catalog: each entry must use exactly one of url or data");
+    expect(Array.isArray(entry.representativeQueries) && entry.representativeQueries.length >= 2, "ARD catalog: representative queries missing");
+  }
   expect(
     oauthProtectedResource.authentication_required === false,
     "oauth protected resource: public read-only no-auth policy missing",
@@ -180,6 +190,7 @@ function validateDiscovery() {
   const mcpDiscovery = parseJson(".well-known/mcp.json");
   const serverCards = parseJson(".well-known/mcp/server-cards.json");
   const agentCard = parseJson(".well-known/agent-card.json");
+  const aiCatalog = parseJson(".well-known/ai-catalog.json");
   const apiCatalogText = read(".well-known/api-catalog");
   const apiCatalog = JSON.parse(apiCatalogText);
   const vercel = read("vercel.json");
@@ -194,6 +205,7 @@ function validateDiscovery() {
       JSON.stringify(mcpDiscovery).includes(absolute) ||
       JSON.stringify(serverCards).includes(absolute) ||
       JSON.stringify(agentCard).includes(absolute) ||
+      JSON.stringify(aiCatalog).includes(absolute) ||
       apiCatalogText.includes(endpoint) ||
       vercel.includes(endpoint.replace(/^\//, ""));
     expect(mentioned, `discovery: ${endpoint} is not referenced by discovery/config files`);
@@ -209,6 +221,8 @@ function validateDiscovery() {
     "api catalog: service-doc relation missing",
   );
   expect(vercel.includes("application/linkset+json"), "vercel: API catalog content type should be linkset JSON");
+  expect(robots.includes(`Agentmap: ${SITE_ORIGIN}/.well-known/ai-catalog.json`), "robots: ARD Agentmap directive missing");
+  expect(llms.includes(`${SITE_ORIGIN}/.well-known/ai-catalog.json`), "llms: ARD catalog pointer missing");
   expect(/^# .*auth\.md/im.test(read("auth.md")), "auth.md: H1 heading must contain auth.md");
   expect(read("auth.md").includes("## Agent Registration"), "auth.md: agent registration section missing");
   expect(read("auth.md").includes("Register URI:"), "auth.md: register URI marker missing");

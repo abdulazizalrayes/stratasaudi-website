@@ -1,6 +1,7 @@
 const https = require("https");
 const {
   PAGE_SEO_ROUTES,
+  SUPPORTED_LANGUAGES,
   publicUrlForRoute,
 } = require("../lib/page-renderer");
 
@@ -9,7 +10,7 @@ const DEFAULT_KEY = "0957b4b1b950a90f9ac51a5a737203ec";
 const DEFAULT_KEY_LOCATION = `https://${DEFAULT_HOST}/${DEFAULT_KEY}.txt`;
 
 const liveUrls = PAGE_SEO_ROUTES.flatMap((page) =>
-  [publicUrlForRoute(page.path, "en")],
+  SUPPORTED_LANGUAGES.map((language) => publicUrlForRoute(page.path, language.code)),
 );
 
 function submitIndexNow(urlList) {

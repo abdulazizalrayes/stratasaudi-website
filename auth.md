@@ -88,6 +88,7 @@ The following resources are public and require no authentication:
 - `/llms.txt`
 - `/llms-full.txt`
 - `/.well-known/agent-card.json`
+- `/.well-known/ai-catalog.json`
 - `/.well-known/api-catalog`
 - `/.well-known/mcp.json`
 - `/.well-known/mcp/server-card.json`

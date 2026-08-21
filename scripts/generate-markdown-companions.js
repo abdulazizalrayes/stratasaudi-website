@@ -7,6 +7,9 @@ const { parse } = require("node-html-parser");
 const {
   PAGE_SEO_ROUTES,
   SITE_ORIGIN,
+  SUPPORTED_LANGUAGES,
+  publicPathForRoute,
+  publicUrlForRoute,
   readHtmlForPath,
 } = require("../lib/page-renderer");
 const {
@@ -30,6 +33,7 @@ const STRUCTURED_RESOURCE_LINKS = [
   ["Evidence requirements", "/data/evidence-requirements.json"],
   ["FIDIC risk signals", "/data/fidic-risk-signals.json"],
   ["Procurement readiness", "/data/procurement-readiness.json"],
+  ["ARD capability catalog", "/.well-known/ai-catalog.json"],
 ];
 
 const AGENT_USE_CONTRACT = [
@@ -323,9 +327,11 @@ function extractSitemapCanonicalPaths() {
     .map((pathname) => (pathname === "" ? "/" : pathname));
 }
 
-function markdownForPage(page) {
-  const html = readHtmlForPath(page.path);
-  const canonicalUrl = `${SITE_ORIGIN}${page.path === "/" ? "/" : page.path}`;
+function markdownForPage(page, languageCode) {
+  const localizedPath = publicPathForRoute(page.path, languageCode);
+  const html = readHtmlForPath(localizedPath);
+  const canonicalUrl = publicUrlForRoute(page.path, languageCode);
+  const markdownPath = markdownPublicPathForRoute(page.path, languageCode);
   const root = parse(html, { comment: false });
   const title = cleanText(root.querySelector("title") && root.querySelector("title").textContent);
   const description = metaContent(root, 'meta[name="description"]');
@@ -348,7 +354,7 @@ function markdownForPage(page) {
     `language: ${escapeYaml(language)}`,
     `content_signal: ${escapeYaml(CONTENT_SIGNAL)}`,
     `html_source: ${escapeYaml(canonicalUrl)}`,
-    `markdown_companion: ${escapeYaml(`${SITE_ORIGIN}${markdownPublicPathForRoute(page.path)}`)}`,
+    `markdown_companion: ${escapeYaml(`${SITE_ORIGIN}${markdownPath}`)}`,
     "generated_from_sitemap: true",
     `extraction_scope: ${escapeYaml("public main content; navigation, contact bars, forms, scripts, styles, hidden content, and internal/private material removed")}`,
     "approval_required_before_contact: true",
@@ -373,7 +379,7 @@ function markdownForPage(page) {
     ...structuredResourceLines(),
     "",
     "## Source Provenance",
-    ...sourceProvenanceLines(canonicalUrl, `${SITE_ORIGIN}${markdownPublicPathForRoute(page.path)}`),
+    ...sourceProvenanceLines(canonicalUrl, `${SITE_ORIGIN}${markdownPath}`),
     "",
     ...bodyLines,
   ];
@@ -395,7 +401,9 @@ function markdownForPage(page) {
 
 function main() {
   const sitemapPaths = extractSitemapCanonicalPaths();
-  const routePaths = PAGE_SEO_ROUTES.map((page) => page.path);
+  const routePaths = PAGE_SEO_ROUTES.flatMap((page) =>
+    SUPPORTED_LANGUAGES.map((language) => publicPathForRoute(page.path, language.code)),
+  );
   const failures = [];
 
   for (const routePath of routePaths) {
@@ -406,11 +414,14 @@ function main() {
   }
   if (failures.length) throw new Error(failures.join("\n"));
 
-  const generated = PAGE_SEO_ROUTES.map((page) => ({
-    page,
-    filePath: markdownFilePathForRoute(page.path),
-    content: markdownForPage(page),
-  }));
+  const generated = PAGE_SEO_ROUTES.flatMap((page) =>
+    SUPPORTED_LANGUAGES.map((language) => ({
+      page,
+      language: language.code,
+      filePath: markdownFilePathForRoute(page.path, language.code),
+      content: markdownForPage(page, language.code),
+    })),
+  );
 
   if (!CHECK_MODE) fs.mkdirSync(MARKDOWN_DIR, { recursive: true });
 
@@ -418,7 +429,10 @@ function main() {
   for (const item of generated) {
     const existing = fs.existsSync(item.filePath) ? fs.readFileSync(item.filePath, "utf8") : "";
     if (existing !== item.content) changed.push(path.relative(ROOT, item.filePath));
-    if (!CHECK_MODE) fs.writeFileSync(item.filePath, item.content);
+    if (!CHECK_MODE) {
+      fs.mkdirSync(path.dirname(item.filePath), { recursive: true });
+      fs.writeFileSync(item.filePath, item.content);
+    }
   }
 
   if (CHECK_MODE && changed.length) {

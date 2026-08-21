@@ -122,7 +122,7 @@
       "dest": "/api/public-resource.js?resource=$1"
     },
     {
-      "src": "/(\\.well-known/(?:agent-card\\.json|api-catalog|oauth-protected-resource|security\\.txt|mcp\\.json|agent-skills/index\\.json|mcp/server-card\\.json|mcp/server-cards\\.json))",
+      "src": "/(\\.well-known/(?:agent-card\\.json|ai-catalog\\.json|api-catalog|oauth-protected-resource|security\\.txt|mcp\\.json|agent-skills/index\\.json|mcp/server-card\\.json|mcp/server-cards\\.json))",
       "dest": "/api/public-resource.js?resource=$1"
     },
     {
@@ -156,6 +156,14 @@
     {
       "src": "/auth\\.md",
       "dest": "/auth.md"
+    },
+    {
+      "src": "/(ar|fr|es|it|de)",
+      "dest": "/api/page.js?lang=$1&path=/"
+    },
+    {
+      "src": "/(ar|fr|es|it|de)/(.*)",
+      "dest": "/api/page.js?lang=$1&path=/$2"
     },
     {
       "src": "/index\\.md",

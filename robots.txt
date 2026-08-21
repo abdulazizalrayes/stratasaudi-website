@@ -10,6 +10,7 @@ Disallow: /project/
 Disallow: /project%202/
 Sitemap: https://www.stratasaudi.com/sitemap.xml
 Sitemap: https://www.stratasaudi.com/image-sitemap.xml
+Agentmap: https://www.stratasaudi.com/.well-known/ai-catalog.json
 Content-Signal: ai-train=no, search=yes, ai-input=yes
 
 # AI search and user-initiated retrieval

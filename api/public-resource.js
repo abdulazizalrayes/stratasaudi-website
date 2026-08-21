@@ -13,6 +13,7 @@ const PUBLIC_RESOURCES = new Map([
   ["/openapi.json", ["openapi.json", "application/json; charset=utf-8"]],
   ["/auth.md", ["auth.md", "text/markdown; charset=utf-8"]],
   ["/.well-known/api-catalog", [".well-known/api-catalog", "application/linkset+json; charset=utf-8"]],
+  ["/.well-known/ai-catalog.json", [".well-known/ai-catalog.json", "application/json; charset=utf-8"]],
   ["/.well-known/oauth-protected-resource", [".well-known/oauth-protected-resource", "application/json; charset=utf-8"]],
   ["/.well-known/security.txt", [".well-known/security.txt", "text/plain; charset=utf-8"]],
   ["/.well-known/agent-card.json", [".well-known/agent-card.json", "application/json; charset=utf-8"]],

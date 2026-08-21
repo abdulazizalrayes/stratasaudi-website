@@ -1,5 +1,5 @@
 ---
-title: "About | Strata Saudi"
+title: "Engineering-Led Saudi Project-Risk Advisory | About Strata"
 description: "Meet Strata Risk Advisory and Eng Abdulaziz Alrayes, delivering engineering-led judgment for complex Saudi project and contract exposure."
 canonical: "https://www.stratasaudi.com/about"
 language: "en"
@@ -12,7 +12,7 @@ approval_required_before_contact: true
 not_a_law_firm: true
 ---
 
-# About | Strata Saudi
+# Engineering-Led Saudi Project-Risk Advisory | About Strata
 
 Canonical: https://www.stratasaudi.com/about
 
@@ -41,6 +41,7 @@ Language: en
 - [Evidence requirements](https://www.stratasaudi.com/data/evidence-requirements.json)
 - [FIDIC risk signals](https://www.stratasaudi.com/data/fidic-risk-signals.json)
 - [Procurement readiness](https://www.stratasaudi.com/data/procurement-readiness.json)
+- [ARD capability catalog](https://www.stratasaudi.com/.well-known/ai-catalog.json)
 
 ## Source Provenance
 - HTML source: https://www.stratasaudi.com/about

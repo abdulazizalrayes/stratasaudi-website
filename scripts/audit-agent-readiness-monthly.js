@@ -4,7 +4,12 @@ const { execFileSync } = require("child_process");
 const https = require("https");
 const path = require("path");
 
-const { PAGE_SEO_ROUTES, SITE_ORIGIN, SUPPORTED_LANGUAGES } = require("../lib/page-renderer");
+const {
+  PAGE_SEO_ROUTES,
+  SITE_ORIGIN,
+  SUPPORTED_LANGUAGES,
+  publicPathForRoute,
+} = require("../lib/page-renderer");
 const { CONTENT_SIGNAL, markdownPublicPathForRoute } = require("../lib/markdown-layer");
 
 const ROOT = path.join(__dirname, "..");
@@ -94,16 +99,23 @@ async function auditLivePages() {
 async function auditMultilingualHeaders() {
   const rows = [];
   for (const language of SUPPORTED_LANGUAGES) {
-    const response = await request(`/services?lang=${language.code}`, { Accept: "text/markdown" });
+    const localizedPath = publicPathForRoute("/services", language.code);
+    const html = await request(localizedPath, { Accept: "text/html" });
+    const markdown = await request(localizedPath, { Accept: "text/markdown" });
     rows.push({
       language: language.code,
       ok:
-        response.status === 200 &&
-        String(response.headers["content-type"]).includes("text/html") &&
-        response.headers["content-language"] === language.code,
-      status: response.status,
-      content_type: response.headers["content-type"] || "",
-      content_language: response.headers["content-language"] || "",
+        html.status === 200 &&
+        String(html.headers["content-type"]).includes("text/html") &&
+        html.headers["content-language"] === language.code &&
+        markdown.status === 200 &&
+        String(markdown.headers["content-type"]).includes("text/markdown") &&
+        markdown.headers["content-language"] === language.code,
+      status: html.status,
+      content_type: html.headers["content-type"] || "",
+      content_language: html.headers["content-language"] || "",
+      markdown_status: markdown.status,
+      markdown_content_type: markdown.headers["content-type"] || "",
     });
   }
   return rows;
@@ -180,7 +192,7 @@ async function main() {
   const markdownBytes = pages.reduce((sum, row) => sum + row.markdown_bytes, 0);
   const notes = [
     "Search Console status still requires UI/API review because Google processing is asynchronous.",
-    "Direct Markdown sidecars should remain noindex, follow; canonical HTML remains the indexable surface.",
+    "Direct Markdown sidecars remain noindex, follow; English and clean language-prefixed canonical HTML pages are the indexable surfaces.",
   ];
   if (!bingIndexNow.bing_site_auth_ok) {
     notes.push("BingSiteAuth.xml requires the exact Bing-provided XML value in Vercel as BING_SITE_AUTH_XML before it can return 200.");

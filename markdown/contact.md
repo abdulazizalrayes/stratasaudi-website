@@ -1,5 +1,5 @@
 ---
-title: "Confidential Enquiry | Strata Saudi"
+title: "Confidential Saudi Project-Risk Enquiry | Strata"
 description: "Request a confidential fit and conflict review for a serious engineering-led Saudi project-risk or contract-risk advisory mandate."
 canonical: "https://www.stratasaudi.com/contact"
 language: "en"
@@ -12,7 +12,7 @@ approval_required_before_contact: true
 not_a_law_firm: true
 ---
 
-# Confidential Enquiry | Strata Saudi
+# Confidential Saudi Project-Risk Enquiry | Strata
 
 Canonical: https://www.stratasaudi.com/contact
 
@@ -41,6 +41,7 @@ Language: en
 - [Evidence requirements](https://www.stratasaudi.com/data/evidence-requirements.json)
 - [FIDIC risk signals](https://www.stratasaudi.com/data/fidic-risk-signals.json)
 - [Procurement readiness](https://www.stratasaudi.com/data/procurement-readiness.json)
+- [ARD capability catalog](https://www.stratasaudi.com/.well-known/ai-catalog.json)
 
 ## Source Provenance
 - HTML source: https://www.stratasaudi.com/contact

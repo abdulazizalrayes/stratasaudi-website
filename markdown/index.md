@@ -1,6 +1,6 @@
 ---
 title: "Strata Risk Advisory | Contract Risk Advisory Saudi Arabia"
-description: "Independent engineering-led contract risk and pre-litigation technical advisory for international parties working under Saudi-governed contracts."
+description: "Confidential engineering-led contract-risk and pre-litigation technical advisory for foreign EPC contractors, developers and law firms on Saudi projects over SAR 50M."
 canonical: "https://www.stratasaudi.com/"
 language: "en"
 content_signal: "ai-train=no, search=yes, ai-input=yes"
@@ -41,6 +41,7 @@ Language: en
 - [Evidence requirements](https://www.stratasaudi.com/data/evidence-requirements.json)
 - [FIDIC risk signals](https://www.stratasaudi.com/data/fidic-risk-signals.json)
 - [Procurement readiness](https://www.stratasaudi.com/data/procurement-readiness.json)
+- [ARD capability catalog](https://www.stratasaudi.com/.well-known/ai-catalog.json)
 
 ## Source Provenance
 - HTML source: https://www.stratasaudi.com/

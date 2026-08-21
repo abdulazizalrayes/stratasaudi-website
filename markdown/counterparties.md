@@ -1,5 +1,5 @@
 ---
-title: "Counterparties | Strata Saudi"
+title: "Who Strata Advises on Saudi Project Risk | Strata"
 description: "Advisory for foreign EPC contractors, developers, international law firms, investors, boards, and committees facing material Saudi project exposure."
 canonical: "https://www.stratasaudi.com/counterparties"
 language: "en"
@@ -12,7 +12,7 @@ approval_required_before_contact: true
 not_a_law_firm: true
 ---
 
-# Counterparties | Strata Saudi
+# Who Strata Advises on Saudi Project Risk | Strata
 
 Canonical: https://www.stratasaudi.com/counterparties
 
@@ -41,6 +41,7 @@ Language: en
 - [Evidence requirements](https://www.stratasaudi.com/data/evidence-requirements.json)
 - [FIDIC risk signals](https://www.stratasaudi.com/data/fidic-risk-signals.json)
 - [Procurement readiness](https://www.stratasaudi.com/data/procurement-readiness.json)
+- [ARD capability catalog](https://www.stratasaudi.com/.well-known/ai-catalog.json)
 
 ## Source Provenance
 - HTML source: https://www.stratasaudi.com/counterparties

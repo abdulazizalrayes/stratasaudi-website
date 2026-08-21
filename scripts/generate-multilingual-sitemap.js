@@ -20,17 +20,18 @@ function escapeXml(value) {
 }
 
 function alternateLinks(pagePath) {
-  const links = [
-    `    <xhtml:link rel="alternate" hreflang="en" href="${escapeXml(publicUrlForRoute(pagePath, "en"))}" />`,
-  ];
+  const links = SUPPORTED_LANGUAGES.map(
+    (language) =>
+      `    <xhtml:link rel="alternate" hreflang="${language.hreflang}" href="${escapeXml(publicUrlForRoute(pagePath, language.code))}" />`,
+  );
   links.push(`    <xhtml:link rel="alternate" hreflang="x-default" href="${escapeXml(publicUrlForRoute(pagePath, "en"))}" />`);
   return links.join("\n");
 }
 
-function sitemapUrl(page) {
+function sitemapUrl(page, languageCode) {
   return [
     "  <url>",
-    `    <loc>${escapeXml(publicUrlForRoute(page.path, "en"))}</loc>`,
+    `    <loc>${escapeXml(publicUrlForRoute(page.path, languageCode))}</loc>`,
     alternateLinks(page.path),
     `    <lastmod>${page.lastmod}</lastmod>`,
     `    <changefreq>${page.changefreq}</changefreq>`,
@@ -43,7 +44,9 @@ const sitemap = [
   '<?xml version="1.0" encoding="UTF-8"?>',
   '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
   '        xmlns:xhtml="http://www.w3.org/1999/xhtml">',
-  PAGE_SEO_ROUTES.map((page) => sitemapUrl(page)).join("\n"),
+  PAGE_SEO_ROUTES.flatMap((page) =>
+    SUPPORTED_LANGUAGES.map((language) => sitemapUrl(page, language.code)),
+  ).join("\n"),
   "</urlset>",
   "",
 ].join("\n");
@@ -79,7 +82,7 @@ console.log(
   JSON.stringify(
     {
       ok: true,
-      sitemapUrls: PAGE_SEO_ROUTES.length,
+      sitemapUrls: PAGE_SEO_ROUTES.length * SUPPORTED_LANGUAGES.length,
       pages: PAGE_SEO_ROUTES.length,
       languages: SUPPORTED_LANGUAGES.map((language) => language.code),
     },
