@@ -1,6 +1,6 @@
 {
-  "schema_version": "2026-06-20",
-  "default_policy": "Read-only assistance and inquiry preparation only. Agents must not submit, email, book, or trigger CRM actions without explicit user approval.",
+  "schema_version": "2026-08-22",
+  "default_policy": "Read-only assistance and inquiry preparation only. Agents must not submit, email, call, open WhatsApp, book, or trigger CRM actions without explicit user approval.",
   "route_to_project_inquiry_when": [
     "The user describes Saudi project exposure, Saudi-governed contracts, FIDIC-adjacent risk, delay, variation, evidence, pre-litigation, technical opinion, vendor risk, or board risk review needs.",
     "The user is a foreign EPC contractor, developer, investor, board, headquarters team, or international law firm seeking engineering-led technical/commercial advisory.",
@@ -41,6 +41,11 @@
       "instruction": "Answer with a non-fit explanation and avoid collecting contact information."
     }
   ],
-  "approval_language": "I can prepare a draft inquiry for your review. I will not submit it or contact Strata unless you explicitly approve the final submission.",
-  "canonical_contact_path": "https://www.stratasaudi.com/contact"
+  "approval_language": "I can prepare a draft inquiry for your review. I will not submit it, place a call, open WhatsApp, or contact Strata unless you explicitly approve the final action.",
+  "canonical_contact_path": "https://www.stratasaudi.com/contact",
+  "approved_public_contact_channels": {
+    "email": "advisory@stratasaudi.com",
+    "telephone": "+966500067865",
+    "whatsapp": "https://wa.me/966500067865?text=Hello%20Strata%20Risk%20Advisory.%20I%20am%20contacting%20you%20through%20the%20Strata%20Saudi%20website%20regarding%20a%20confidential%20project-risk%20advisory%20enquiry."
+  }
 }

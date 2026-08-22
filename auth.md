@@ -2,7 +2,7 @@
 
 Canonical domain: https://www.stratasaudi.com
 
-This file defines Strata Saudi's public agent access policy. Public discovery, data, LLM, OpenAPI, and read-only MCP resources require no authentication. Contact, form submission, email sending, meeting booking, CRM writes, or any outbound action requires explicit user approval before execution.
+This file defines Strata Saudi's public agent access policy. Public discovery, data, LLM, OpenAPI, and read-only MCP resources require no authentication. Contact, form submission, email sending, phone calls, opening WhatsApp, meeting booking, CRM writes, or any outbound action requires explicit user approval before execution.
 
 ## Agent Registration
 
@@ -13,7 +13,7 @@ Public read-only agent access does not require registration.
 - Provisioning endpoint: none for public read-only access.
 - Supported method: unauthenticated HTTPS GET for public resources and read-only JSON-RPC for `/api/mcp`.
 - Credential use: no credentials are issued for public read-only access.
-- Approval rule: agents must obtain explicit user approval before submitting `/api/contact`, sending email, booking meetings, writing CRM data, or performing any outbound action.
+- Approval rule: agents must obtain explicit user approval before submitting `/api/contact`, sending email, placing a call, opening WhatsApp, booking meetings, writing CRM data, or performing any outbound action.
 
 Private, authenticated, or write-enabled agent access is not publicly available. If Strata later publishes protected agent accounts, OAuth or equivalent registration metadata should be added before agents rely on private endpoints.
 

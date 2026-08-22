@@ -515,7 +515,7 @@
                 background: var(--white);
                 flex-direction: column;
                 gap: 0;
-                padding: 1rem 1.5rem;
+                padding: 0 1.5rem;
                 border-bottom: 1px solid var(--light-border);
                 max-height: 0;
                 overflow: hidden;
@@ -524,6 +524,7 @@
 
             .nav-links.open {
                 max-height: 500px;
+                padding: 1rem 1.5rem;
             }
 
             .nav-links a {
@@ -648,7 +649,9 @@
 
     <!-- Contact Bar -->
     <div class="contact-bar">
-        <a href="mailto:advisory@stratasaudi.com">Email advisory@stratasaudi.com</a>
+        <a href="mailto:advisory@stratasaudi.com" data-contact-channel="email"><span>Email</span> <span dir="ltr">advisory@stratasaudi.com</span></a>
+        <a href="tel:+966500067865" data-contact-channel="phone"><span>Call Us</span> <span dir="ltr">+966 50 006 7865</span></a>
+        <a href="https://wa.me/966500067865?text=Hello%20Strata%20Risk%20Advisory.%20I%20am%20contacting%20you%20through%20the%20Strata%20Saudi%20website%20regarding%20a%20confidential%20project-risk%20advisory%20enquiry." data-contact-channel="whatsapp"><span>WhatsApp</span></a>
     </div>
 
     <!-- Main Content -->

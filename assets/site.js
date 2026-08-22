@@ -37,6 +37,21 @@
     return fallback;
   }
 
+  function safePhone(value, fallback) {
+    var next = String(value || "").trim();
+    return next === fallback ? next : fallback;
+  }
+
+  function safeWhatsAppUrl(value, fallback) {
+    try {
+      var parsed = new URL(String(value || fallback || ""));
+      if (parsed.protocol === "https:" && parsed.hostname === "wa.me" && parsed.pathname === "/966500067865") {
+        return parsed.toString();
+      }
+    } catch (_error) {}
+    return fallback;
+  }
+
   function navLink(path, label) {
     var active = currentPath === path ? ' aria-current="page"' : "";
     return '<a href="' + path + '"' + active + ">" + label + "</a>";
@@ -51,6 +66,12 @@
       "https://www.linkedin.com/company/stratasaudi",
     );
     var contactEmail = safeEmail(runtime.contactEmail, "advisory@stratasaudi.com");
+    var contactPhone = safePhone(runtime.contactPhone, "+966500067865");
+    var contactPhoneDisplay = safePhone(runtime.contactPhoneDisplay, "+966 50 006 7865");
+    var whatsappUrl = safeWhatsAppUrl(
+      runtime.whatsappUrl,
+      "https://wa.me/966500067865?text=Hello%20Strata%20Risk%20Advisory.%20I%20am%20contacting%20you%20through%20the%20Strata%20Saudi%20website%20regarding%20a%20confidential%20project-risk%20advisory%20enquiry.",
+    );
 
     if (navTarget) {
       navTarget.innerHTML =
@@ -86,7 +107,7 @@
         '        <span class="wordmark__tag">Selective advisory for Saudi project exposure</span>' +
         "      </div>" +
         '      <p>Independent technical advisory for contract risk, project risk, dispute-readiness, and premium mandate structuring in the Kingdom of Saudi Arabia.</p>' +
-        '      <p><a href="' + escapeHtml(linkedIn) + '">LinkedIn</a> | <a href="mailto:' + escapeHtml(contactEmail) + '">' + escapeHtml(contactEmail) + "</a></p>" +
+        '      <p><a href="' + escapeHtml(linkedIn) + '">LinkedIn</a> | <a href="tel:' + escapeHtml(contactPhone) + '" data-contact-channel="phone"><span dir="ltr">' + escapeHtml(contactPhoneDisplay) + '</span></a> | <a href="' + escapeHtml(whatsappUrl) + '" data-contact-channel="whatsapp">WhatsApp</a> | <a href="mailto:' + escapeHtml(contactEmail) + '">' + escapeHtml(contactEmail) + "</a></p>" +
         "    </div>" +
         '    <div class="footer__column"><h3>Practice</h3><ul class="footer__list">' +
         "      <li><a href=\"/services\">Mandate lines</a></li>" +

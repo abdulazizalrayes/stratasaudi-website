@@ -5,7 +5,7 @@
 - Company: Strata Risk Advisory / Strata Saudi.
 - Canonical website: https://www.stratasaudi.com.
 - Vercel project: `stratasaudi-website`.
-- Public contact: advisory@stratasaudi.com.
+- Public contact: advisory@stratasaudi.com, +966 50 006 7865, and the approved source-identifying WhatsApp link published in `data/company.json`.
 - Google-system owner: abdulaziz.alrayes@gmail.com.
 - Do not use Vercel preview URLs as public website URLs.
 - Do not mix this repository, deployment, analytics, Paperclip workspace, or discovery files with another company.
@@ -126,6 +126,8 @@ They never contain raw user agents, IP addresses, form values, enquiry text, nam
 ## Privacy-Safe Analytics
 
 Browser analytics use one direct GA4 loader through `/api/client-config.js` and `/assets/strata-analytics.js`. GTM, Mixpanel, and the legacy analytics loader are not used. The enquiry form records only form start, privacy-safe submission diagnostics, and errors. Field names, field values, value lengths, names, emails, company details, and enquiry text are never sent as browser analytics events.
+
+Public contact links emit the privacy-safe `contact_click` event. WhatsApp links also emit `whatsapp_click` with the public destination number and `click_source=strata_saudi_website`; the prefilled WhatsApp message and URL query string are never sent as analytics parameters.
 
 The production conversion candidate is the server-confirmed `lead_submission` event. It is emitted only after the confidential enquiry email is accepted for delivery. Keep browser `form_submit_success` as a diagnostic event and do not mark both as GA4 key events.
 

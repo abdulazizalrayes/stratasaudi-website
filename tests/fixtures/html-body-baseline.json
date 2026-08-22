@@ -1,19 +1,19 @@
 {
-  "captured_from": "origin/main c73b826 before the metadata and localized-route rollout",
-  "captured_at": "2026-08-20",
+  "captured_from": "origin/main 3d8f4bf with the board-approved Strata mobile and WhatsApp contact rollout",
+  "captured_at": "2026-08-22",
   "routes": {
-    "/": { "sha256": "6f93feab18121ca1545b623ca05742d53451891b3c77876ba5177f119ed410f3" },
+    "/": { "sha256": "717359d65184ef718c5217a89999d003f64e07a3f7e88696cea59eb185f56948" },
     "/about": { "sha256": "3dcb60634e1aa4a70c7a063e94a612ff9154d12c8f1b309ba1cb483c62ec4ce0" },
-    "/services": { "sha256": "d2c934159351695b8825f298e7475bd2880219caa38d1a1e6db9979afdaa4fde" },
+    "/services": { "sha256": "e40b3876f9870683866b93c1d9d965f4645688dce81664be7a6dfeb1ad62c6c4" },
     "/counterparties": { "sha256": "9b6bfb4929f96d4901470d065b4fd78cb93a584f5173e7ef0a7d885d81acd38a" },
     "/why-saudi": { "sha256": "bedd4692e430f4cd305ae50f04bd5e360f0e2f8452c2f1d3598ebf76239e98e8" },
-    "/insights": { "sha256": "f822f8d39bb2afd5465dbdbde87033ad75d16ca1676bc7036b2c00f32049f4ee" },
+    "/insights": { "sha256": "c43e646d47f0d9329a4bb5c61389178fea4709b10feb1782b4e3cbf17106a436" },
     "/faq": { "sha256": "fdd0209b530edb227dcd1ae3dd96f588d5d0feb79ce0067dcde671cd86425704" },
     "/ethics": { "sha256": "7b6604f0ec552dd2321fe36a5791b4711b4c9186e22ec4526c47a15d6dbecb76" },
-    "/contact": { "sha256": "2e01010e5e0eb0f1b63228a88920e91e1ac779b38367eb248be745d05d66d38e" },
+    "/contact": { "sha256": "ee14b730faa534ecf196dff3598c1746c8ab77c1e91b9f615f6c318f0652838e" },
     "/privacy": { "sha256": "b1c29c8fc9fe873bed159879d71ce5da195466b11ebcfa25d93f603e284e1412" },
     "/terms": { "sha256": "cf57ee04bf4f8f41f759afd766e419fca2d7712365c1b463f99da632426d80a5" },
-    "/mandate-checklist": { "sha256": "a2b19d2ab703fdfda22038fb9d442ee03ff177185d8669d7358f560b66f6f0da" },
-    "/fidic-claims-saudi-arabia": { "sha256": "d712d772481b81991c4353ed2e654d893e6a693135cfee29f1d0c0f68de30760" }
+    "/mandate-checklist": { "sha256": "a67828cfeb3fec11fe3f49a8aa36593905ab55a127659138feb55c8bc325f0f5" },
+    "/fidic-claims-saudi-arabia": { "sha256": "ba7e124e3c9776cd1ed3b1a394a82b6445abc7364383379cc3c7d82eb556476c" }
   }
 }

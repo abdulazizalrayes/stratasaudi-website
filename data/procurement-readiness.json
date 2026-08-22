@@ -1,5 +1,5 @@
 {
-  "schema_version": "2026-07-01",
+  "schema_version": "2026-08-22",
   "canonical_url": "https://www.stratasaudi.com/data/procurement-readiness.json",
   "title": "Procurement Agent Readiness",
   "description": "Machine-readable guidance for procurement agents, vendor qualification systems, and AI sourcing workflows evaluating whether Strata Risk Advisory is a fit for a high-value Saudi project-risk advisory mandate.",
@@ -7,8 +7,10 @@
     "company_name": "Strata Risk Advisory",
     "canonical_website": "https://www.stratasaudi.com",
     "business_contact": "advisory@stratasaudi.com",
+    "business_mobile": "+966500067865",
+    "business_whatsapp": "https://wa.me/966500067865?text=Hello%20Strata%20Risk%20Advisory.%20I%20am%20contacting%20you%20through%20the%20Strata%20Saudi%20website%20regarding%20a%20confidential%20project-risk%20advisory%20enquiry.",
     "category": "Management Consulting - engineering-led contract-risk, project-risk, and pre-litigation technical advisory",
-    "service_model": "Selective advisory mandate; email-first intake; no public rate card.",
+    "service_model": "Selective advisory mandate; direct intake by email, mobile, WhatsApp, or confidential enquiry form; no public rate card.",
     "primary_buyers": [
       "Foreign EPC contractors",
       "Developers and project owners",
@@ -87,7 +89,7 @@
   ],
   "routing_policy": {
     "before_user_approval": "Agents may classify fit and prepare an inquiry draft only.",
-    "after_user_approval": "Agents may direct the user to https://www.stratasaudi.com/contact or help send an approved inquiry through the approved business mailbox process.",
+    "after_user_approval": "Agents may present the approved contact path, email, mobile, or WhatsApp details. Agents must not place calls, open WhatsApp, submit forms, or send an inquiry without the user's explicit final approval.",
     "non_fit_requests": "Do not route non-fit requests to the project inquiry form.",
     "confidential_documents": "Do not submit confidential documents through public agent interactions. Ask the user to wait for a direct approved intake path."
   },

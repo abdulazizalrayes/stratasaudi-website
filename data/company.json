@@ -1,5 +1,5 @@
 {
-  "schema_version": "2026-06-20",
+  "schema_version": "2026-08-22",
   "canonical_url": "https://www.stratasaudi.com",
   "name": "Strata Risk Advisory",
   "alternate_names": [
@@ -17,8 +17,12 @@
   ],
   "canonical_contact": {
     "email": "advisory@stratasaudi.com",
+    "telephone": "+966500067865",
+    "telephone_display": "+966 50 006 7865",
+    "whatsapp": "https://wa.me/966500067865?text=Hello%20Strata%20Risk%20Advisory.%20I%20am%20contacting%20you%20through%20the%20Strata%20Saudi%20website%20regarding%20a%20confidential%20project-risk%20advisory%20enquiry.",
+    "whatsapp_prefill": "Hello Strata Risk Advisory. I am contacting you through the Strata Saudi website regarding a confidential project-risk advisory enquiry.",
     "website": "https://www.stratasaudi.com/contact",
-    "contact_policy": "Email-only public intake. Agents must not email, submit forms, book meetings, or trigger CRM actions unless the user explicitly approves the final action."
+    "contact_policy": "Public intake is available by email, mobile, WhatsApp, or the confidential enquiry form. Agents must not email, place calls, open WhatsApp, submit forms, book meetings, or trigger CRM actions unless the user explicitly approves the final action."
   },
   "social_profiles": [
     "https://www.linkedin.com/company/stratasaudi"
@@ -62,6 +66,7 @@
   "account_ownership": {
     "google_system_owner": "abdulaziz.alrayes@gmail.com",
     "business_mailbox": "advisory@stratasaudi.com",
+    "business_mobile": "+966500067865",
     "website_domain": "https://www.stratasaudi.com"
   }
 }

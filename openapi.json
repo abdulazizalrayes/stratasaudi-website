@@ -2,8 +2,19 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Strata Saudi Public Agent Readiness API",
-    "version": "2026-07-29",
-    "description": "Public read-only API and discovery documentation for Strata Risk Advisory. Project inquiry submission requires explicit user approval. Public-content policy: ai-train=no, search=yes, ai-input=yes."
+    "version": "2026-08-22",
+    "description": "Public read-only API and discovery documentation for Strata Risk Advisory. Project inquiry submission and all contact actions require explicit user approval. Public-content policy: ai-train=no, search=yes, ai-input=yes.",
+    "contact": {
+      "name": "Strata Risk Advisory",
+      "url": "https://www.stratasaudi.com/contact",
+      "email": "advisory@stratasaudi.com"
+    }
+  },
+  "x-public-contact": {
+    "telephone": "+966500067865",
+    "telephone_display": "+966 50 006 7865",
+    "whatsapp": "https://wa.me/966500067865?text=Hello%20Strata%20Risk%20Advisory.%20I%20am%20contacting%20you%20through%20the%20Strata%20Saudi%20website%20regarding%20a%20confidential%20project-risk%20advisory%20enquiry.",
+    "approval_required_before_contact": true
   },
   "x-content-negotiation": {
     "representations": [

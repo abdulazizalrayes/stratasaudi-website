@@ -245,6 +245,24 @@
           contact_destination: href.replace(/^mailto:/, ""),
           contact_label: label,
         });
+      } else if (/^tel:/.test(href)) {
+        pushEvent("contact_click", {
+          contact_method: "phone",
+          contact_destination: href.replace(/^tel:/, ""),
+          contact_label: label,
+        });
+      } else {
+        var contactUrl = safeUrl(href);
+        if (contactUrl && contactUrl.hostname === "wa.me") {
+          var whatsappPayload = {
+            contact_method: "whatsapp",
+            contact_destination: contactUrl.pathname.replace(/^\//, ""),
+            contact_label: label,
+            click_source: "strata_saudi_website",
+          };
+          pushEvent("contact_click", whatsappPayload);
+          pushEvent("whatsapp_click", whatsappPayload);
+        }
       }
 
       if (link.hasAttribute("data-cta")) {

@@ -124,6 +124,11 @@ function validateBusinessRules() {
     JSON.stringify(company).includes("advisory@stratasaudi.com"),
     "company: approved business mailbox missing",
   );
+  expect(company.canonical_contact.telephone === "+966500067865", "company: approved mobile missing");
+  expect(
+    company.canonical_contact.whatsapp.includes("Strata%20Saudi%20website"),
+    "company: source-identifying WhatsApp link missing",
+  );
   expect(
     routing.default_policy.includes("must not submit"),
     "routing: no-contact-without-approval rule missing",
@@ -135,6 +140,10 @@ function validateBusinessRules() {
   expect(
     agentCard.agent_use.requires_explicit_user_approval.includes("Submitting a contact form"),
     "agent card: submission approval rule missing",
+  );
+  expect(
+    agentCard.agent_use.requires_explicit_user_approval.includes("Placing a call or opening WhatsApp"),
+    "agent card: phone and WhatsApp approval rule missing",
   );
   expect(agentCard.version, "agent card: A2A version missing");
   expect(

@@ -3,6 +3,10 @@ const { setSecurityHeaders } = require("../lib/security-headers");
 module.exports = async (_req, res) => {
   const bool = (value) => String(value || "").toLowerCase() === "true";
   const approvedMailbox = "advisory@stratasaudi.com";
+  const approvedMobile = "+966500067865";
+  const approvedMobileDisplay = "+966 50 006 7865";
+  const approvedWhatsappUrl =
+    "https://wa.me/966500067865?text=Hello%20Strata%20Risk%20Advisory.%20I%20am%20contacting%20you%20through%20the%20Strata%20Saudi%20website%20regarding%20a%20confidential%20project-risk%20advisory%20enquiry.";
   const canonicalSiteUrl = "https://www.stratasaudi.com/";
   const canonicalLinkedInCompanyUrl = "https://www.linkedin.com/company/stratasaudi";
   const safeUrl = (value, fallback) => {
@@ -41,6 +45,9 @@ module.exports = async (_req, res) => {
     appDomain: process.env.APP_DOMAIN || "stratasaudi.com",
     primarySiteUrl: canonicalSiteUrl,
     contactEmail,
+    contactPhone: approvedMobile,
+    contactPhoneDisplay: approvedMobileDisplay,
+    whatsappUrl: approvedWhatsappUrl,
     linkedinCompanyUrl: safeCompanyLinkedInUrl(process.env.LINKEDIN_COMPANY_URL),
     linkedinFounderUrl: optionalSafeUrl(process.env.LINKEDIN_FOUNDER_URL),
     gaMeasurementId: process.env.GA_MEASUREMENT_ID || "",

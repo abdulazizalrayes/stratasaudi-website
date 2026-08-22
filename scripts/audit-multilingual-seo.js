@@ -12,6 +12,8 @@ const {
 
 const ROOT = path.join(__dirname, "..");
 const failures = [];
+const APPROVED_PHONE = "+966500067865";
+const APPROVED_WHATSAPP_PATH = "wa.me/966500067865?text=Hello%20Strata%20Risk%20Advisory.";
 
 function expect(condition, message) {
   if (!condition) failures.push(message);
@@ -65,11 +67,16 @@ const llms = fs.readFileSync(path.join(ROOT, "llms.txt"), "utf8");
 const indexNowKey = fs.readFileSync(path.join(ROOT, "0957b4b1b950a90f9ac51a5a737203ec.txt"), "utf8").trim();
 const indexNowScript = fs.readFileSync(path.join(ROOT, "scripts", "submit-indexnow.js"), "utf8");
 const vercelConfig = fs.readFileSync(path.join(ROOT, "vercel.json"), "utf8");
-const siteHtml = fs
-  .readdirSync(path.join(ROOT, "site"))
-  .filter((file) => file.endsWith(".html"))
-  .map((file) => fs.readFileSync(path.join(ROOT, "site", file), "utf8"))
+const siteFiles = fs.readdirSync(path.join(ROOT, "site")).filter((file) => file.endsWith(".html"));
+const siteSources = siteFiles.map((file) => ({
+  file,
+  html: fs.readFileSync(path.join(ROOT, "site", file), "utf8"),
+}));
+const siteHtml = siteSources
+  .map(({ html }) => html)
   .join("\n");
+const sharedShell = fs.readFileSync(path.join(ROOT, "assets", "site.js"), "utf8");
+const runtimeConfig = fs.readFileSync(path.join(ROOT, "api", "runtime-config.js"), "utf8");
 
 expect(sitemap.includes('xmlns:xhtml="http://www.w3.org/1999/xhtml"'), "sitemap: xhtml namespace missing");
 expect(!sitemap.includes(".html"), "sitemap: .html URL remains");
@@ -104,11 +111,29 @@ expect(!siteHtml.includes("966XXXXXXXXX"), "site source: literal WhatsApp placeh
 expect(!siteHtml.includes("tel:+966500000000"), "site source: generic phone placeholder remains");
 expect(!siteHtml.includes("wa.me/966500000000"), "site source: generic WhatsApp placeholder remains");
 expect(!siteHtml.includes("data-contact-placeholder"), "site source: phone/WhatsApp placeholder contact links remain");
-expect(!siteHtml.includes(">WhatsApp<"), "site source: WhatsApp contact label remains");
+expect(siteHtml.includes(`tel:${APPROVED_PHONE}`), "site source: approved phone link missing");
+expect(siteHtml.includes(APPROVED_WHATSAPP_PATH), "site source: source-identifying WhatsApp link missing");
+expect(sharedShell.includes(`tel:' + escapeHtml(contactPhone)`), "shared shell: phone link missing");
+expect(sharedShell.includes("data-contact-channel=\"whatsapp\""), "shared shell: WhatsApp link missing");
+expect(runtimeConfig.includes(APPROVED_PHONE), "runtime config: approved phone missing");
+expect(runtimeConfig.includes(APPROVED_WHATSAPP_PATH), "runtime config: source-identifying WhatsApp link missing");
+for (const { file, html } of siteSources) {
+  const usesSharedFooter = html.includes('data-site-shell="footer"');
+  expect(
+    usesSharedFooter || html.includes(`tel:${APPROVED_PHONE}`),
+    `${file}: neither shared contact footer nor approved phone link is present`,
+  );
+  expect(
+    usesSharedFooter || html.includes(APPROVED_WHATSAPP_PATH),
+    `${file}: neither shared contact footer nor source-identifying WhatsApp link is present`,
+  );
+}
 expect(homeHtml.includes('"@type": "Person"'), "schema: Person entity missing");
 expect(homeHtml.includes('"@id": "https://www.stratasaudi.com/#abdulaziz-alrayes"'), "schema: founder @id missing");
 expect(homeHtml.includes('"sameAs"') && homeHtml.includes("https://www.linkedin.com/company/stratasaudi"), "schema: company LinkedIn sameAs missing");
 expect(homeHtml.includes('"hasOfferCatalog"'), "schema: service catalog missing");
+expect(homeHtml.includes('"telephone": "+966500067865"'), "schema: approved telephone missing");
+expect(homeHtml.includes(APPROVED_WHATSAPP_PATH), "schema: source-identifying WhatsApp URL missing");
 expect(!homeHtml.includes("en_SA"), "og:locale: en_SA remains");
 expect(homeHtml.includes('<meta property="og:locale" content="en_US">'), "og:locale: en_US missing");
 

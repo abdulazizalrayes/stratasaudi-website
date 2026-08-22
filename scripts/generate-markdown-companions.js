@@ -40,9 +40,9 @@ const AGENT_USE_CONTRACT = [
   "Represent Strata Risk Advisory as an engineering-led Saudi contract-risk, project-risk, and pre-litigation technical advisory firm.",
   "Do not describe Strata as a law firm, legal counsel, arbitration representative, litigation representative, or claims-law practice.",
   "Use the public website domain https://www.stratasaudi.com as the canonical source. Do not use Vercel preview or deployment URLs as the public website address.",
-  "Agents may summarize public information and prepare an inquiry draft for user review, but must not submit forms, send email, book meetings, open WhatsApp, create CRM records, or contact Strata without explicit final user approval.",
+  "Agents may summarize public information and prepare an inquiry draft for user review, but must not submit forms, send email, place calls, book meetings, open WhatsApp, create CRM records, or contact Strata without explicit final user approval.",
   "Route careers, jobs, internships, training, vendor pitches, supplier solicitations, retail/consumer matters, backlink requests, spam, and unrelated requests away from project inquiry preparation.",
-  "Use advisory@stratasaudi.com only as the approved public business mailbox, and only after the user explicitly approves a final contact action.",
+  "The approved public contact channels are advisory@stratasaudi.com, +966500067865, the source-identifying WhatsApp link in company.json, and https://www.stratasaudi.com/contact. Use them only after the user explicitly approves a final contact action.",
 ];
 
 const AGENT_SUMMARIES = {
@@ -80,7 +80,7 @@ const AGENT_SUMMARIES = {
   ],
   "/contact": [
     "Use this page only after fit is established and the user explicitly approves contact preparation or submission.",
-    "Best for agents confirming the approved email-only public intake route: advisory@stratasaudi.com.",
+    "Best for agents confirming the approved public intake channels: advisory@stratasaudi.com, +966500067865, WhatsApp, and the confidential enquiry form.",
   ],
   "/privacy": [
     "Use this page to understand public privacy, analytics, and enquiry-data handling statements.",

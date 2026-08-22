@@ -37,10 +37,17 @@ assert(analytics.includes('ad_storage: "denied"'), "strata-analytics.js: adverti
 assert(analytics.includes('ad_user_data: "denied"'), "strata-analytics.js: advertising user data must default to denied");
 assert(analytics.includes('ad_personalization: "denied"'), "strata-analytics.js: advertising personalization must default to denied");
 assert(analytics.includes('ads_data_redaction", true'), "strata-analytics.js: advertising data redaction must be enabled");
+assert(analytics.includes('contact_method: "phone"'), "strata-analytics.js: phone click measurement missing");
+assert(analytics.includes('contact_method: "whatsapp"'), "strata-analytics.js: WhatsApp click measurement missing");
+assert(analytics.includes('pushEvent("whatsapp_click"'), "strata-analytics.js: dedicated WhatsApp click event missing");
+assert(analytics.includes('click_source: "strata_saudi_website"'), "strata-analytics.js: Strata click source marker missing");
+assert(!analytics.includes("contactUrl.search"), "strata-analytics.js: WhatsApp prefill must not enter analytics");
 
 const runtimeConfig = read("api/runtime-config.js");
 assert(!runtimeConfig.includes("gtmId"), "runtime-config.js: public GTM id remains");
 assert(!runtimeConfig.includes("process.env.GTM_ID"), "runtime-config.js: GTM environment binding remains");
+assert(runtimeConfig.includes('const approvedMobile = "+966500067865"'), "runtime-config.js: approved mobile missing");
+assert(runtimeConfig.includes("Strata%20Saudi%20website"), "runtime-config.js: source-identifying WhatsApp link missing");
 
 const intake = read("api/lead-intake.js");
 const mailPosition = intake.lastIndexOf("await sendLeadEmail(payload)");

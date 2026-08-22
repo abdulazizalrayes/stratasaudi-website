@@ -1,7 +1,7 @@
 {
   "schema_version": "2026-06-20",
   "name": "Strata Risk Advisory",
-  "version": "2026-07-29",
+  "version": "2026-08-22",
   "canonical_url": "https://www.stratasaudi.com",
   "description": "Independent engineering-led contract-risk, project-risk, and pre-litigation technical advisory for high-value Saudi project exposure.",
   "supportedInterfaces": [
@@ -69,6 +69,7 @@
     "requires_explicit_user_approval": [
       "Submitting a contact form",
       "Sending email",
+      "Placing a call or opening WhatsApp",
       "Booking meetings",
       "Triggering CRM or outbound actions"
     ],
@@ -111,5 +112,11 @@
     "authority_evidence",
     "procurement_readiness"
   ],
-  "contact_policy": "Email-only public intake through advisory@stratasaudi.com or https://www.stratasaudi.com/contact after explicit user approval."
+  "public_contact": {
+    "email": "advisory@stratasaudi.com",
+    "telephone": "+966500067865",
+    "telephone_display": "+966 50 006 7865",
+    "whatsapp": "https://wa.me/966500067865?text=Hello%20Strata%20Risk%20Advisory.%20I%20am%20contacting%20you%20through%20the%20Strata%20Saudi%20website%20regarding%20a%20confidential%20project-risk%20advisory%20enquiry."
+  },
+  "contact_policy": "Public intake is available through advisory@stratasaudi.com, +966500067865, WhatsApp, or https://www.stratasaudi.com/contact after explicit user approval."
 }
