@@ -47,7 +47,12 @@ const runtimeConfig = read("api/runtime-config.js");
 assert(!runtimeConfig.includes("gtmId"), "runtime-config.js: public GTM id remains");
 assert(!runtimeConfig.includes("process.env.GTM_ID"), "runtime-config.js: GTM environment binding remains");
 assert(runtimeConfig.includes('const approvedMobile = "+966500067865"'), "runtime-config.js: approved mobile missing");
-assert(runtimeConfig.includes("Strata%20Saudi%20website"), "runtime-config.js: source-identifying WhatsApp link missing");
+assert(
+  runtimeConfig.includes(
+    "Strata%20Saudi%20website%20regarding%20an%20enquiry.",
+  ),
+  "runtime-config.js: approved source-identifying WhatsApp message missing",
+);
 
 const intake = read("api/lead-intake.js");
 const mailPosition = intake.lastIndexOf("await sendLeadEmail(payload)");

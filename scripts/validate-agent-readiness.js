@@ -126,8 +126,9 @@ function validateBusinessRules() {
   );
   expect(company.canonical_contact.telephone === "+966500067865", "company: approved mobile missing");
   expect(
-    company.canonical_contact.whatsapp.includes("Strata%20Saudi%20website"),
-    "company: source-identifying WhatsApp link missing",
+    company.canonical_contact.whatsapp ===
+      "https://wa.me/966500067865?text=Hello%20Strata%20Risk%20Advisory.%20I%20am%20contacting%20you%20through%20the%20Strata%20Saudi%20website%20regarding%20an%20enquiry.",
+    "company: approved WhatsApp link or message differs",
   );
   expect(
     routing.default_policy.includes("must not submit"),

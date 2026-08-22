@@ -115,7 +115,10 @@ function validateJsonAndMetadata() {
     assert(!markdown.includes("+966XXXXXXXXX"), `${page.path}: phone placeholder leaked into Markdown`);
     assert(!markdown.includes("Email advisory@stratasaudi.com"), `${page.path}: contact bar leaked into Markdown`);
     assert(markdown.includes("+966500067865"), `${page.path}: approved telephone missing from public JSON-LD`);
-    assert(markdown.includes("Strata%20Saudi%20website"), `${page.path}: source-identifying WhatsApp URL missing`);
+    assert(
+      markdown.includes("Strata%20Saudi%20website%20regarding%20an%20enquiry."),
+      `${page.path}: approved source-identifying WhatsApp message missing`,
+    );
     assert(!markdown.includes("Home /"), `${page.path}: breadcrumb chrome leaked into Markdown`);
     }
   }

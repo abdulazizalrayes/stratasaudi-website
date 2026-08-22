@@ -70,7 +70,7 @@
     var contactPhoneDisplay = safePhone(runtime.contactPhoneDisplay, "+966 50 006 7865");
     var whatsappUrl = safeWhatsAppUrl(
       runtime.whatsappUrl,
-      "https://wa.me/966500067865?text=Hello%20Strata%20Risk%20Advisory.%20I%20am%20contacting%20you%20through%20the%20Strata%20Saudi%20website%20regarding%20a%20confidential%20project-risk%20advisory%20enquiry.",
+      "https://wa.me/966500067865?text=Hello%20Strata%20Risk%20Advisory.%20I%20am%20contacting%20you%20through%20the%20Strata%20Saudi%20website%20regarding%20an%20enquiry.",
     );
 
     if (navTarget) {

@@ -13,7 +13,8 @@ const {
 const ROOT = path.join(__dirname, "..");
 const failures = [];
 const APPROVED_PHONE = "+966500067865";
-const APPROVED_WHATSAPP_PATH = "wa.me/966500067865?text=Hello%20Strata%20Risk%20Advisory.";
+const APPROVED_WHATSAPP_PATH =
+  "wa.me/966500067865?text=Hello%20Strata%20Risk%20Advisory.%20I%20am%20contacting%20you%20through%20the%20Strata%20Saudi%20website%20regarding%20an%20enquiry.";
 
 function expect(condition, message) {
   if (!condition) failures.push(message);
