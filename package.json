@@ -5,6 +5,7 @@
   "scripts": {
     "validate:instructions": "node scripts/validate-instruction-integrity.js",
     "validate:agents": "node scripts/validate-agent-registry.js",
+    "validate:agents:full": "STRATA_REQUIRE_AGENT_REGISTRY=true node scripts/validate-agent-registry.js",
     "validate:seo": "node scripts/audit-multilingual-seo.js",
     "validate:localization": "node scripts/audit-i18n-coverage.js && node scripts/validate-localized-rendering.js",
     "validate:analytics": "node scripts/validate-analytics-privacy.js",
@@ -18,7 +19,7 @@
     "validate:markdown": "node scripts/validate-markdown-layer.js",
     "validate:vercel": "node scripts/validate-vercel-project.js",
     "validate:domain": "node scripts/validate-domain-alignment.js",
-    "validate:release": "npm run validate:instructions && npm run validate:seo && npm run validate:localization && npm run validate:analytics && npm run validate:agent-readiness && npm run test:mcp-readonly && npm run test:mcp-sdk-conformance && npm run test:agent-concierge && npm run test:agent-observability && npm run test:agent-production-report && npm run validate:markdown && npm run validate:vercel",
+    "validate:release": "npm run validate:instructions && npm run validate:agents && npm run validate:seo && npm run validate:localization && npm run validate:analytics && npm run validate:agent-readiness && npm run test:mcp-readonly && npm run test:mcp-sdk-conformance && npm run test:agent-concierge && npm run test:agent-observability && npm run test:agent-production-report && npm run validate:markdown && npm run validate:vercel",
     "audit:monthly": "node scripts/audit-agent-readiness-monthly.js",
     "report:agent-observability": "node scripts/report-agent-observability.js",
     "report:agent-questions": "node scripts/report-agent-questions.js",

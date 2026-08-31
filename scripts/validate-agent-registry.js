@@ -6,8 +6,7 @@ const AGENTS_DIR = path.join(ROOT, "paperclip", "agents");
 const PROMPTS_DIR = path.join(AGENTS_DIR, "prompts");
 const registryPath = path.join(AGENTS_DIR, "registry.json");
 const promptOverridesPath = path.join(AGENTS_DIR, "prompt-overrides.json");
-
-const registry = JSON.parse(fs.readFileSync(registryPath, "utf8"));
+const requireFullRegistry = process.env.STRATA_REQUIRE_AGENT_REGISTRY === "true";
 const promptOverrides = fs.existsSync(promptOverridesPath)
   ? JSON.parse(fs.readFileSync(promptOverridesPath, "utf8"))
   : {};
@@ -41,6 +40,47 @@ const validLanes = new Set(["premium", "core", "cheap"]);
 const premiumAdapters = new Set(["codex", "claude_code"]);
 
 const failures = [];
+
+if (!fs.existsSync(registryPath)) {
+  Object.entries(promptOverrides).forEach(([agentId, override]) => {
+    if (!/^[a-z0-9_]+$/.test(agentId)) {
+      failures.push(`prompt-overrides.json: invalid agent id ${agentId}`);
+    }
+    if (!override || !Array.isArray(override.additionalInstruction) || override.additionalInstruction.length === 0) {
+      failures.push(`prompt-overrides.json: ${agentId} missing non-empty additionalInstruction array`);
+    }
+  });
+
+  if (requireFullRegistry) {
+    failures.push(
+      "paperclip/agents/registry.json is required for full private-workspace validation",
+    );
+  }
+
+  if (failures.length > 0) {
+    console.error("Agent control validation failed:");
+    failures.forEach((failure) => console.error(`- ${failure}`));
+    process.exit(1);
+  }
+
+  console.log(
+    JSON.stringify(
+      {
+        ok: true,
+        mode: "public_prompt_controls",
+        promptOverridesValidated: Object.keys(promptOverrides).length,
+        privateRegistryPublished: false,
+        fullValidation:
+          "Set STRATA_WORKSPACE_CWD to the private operations workspace and STRATA_REQUIRE_AGENT_REGISTRY=true.",
+      },
+      null,
+      2,
+    ),
+  );
+  process.exit(0);
+}
+
+const registry = JSON.parse(fs.readFileSync(registryPath, "utf8"));
 const registryIds = new Set();
 const registryNames = new Set();
 
