@@ -4,7 +4,8 @@
     {
       "name": "strata-saudi-public-readonly",
       "card": "https://www.stratasaudi.com/.well-known/mcp/server-card.json",
-      "endpoint": "https://www.stratasaudi.com/api/mcp"
+      "endpoint": "https://www.stratasaudi.com/api/mcp",
+      "preferred_protocol_version": "2026-07-28"
     }
   ]
 }

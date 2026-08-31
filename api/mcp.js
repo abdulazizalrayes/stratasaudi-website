@@ -14,9 +14,23 @@ const {
 const { answerAgentQuestion } = require("../lib/agent-concierge");
 const { setSecurityHeaders } = require("../lib/security-headers");
 
-function sendJson(res, statusCode, payload) {
+const CONTENT_SIGNAL = "ai-train=no, search=yes, ai-input=yes";
+const MODERN_MCP_VERSION = "2026-07-28";
+const LEGACY_MCP_VERSIONS = ["2025-11-25", "2025-06-18", "2025-03-26", "2024-11-05"];
+const SERVER_INFO = {
+  name: "strata-saudi-public-readonly",
+  version: "2026.08.31",
+  websiteUrl: "https://www.stratasaudi.com",
+};
+const SERVER_INSTRUCTIONS = "Use approved public Strata data only. Explain and prepare; never contact, submit, or disclose private information.";
+const PUBLIC_CACHE_HINT = { ttlMs: 60 * 60 * 1000, cacheScope: "public" };
+
+function sendJson(res, statusCode, payload, protocolVersion = "") {
   res.statusCode = statusCode;
   res.setHeader("Content-Type", "application/json; charset=utf-8");
+  res.setHeader("Content-Signal", CONTENT_SIGNAL);
+  res.setHeader("X-Robots-Tag", "noindex, nofollow");
+  if (protocolVersion) res.setHeader("MCP-Protocol-Version", protocolVersion);
   setSecurityHeaders(res, { cache: false });
   res.setHeader("Cache-Control", "no-store");
   res.end(JSON.stringify(payload, null, 2));
@@ -42,17 +56,79 @@ async function readBody(req) {
   }
 }
 
-function rpcError(code, message) {
+function rpcError(code, message, options = {}) {
   const error = new Error(message);
   error.rpcCode = code;
+  error.rpcData = options.data;
+  error.httpStatusCode = options.httpStatusCode;
   return error;
 }
 
-function jsonRpcError(id, code, message) {
-  return {
+function jsonRpcError(id, code, message, data) {
+  const response = {
     jsonrpc: "2.0",
     id,
     error: { code, message },
+  };
+  if (data !== undefined) response.error.data = data;
+  return response;
+}
+
+function requestEnvelope(body) {
+  return body && body.params && body.params._meta && typeof body.params._meta === "object"
+    ? body.params._meta
+    : {};
+}
+
+function requestEra(req, body) {
+  const headerVersion = String(req.headers["mcp-protocol-version"] || "");
+  const bodyVersion = String(requestEnvelope(body)["io.modelcontextprotocol/protocolVersion"] || "");
+  if (headerVersion === MODERN_MCP_VERSION || bodyVersion === MODERN_MCP_VERSION) return "modern";
+  if (
+    (headerVersion && !LEGACY_MCP_VERSIONS.includes(headerVersion)) ||
+    (bodyVersion && !LEGACY_MCP_VERSIONS.includes(bodyVersion))
+  ) return "modern";
+  return "legacy";
+}
+
+function mirroredRequestName(body) {
+  if (!body || !body.params) return "";
+  if (body.method === "tools/call" || body.method === "prompts/get") return String(body.params.name || "");
+  if (body.method === "resources/read") return String(body.params.uri || "");
+  return "";
+}
+
+function validateModernRequest(req, body) {
+  const headerVersion = String(req.headers["mcp-protocol-version"] || "");
+  const bodyVersion = String(requestEnvelope(body)["io.modelcontextprotocol/protocolVersion"] || "");
+  if (headerVersion !== MODERN_MCP_VERSION || bodyVersion !== MODERN_MCP_VERSION) {
+    throw rpcError(-32022, "Unsupported or missing MCP protocol version.", {
+      httpStatusCode: 400,
+      data: {
+        supported: [MODERN_MCP_VERSION, ...LEGACY_MCP_VERSIONS],
+      },
+    });
+  }
+
+  const headerMethod = String(req.headers["mcp-method"] || "");
+  const headerName = String(req.headers["mcp-name"] || "");
+  const expectedName = mirroredRequestName(body);
+  if (headerMethod !== body.method || (expectedName && headerName !== expectedName)) {
+    throw rpcError(-32020, "MCP routing headers are missing or do not match the request body.", {
+      httpStatusCode: 400,
+    });
+  }
+}
+
+function modernResult(result, options = {}) {
+  return {
+    resultType: "complete",
+    ...result,
+    ...(options.cache ? PUBLIC_CACHE_HINT : {}),
+    _meta: {
+      ...(result && result._meta ? result._meta : {}),
+      "io.modelcontextprotocol/serverInfo": SERVER_INFO,
+    },
   };
 }
 
@@ -260,43 +336,48 @@ function asMcpContent(payload) {
   return [{ type: "text", text: JSON.stringify(payload, null, 2) }];
 }
 
-async function handleJsonRpc(body, req) {
+async function handleJsonRpc(body, req, era = "legacy") {
   if (!body || typeof body !== "object" || Array.isArray(body) || typeof body.method !== "string") {
     throw rpcError(-32600, "Invalid Request.");
   }
   const id = Object.prototype.hasOwnProperty.call(body, "id") ? body.id : null;
   if (body.method === "initialize") {
+    if (era === "modern") return jsonRpcError(id, -32601, "Method not found.");
+    const requestedVersion = body.params && body.params.protocolVersion;
+    const protocolVersion = LEGACY_MCP_VERSIONS.includes(requestedVersion)
+      ? requestedVersion
+      : LEGACY_MCP_VERSIONS[0];
     return {
       jsonrpc: "2.0",
       id,
       result: {
-        protocolVersion: "2024-11-05",
-        serverInfo: {
-          name: "strata-saudi-public-readonly",
-          version: "2026.08.31",
-        },
+        protocolVersion,
+        serverInfo: SERVER_INFO,
         capabilities: {
           tools: {},
           resources: {},
         },
+        instructions: SERVER_INSTRUCTIONS,
       },
     };
   }
 
   if (body.method === "server/discover") {
+    if (era !== "modern") return jsonRpcError(id, -32601, "Method not found.");
     return {
       jsonrpc: "2.0",
       id,
-      result: {
-        protocolVersion: "2026-07-28",
-        serverInfo: { name: "strata-saudi-public-readonly", version: "2026.08.31" },
+      result: modernResult({
+        supportedVersions: [MODERN_MCP_VERSION],
         capabilities: { tools: {}, resources: {} },
-      },
+        instructions: SERVER_INSTRUCTIONS,
+      }, { cache: true }),
     };
   }
 
   if (body.method === "tools/list") {
-    return { jsonrpc: "2.0", id, result: { tools: toolDefinitions() } };
+    const result = { tools: toolDefinitions() };
+    return { jsonrpc: "2.0", id, result: era === "modern" ? modernResult(result, { cache: true }) : result };
   }
 
   if (body.method === "tools/call") {
@@ -309,20 +390,22 @@ async function handleJsonRpc(body, req) {
       throw rpcError(-32602, "Invalid params: arguments must be an object.");
     }
     const result = await callTool(name, args, req);
-    return { jsonrpc: "2.0", id, result: { content: asMcpContent(result), isError: false } };
+    const payload = { content: asMcpContent(result), isError: false };
+    return { jsonrpc: "2.0", id, result: era === "modern" ? modernResult(payload) : payload };
   }
 
   if (body.method === "resources/list") {
+    const result = {
+      resources: require("../lib/agent-public-data").listPublicResources().map((resource) => ({
+        uri: resource.uri,
+        name: resource.id,
+        mimeType: resource.path.endsWith(".txt") || resource.path.endsWith(".md") ? "text/plain" : "application/json",
+      })),
+    };
     return {
       jsonrpc: "2.0",
       id,
-      result: {
-        resources: require("../lib/agent-public-data").listPublicResources().map((resource) => ({
-          uri: resource.uri,
-          name: resource.id,
-          mimeType: resource.path.endsWith(".txt") || resource.path.endsWith(".md") ? "text/plain" : "application/json",
-        })),
-      },
+      result: era === "modern" ? modernResult(result, { cache: true }) : result,
     };
   }
 
@@ -341,18 +424,19 @@ async function handleJsonRpc(body, req) {
       path: "/api/mcp",
     });
     const text = readTextResource(resource.id);
+    const result = {
+      contents: [
+        {
+          uri: resource.uri,
+          mimeType: resource.path.endsWith(".txt") || resource.path.endsWith(".md") ? "text/plain" : "application/json",
+          text,
+        },
+      ],
+    };
     return {
       jsonrpc: "2.0",
       id,
-      result: {
-        contents: [
-          {
-            uri: resource.uri,
-            mimeType: resource.path.endsWith(".txt") || resource.path.endsWith(".md") ? "text/plain" : "application/json",
-            text,
-          },
-        ],
-      },
+      result: era === "modern" ? modernResult(result, { cache: true }) : result,
     };
   }
 
@@ -362,7 +446,8 @@ async function handleJsonRpc(body, req) {
 module.exports = async (req, res) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Accept");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Accept, MCP-Protocol-Version, Mcp-Method, Mcp-Name");
+  res.setHeader("Access-Control-Expose-Headers", "MCP-Protocol-Version, Content-Signal");
 
   if (req.method === "OPTIONS") {
     res.statusCode = 204;
@@ -403,16 +488,31 @@ module.exports = async (req, res) => {
 
     let body;
     let id = null;
+    let era = "legacy";
     try {
       body = await readBody(req);
       id = body && Object.prototype.hasOwnProperty.call(body, "id") ? body.id : null;
-      sendJson(res, 200, await handleJsonRpc(body, req));
+      era = requestEra(req, body);
+      if (era === "modern") validateModernRequest(req, body);
+      sendJson(
+        res,
+        200,
+        await handleJsonRpc(body, req, era),
+        era === "modern" ? MODERN_MCP_VERSION : "",
+      );
     } catch (error) {
-      sendJson(res, 200, jsonRpcError(
-        id,
-        error && error.rpcCode ? error.rpcCode : -32000,
-        error && error.message ? error.message : "MCP request failed.",
-      ));
+      const statusCode = error && error.httpStatusCode ? error.httpStatusCode : 200;
+      sendJson(
+        res,
+        statusCode,
+        jsonRpcError(
+          id,
+          error && error.rpcCode ? error.rpcCode : -32000,
+          error && error.message ? error.message : "MCP request failed.",
+          error && error.rpcData,
+        ),
+        era === "modern" ? MODERN_MCP_VERSION : "",
+      );
     }
   } catch (error) {
     sendJson(res, 200, jsonRpcError(null, -32000, error && error.message ? error.message : "MCP request failed."));

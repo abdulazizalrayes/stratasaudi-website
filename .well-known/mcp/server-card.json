@@ -4,6 +4,14 @@
   "title": "Strata Saudi Public Read-Only MCP",
   "canonical_url": "https://www.stratasaudi.com/api/mcp",
   "description": "Public read-only MCP endpoint for Strata Risk Advisory. Exposes company overview, services, capabilities, service areas, routing rules, and inquiry preparation.",
+  "protocol_versions": [
+    "2026-07-28",
+    "2025-11-25",
+    "2025-06-18",
+    "2025-03-26",
+    "2024-11-05"
+  ],
+  "preferred_protocol_version": "2026-07-28",
   "read_only": true,
   "approval_required_before_contact_or_submission": true,
   "tools": [

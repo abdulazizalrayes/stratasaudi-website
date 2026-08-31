@@ -6,6 +6,14 @@
       "description": "Read-only public MCP endpoint for Strata Risk Advisory company data, concierge questions, services, fit matching, service areas, and inquiry preparation.",
       "transport": "http",
       "url": "https://www.stratasaudi.com/api/mcp",
+      "protocol_versions": [
+        "2026-07-28",
+        "2025-11-25",
+        "2025-06-18",
+        "2025-03-26",
+        "2024-11-05"
+      ],
+      "preferred_protocol_version": "2026-07-28",
       "server_card": "https://www.stratasaudi.com/.well-known/mcp/server-card.json",
       "approval_required_before_contact_or_submission": true
     }

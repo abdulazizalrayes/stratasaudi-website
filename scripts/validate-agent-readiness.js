@@ -295,6 +295,17 @@ function validateMcpImplementation() {
   expect(mcpSource.includes("-32602"), "api/mcp.js: invalid-params handling missing");
   expect(mcpSource.includes("-32601"), "api/mcp.js: method-not-found handling missing");
   expect(mcpSource.includes("MAX_BODY_BYTES"), "api/mcp.js: request-body limit missing");
+  expect(mcpSource.includes('MODERN_MCP_VERSION = "2026-07-28"'), "api/mcp.js: modern MCP version missing");
+  expect(mcpSource.includes("server/discover"), "api/mcp.js: modern MCP discovery missing");
+  expect(mcpSource.includes("mcp-protocol-version"), "api/mcp.js: modern MCP version-header validation missing");
+  expect(mcpSource.includes("mcp-method"), "api/mcp.js: modern MCP method-header validation missing");
+  expect(mcpSource.includes("mcp-name"), "api/mcp.js: modern MCP name-header validation missing");
+  expect(mcpSource.includes("-32020"), "api/mcp.js: modern MCP header-mismatch error missing");
+  expect(mcpSource.includes("-32022"), "api/mcp.js: modern MCP version-mismatch error missing");
+  expect(
+    mcpSource.includes('"io.modelcontextprotocol/serverInfo"'),
+    "api/mcp.js: modern MCP server identity metadata missing",
+  );
   const a2aSource = read("api/a2a.js");
   expect(a2aSource.includes('const A2A_VERSION = "1.0"'), "api/a2a.js: A2A v1.0 missing");
   expect(a2aSource.includes("MAX_BODY_BYTES"), "api/a2a.js: request-body limit missing");
@@ -304,6 +315,9 @@ function validateMcpImplementation() {
     read("lib/agent-observability.js").includes("strata_agent_readiness_event"),
     "lib/agent-observability.js: privacy-safe analytics event name missing",
   );
+  const productionReport = read("scripts/report-agent-production.js");
+  expect(productionReport.includes("EXPECTED_PROJECT"), "production agent report: Vercel identity lock missing");
+  expect(productionReport.includes("raw_logs_persisted_by_this_script: false"), "production agent report: raw-log policy missing");
 }
 
 function main() {

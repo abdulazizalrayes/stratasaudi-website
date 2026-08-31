@@ -533,6 +533,40 @@
       "post": {
         "summary": "Read-only MCP JSON-RPC endpoint",
         "operationId": "postMcpJsonRpc",
+        "description": "Serves both the initialize-based MCP protocol through 2025-11-25 and the stateless 2026-07-28 protocol. Modern requests must include matching MCP-Protocol-Version, Mcp-Method, and, where applicable, Mcp-Name headers plus the per-request protocol metadata envelope.",
+        "parameters": [
+          {
+            "name": "MCP-Protocol-Version",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "2026-07-28",
+                "2025-11-25",
+                "2025-06-18",
+                "2025-03-26",
+                "2024-11-05"
+              ]
+            }
+          },
+          {
+            "name": "Mcp-Method",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Mcp-Name",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -546,6 +580,9 @@
         "responses": {
           "200": {
             "description": "MCP JSON-RPC response"
+          },
+          "400": {
+            "description": "Modern MCP protocol-version or routing-header mismatch"
           }
         }
       }
