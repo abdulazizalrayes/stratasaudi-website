@@ -53,11 +53,16 @@ function readProductionLogs() {
     "--limit", String(limit),
     "--json",
     "--no-branch",
+    "--no-follow",
   ], {
     cwd: ROOT,
     encoding: "utf8",
     maxBuffer: 32 * 1024 * 1024,
+    timeout: 120 * 1000,
   });
+  if (result.error && result.error.code === "ETIMEDOUT") {
+    throw new Error("Vercel production log retrieval exceeded the two-minute safety limit.");
+  }
   if (result.status !== 0) throw new Error("Vercel production logs could not be read with the currently authenticated account.");
   return { source: `Vercel production runtime logs (${since})`, raw: result.stdout };
 }
