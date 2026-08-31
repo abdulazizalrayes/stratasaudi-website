@@ -96,12 +96,17 @@ Paperclip environment control:
 - The primary Paperclip access point for Strata is `https://ai.eijarat.com`.
 - If API or automation scripts need a base URL, prefer the configured cloud endpoint and only fall back to local endpoints when the board explicitly confirms a local session is in use.
 - If cloud access is gated by Cloudflare Access, browser-authenticated inspection is required before diagnosing app-internal failures.
-- Paperclip cloud was upgraded to `v2026.707.0`; verify the running version through `/api/health` or the authenticated running-version surface before relying on release-specific behavior.
-- Treat `/api/version` as non-canonical unless the current release exposes it; `/api/health` is the confirmed version source for `v2026.707.0`.
+- The last owner-confirmed stable Paperclip baseline is `v2026.824.1`; verify the running version through `/api/health` or the authenticated running-version surface before every Paperclip-dependent operation.
+- Treat `/api/version` as non-canonical unless the current release exposes it; use `/api/health` or the authenticated running-version surface as the version source.
+- Use the improved attention and Decisions queue, Skill Studio, search, run recovery, cost telemetry, secret-access controls, and Office attachments when relevant.
+- Do not enable experimental Paperclip features without explicit board approval.
+- Do not change existing agents or model assignments without reviewing the live configuration first.
 - Confirm Paperclip company health, agent status, and model availability before applying agent cleanup, model migration, heartbeat recovery, or blocked-task remediation.
 - For important or main Strata Paperclip work, use `opencode/big-pickle` through the OpenCode adapter.
-- For cheaper helper, utility, formatting, or low-risk work, use `opencode/deepseek-v4-flash-free` through the OpenCode adapter.
-- Do not assume older Paperclip behavior after the `v2026.707.0` release; inspect the live API/UI behavior first, then act.
+- For cheaper helper, utility, formatting, or low-risk work, the approved model is `opencode/deepseek-v4-flash-free` through the OpenCode adapter.
+- The last owner-confirmed provider catalog did not advertise `opencode/deepseek-v4-flash-free`; do not silently substitute another helper model, and surface the mismatch if helper execution is required.
+- Kimi is not configured or approved for Strata.
+- Do not assume older Paperclip behavior after an upgrade; inspect the live API/UI behavior first, then act.
 - Some older agents may still carry stale model or adapter metadata from previous recovery passes; audit live agent `adapterType`, `adapterConfig.model`, and governance `providerModel` before cleanup.
 - When familiarizing yourself with Paperclip changes, prefer live health/version, agent inventory, issue/run APIs, and authenticated UI evidence over stale local task notes.
 

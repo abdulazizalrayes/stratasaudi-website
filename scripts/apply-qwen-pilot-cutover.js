@@ -8,13 +8,13 @@ const { requestViaChromeSession } = require("./lib/paperclip-chrome-session");
 const BASE_URL = getPaperclipBaseUrl();
 const ROOT = process.env.STRATA_WORKSPACE_CWD || path.join(__dirname, "..");
 const COMPANY_ID =
-  process.env.PAPERCLIP_COMPANY_ID || "295d8dfc-a689-4a3c-a4f2-a1cca4997d8a";
+  process.env.PAPERCLIP_COMPANY_ID || "9ff6f561-3790-444f-87c8-89cb0911775b";
 const COOKIE_HEADER = process.env.PAPERCLIP_COOKIE_HEADER || "";
 const BEARER_TOKEN = process.env.PAPERCLIP_BEARER_TOKEN || "";
 const USE_CHROME_SESSION =
   process.env.PAPERCLIP_USE_CHROME_SESSION === "true";
 const CHROME_URL_MATCH =
-  process.env.PAPERCLIP_CHROME_URL_MATCH || `${BASE_URL}/HAD/`;
+  process.env.PAPERCLIP_CHROME_URL_MATCH || "ai.eijarat.com";
 
 const manifestPath =
   process.env.QWEN_MANIFEST_PATH ||

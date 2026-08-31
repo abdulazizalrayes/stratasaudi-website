@@ -9,7 +9,7 @@ const COMPANY_ID =
   process.env.PAPERCLIP_COMPANY_ID || "9ff6f561-3790-444f-87c8-89cb0911775b";
 const ROOT =
   process.env.STRATA_WORKSPACE_CWD ||
-  "/Users/abdulazizalrayes/Documents/New project/stratasaudi-website";
+  path.join(__dirname, "..");
 
 const registry = JSON.parse(
   fs.readFileSync(path.join(ROOT, "paperclip", "agents", "registry.json"), "utf8")

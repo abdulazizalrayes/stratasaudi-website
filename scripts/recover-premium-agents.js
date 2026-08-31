@@ -8,9 +8,6 @@ loadLocalEnv();
 const BASE_URL = getPaperclipBaseUrl();
 const COMPANY_ID =
   process.env.PAPERCLIP_COMPANY_ID || "9ff6f561-3790-444f-87c8-89cb0911775b";
-const WORKSPACE_CWD =
-  process.env.STRATA_WORKSPACE_CWD ||
-  "/Users/abdulazizalrayes/Documents/New project/stratasaudi-website";
 const PAPERCLIP_EXECUTION_CWD =
   process.env.PAPERCLIP_EXECUTION_CWD ||
   process.env.STRATA_PAPERCLIP_EXECUTION_CWD ||

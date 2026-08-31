@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 from pathlib import Path
+import os
 import secrets
 
-ROOT = Path("/Users/abdulazizalrayes/Documents/New project/stratasaudi-website")
+ROOT = Path(os.environ.get("STRATA_WORKSPACE_CWD", Path(__file__).resolve().parents[1]))
 OPS = ROOT / "ops" / "qwen3-paperclip-pilot"
 
 compose = (OPS / "docker-compose.yml").read_text()

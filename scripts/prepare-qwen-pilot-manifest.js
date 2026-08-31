@@ -59,7 +59,7 @@ const pilotAgentNames = (
 const note = [
   "This file is a deployment manifest, not a blind live patch.",
   "Use it after the Qwen endpoint is healthy and after the live Paperclip HTTP adapter field names are confirmed in the authenticated UI.",
-  "Do not bulk-apply this to the full Hadhr fleet.",
+  "Do not bulk-apply this to the Strata agent fleet.",
   selectedProvider.noteSuffix,
 ].join(" ");
 

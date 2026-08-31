@@ -34,9 +34,13 @@ const checks = [
       "The only approved business mailbox for actual CRM-linked sending and receiving is `advisory@stratasaudi.com`.",
       "Paperclip for Strata is now cloud-based and should be treated as cloud-first, not Mac-local by default.",
       "The primary Paperclip access point for Strata is `https://ai.eijarat.com`.",
-      "Paperclip cloud was upgraded to `v2026.707.0`",
+      "The last owner-confirmed stable Paperclip baseline is `v2026.824.1`",
+      "Do not enable experimental Paperclip features without explicit board approval.",
+      "Do not change existing agents or model assignments without reviewing the live configuration first.",
       "For important or main Strata Paperclip work, use `opencode/big-pickle`",
-      "For cheaper helper, utility, formatting, or low-risk work, use `opencode/deepseek-v4-flash-free`",
+      "the approved model is `opencode/deepseek-v4-flash-free`",
+      "do not silently substitute another helper model",
+      "Kimi is not configured or approved for Strata.",
       "Remove and avoid stale human-hiring logic from old tasks, workflows, sync scripts, and future operating patterns.",
     ],
   },
@@ -68,6 +72,9 @@ const checks = [
       "The canonical public website domain for Strata Saudi is `https://www.stratasaudi.com`.",
       "Do not use Vercel preview, deployment, or project URLs as the Strata website URL",
     ],
+    forbidden: [
+      "/Users/abdulazizalrayes/Documents/New project/stratasaudi-website",
+    ],
   },
   {
     file: path.join("scripts", "sync-paperclip-company.js"),
@@ -80,6 +87,50 @@ const checks = [
       "/home/paperclip/.paperclip/instances/default/projects/9ff6f561-3790-444f-87c8-89cb0911775b/53acb115-e136-414d-af1b-0c2bfb6d966f/_default",
       "websiteDomainControl",
     ],
+  },
+  {
+    file: path.join("scripts", "update-paperclip-org.js"),
+    required: ["path.join(__dirname, \"..\")"],
+    forbidden: [
+      "/Users/abdulazizalrayes/Documents/New project/stratasaudi-website",
+    ],
+  },
+  {
+    file: path.join("scripts", "repair-strata-paperclip-cloud.js"),
+    required: ["9ff6f561-3790-444f-87c8-89cb0911775b"],
+    forbidden: [
+      "/Users/abdulazizalrayes/Documents/New project/stratasaudi-website",
+    ],
+  },
+  {
+    file: path.join("scripts", "recover-premium-agents.js"),
+    required: ["9ff6f561-3790-444f-87c8-89cb0911775b"],
+    forbidden: [
+      "/Users/abdulazizalrayes/Documents/New project/stratasaudi-website",
+    ],
+  },
+  {
+    file: path.join("scripts", "generate-do-qwen-cloud-init.py"),
+    required: ["Path(__file__).resolve().parents[1]"],
+    forbidden: [
+      "/Users/abdulazizalrayes/Documents/New project/stratasaudi-website",
+    ],
+  },
+  {
+    file: path.join("scripts", "apply-qwen-pilot-cutover.js"),
+    required: [
+      "9ff6f561-3790-444f-87c8-89cb0911775b",
+      "ai.eijarat.com",
+    ],
+    forbidden: [
+      "295d8dfc-a689-4a3c-a4f2-a1cca4997d8a",
+      "/HAD/",
+    ],
+  },
+  {
+    file: path.join("scripts", "prepare-qwen-pilot-manifest.js"),
+    required: ["Do not bulk-apply this to the Strata agent fleet."],
+    forbidden: ["Hadhr fleet"],
   },
 ];
 
@@ -96,6 +147,11 @@ for (const check of checks) {
   for (const snippet of check.required) {
     if (!body.includes(snippet)) {
       failures.push(`${check.file}: missing required instruction -> ${snippet}`);
+    }
+  }
+  for (const snippet of check.forbidden || []) {
+    if (body.includes(snippet)) {
+      failures.push(`${check.file}: contains forbidden cross-context instruction -> ${snippet}`);
     }
   }
 }
