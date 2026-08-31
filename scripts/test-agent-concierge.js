@@ -86,6 +86,10 @@ async function main() {
     expect(serviceResponse.body.message.parts[1].data.questionPattern === "services_overview", "service question pattern mismatch");
     expect(serviceResponse.body.message.parts[1].data.rawQuestionStored === false, "raw question storage must be false");
 
+    const confidentialFit = await callA2a(message("Does a confidential delay and variation review for a high-value Saudi EPC project fit Strata?"), { ip: "127.0.0.8" });
+    expect(confidentialFit.body.message.parts[1].data.questionPattern === "project_scope_fit", "explicit fit questions must take priority over the confidentiality-only pattern");
+    expect(confidentialFit.body.message.parts[1].data.fit === "strong_fit", "confidential Saudi EPC fit question should retain its fit result");
+
     const vendorRisk = matchProjectScope({ description: "Independent vendor risk assessment for a Saudi EPC project" });
     expect(vendorRisk.fit !== "not_fit", "vendor-risk mandates must not be confused with vendor sales pitches");
     const vendorSales = matchProjectScope({ description: "We want to sell you software through a vendor registration pitch" });
