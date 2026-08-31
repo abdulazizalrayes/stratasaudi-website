@@ -1,6 +1,8 @@
 User-agent: *
 Allow: /
 Disallow: /api/contact
+Disallow: /api/a2a
+Disallow: /api/a2a/message:send
 Disallow: /thank-you
 Disallow: /tmp/
 Disallow: /logs/

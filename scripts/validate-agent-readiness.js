@@ -19,6 +19,8 @@ const REQUIRED_JSON_FILES = [
   "data/indexing-control.json",
   "data/authority-evidence.json",
   "data/procurement-readiness.json",
+  "data/agent-concierge.json",
+  "data/agent-question-taxonomy.json",
   ".well-known/agent-card.json",
   ".well-known/ai-catalog.json",
   ".well-known/mcp.json",
@@ -52,6 +54,8 @@ const REQUIRED_ENDPOINTS = [
   "/data/indexing-control.json",
   "/data/authority-evidence.json",
   "/data/procurement-readiness.json",
+  "/data/agent-concierge.json",
+  "/data/agent-question-taxonomy.json",
   "/llms.txt",
   "/llms-full.txt",
   "/.well-known/agent-card.json",
@@ -65,6 +69,8 @@ const REQUIRED_ENDPOINTS = [
   "/openapi.json",
   "/auth.md",
   "/api/mcp",
+  "/api/a2a",
+  "/api/a2a/message:send",
 ];
 
 function read(relativePath) {
@@ -139,20 +145,32 @@ function validateBusinessRules() {
     "inquiry schema: approval gate missing",
   );
   expect(
-    agentCard.agent_use.requires_explicit_user_approval.includes("Submitting a contact form"),
+    agentCard.agentUse.requiresExplicitUserApproval.includes("Submitting a contact form"),
     "agent card: submission approval rule missing",
   );
   expect(
-    agentCard.agent_use.requires_explicit_user_approval.includes("Placing a call or opening WhatsApp"),
+    agentCard.agentUse.requiresExplicitUserApproval.includes("Placing a call or opening WhatsApp"),
     "agent card: phone and WhatsApp approval rule missing",
   );
-  expect(agentCard.version, "agent card: A2A version missing");
+  expect(agentCard.version, "agent card: agent version missing");
   expect(
     Array.isArray(agentCard.supportedInterfaces) && agentCard.supportedInterfaces.length > 0,
     "agent card: supportedInterfaces missing",
   );
   expect(Array.isArray(agentCard.skills) && agentCard.skills.length > 0, "agent card: skills missing");
-  expect(Array.isArray(agentCard.capabilities) && agentCard.capabilities.length > 0, "agent card: capabilities missing");
+  expect(agentCard.capabilities && agentCard.capabilities.streaming === false, "agent card: A2A capabilities missing");
+  expect(agentCard.supportedInterfaces[0].protocolBinding === "HTTP+JSON", "agent card: A2A HTTP+JSON binding missing");
+  expect(agentCard.supportedInterfaces[0].protocolVersion === "1.0", "agent card: A2A v1.0 missing");
+  expect(agentCard.supportedInterfaces[0].url === `${SITE_ORIGIN}/api/a2a`, "agent card: canonical A2A endpoint missing");
+  expect(Array.isArray(agentCard.defaultInputModes) && agentCard.defaultInputModes.includes("text/plain"), "agent card: text input mode missing");
+  expect(agentCard.privacy.rawQuestionsLogged === false, "agent card: raw-question privacy rule missing");
+  const concierge = parseJson("data/agent-concierge.json");
+  const questionTaxonomy = parseJson("data/agent-question-taxonomy.json");
+  expect(concierge.security_boundary.model_or_external_ai_provider_enabled === false, "concierge: external model must remain disabled");
+  expect(concierge.security_boundary.private_system_access === false, "concierge: private-system access must remain disabled");
+  expect(concierge.security_boundary.contact_or_submission_actions === false, "concierge: contact actions must remain disabled");
+  expect(concierge.privacy_safe_question_intelligence.raw_questions_logged === false, "concierge: raw-question logging must remain disabled");
+  expect(questionTaxonomy.privacy_policy.raw_questions_stored === false, "question taxonomy: raw-question storage must remain disabled");
   expect(aiCatalog.specVersion === "1.0", "ARD catalog: unsupported specVersion");
   expect(Array.isArray(aiCatalog.entries) && aiCatalog.entries.length >= 3, "ARD catalog: entries missing");
   for (const entry of aiCatalog.entries) {
@@ -241,6 +259,7 @@ function validateDiscovery() {
   expect(robots.includes("ai-input=yes"), "robots: ai-input=yes missing");
   expect(robots.includes("ai-train=no"), "robots: ai-train=no missing");
   expect(robots.includes("Disallow: /api/contact"), "robots: /api/contact should be disallowed for crawlers");
+  expect(robots.includes("Disallow: /api/a2a"), "robots: /api/a2a should be disallowed for indexing crawlers");
   expect(robots.includes("User-agent: GPTBot\nDisallow: /"), "robots: GPTBot training opt-out missing");
   expect(robots.includes("User-agent: ClaudeBot\nDisallow: /"), "robots: ClaudeBot training opt-out missing");
   expect(robots.includes("User-agent: OAI-SearchBot\nAllow: /"), "robots: OAI search access missing");
@@ -259,6 +278,7 @@ function validateDiscovery() {
 function validateMcpImplementation() {
   const mcpSource = read("api/mcp.js");
   for (const toolName of [
+    "ask_strata_concierge",
     "get_company_overview",
     "list_services",
     "match_project_scope",
@@ -274,6 +294,12 @@ function validateMcpImplementation() {
   expect(mcpSource.includes("-32700"), "api/mcp.js: malformed JSON parse-error handling missing");
   expect(mcpSource.includes("-32602"), "api/mcp.js: invalid-params handling missing");
   expect(mcpSource.includes("-32601"), "api/mcp.js: method-not-found handling missing");
+  expect(mcpSource.includes("MAX_BODY_BYTES"), "api/mcp.js: request-body limit missing");
+  const a2aSource = read("api/a2a.js");
+  expect(a2aSource.includes('const A2A_VERSION = "1.0"'), "api/a2a.js: A2A v1.0 missing");
+  expect(a2aSource.includes("MAX_BODY_BYTES"), "api/a2a.js: request-body limit missing");
+  expect(a2aSource.includes("Only text parts are accepted"), "api/a2a.js: file and URL rejection missing");
+  expect(!a2aSource.includes("OPENAI_API_KEY"), "api/a2a.js: external model key must not be used in phase one");
   expect(
     read("lib/agent-observability.js").includes("strata_agent_readiness_event"),
     "lib/agent-observability.js: privacy-safe analytics event name missing",

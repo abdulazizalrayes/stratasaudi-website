@@ -11,6 +11,7 @@ const {
   readTextResource,
   screenProcurementFit,
 } = require("../lib/agent-public-data");
+const { answerAgentQuestion } = require("../lib/agent-concierge");
 const { setSecurityHeaders } = require("../lib/security-headers");
 
 function sendJson(res, statusCode, payload) {
@@ -21,9 +22,17 @@ function sendJson(res, statusCode, payload) {
   res.end(JSON.stringify(payload, null, 2));
 }
 
+const MAX_BODY_BYTES = 16 * 1024;
+
 async function readBody(req) {
   const chunks = [];
-  for await (const chunk of req) chunks.push(Buffer.isBuffer(chunk) ? chunk : Buffer.from(String(chunk)));
+  let totalBytes = 0;
+  for await (const chunk of req) {
+    const buffer = Buffer.isBuffer(chunk) ? chunk : Buffer.from(String(chunk));
+    totalBytes += buffer.length;
+    if (totalBytes > MAX_BODY_BYTES) throw rpcError(-32602, "Invalid params: request body exceeds 16 KiB.");
+    chunks.push(buffer);
+  }
   const raw = Buffer.concat(chunks).toString("utf8");
   if (!raw) return {};
   try {
@@ -49,6 +58,17 @@ function jsonRpcError(id, code, message) {
 
 function toolDefinitions() {
   return [
+    {
+      name: "ask_strata_concierge",
+      description: "Ask Strata's public-data-only mandate concierge a question. Raw questions are not logged or retained; no contact or submission action is available.",
+      inputSchema: {
+        type: "object",
+        properties: {
+          question: { type: "string", minLength: 1, maxLength: 4000 },
+        },
+        required: ["question"],
+      },
+    },
     {
       name: "get_company_overview",
       description: "Return Strata Risk Advisory public company overview, positioning, canonical URL, contact policy, and legal boundary.",
@@ -133,6 +153,8 @@ function toolDefinitions() {
               "indexing-control",
               "authority-evidence",
               "procurement-readiness",
+              "agent-concierge",
+              "agent-question-taxonomy",
               "llms",
               "llms-full",
               "openapi",
@@ -155,6 +177,31 @@ async function callTool(name, args, req) {
     path: "/api/mcp",
   });
 
+  if (name === "ask_strata_concierge") {
+    if (!args || typeof args.question !== "string" || !args.question.trim()) {
+      throw rpcError(-32602, "Invalid params: question is required.");
+    }
+    let result;
+    try {
+      result = answerAgentQuestion({ question: args.question });
+    } catch (error) {
+      throw rpcError(-32602, `Invalid params: ${error.message}`);
+    }
+    await logAgentEvent("agent_question", {
+      tool_name: name,
+      fit: result.fit,
+      user_agent: req.headers["user-agent"] || "",
+      path: "/api/mcp",
+      question_topic: result.question_topic,
+      question_pattern: result.question_pattern,
+      answer_status: result.answer_status,
+      matched_service: result.matched_service,
+      language: result.language,
+      route: result.route,
+      question_fingerprint: result.question_fingerprint,
+    });
+    return result;
+  }
   if (name === "get_company_overview") return getCompanyOverview();
   if (name === "list_services") return listServices();
   if (name === "list_service_areas") return listServiceAreas();
@@ -226,12 +273,24 @@ async function handleJsonRpc(body, req) {
         protocolVersion: "2024-11-05",
         serverInfo: {
           name: "strata-saudi-public-readonly",
-          version: "2026.06.20",
+          version: "2026.08.31",
         },
         capabilities: {
           tools: {},
           resources: {},
         },
+      },
+    };
+  }
+
+  if (body.method === "server/discover") {
+    return {
+      jsonrpc: "2.0",
+      id,
+      result: {
+        protocolVersion: "2026-07-28",
+        serverInfo: { name: "strata-saudi-public-readonly", version: "2026.08.31" },
+        capabilities: { tools: {}, resources: {} },
       },
     };
   }
@@ -333,6 +392,12 @@ module.exports = async (req, res) => {
 
     if (req.method !== "POST") {
       sendJson(res, 405, { ok: false, error: "Method not allowed." });
+      return;
+    }
+
+    const contentType = String(req.headers["content-type"] || "").toLowerCase();
+    if (!contentType.includes("application/json")) {
+      sendJson(res, 415, { ok: false, error: "Content-Type must be application/json." });
       return;
     }
 

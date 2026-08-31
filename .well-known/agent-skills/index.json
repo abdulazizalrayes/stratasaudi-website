@@ -1,7 +1,18 @@
 {
-  "schema_version": "2026-06-20",
+  "schema_version": "2026-08-31",
   "canonical_url": "https://www.stratasaudi.com/.well-known/agent-skills/index.json",
   "skills": [
+    {
+      "id": "strata_mandate_concierge",
+      "name": "Ask the Strata Mandate Concierge",
+      "description": "Ask a public-data-only question through A2A or MCP without exposing private systems or retaining the raw question.",
+      "a2a_endpoint": "https://www.stratasaudi.com/api/a2a/message:send",
+      "mcp_tool": "ask_strata_concierge",
+      "resources": [
+        "https://www.stratasaudi.com/data/agent-concierge.json",
+        "https://www.stratasaudi.com/data/agent-question-taxonomy.json"
+      ]
+    },
     {
       "id": "strata_company_understanding",
       "name": "Understand Strata Risk Advisory",

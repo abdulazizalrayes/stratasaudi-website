@@ -1,12 +1,13 @@
 {
-  "schema_version": "2026-06-29",
+  "schema_version": "2026-08-31",
   "canonical_url": "https://www.stratasaudi.com/data/conversion-intelligence.json",
   "purpose": "Privacy-safe measurement taxonomy for agent, crawler, API, MCP, and inquiry-preparation activity.",
   "privacy_rules": [
     "Do not log names, emails, phone numbers, message bodies, privileged material, or confidential project facts.",
     "Log event type, path, resource id, tool name, fit classification, user-agent class, and timestamp only.",
     "Treat inquiry preparation as separate from inquiry submission.",
-    "Do not infer client identity from crawler or agent activity."
+    "Do not infer client identity from crawler or agent activity.",
+    "Do not log raw concierge questions. Record fixed question-pattern ids, topic, answer status, fit, route, language class, matched service, and an aggregate pattern fingerprint only."
   ],
   "event_types": [
     "llms_read",
@@ -19,7 +20,8 @@
     "mcp_resource_read",
     "inquiry_scope_match",
     "inquiry_preparation",
-    "non_fit_routing"
+    "non_fit_routing",
+    "agent_question"
   ],
   "quality_dimensions": [
     "fit",
@@ -28,13 +30,17 @@
     "resource_id",
     "tool_name",
     "agent_or_crawler_family",
-    "canonical_path"
+    "canonical_path",
+    "question_pattern",
+    "question_topic",
+    "answer_status"
   ],
   "board_report_questions": [
     "Which resources are agents reading?",
     "Which MCP tools are called most often?",
     "How many inquiry preparations are strong fit, possible fit, information only, or not fit?",
     "Are non-fit requests being routed away before contact?",
-    "Which AI/search/referral user agents are reaching the site?"
+    "Which AI/search/referral user agents are reaching the site?",
+    "Which representative questions are agents asking, and which approved public-knowledge gaps recur?"
   ]
 }

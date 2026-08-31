@@ -73,6 +73,10 @@ function extractAgentEvent(entry) {
   const familyMatch = message.match(/agent_family['"]?\s*[:=]\s*['"]?([a-zA-Z0-9_/-]+)/);
   const typeMatch = message.match(/resource_type['"]?\s*[:=]\s*['"]?([a-zA-Z0-9_./-]+)/);
   const pathMatch = message.match(/resource_path['"]?\s*[:=]\s*['"]?([a-zA-Z0-9_./-]+)/);
+  const questionTopicMatch = message.match(/question_topic['"]?\s*[:=]\s*['"]?([a-zA-Z0-9_./-]+)/);
+  const questionPatternMatch = message.match(/question_pattern['"]?\s*[:=]\s*['"]?([a-zA-Z0-9_./-]+)/);
+  const answerStatusMatch = message.match(/answer_status['"]?\s*[:=]\s*['"]?([a-zA-Z0-9_./-]+)/);
+  const routeMatch = message.match(/route['"]?\s*[:=]\s*['"]?([a-zA-Z0-9_./-]+)/);
   return {
     event_type: eventTypeMatch ? eventTypeMatch[1] : "strata_agent_readiness_event",
     tool_name: toolMatch ? toolMatch[1] : "",
@@ -82,6 +86,10 @@ function extractAgentEvent(entry) {
     resource_type: typeMatch ? typeMatch[1] : "",
     user_agent: entry.userAgent || entry.user_agent || "",
     path: pathMatch ? pathMatch[1] : entry.requestPath || entry.path || "",
+    question_topic: questionTopicMatch ? questionTopicMatch[1] : "",
+    question_pattern: questionPatternMatch ? questionPatternMatch[1] : "",
+    answer_status: answerStatusMatch ? answerStatusMatch[1] : "",
+    route: routeMatch ? routeMatch[1] : "",
   };
 }
 
@@ -101,13 +109,18 @@ function main() {
     tool_calls: {},
     resource_reads: {},
     fit_classifications: {},
+    question_topics: {},
+    question_patterns: {},
+    answer_statuses: {},
+    concierge_routes: {},
     event_user_agent_families: {},
     resource_types: {},
     user_agent_families: {},
     crawler_or_agent_reads: {},
     notes: [
       "Report is privacy-safe: it summarizes paths, tool names, resource ids, fit classes, and user-agent families only.",
-      "Do not add names, emails, message bodies, or confidential project facts to this report."
+      "Do not add names, emails, message bodies, or confidential project facts to this report.",
+      "Concierge question reporting uses fixed pattern ids only; raw questions are neither expected nor reported."
     ]
   };
 
@@ -136,6 +149,10 @@ function main() {
     increment(report.fit_classifications, event.fit);
     increment(report.event_user_agent_families, event.agent_family);
     increment(report.resource_types, event.resource_type);
+    increment(report.question_topics, event.question_topic);
+    increment(report.question_patterns, event.question_pattern);
+    increment(report.answer_statuses, event.answer_status);
+    increment(report.concierge_routes, event.route);
   }
 
   console.log(JSON.stringify(report, null, 2));

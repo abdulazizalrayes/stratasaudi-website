@@ -1,9 +1,9 @@
 {
-  "schema_version": "2026-06-20",
+  "schema_version": "2026-08-31",
   "mcp_servers": [
     {
       "name": "strata-saudi-public-readonly",
-      "description": "Read-only public MCP endpoint for Strata Risk Advisory company data, services, fit matching, service areas, and inquiry preparation.",
+      "description": "Read-only public MCP endpoint for Strata Risk Advisory company data, concierge questions, services, fit matching, service areas, and inquiry preparation.",
       "transport": "http",
       "url": "https://www.stratasaudi.com/api/mcp",
       "server_card": "https://www.stratasaudi.com/.well-known/mcp/server-card.json",

@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Strata Saudi Public Agent Readiness API",
-    "version": "2026-08-22",
+    "version": "2026-08-31",
     "description": "Public read-only API and discovery documentation for Strata Risk Advisory. Project inquiry submission and all contact actions require explicit user approval. Public-content policy: ai-train=no, search=yes, ai-input=yes.",
     "contact": {
       "name": "Strata Risk Advisory",
@@ -550,6 +550,60 @@
         }
       }
     },
+    "/api/a2a": {
+      "get": {
+        "summary": "Strata Mandate Concierge A2A discovery",
+        "operationId": "getA2aConciergeDiscovery",
+        "description": "Returns the public, stateless, public-data-only A2A interface summary. No model provider, private-system connector, persistent memory, contact action, or submission action is enabled.",
+        "responses": {
+          "200": {
+            "description": "A2A concierge interface summary"
+          }
+        }
+      }
+    },
+    "/api/a2a/message:send": {
+      "post": {
+        "summary": "Ask the Strata Mandate Concierge",
+        "operationId": "sendA2aConciergeMessage",
+        "description": "A2A v1.0 HTTP+JSON SendMessage operation. Accepts text only and answers from approved public Strata resources. Raw questions and confidential project facts are not logged or retained.",
+        "parameters": [
+          {
+            "name": "A2A-Version",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "const": "1.0"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/a2a+json": {
+              "schema": {
+                "$ref": "#/components/schemas/A2ASendMessageRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "A2A message response grounded in public Strata data"
+          },
+          "400": {
+            "description": "Invalid A2A version, message, or unsupported input part"
+          },
+          "413": {
+            "description": "Request exceeds the public-agent body limit"
+          },
+          "429": {
+            "description": "Rate limit exceeded"
+          }
+        }
+      }
+    },
     "/.well-known/ai-catalog.json": {
       "get": {
         "summary": "ARD capability catalog",
@@ -690,10 +744,85 @@
           }
         }
       }
+    },
+    "/data/agent-concierge.json": {
+      "get": {
+        "summary": "Agent concierge security and privacy contract",
+        "operationId": "getAgentConciergeData",
+        "responses": {
+          "200": {
+            "description": "Public concierge interfaces, security boundary, and question-intelligence policy"
+          }
+        }
+      }
+    },
+    "/data/agent-question-taxonomy.json": {
+      "get": {
+        "summary": "Privacy-safe agent question taxonomy",
+        "operationId": "getAgentQuestionTaxonomy",
+        "responses": {
+          "200": {
+            "description": "Representative question patterns used for aggregate reporting without raw question retention"
+          }
+        }
+      }
     }
   },
   "components": {
     "schemas": {
+      "A2ASendMessageRequest": {
+        "type": "object",
+        "required": [
+          "message"
+        ],
+        "properties": {
+          "message": {
+            "type": "object",
+            "required": [
+              "messageId",
+              "role",
+              "parts"
+            ],
+            "properties": {
+              "messageId": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "contextId": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "role": {
+                "type": "string",
+                "const": "ROLE_USER"
+              },
+              "parts": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 4,
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "text"
+                  ],
+                  "properties": {
+                    "text": {
+                      "type": "string"
+                    },
+                    "mediaType": {
+                      "type": "string",
+                      "const": "text/plain"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
       "ProjectInquiry": {
         "type": "object",
         "required": [

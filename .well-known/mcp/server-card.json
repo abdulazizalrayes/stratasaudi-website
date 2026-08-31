@@ -1,5 +1,5 @@
 {
-  "schema_version": "2026-06-20",
+  "schema_version": "2026-08-31",
   "name": "strata-saudi-public-readonly",
   "title": "Strata Saudi Public Read-Only MCP",
   "canonical_url": "https://www.stratasaudi.com/api/mcp",
@@ -7,6 +7,7 @@
   "read_only": true,
   "approval_required_before_contact_or_submission": true,
   "tools": [
+    "ask_strata_concierge",
     "get_company_overview",
     "list_services",
     "match_project_scope",
@@ -30,9 +31,16 @@
     "https://www.stratasaudi.com/data/indexing-control.json",
     "https://www.stratasaudi.com/data/authority-evidence.json",
     "https://www.stratasaudi.com/data/procurement-readiness.json",
+    "https://www.stratasaudi.com/data/agent-concierge.json",
+    "https://www.stratasaudi.com/data/agent-question-taxonomy.json",
     "https://www.stratasaudi.com/llms.txt",
     "https://www.stratasaudi.com/llms-full.txt"
   ],
+  "question_intelligence": {
+    "raw_questions_logged": false,
+    "reporting": "Fixed representative question patterns and aggregate counts only",
+    "taxonomy": "https://www.stratasaudi.com/data/agent-question-taxonomy.json"
+  },
   "non_fit_routing": [
     "careers_jobs_internships",
     "training_courses",

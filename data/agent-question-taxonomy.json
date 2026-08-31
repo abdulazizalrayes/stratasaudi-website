@@ -1,0 +1,103 @@
+{
+  "schema_version": "2026-08-31",
+  "canonical_url": "https://www.stratasaudi.com/data/agent-question-taxonomy.json",
+  "purpose": "Public taxonomy for the questions Strata's agent-only concierge can answer and the privacy-safe patterns used in board reporting.",
+  "privacy_policy": {
+    "raw_questions_stored": false,
+    "personal_data_stored": false,
+    "confidential_project_facts_stored": false,
+    "reporting_unit": "Fixed representative question pattern and aggregate count only"
+  },
+  "question_patterns": [
+    {
+      "id": "company_overview",
+      "topic": "company",
+      "representative_question": "What is Strata Risk Advisory and what does it do?",
+      "answer_status": "supported"
+    },
+    {
+      "id": "services_overview",
+      "topic": "services",
+      "representative_question": "Which engineering-led advisory services does Strata provide?",
+      "answer_status": "supported"
+    },
+    {
+      "id": "project_scope_fit",
+      "topic": "scope_fit",
+      "representative_question": "Does this Saudi project-risk matter fit Strata's mandate criteria?",
+      "answer_status": "supported"
+    },
+    {
+      "id": "why_strata",
+      "topic": "differentiation",
+      "representative_question": "Why should an EPC contractor, developer, board, or law firm consider Strata?",
+      "answer_status": "supported"
+    },
+    {
+      "id": "engagement_process",
+      "topic": "engagement",
+      "representative_question": "How does a Strata mandate begin?",
+      "answer_status": "supported"
+    },
+    {
+      "id": "service_areas",
+      "topic": "service_areas",
+      "representative_question": "Where and for whom does Strata work?",
+      "answer_status": "supported"
+    },
+    {
+      "id": "evidence_readiness",
+      "topic": "evidence",
+      "representative_question": "What high-level evidence is useful before a project-risk review?",
+      "answer_status": "supported"
+    },
+    {
+      "id": "confidentiality_boundary",
+      "topic": "confidentiality",
+      "representative_question": "How should confidential or privileged project information be handled?",
+      "answer_status": "supported"
+    },
+    {
+      "id": "legal_boundary",
+      "topic": "legal_boundary",
+      "representative_question": "Is Strata a law firm or legal representative?",
+      "answer_status": "supported"
+    },
+    {
+      "id": "procurement_fit",
+      "topic": "procurement",
+      "representative_question": "How should a procurement agent classify Strata?",
+      "answer_status": "supported"
+    },
+    {
+      "id": "contact_options",
+      "topic": "contact",
+      "representative_question": "How can a suitable prospect contact Strata after approval?",
+      "answer_status": "supported"
+    },
+    {
+      "id": "fees_and_timing",
+      "topic": "commercial_terms",
+      "representative_question": "What are Strata's fees and engagement timing?",
+      "answer_status": "requires_mandate_review"
+    },
+    {
+      "id": "agent_security_boundary",
+      "topic": "security",
+      "representative_question": "Can the public concierge access passwords, accounts, user data, or private systems?",
+      "answer_status": "supported"
+    },
+    {
+      "id": "non_fit_request",
+      "topic": "non_fit",
+      "representative_question": "Is Strata the right destination for careers, training, vendor sales, legal representation, retail, or unrelated requests?",
+      "answer_status": "supported"
+    },
+    {
+      "id": "public_knowledge_gap",
+      "topic": "unknown",
+      "representative_question": "A question was asked that is not answered by Strata's approved public knowledge.",
+      "answer_status": "public_knowledge_gap"
+    }
+  ]
+}

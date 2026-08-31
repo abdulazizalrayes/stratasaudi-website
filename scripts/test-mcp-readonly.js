@@ -99,6 +99,20 @@ async function main() {
     "qualified drafts must retain explicit approval requirements",
   );
 
+  const conciergeResponse = await callMcp(JSON.stringify({
+    jsonrpc: "2.0",
+    id: 5,
+    method: "tools/call",
+    params: {
+      name: "ask_strata_concierge",
+      arguments: { question: "Why should a Saudi EPC contractor consider Strata?" },
+    },
+  }));
+  expect(conciergeResponse.body.result?.isError === false, "concierge MCP tool should succeed");
+  const conciergePayload = JSON.parse(conciergeResponse.body.result.content[0].text);
+  expect(conciergePayload.question_pattern === "why_strata", "concierge MCP pattern mismatch");
+  expect(conciergePayload.raw_question_stored === false, "concierge MCP must not store raw questions");
+
   console.log(
     JSON.stringify(
       {
@@ -106,6 +120,7 @@ async function main() {
         protocolErrorsChecked: [-32700, -32600, -32601, -32602],
         nonFitRoutesChecked: ["careers", "internships", "vendors", "unrelated"],
         qualifiedDraftChecked: true,
+        conciergeToolChecked: true,
         submissionRemainsDisabled: true,
       },
       null,

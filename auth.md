@@ -11,7 +11,7 @@ Public read-only agent access does not require registration.
 - Agent audience: search crawlers, AI assistants, procurement agents, MCP clients, API clients, and CLI tools reading public Strata Saudi resources.
 - Register URI: none for public read-only access.
 - Provisioning endpoint: none for public read-only access.
-- Supported method: unauthenticated HTTPS GET for public resources and read-only JSON-RPC for `/api/mcp`.
+- Supported method: unauthenticated HTTPS GET for public resources, read-only JSON-RPC for `/api/mcp`, and text-only A2A v1.0 HTTP+JSON for `/api/a2a/message:send`.
 - Credential use: no credentials are issued for public read-only access.
 - Approval rule: agents must obtain explicit user approval before submitting `/api/contact`, sending email, placing a call, opening WhatsApp, booking meetings, writing CRM data, or performing any outbound action.
 
@@ -26,6 +26,8 @@ Agents may discover Strata's public resources through:
 - Agent auth block: not published in OAuth metadata because Strata does not issue public agent credentials.
 - OpenAPI: https://www.stratasaudi.com/openapi.json
 - MCP: https://www.stratasaudi.com/api/mcp
+- A2A Agent Card: https://www.stratasaudi.com/.well-known/agent-card.json
+- A2A SendMessage: https://www.stratasaudi.com/api/a2a/message:send
 - API catalog: https://www.stratasaudi.com/.well-known/api-catalog
 
 ## Step 2 - Choose Registration Method
@@ -85,6 +87,8 @@ The following resources are public and require no authentication:
 - `/data/indexing-control.json`
 - `/data/authority-evidence.json`
 - `/data/procurement-readiness.json`
+- `/data/agent-concierge.json`
+- `/data/agent-question-taxonomy.json`
 - `/llms.txt`
 - `/llms-full.txt`
 - `/.well-known/agent-card.json`
@@ -96,6 +100,10 @@ The following resources are public and require no authentication:
 - `/.well-known/agent-skills/index.json`
 - `/openapi.json`
 - `/api/mcp`
+- `/api/a2a`
+- `/api/a2a/message:send`
+
+The public A2A concierge accepts text questions only. It does not issue credentials, store conversations, accept files, fetch URLs, access private systems, or perform contact and submission actions. Its question telemetry stores representative pattern ids and aggregate dimensions only, never raw questions or confidential project facts.
 
 ## Action and Submission Access
 

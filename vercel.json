@@ -130,6 +130,14 @@
       "dest": "/api/public-resource.js?resource=$1"
     },
     {
+      "src": "/api/a2a/message:send",
+      "dest": "/api/a2a.js?action=message:send"
+    },
+    {
+      "src": "/api/a2a",
+      "dest": "/api/a2a.js"
+    },
+    {
       "src": "/api/contact",
       "dest": "/api/lead-intake.js"
     },

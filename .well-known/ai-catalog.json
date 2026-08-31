@@ -21,6 +21,7 @@
         "pre-litigation"
       ],
       "capabilities": [
+        "ask_strata_concierge",
         "get_company_overview",
         "list_services",
         "match_project_scope",
@@ -36,8 +37,8 @@
         "What evidence should an international contractor organize before a Saudi project-risk review?",
         "Is Strata a fit for legal representation, recruitment, training, or vendor sales requests?"
       ],
-      "version": "2026-08-21",
-      "updatedAt": "2026-08-21T00:00:00Z"
+      "version": "2026-08-31",
+      "updatedAt": "2026-08-31T00:00:00Z"
     },
     {
       "identifier": "urn:air:stratasaudi.com:server:public-readonly-mcp",
@@ -52,6 +53,7 @@
         "project-inquiry"
       ],
       "capabilities": [
+        "ask_strata_concierge",
         "get_company_overview",
         "list_services",
         "match_project_scope",
@@ -65,8 +67,8 @@
         "Match this project scope against Strata's fit and non-fit routing rules.",
         "Prepare a project inquiry draft for user approval without contacting Strata."
       ],
-      "version": "2026-08-21",
-      "updatedAt": "2026-08-21T00:00:00Z"
+      "version": "2026-08-31",
+      "updatedAt": "2026-08-31T00:00:00Z"
     },
     {
       "identifier": "urn:air:stratasaudi.com:api:public-resources",
@@ -91,8 +93,8 @@
         "How can an agent retrieve a canonical Strata page as Markdown?",
         "Which Strata endpoint requires explicit user approval before submission?"
       ],
-      "version": "2026-08-21",
-      "updatedAt": "2026-08-21T00:00:00Z"
+      "version": "2026-08-31",
+      "updatedAt": "2026-08-31T00:00:00Z"
     }
   ]
 }

@@ -62,6 +62,33 @@
           "href": "https://www.stratasaudi.com/.well-known/agent-skills/index.json",
           "type": "application/json",
           "title": "Agent skills index"
+        },
+        {
+          "href": "https://www.stratasaudi.com/data/agent-concierge.json",
+          "type": "application/json",
+          "title": "Agent concierge security and privacy contract"
+        }
+      ]
+    },
+    {
+      "anchor": "https://www.stratasaudi.com/api/a2a",
+      "service-desc": [
+        {
+          "href": "https://www.stratasaudi.com/.well-known/agent-card.json",
+          "type": "application/a2a-agent-card+json",
+          "title": "Strata Mandate Concierge A2A v1.0 Agent Card"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://www.stratasaudi.com/data/agent-concierge.json",
+          "type": "application/json",
+          "title": "Public-data and security boundary"
+        },
+        {
+          "href": "https://www.stratasaudi.com/data/agent-question-taxonomy.json",
+          "type": "application/json",
+          "title": "Privacy-safe question taxonomy"
         }
       ]
     },

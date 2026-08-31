@@ -1,0 +1,42 @@
+{
+  "schema_version": "2026-08-31",
+  "canonical_url": "https://www.stratasaudi.com/data/agent-concierge.json",
+  "name": "Strata Mandate Concierge",
+  "purpose": "A non-visual, agent-only, read-only concierge for public company questions, service discovery, mandate-fit screening, and inquiry preparation guidance.",
+  "interfaces": {
+    "a2a_agent_card": "https://www.stratasaudi.com/.well-known/agent-card.json",
+    "a2a_http_json": "https://www.stratasaudi.com/api/a2a",
+    "a2a_send_message": "https://www.stratasaudi.com/api/a2a/message:send",
+    "mcp": "https://www.stratasaudi.com/api/mcp",
+    "mcp_tool": "ask_strata_concierge"
+  },
+  "security_boundary": {
+    "public_data_only": true,
+    "model_or_external_ai_provider_enabled": false,
+    "persistent_conversation_memory": false,
+    "file_uploads": false,
+    "arbitrary_url_fetching": false,
+    "private_system_access": false,
+    "contact_or_submission_actions": false,
+    "credentials_required": false,
+    "accessible_private_systems": []
+  },
+  "privacy_safe_question_intelligence": {
+    "raw_questions_logged": false,
+    "names_emails_phone_numbers_logged": false,
+    "project_facts_logged": false,
+    "recorded_fields": [
+      "question_pattern",
+      "question_topic",
+      "answer_status",
+      "language_class",
+      "fit_class",
+      "route",
+      "matched_service",
+      "aggregate_pattern_fingerprint"
+    ],
+    "taxonomy": "https://www.stratasaudi.com/data/agent-question-taxonomy.json"
+  },
+  "approval_policy": "The concierge may explain, classify, and prepare. It must not submit forms, send email, place calls, open WhatsApp, book meetings, or write to CRM without explicit user approval.",
+  "content_signal": "ai-train=no, search=yes, ai-input=yes"
+}

@@ -75,12 +75,24 @@ Agents must not submit forms, send email, place calls, open WhatsApp, book meeti
 - Indexing controls: https://www.stratasaudi.com/data/indexing-control.json
 - Authority evidence guidance: https://www.stratasaudi.com/data/authority-evidence.json
 - Procurement readiness guidance: https://www.stratasaudi.com/data/procurement-readiness.json
+- Agent concierge security contract: https://www.stratasaudi.com/data/agent-concierge.json
+- Privacy-safe question taxonomy: https://www.stratasaudi.com/data/agent-question-taxonomy.json
 - Agent card: https://www.stratasaudi.com/.well-known/agent-card.json
 - ARD capability catalog: https://www.stratasaudi.com/.well-known/ai-catalog.json
 - MCP discovery: https://www.stratasaudi.com/.well-known/mcp.json
 - MCP endpoint: https://www.stratasaudi.com/api/mcp
+- A2A concierge discovery: https://www.stratasaudi.com/api/a2a
+- A2A SendMessage endpoint: https://www.stratasaudi.com/api/a2a/message:send
 - OpenAPI: https://www.stratasaudi.com/openapi.json
 - Auth policy: https://www.stratasaudi.com/auth.md
+
+## Agent-to-Agent Concierge
+
+The Strata Mandate Concierge provides a non-visual A2A v1.0 HTTP+JSON interface for public questions and preliminary mandate-fit guidance. Its public Agent Card is https://www.stratasaudi.com/.well-known/agent-card.json. Send text-only messages to https://www.stratasaudi.com/api/a2a/message:send with the `A2A-Version: 1.0` request header.
+
+The concierge is deterministic and grounded only in approved public Strata resources. It does not use an external model provider, store conversations, accept file uploads, fetch arbitrary URLs, or access passwords, cookies, sessions, user records, mailbox, CRM, Paperclip, GitHub, Vercel, analytics accounts, databases, or internal files. It cannot submit forms, send email, place calls, open WhatsApp, book meetings, or trigger CRM actions.
+
+Question intelligence is privacy-safe. Raw questions and confidential project facts are not retained. Reporting uses fixed representative question patterns, topics, answer status, fit, route, language class, and matched service in aggregate. See https://www.stratasaudi.com/data/agent-question-taxonomy.json.
 
 ## Markdown Representations
 
