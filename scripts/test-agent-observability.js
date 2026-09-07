@@ -62,6 +62,7 @@ async function main() {
   assert.strictEqual(get.headers["content-type"], "text/plain; charset=utf-8");
   assert.strictEqual(get.headers["content-signal"], "ai-train=no, search=yes, ai-input=yes");
   assert.strictEqual(get.headers["access-control-allow-origin"], "*");
+  assert.strictEqual(get.headers["x-robots-tag"], "noindex, follow");
   assert(get.headers.etag, "public resource ETag missing");
   assert(get.body.includes("Strata Risk Advisory"), "llms.txt body missing");
 
@@ -70,6 +71,13 @@ async function main() {
   assert.strictEqual(head.res.statusCode, 200);
   assert.strictEqual(head.body, "");
   assert.strictEqual(head.headers["content-type"], "application/json; charset=utf-8");
+  assert.strictEqual(head.headers["x-robots-tag"], "noindex, follow");
+
+  const agentCard = responseHarness();
+  await publicResourceHandler({ method: "GET", url: "/.well-known/agent-card.json", headers: {} }, agentCard.res);
+  assert.strictEqual(agentCard.res.statusCode, 200);
+  assert.strictEqual(agentCard.headers["content-type"], "application/json; charset=utf-8");
+  assert.strictEqual(agentCard.headers["x-robots-tag"], "noindex, follow");
 
   const unknown = responseHarness();
   await publicResourceHandler({ method: "GET", url: "/data/private.json", headers: {} }, unknown.res);
@@ -87,7 +95,7 @@ async function main() {
     ok: true,
     privacySafeFamilies: true,
     persistentGa4Event: true,
-    publicResourceReadsChecked: 3,
+    publicResourceReadsChecked: 4,
   }, null, 2));
 }
 

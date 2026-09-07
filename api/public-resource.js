@@ -62,7 +62,7 @@ module.exports = async (req, res) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("ETag", etag);
   setSecurityHeaders(res, { cacheControl: "public, max-age=0, must-revalidate" });
-  if (publicPath.endsWith(".md")) res.setHeader("X-Robots-Tag", "noindex, follow");
+  res.setHeader("X-Robots-Tag", "noindex, follow");
 
   await recordAgentEvent("agent_resource_read", {
     user_agent: req.headers["user-agent"] || "",
