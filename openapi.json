@@ -591,7 +591,7 @@
       "get": {
         "summary": "Strata Mandate Concierge A2A discovery",
         "operationId": "getA2aConciergeDiscovery",
-        "description": "Returns the public, stateless, public-data-only A2A interface summary. No model provider, private-system connector, persistent memory, contact action, or submission action is enabled.",
+        "description": "Returns the public, stateless, public-data-only A2A interface summary. English and Arabic answers are supported. No model provider, private-data read path, persistent conversational memory, contact action, or submission action is enabled.",
         "responses": {
           "200": {
             "description": "A2A concierge interface summary"
@@ -603,7 +603,7 @@
       "post": {
         "summary": "Ask the Strata Mandate Concierge",
         "operationId": "sendA2aConciergeMessage",
-        "description": "A2A v1.0 HTTP+JSON SendMessage operation. Accepts text only and answers from approved public Strata resources. Raw questions and confidential project facts are not logged or retained.",
+        "description": "A2A v1.0 HTTP+JSON SendMessage operation. Accepts text only and answers in English or Arabic from approved public Strata resources. Raw questions and confidential project facts are not retained. Eligible client-interest activity may create only a private redacted demand signal that is never exposed through this API or used to retrain the public concierge.",
         "parameters": [
           {
             "name": "A2A-Version",

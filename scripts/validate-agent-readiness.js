@@ -164,12 +164,23 @@ function validateBusinessRules() {
   expect(agentCard.supportedInterfaces[0].url === `${SITE_ORIGIN}/api/a2a`, "agent card: canonical A2A endpoint missing");
   expect(Array.isArray(agentCard.defaultInputModes) && agentCard.defaultInputModes.includes("text/plain"), "agent card: text input mode missing");
   expect(agentCard.privacy.rawQuestionsLogged === false, "agent card: raw-question privacy rule missing");
+  expect(
+    Array.isArray(agentCard.supportedLanguages) && agentCard.supportedLanguages.join(",") === "en,ar",
+    "agent card: English and Arabic concierge languages missing",
+  );
   const concierge = parseJson("data/agent-concierge.json");
   const questionTaxonomy = parseJson("data/agent-question-taxonomy.json");
   expect(concierge.security_boundary.model_or_external_ai_provider_enabled === false, "concierge: external model must remain disabled");
-  expect(concierge.security_boundary.private_system_access === false, "concierge: private-system access must remain disabled");
+  expect(concierge.security_boundary.private_system_read_access === false, "concierge: private-system read access must remain disabled");
+  expect(
+    concierge.security_boundary.private_learning_store_write.includes("redacted, allowlisted"),
+    "concierge: private learning-store write boundary missing",
+  );
   expect(concierge.security_boundary.contact_or_submission_actions === false, "concierge: contact actions must remain disabled");
   expect(concierge.privacy_safe_question_intelligence.raw_questions_logged === false, "concierge: raw-question logging must remain disabled");
+  expect(concierge.privacy_safe_question_intelligence.retention_days === 180, "concierge: demand retention must be 180 days");
+  expect(concierge.privacy_safe_question_intelligence.public_model_retraining === false, "concierge: public model retraining must remain disabled");
+  expect(concierge.privacy_safe_question_intelligence.public_learning_records_exposed === false, "concierge: learning records must remain private");
   expect(questionTaxonomy.privacy_policy.raw_questions_stored === false, "question taxonomy: raw-question storage must remain disabled");
   expect(aiCatalog.specVersion === "1.0", "ARD catalog: unsupported specVersion");
   expect(Array.isArray(aiCatalog.entries) && aiCatalog.entries.length >= 3, "ARD catalog: entries missing");

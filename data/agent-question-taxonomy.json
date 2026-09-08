@@ -1,12 +1,13 @@
 {
-  "schema_version": "2026-08-31",
+  "schema_version": "2026-09-08",
   "canonical_url": "https://www.stratasaudi.com/data/agent-question-taxonomy.json",
   "purpose": "Public taxonomy for the questions Strata's agent-only concierge can answer and the privacy-safe patterns used in board reporting.",
   "privacy_policy": {
     "raw_questions_stored": false,
     "personal_data_stored": false,
     "confidential_project_facts_stored": false,
-    "reporting_unit": "Fixed representative question pattern and aggregate count only"
+    "reporting_unit": "Fixed representative question pattern, allowlisted demand attributes, approved public reply, and aggregate count only",
+    "private_demand_learning": "Eligible client-interest interactions may create a private record after redaction and allowlist extraction. Raw questions are not retained or used to train the public concierge."
   },
   "question_patterns": [
     {
@@ -86,6 +87,12 @@
       "topic": "security",
       "representative_question": "Can the public concierge access passwords, accounts, user data, or private systems?",
       "answer_status": "supported"
+    },
+    {
+      "id": "commercial_intent_clarification",
+      "topic": "routing_clarification",
+      "representative_question": "Does this supplier, vendor, or procurement request concern client-side project risk or a sales pitch to Strata?",
+      "answer_status": "clarification_required"
     },
     {
       "id": "non_fit_request",

@@ -12,6 +12,7 @@ const {
   screenProcurementFit,
 } = require("../lib/agent-public-data");
 const { answerAgentQuestion } = require("../lib/agent-concierge");
+const { recordPrivateDemandInteraction } = require("../lib/agent-demand-recorder");
 const { setSecurityHeaders } = require("../lib/security-headers");
 
 const CONTENT_SIGNAL = "ai-train=no, search=yes, ai-input=yes";
@@ -19,7 +20,7 @@ const MODERN_MCP_VERSION = "2026-07-28";
 const LEGACY_MCP_VERSIONS = ["2025-11-25", "2025-06-18", "2025-03-26", "2024-11-05"];
 const SERVER_INFO = {
   name: "strata-saudi-public-readonly",
-  version: "2026.08.31",
+  version: "2026.09.08",
   websiteUrl: "https://www.stratasaudi.com",
 };
 const SERVER_INSTRUCTIONS = "Use approved public Strata data only. Explain and prepare; never contact, submit, or disclose private information.";
@@ -136,7 +137,7 @@ function toolDefinitions() {
   return [
     {
       name: "ask_strata_concierge",
-      description: "Ask Strata's public-data-only mandate concierge a question. Raw questions are not logged or retained; no contact or submission action is available.",
+      description: "Ask Strata's public-data-only English/Arabic mandate concierge a question. Raw questions are not logged or retained; eligible demand may create a private sanitized signal, and no contact or submission action is available.",
       inputSchema: {
         type: "object",
         properties: {
@@ -275,6 +276,12 @@ async function callTool(name, args, req) {
       language: result.language,
       route: result.route,
       question_fingerprint: result.question_fingerprint,
+    });
+    await recordPrivateDemandInteraction({
+      question: args.question,
+      result,
+      headers: req.headers,
+      interfaceName: "mcp",
     });
     return result;
   }

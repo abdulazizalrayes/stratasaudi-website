@@ -90,9 +90,11 @@ Agents must not submit forms, send email, place calls, open WhatsApp, book meeti
 
 The Strata Mandate Concierge provides a non-visual A2A v1.0 HTTP+JSON interface for public questions and preliminary mandate-fit guidance. Its public Agent Card is https://www.stratasaudi.com/.well-known/agent-card.json. Send text-only messages to https://www.stratasaudi.com/api/a2a/message:send with the `A2A-Version: 1.0` request header.
 
-The concierge is deterministic and grounded only in approved public Strata resources. It does not use an external model provider, store conversations, accept file uploads, fetch arbitrary URLs, or access passwords, cookies, sessions, user records, mailbox, CRM, Paperclip, GitHub, Vercel, analytics accounts, databases, or internal files. It cannot submit forms, send email, place calls, open WhatsApp, book meetings, or trigger CRM actions.
+The concierge is deterministic and grounded only in approved public Strata resources. It does not use an external model provider, store conversations, accept file uploads, fetch arbitrary URLs, or read passwords, cookies, sessions, user records, mailbox records, CRM, Paperclip, GitHub, Vercel, analytics accounts, databases, or internal files. It cannot submit forms, send email, place calls, open WhatsApp, book meetings, or trigger CRM actions.
 
-Question intelligence is privacy-safe. Raw questions and confidential project facts are not retained. Reporting uses fixed representative question patterns, topics, answer status, fit, route, language class, and matched service in aggregate. See https://www.stratasaudi.com/data/agent-question-taxonomy.json.
+The concierge answers in English and Arabic. Ambiguous supplier, vendor, or procurement wording triggers clarification instead of guessed routing. Careers, internships, training, supplier sales pitches, spam, and unrelated requests do not enter mandate intake.
+
+Question intelligence is privacy-safe. Raw questions and confidential project facts are not retained. Eligible client-interest activity may create a private record containing a fixed representative question, the exact approved public reply, and allowlisted service/project-risk attributes. These records are not exposed through public interfaces and never retrain the concierge. See https://www.stratasaudi.com/data/agent-question-taxonomy.json.
 
 ## Markdown Representations
 

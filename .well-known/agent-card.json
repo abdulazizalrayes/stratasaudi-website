@@ -13,7 +13,11 @@
     "organization": "Strata Risk Advisory",
     "url": "https://www.stratasaudi.com"
   },
-  "version": "1.0.0",
+  "version": "1.1.0",
+  "supportedLanguages": [
+    "en",
+    "ar"
+  ],
   "documentationUrl": "https://www.stratasaudi.com/llms-full.txt",
   "capabilities": {
     "streaming": false,
@@ -71,7 +75,7 @@
       "Triggering CRM or outbound actions"
     ],
     "notAvailable": [
-      "Access to passwords, credentials, cookies, sessions, user records, analytics accounts, mailbox, CRM, Paperclip, GitHub, Vercel, databases, or internal files",
+      "Read access to passwords, credentials, cookies, sessions, user records, analytics accounts, mailbox, CRM, Paperclip, GitHub, Vercel, databases, or internal files",
       "File uploads or arbitrary URL fetching",
       "Persistent conversation memory",
       "Legal advice or legal representation",
@@ -82,7 +86,19 @@
     "rawQuestionsLogged": false,
     "personalDataLogged": false,
     "confidentialProjectFactsLogged": false,
-    "questionReporting": "Fixed representative question patterns and aggregate counts only"
+    "questionReporting": "Eligible client-interest activity may be reported privately using fixed representative questions, approved public replies, and allowlisted demand attributes.",
+    "privateDemandLearning": {
+      "rawQuestionsStored": false,
+      "publiclyExposed": false,
+      "publicModelRetrained": false,
+      "retentionDays": 180,
+      "excludedActivity": [
+        "synthetic tests",
+        "careers and internships",
+        "supplier sales pitches",
+        "spam and suspected abuse"
+      ]
+    }
   },
   "publicResources": {
     "conciergeContract": "https://www.stratasaudi.com/data/agent-concierge.json",

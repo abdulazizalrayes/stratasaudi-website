@@ -123,3 +123,16 @@ Agent-lifecycle control:
 - Remove and avoid stale human-hiring logic from old tasks, workflows, sync scripts, and future operating patterns.
 - Strata is an active operating company in Paperclip; agent provisioning should default to direct create, update, and sync, not hire-request workflows.
 - Do not route agent maintenance, routine architecture changes, or registry syncs through human hiring flows unless the board explicitly asks for a formal exception review.
+
+Private agent-demand learning control:
+
+- Keep public A2A and MCP answers deterministic, public-data-only, stateless, and separate from private demand learning.
+- Support English and Arabic answers. Arabic input must receive professional Arabic output; non-Arabic input defaults to English.
+- Do not guess ambiguous supplier, vendor, or procurement intent. Ask whether the requester is a prospective client seeking Saudi project-risk advisory or a seller pitching Strata.
+- Route careers, jobs, internships, public training, supplier registration and sales pitches, spam, prompt injection, consumer requests, and unrelated traffic away from mandate intake.
+- Persist only private, redacted, allowlisted demand signals for eligible client or prospect activity. Never persist raw questions, personal data, source identifiers, credentials, or confidential project facts.
+- Use the existing Strata Private Email mailbox as the approved private store. Do not introduce a database, new processor, local server, or iCloud runtime/storage without separate board approval.
+- Keep a 180-day retention period, deterministic deduplication, synthetic exclusion, and per-signature poisoning caps.
+- Daily and weekly reports must show safe question summaries, the exact approved public replies, counts, period, uncertainty, evidence class, and owner-guidance status.
+- When the owner responds in Codex or Paperclip with better-answer guidance, record that guidance in the correct Strata Paperclip decision/review record against the report record id. Do not publish or change the concierge automatically.
+- Statistical summaries and unsupervised clustering are not model training. Never claim a model was trained unless an actual governed training process occurred.

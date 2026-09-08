@@ -1,5 +1,5 @@
 {
-  "schema_version": "2026-08-31",
+  "schema_version": "2026-09-08",
   "canonical_url": "https://www.stratasaudi.com/data/agent-concierge.json",
   "name": "Strata Mandate Concierge",
   "purpose": "A non-visual, agent-only, read-only concierge for public company questions, service discovery, mandate-fit screening, and inquiry preparation guidance.",
@@ -16,7 +16,8 @@
     "persistent_conversation_memory": false,
     "file_uploads": false,
     "arbitrary_url_fetching": false,
-    "private_system_access": false,
+    "private_system_read_access": false,
+    "private_learning_store_write": "Eligible interactions may write only a redacted, allowlisted demand signal to the existing Strata mailbox. The public concierge cannot read this store.",
     "contact_or_submission_actions": false,
     "credentials_required": false,
     "accessible_private_systems": []
@@ -33,9 +34,30 @@
       "fit_class",
       "route",
       "matched_service",
-      "aggregate_pattern_fingerprint"
+      "aggregate_pattern_fingerprint",
+      "safe_question_summary",
+      "approved_public_reply",
+      "allowlisted_service_and_project-risk_attributes",
+      "genuine_demand_or_prospect_awareness_class"
     ],
-    "taxonomy": "https://www.stratasaudi.com/data/agent-question-taxonomy.json"
+    "excluded_from_persistence": [
+      "raw conversations",
+      "names",
+      "emails",
+      "telephone numbers",
+      "source identifiers",
+      "confidential project facts",
+      "credentials",
+      "synthetic tests",
+      "careers and internships",
+      "supplier sales pitches",
+      "spam and suspected abuse"
+    ],
+    "languages": ["en", "ar"],
+    "taxonomy": "https://www.stratasaudi.com/data/agent-question-taxonomy.json",
+    "retention_days": 180,
+    "public_model_retraining": false,
+    "public_learning_records_exposed": false
   },
   "approval_policy": "The concierge may explain, classify, and prepare. It must not submit forms, send email, place calls, open WhatsApp, book meetings, or write to CRM without explicit user approval.",
   "content_signal": "ai-train=no, search=yes, ai-input=yes"

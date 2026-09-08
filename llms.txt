@@ -75,11 +75,11 @@ Use these public read-only resources for structured understanding and routing:
 
 ## Agent-to-Agent Concierge
 
-The Strata Mandate Concierge is a non-visual, public-data-only A2A v1.0 HTTP+JSON agent. Discover it through https://www.stratasaudi.com/.well-known/agent-card.json and send text questions to https://www.stratasaudi.com/api/a2a/message:send with `A2A-Version: 1.0`.
+The Strata Mandate Concierge is a non-visual, public-data-only A2A v1.0 HTTP+JSON agent with English and Arabic answers. Discover it through https://www.stratasaudi.com/.well-known/agent-card.json and send text questions to https://www.stratasaudi.com/api/a2a/message:send with `A2A-Version: 1.0`.
 
 It explains Strata, service fit, engineering-led differentiation, evidence readiness, procurement classification, confidentiality, legal boundaries, and safe next steps. It cannot access credentials, cookies, user records, mailbox, CRM, Paperclip, GitHub, Vercel, analytics accounts, databases, or internal files. It accepts no files, fetches no arbitrary URLs, keeps no conversation memory, and performs no contact or submission action.
 
-For question intelligence, Strata records only fixed representative question-pattern ids and aggregate dimensions. Raw questions, names, contact details, IP addresses, and confidential project facts are not logged or retained.
+For private demand intelligence, eligible client-interest activity may create a fixed representative question, the approved public reply, and allowlisted service/project-risk attributes after redaction. Raw questions, names, contact details, source identifiers, IP addresses, and confidential project facts are not logged or retained. Learning records are not public and never retrain the concierge.
 
 ## Markdown for Agents
 

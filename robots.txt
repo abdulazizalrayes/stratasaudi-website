@@ -3,6 +3,7 @@ Allow: /
 Disallow: /api/contact
 Disallow: /api/a2a
 Disallow: /api/a2a/message:send
+Disallow: /api/private/
 Disallow: /thank-you
 Disallow: /tmp/
 Disallow: /logs/
@@ -18,18 +19,23 @@ Content-Signal: ai-train=no, search=yes, ai-input=yes
 # AI search and user-initiated retrieval
 User-agent: OAI-SearchBot
 Allow: /
+Disallow: /api/private/
 
 User-agent: ChatGPT-User
 Allow: /
+Disallow: /api/private/
 
 User-agent: Claude-SearchBot
 Allow: /
+Disallow: /api/private/
 
 User-agent: Claude-User
 Allow: /
+Disallow: /api/private/
 
 User-agent: PerplexityBot
 Allow: /
+Disallow: /api/private/
 
 # AI training and bulk-corpus collection opt-out
 User-agent: GPTBot

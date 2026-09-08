@@ -46,7 +46,10 @@
   ],
   "question_intelligence": {
     "raw_questions_logged": false,
-    "reporting": "Fixed representative question patterns and aggregate counts only",
+    "reporting": "Private reporting may use fixed representative questions, exact approved public replies, and allowlisted demand attributes after redaction.",
+    "response_languages": ["en", "ar"],
+    "public_model_retrained": false,
+    "learning_records_publicly_exposed": false,
     "taxonomy": "https://www.stratasaudi.com/data/agent-question-taxonomy.json"
   },
   "non_fit_routing": [

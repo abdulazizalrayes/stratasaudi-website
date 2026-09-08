@@ -12,6 +12,8 @@ const REQUIRED_ROUTES = new Map([
   ["/api/mcp", "/api/mcp.js"],
   ["/mcp", "/api/mcp.js"],
   ["/api/client-config.js", "/api/runtime-config.js"],
+  ["/api/private/demand-review/daily", "/api/demand-review.js?cadence=daily"],
+  ["/api/private/demand-review/weekly", "/api/demand-review.js?cadence=weekly"],
   ["/", "/api/page.js"],
   ["/services", "/api/page.js"],
   ["/insights", "/api/page.js"],
@@ -51,6 +53,7 @@ const SECRET_ENV_NAMES = [
   "PRIVATE_EMAIL_IMAP_PASS",
   "SMTP_PASS",
   "GA_API_SECRET",
+  "CRON_SECRET",
 ];
 
 function readJson(relativePath) {
@@ -93,6 +96,15 @@ function main() {
   }
   expect(vercelConfig.name === "strata-saudi-website", "vercel.json: deployment name mismatch");
   expect(vercelConfig.version === 2, "vercel.json: version must be 2");
+  expect(Array.isArray(vercelConfig.crons) && vercelConfig.crons.length === 2, "vercel.json: daily and weekly private demand-review crons are required");
+  expect(
+    vercelConfig.crons.some((item) => item.path === "/api/private/demand-review/daily"),
+    "vercel.json: daily demand-review cron missing",
+  );
+  expect(
+    vercelConfig.crons.some((item) => item.path === "/api/private/demand-review/weekly"),
+    "vercel.json: weekly demand-review cron missing",
+  );
 
   for (const [source, destination] of REQUIRED_ROUTES) {
     expect(routes.get(source) === destination, `vercel.json: route ${source} must target ${destination}`);

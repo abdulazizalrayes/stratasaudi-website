@@ -35,18 +35,18 @@ The MCP interface serves both protocol eras. Current clients can use the statele
 
 ## Security boundary
 
-The concierge has no access to:
+The concierge has no read access to:
 
 - passwords, API keys, cookies, sessions, or login data
-- mailbox, CRM, Paperclip, GitHub, Vercel, or Google accounts
+- mailbox records, CRM, Paperclip, GitHub, Vercel, or Google accounts
 - databases, private files, internal notes, or contact submissions
 - file uploads, raw bytes, or arbitrary URLs
 - persistent conversation history
 - external AI or model-provider APIs
 
-It cannot send email, place a call, open WhatsApp, book a meeting, submit a form, or trigger CRM activity. Those actions remain outside the endpoint and require explicit user approval.
+It cannot send email, place a call, open WhatsApp, book a meeting, submit a form, or trigger CRM activity. Those actions remain outside the endpoint and require explicit user approval. An eligible client-interest interaction may append a redacted, allowlisted demand signal to a private Strata mailbox folder. The public concierge cannot read that folder or use it in answers.
 
-Controls include an 8 KiB A2A body limit, text-only validation, A2A version validation, per-instance abuse throttling, no-store responses, noindex headers, security headers, fixed public sources, refusal of secret-extraction instructions, and no raw-question logging.
+Controls include an 8 KiB A2A body limit, text-only validation, A2A version validation, per-instance and Vercel edge throttling, no-store responses, noindex headers, security headers, fixed public sources, refusal of secret-extraction instructions, redaction before private persistence, deterministic deduplication, and no raw-question logging.
 
 ## Edge abuse control
 
@@ -60,7 +60,7 @@ The Hobby allowance currently includes the rule and more request volume than Str
 
 The owner requested visibility into what external agents ask so Strata can improve future public answers. The implementation does not retain raw questions because they may contain personal data, confidential project facts, privileged wording, or credentials.
 
-Instead, each question maps to a fixed representative pattern such as:
+Instead, each eligible client or prospect interaction maps to a fixed representative pattern such as:
 
 - What is Strata Risk Advisory and what does it do?
 - Which engineering-led advisory services does Strata provide?
@@ -69,7 +69,11 @@ Instead, each question maps to a fixed representative pattern such as:
 - What are Strata's fees and engagement timing?
 - Can the public concierge access passwords, accounts, user data, or private systems?
 
-Production telemetry may record only pattern id, topic, answer status, language class, fit, route, matched service, and an aggregate pattern fingerprint. It must not record raw questions, names, emails, telephone numbers, IP addresses, message bodies, or confidential project facts.
+Production telemetry records only categorical fields. The separate private demand layer may retain a fixed question summary, the exact approved public reply, and allowlisted service and project-risk attributes. It must not retain raw questions, names, emails, telephone numbers, IP addresses, user-agent strings, source identifiers, message bodies, or confidential project facts.
+
+English and Arabic questions receive answers in the matching language. Supplier, vendor, and procurement wording is not guessed: client-side project-risk requests, supplier sales pitches, and ambiguous intent follow separate routes.
+
+Daily and weekly private reviews, 180-day retention, deduplication, poisoning limits, statistical reporting, and the conditional unsupervised method are documented in `docs/agent-demand-learning.md`. No conversational model is trained or automatically updated.
 
 Generate the board-readable report from exported Strata function logs:
 
@@ -92,6 +96,7 @@ npm run test:agent-concierge
 npm run test:mcp-readonly
 npm run test:mcp-sdk-conformance
 npm run test:agent-production-report
+npm run test:agent-demand-learning
 npm run validate:agent-readiness
 npm run validate:release
 ```

@@ -77,6 +77,8 @@ function extractAgentEvent(entry) {
   const questionPatternMatch = message.match(/question_pattern['"]?\s*[:=]\s*['"]?([a-zA-Z0-9_./-]+)/);
   const answerStatusMatch = message.match(/answer_status['"]?\s*[:=]\s*['"]?([a-zA-Z0-9_./-]+)/);
   const routeMatch = message.match(/route['"]?\s*[:=]\s*['"]?([a-zA-Z0-9_./-]+)/);
+  const demandClassificationMatch = message.match(/demand_classification['"]?\s*[:=]\s*['"]?([a-zA-Z0-9_./-]+)/);
+  const demandRecordStatusMatch = message.match(/demand_record_status['"]?\s*[:=]\s*['"]?([a-zA-Z0-9_./-]+)/);
   return {
     event_type: eventTypeMatch ? eventTypeMatch[1] : "strata_agent_readiness_event",
     tool_name: toolMatch ? toolMatch[1] : "",
@@ -90,6 +92,8 @@ function extractAgentEvent(entry) {
     question_pattern: questionPatternMatch ? questionPatternMatch[1] : "",
     answer_status: answerStatusMatch ? answerStatusMatch[1] : "",
     route: routeMatch ? routeMatch[1] : "",
+    demand_classification: demandClassificationMatch ? demandClassificationMatch[1] : "",
+    demand_record_status: demandRecordStatusMatch ? demandRecordStatusMatch[1] : "",
   };
 }
 
@@ -113,6 +117,8 @@ function main() {
     question_patterns: {},
     answer_statuses: {},
     concierge_routes: {},
+    demand_classifications: {},
+    demand_record_statuses: {},
     event_user_agent_families: {},
     resource_types: {},
     user_agent_families: {},
@@ -120,7 +126,8 @@ function main() {
     notes: [
       "Report is privacy-safe: it summarizes paths, tool names, resource ids, fit classes, and user-agent families only.",
       "Do not add names, emails, message bodies, or confidential project facts to this report.",
-      "Concierge question reporting uses fixed pattern ids only; raw questions are neither expected nor reported."
+      "Private demand reporting may use fixed representative questions, approved public replies, and allowlisted attributes; raw questions are neither expected nor reported.",
+      "Demand classifications and record statuses are categorical and do not prove that an interaction is a verified lead."
     ]
   };
 
@@ -153,6 +160,8 @@ function main() {
     increment(report.question_patterns, event.question_pattern);
     increment(report.answer_statuses, event.answer_status);
     increment(report.concierge_routes, event.route);
+    increment(report.demand_classifications, event.demand_classification);
+    increment(report.demand_record_statuses, event.demand_record_status);
   }
 
   console.log(JSON.stringify(report, null, 2));

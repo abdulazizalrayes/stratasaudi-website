@@ -4,6 +4,16 @@
   "regions": [
     "bom1"
   ],
+  "crons": [
+    {
+      "path": "/api/private/demand-review/daily",
+      "schedule": "30 3 * * *"
+    },
+    {
+      "path": "/api/private/demand-review/weekly",
+      "schedule": "0 4 * * 1"
+    }
+  ],
   "builds": [
     {
       "src": "api/**/*.js",
@@ -136,6 +146,14 @@
     {
       "src": "/api/a2a",
       "dest": "/api/a2a.js"
+    },
+    {
+      "src": "/api/private/demand-review/daily",
+      "dest": "/api/demand-review.js?cadence=daily"
+    },
+    {
+      "src": "/api/private/demand-review/weekly",
+      "dest": "/api/demand-review.js?cadence=weekly"
     },
     {
       "src": "/api/contact",

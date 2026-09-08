@@ -85,6 +85,15 @@ async function main() {
     expect(serviceResponse.body.message.role === "ROLE_AGENT", "A2A response role should be ROLE_AGENT");
     expect(serviceResponse.body.message.parts[1].data.questionPattern === "services_overview", "service question pattern mismatch");
     expect(serviceResponse.body.message.parts[1].data.rawQuestionStored === false, "raw question storage must be false");
+    expect(serviceResponse.body.message.parts[1].data.answerLanguage === "en", "English answer language missing");
+    expect(serviceResponse.body.message.parts[1].data.publicConversationalModelRetrained === false, "public model must not be retrained");
+
+    const arabicResponse = await callA2a(message("ما هي خدمات ستراتا للمشاريع السعودية؟", { messageId: "test-arabic" }), { ip: "127.0.0.9" });
+    expect(arabicResponse.body.message.parts[1].data.answerLanguage === "ar", "Arabic answer language missing");
+    expect(/[\u0600-\u06ff]/.test(arabicResponse.body.message.parts[0].text), "Arabic question must receive Arabic text");
+
+    const ambiguousSupplier = await callA2a(message("We have a supplier and procurement question.", { messageId: "test-ambiguous" }), { ip: "127.0.0.10" });
+    expect(ambiguousSupplier.body.message.parts[1].data.route === "clarification_required", "ambiguous supplier intent must be clarified");
 
     const confidentialFit = await callA2a(message("Does a confidential delay and variation review for a high-value Saudi EPC project fit Strata?"), { ip: "127.0.0.8" });
     expect(confidentialFit.body.message.parts[1].data.questionPattern === "project_scope_fit", "explicit fit questions must take priority over the confidentiality-only pattern");
@@ -146,7 +155,8 @@ async function main() {
       a2a_version: "1.0",
       public_data_only: true,
       external_model_provider_enabled: false,
-      private_system_access: false,
+      private_system_read_access: false,
+      private_sanitized_learning_store_write: true,
       raw_question_logging: false,
       text_only_input: true,
       persistent_memory: false,

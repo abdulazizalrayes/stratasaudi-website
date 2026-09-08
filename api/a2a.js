@@ -1,6 +1,7 @@
 const crypto = require("crypto");
 
 const { answerAgentQuestion } = require("../lib/agent-concierge");
+const { recordPrivateDemandInteraction } = require("../lib/agent-demand-recorder");
 const { recordAgentEvent } = require("../lib/agent-observability");
 const { setSecurityHeaders } = require("../lib/security-headers");
 
@@ -152,6 +153,7 @@ function publicResponse(result, requestMessage) {
         {
           data: {
             answerStatus: result.answer_status,
+            answerLanguage: result.language,
             questionPattern: result.question_pattern,
             fit: result.fit,
             route: result.route,
@@ -159,6 +161,8 @@ function publicResponse(result, requestMessage) {
             sources: result.sources,
             publicDataOnly: true,
             rawQuestionStored: false,
+            privacySafeDemandSignalMayBeStored: true,
+            publicConversationalModelRetrained: false,
             approvalRequiredBeforeContactOrSubmission: true,
           },
           mediaType: "application/json",
@@ -195,6 +199,8 @@ module.exports = async (req, res) => {
       publicDataOnly: true,
       modelProviderEnabled: false,
       persistentMemory: false,
+      privateDemandLearning: "Eligible client-interest signals may be stored only after redaction and allowlist extraction; raw questions are not retained.",
+      responseLanguages: ["en", "ar"],
       approvalRequiredBeforeContactOrSubmission: true,
     });
     return;
@@ -226,6 +232,14 @@ module.exports = async (req, res) => {
       language: result.language,
       route: result.route,
       question_fingerprint: result.question_fingerprint,
+    });
+
+    await recordPrivateDemandInteraction({
+      question,
+      result,
+      messageId: body.message.messageId,
+      headers: req.headers,
+      interfaceName: "a2a",
     });
 
     sendJson(res, 200, publicResponse(result, body.message));
