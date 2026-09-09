@@ -2,7 +2,6 @@
 
 const fs = require("fs");
 const path = require("path");
-const vm = require("vm");
 
 const ROOT = path.join(__dirname, "..");
 const SITE_DIR = path.join(ROOT, "site");
@@ -145,10 +144,12 @@ function readSources() {
 }
 
 function readDictionary() {
-  const context = { window: {} };
-  vm.createContext(context);
-  vm.runInContext(fs.readFileSync(DICTIONARY_PATH, "utf8"), context);
-  return context.window.StrataI18nDictionary || {};
+  const prefix = "window.StrataI18nDictionary =";
+  const source = fs.readFileSync(DICTIONARY_PATH, "utf8").trim();
+  if (!source.startsWith(prefix) || !source.endsWith(";")) {
+    throw new Error("Invalid Strata translation dictionary format.");
+  }
+  return JSON.parse(source.slice(prefix.length, -1).trim());
 }
 
 function isAllowedUnchanged(source) {

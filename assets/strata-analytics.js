@@ -55,7 +55,13 @@
     if (!session) return "";
     var existing = session.getItem(SESSION_KEY);
     if (existing) return existing;
-    var next = "st_" + Date.now().toString(36) + "_" + Math.random().toString(36).slice(2, 8);
+    if (!window.crypto || typeof window.crypto.getRandomValues !== "function") return "";
+    var values = new Uint32Array(2);
+    window.crypto.getRandomValues(values);
+    var suffix = Array.prototype.map.call(values, function (value) {
+      return value.toString(36);
+    }).join("");
+    var next = "st_" + Date.now().toString(36) + "_" + suffix;
     session.setItem(SESSION_KEY, next);
     return next;
   }

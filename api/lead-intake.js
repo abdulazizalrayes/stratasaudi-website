@@ -1,3 +1,4 @@
+const crypto = require("crypto");
 const net = require("net");
 const tls = require("tls");
 const { APPROVED_BUSINESS_MAILBOX } = require("../lib/private-email-client");
@@ -338,7 +339,7 @@ function dotStuff(value) {
 }
 
 function buildRawEmail({ from, to, replyTo, subject, text, html }) {
-  const boundary = `strata-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+  const boundary = `strata-${Date.now()}-${crypto.randomBytes(16).toString("hex")}`;
   return [
     `From: "Strata Saudi Website" <${smtpAddress(from)}>`,
     `To: <${smtpAddress(to)}>`,
@@ -514,29 +515,6 @@ async function sendLeadEmail(payload) {
   });
 }
 
-async function sendWebhook(payload) {
-  const webhookUrl = sanitize(process.env.CRM_WEBHOOK_URL, 2000);
-  if (!webhookUrl) return;
-
-  const headers = { "Content-Type": "application/json" };
-  const token = sanitize(process.env.CRM_WEBHOOK_TOKEN, 255);
-  if (token) headers.Authorization = `Bearer ${token}`;
-
-  const response = await fetch(webhookUrl, {
-    method: "POST",
-    headers,
-    body: JSON.stringify({
-      event: "strata_confidential_enquiry",
-      submittedAt: new Date().toISOString(),
-      payload,
-    }),
-  });
-
-  if (!response.ok) {
-    throw new Error(`CRM webhook failed with status ${response.status}`);
-  }
-}
-
 async function sendGa4MeasurementProtocolEvent(payload) {
   const measurementId = process.env.GA_MEASUREMENT_ID;
   const apiSecret = process.env.GA_API_SECRET;
@@ -587,9 +565,7 @@ async function sendGa4MeasurementProtocolEvent(payload) {
 }
 
 function generateRandomClientId() {
-  // Generate a random client ID similar to GA4's format
-  return Math.random().toString(36).substring(2, 15) + 
-         Math.random().toString(36).substring(2, 15);
+  return crypto.randomBytes(16).toString("hex");
 }
 
 module.exports = async (req, res) => {
@@ -662,14 +638,13 @@ module.exports = async (req, res) => {
       await sendLeadEmail(payload);
 
       const auxiliaryResults = await Promise.allSettled([
-        sendWebhook(payload),
         sendGa4MeasurementProtocolEvent(payload),
       ]);
 
       auxiliaryResults.forEach((result, index) => {
         if (result.status === "rejected") {
           console.warn("strata_contact_auxiliary_delivery_warning", {
-            target: ["webhook", "ga4"][index],
+            target: ["ga4"][index],
             message: result.reason && result.reason.message ? result.reason.message : "Unknown error",
           });
         }

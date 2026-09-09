@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const endpoint = process.env.CONTACT_SMOKE_ENDPOINT || "https://www.stratasaudi.com/api/contact";
+const endpoint = "https://www.stratasaudi.com/api/contact";
 const stamp = new Date().toISOString();
 
 const payload = {
