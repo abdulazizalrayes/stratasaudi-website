@@ -42,6 +42,8 @@ assert(analytics.includes('contact_method: "whatsapp"'), "strata-analytics.js: W
 assert(analytics.includes('pushEvent("whatsapp_click"'), "strata-analytics.js: dedicated WhatsApp click event missing");
 assert(analytics.includes('click_source: "strata_saudi_website"'), "strata-analytics.js: Strata click source marker missing");
 assert(!analytics.includes("contactUrl.search"), "strata-analytics.js: WhatsApp prefill must not enter analytics");
+assert(!analytics.includes("Math.random"), "strata-analytics.js: weak random session identifiers remain");
+assert(analytics.includes("crypto.getRandomValues"), "strata-analytics.js: secure session identifier generation missing");
 
 const runtimeConfig = read("api/runtime-config.js");
 assert(!runtimeConfig.includes("gtmId"), "runtime-config.js: public GTM id remains");
@@ -62,6 +64,8 @@ assert(analyticsPosition > mailPosition, "lead-intake.js: lead_submission must o
 assert(intake.includes('name: "lead_submission"'), "lead-intake.js: server-confirmed lead event missing");
 assert(!intake.includes("country: payload.country"), "lead-intake.js: free-text country must not enter GA4");
 assert(!intake.includes("term: (payload.firstTouch"), "lead-intake.js: free-text UTM term must not enter GA4");
+assert(!intake.includes("Math.random"), "lead-intake.js: weak random identifiers remain");
+assert(!intake.includes("CRM_WEBHOOK"), "lead-intake.js: removed CRM webhook integration returned");
 
 assert(!fs.existsSync(path.join(ROOT, "assets", "live-analytics.js")), "legacy analytics file still exists");
 

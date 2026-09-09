@@ -8,6 +8,13 @@ updates:
       time: "06:00"
       timezone: "Asia/Riyadh"
     open-pull-requests-limit: 5
+    ignore:
+      - dependency-name: "imapflow"
+        update-types:
+          - "version-update:semver-major"
+      - dependency-name: "node-html-parser"
+        update-types:
+          - "version-update:semver-major"
     groups:
       production-minor-and-patch:
         dependency-type: "production"

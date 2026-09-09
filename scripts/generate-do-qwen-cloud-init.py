@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 from pathlib import Path
 import os
-import secrets
 
 ROOT = Path(os.environ.get("STRATA_WORKSPACE_CWD", Path(__file__).resolve().parents[1]))
 OPS = ROOT / "ops" / "qwen3-paperclip-pilot"
@@ -11,7 +10,6 @@ service = (OPS / "qwen3-paperclip-pilot.service").read_text()
 smoke = (OPS / "smoke-test.sh").read_text()
 
 paperclip_prod_ip = "64.227.151.175"
-vllm_api_key = secrets.token_urlsafe(32)
 
 script = f"""#!/usr/bin/env bash
 set -euo pipefail
@@ -21,7 +19,9 @@ APP_DIR=/opt/qwen3-paperclip-pilot
 mkdir -p "$APP_DIR" "$APP_DIR/hf-cache"
 
 apt-get update
-apt-get install -y ca-certificates curl gnupg lsb-release ufw
+apt-get install -y ca-certificates curl gnupg lsb-release openssl ufw
+
+VLLM_API_KEY="$(openssl rand -hex 32)"
 
 if ! command -v docker >/dev/null 2>&1; then
   install -m 0755 -d /etc/apt/keyrings
@@ -41,13 +41,13 @@ if ! dpkg -s nvidia-container-toolkit >/dev/null 2>&1; then
   systemctl restart docker
 fi
 
-cat > "$APP_DIR/.env" <<'EOF_ENV'
+cat > "$APP_DIR/.env" <<EOF_ENV
 VLLM_MODEL=Qwen/Qwen3-8B-AWQ
 VLLM_PORT=8000
 VLLM_HOST=0.0.0.0
 VLLM_GPU_MEMORY_UTILIZATION=0.9
 VLLM_MAX_MODEL_LEN=8192
-VLLM_API_KEY={vllm_api_key}
+VLLM_API_KEY=${{VLLM_API_KEY}}
 HF_HOME=./hf-cache
 EOF_ENV
 
@@ -74,11 +74,10 @@ ufw --force enable
 systemctl daemon-reload
 systemctl enable --now qwen3-paperclip-pilot.service
 
-echo "{vllm_api_key}" > /root/qwen_vllm_api_key.txt
+printf '%s\n' "${{VLLM_API_KEY}}" > /root/qwen_vllm_api_key.txt
 chmod 600 /root/qwen_vllm_api_key.txt
 """
 
 output = OPS / "do-cloud-init.generated.sh"
 output.write_text(script)
 print(output)
-print(vllm_api_key)
