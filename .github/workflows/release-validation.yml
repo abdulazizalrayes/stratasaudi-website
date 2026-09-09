@@ -1,0 +1,39 @@
+name: Release validation
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-validation-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install locked dependencies
+        run: npm ci
+
+      - name: Set verified Vercel project identity
+        run: |
+          mkdir -p .vercel
+          printf '%s\n' '{"projectId":"prj_G5hsWnWwyIVPnLjGb9sf8eCGj3Lj","orgId":"team_AnOdxEeUwCwUtPdqTk5I1Dkt","projectName":"stratasaudi-website"}' > .vercel/project.json
+
+      - name: Run release validation
+        run: npm run validate:release
