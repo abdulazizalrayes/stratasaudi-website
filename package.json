@@ -45,7 +45,7 @@
     "enrich:contact:batch": "node scripts/batch_contact_enrichment.js --input ops/crm/enrichment_seed_batch_input.json"
   },
   "dependencies": {
-    "imapflow": "^1.7.8",
+    "imapflow": "^2.0.2",
     "node-html-parser": "^7.1.0"
   },
   "devDependencies": {
