@@ -80,4 +80,5 @@ chmod 600 /root/qwen_vllm_api_key.txt
 
 output = OPS / "do-cloud-init.generated.sh"
 output.write_text(script)
+output.chmod(0o700)
 print(output)
