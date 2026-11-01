@@ -390,17 +390,21 @@
             font-size: 0.95rem;
             color: var(--mid);
             margin-bottom: 0.8rem;
-            padding-left: 1.5rem;
+            padding-inline-start: 1.5rem;
             position: relative;
             line-height: 1.6;
         }
 
         .service-deliverables li:before {
-            content: "&rarr;";
+            content: "\2192";
             position: absolute;
-            left: 0;
+            inset-inline-start: 0;
             color: var(--black);
             font-weight: 600;
+        }
+
+        [dir="rtl"] .service-deliverables li:before {
+            content: "\2190";
         }
 
         .service-who-for {

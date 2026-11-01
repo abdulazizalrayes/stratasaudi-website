@@ -86,8 +86,8 @@ Ingenieurgeführte Unterstützung zur Streitvorbereitung vor formellen Verfahren
 
 ### Wichtigste Ergebnisse
 
-- Verzögerungsanalyse (wie geplant vs. wie gebaut, zusammengebrochene wie gebaut, zeitliche Auswirkung)
-- Quantenberechnung und Dokumentationsverpackung
+- Verzögerungsanalyse (Soll-Ist-Vergleich, Rekonstruktion des Ist-Terminplans ohne Verzögerungsereignisse, Analyse der zeitlichen Auswirkungen)
+- Bezifferung von Ansprüchen und Zusammenstellung der Nachweise
 - Unterstützung bei technischer Darstellung und Beweis-Chronologie
 - Unterstützung bei Verhandlungen zur Streitvermeidung
 
@@ -99,10 +99,10 @@ Unabhängige technische Bewertung für streitnahe Entscheidungen, erbracht als b
 
 ### Wichtigste Ergebnisse
 
-- Programmforensik und CPM-Analyse
+- Forensische Terminplananalyse und Analyse des kritischen Pfads (CPM)
 - Kausalmeinungen zu Verzögerungen und Störungen
-- Parallelitätsbewertung
-- Verlust- und Kostenquantenmodellierung
+- Bewertung gleichzeitiger Verzögerungen
+- Modellierung der Höhe von Verlusten und Aufwendungen
 
 **Für wen es ist:** Aufsichtsgremien, Projektträger, Auftragnehmer und Rechtsteams, die unabhängige technische Analysen benötigen, um technische Exponierung zu verstehen, die Stärke eines Anspruchs zu prüfen oder kommerzielle Entscheidungen vor oder parallel zu formellen Verfahren zu unterstützen.
 

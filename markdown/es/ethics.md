@@ -50,17 +50,17 @@ Language: es
 - Extraction scope: public main content, with navigation, contact bars, forms, scripts, styles, hidden content, and internal/private material removed.
 - Content-Signal policy: ai-train=no, search=yes, ai-input=yes
 
-Gobernancia
+Gobernanza
 
 # La confidencialidad, la independencia y la ejecución controlada no son negociables.
 
 Nuestro trabajo se basa en la confidencialidad, la independencia y el tratamiento riguroso de la documentación técnica y comercial facilitada para cada encargo.
 
-### Postura de conflicto
+### Gestión de conflictos de intereses
 
-Cada consulta se examina antes de que comience un trabajo significativo. Sin suposiciones de ajuste, sin aceptación automática y sin manejo vago de superposiciones.
+Cada consulta se revisa antes de iniciar el trabajo. No se presupone la idoneidad del encargo ni se acepta automáticamente; cualquier solapamiento o posible conflicto de intereses se aborda de forma explícita.
 
-### control de pruebas
+### Control de la documentación probatoria
 
 La documentación se revisa en su contexto, explicitando las hipótesis, limitaciones y carencias antes de utilizar las conclusiones para fundamentar una decisión.
 

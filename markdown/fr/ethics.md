@@ -56,9 +56,9 @@ Gouvernance
 
 Notre travail repose sur la confidentialité, l'indépendance et le traitement rigoureux des éléments techniques et commerciaux fournis pour chaque mission.
 
-### Posture de conflit
+### Gestion des conflits d'intérêts
 
-Chaque demande est examinée avant le début d’un travail significatif. Aucune hypothèse d'ajustement, aucune acceptation automatique et aucune gestion vague des chevauchements.
+Chaque demande est examinée avant le début des travaux. L'adéquation du mandat n'est jamais présumée, son acceptation n'est pas automatique et tout chevauchement ou conflit d'intérêts potentiel est traité explicitement.
 
 ### Contrôle des preuves
 

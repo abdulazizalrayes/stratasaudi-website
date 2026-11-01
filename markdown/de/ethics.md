@@ -50,15 +50,15 @@ Language: de
 - Extraction scope: public main content, with navigation, contact bars, forms, scripts, styles, hidden content, and internal/private material removed.
 - Content-Signal policy: ai-train=no, search=yes, ai-input=yes
 
-Regierungsführung
+Unternehmensführung
 
 # Vertraulichkeit, Unabhängigkeit und kontrollierte Ausführung sind nicht verhandelbar.
 
 Unsere Arbeit beruht auf Vertraulichkeit, Unabhängigkeit und dem sorgfältigen Umgang mit den technischen und kaufmännischen Unterlagen jedes Mandats.
 
-### Konflikthaltung
+### Umgang mit Interessenkonflikten
 
-Jede Anfrage wird geprüft, bevor mit der sinnvollen Arbeit begonnen wird. Keine Passungsannahme, keine automatische Akzeptanz und keine vage Überlappungsbehandlung.
+Jede Anfrage wird vor Beginn der eigentlichen Arbeit geprüft. Die Eignung eines Mandats wird nicht vorausgesetzt, die Annahme erfolgt nicht automatisch, und Überschneidungen oder mögliche Interessenkonflikte werden ausdrücklich geklärt.
 
 ### Beweiskontrolle
 

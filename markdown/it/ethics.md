@@ -50,15 +50,15 @@ Language: it
 - Extraction scope: public main content, with navigation, contact bars, forms, scripts, styles, hidden content, and internal/private material removed.
 - Content-Signal policy: ai-train=no, search=yes, ai-input=yes
 
-Governo
+Governance
 
 # La riservatezza, l'indipendenza e l'esecuzione controllata non sono negoziabili.
 
 Il nostro lavoro si fonda sulla riservatezza, sull'indipendenza e sulla gestione rigorosa degli elementi tecnici e commerciali forniti per ogni incarico.
 
-### Postura di conflitto
+### Gestione dei conflitti di interesse
 
-Ogni richiesta viene vagliata prima che inizi un lavoro significativo. Nessuna presunzione di idoneità, nessuna accettazione automatica e nessuna vaga gestione delle sovrapposizioni.
+Ogni richiesta viene esaminata prima dell'avvio del lavoro. L'idoneità dell'incarico non è presunta e l'accettazione non è automatica; eventuali sovrapposizioni o potenziali conflitti di interesse vengono affrontati in modo esplicito.
 
 ### Controllo delle prove
 

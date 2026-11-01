@@ -86,8 +86,8 @@ Supporto alla preparazione delle controversie guidato dall'ingegneria prima di p
 
 ### Risultati chiave
 
-- Analisi dei ritardi (come pianificato vs come costruito, collasso come costruito, impatto temporale)
-- Calcolo quantistico e confezionamento della documentazione
+- Analisi dei ritardi (confronto tra programma previsto ed effettivo, ricostruzione del programma effettivo senza i ritardi, analisi dell'impatto temporale)
+- Quantificazione delle richieste e preparazione della documentazione a supporto
 - Supporto alla narrazione tecnica e alla cronologia delle evidenze
 - Supporto alla negoziazione per la risoluzione delle controversie
 
@@ -99,10 +99,10 @@ Valutazione ingegneristica indipendente per decisioni connesse a controversie, f
 
 ### Risultati chiave
 
-- Programma forense e analisi CPM
+- Analisi forense del cronoprogramma e del percorso critico (CPM)
 - Opinioni di causalità su ritardi e disservizi
-- Valutazione della concorrenza
-- Modellazione quantistica di perdite e spese
+- Valutazione dei ritardi concomitanti
+- Modellazione dell'importo delle perdite e delle spese
 
 **Per chi è:** Consigli di amministrazione, committenti, appaltatori e team legali che richiedono analisi ingegneristiche indipendenti per comprendere l'esposizione tecnica, testare la solidità di una richiesta o supportare decisioni commerciali prima o parallelamente a procedimenti formali.
 
@@ -112,8 +112,8 @@ Servizi di due diligence per l'approvvigionamento di megaprogetti. Conduciamo va
 
 ### Risultati chiave
 
-- Capacità del fornitore e verifica della capacità
-- Verifiche di conformità dei flussi contrattuali
+- Verifica delle competenze e della capacità operativa dei fornitori
+- Verifica del recepimento degli obblighi contrattuali nei subcontratti
 - Performance bond e revisione dell'adeguatezza delle garanzie
 - Profilazione del rischio del subappaltatore
 

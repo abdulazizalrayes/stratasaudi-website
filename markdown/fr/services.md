@@ -86,8 +86,8 @@ Accompagnement de préparation aux différends piloté par l'ingénierie avant t
 
 ### Principaux livrables
 
-- Analyse des retards (tel que prévu vs tel que construit, effondrement tel que construit, impact temporel)
-- Emballage de calcul et de documentation quantique
+- Analyse des retards (comparaison du planning prévu et réalisé, reconstitution du planning réalisé sans les retards, analyse de l'impact sur les délais)
+- Chiffrage des réclamations et constitution des dossiers justificatifs
 - Appui au récit technique et à la chronologie des preuves
 - Aide à la négociation pour éviter les litiges
 
@@ -99,10 +99,10 @@ Accompagnement de préparation aux différends piloté par l'ingénierie avant t
 
 ### Principaux livrables
 
-- Analyse scientifique du programme et analyse CPM
+- Analyse rétrospective du planning et du chemin critique (CPM)
 - Avis de causalité sur les retards et les perturbations
-- Évaluation de la concurrence
-- Modélisation quantique des pertes et dépenses
+- Évaluation des retards concomitants
+- Modélisation du montant des pertes et des dépenses
 
 **À qui s'adresse-t-il :** Conseils d'administration, maîtres d'ouvrage, entrepreneurs et équipes juridiques ayant besoin d'une analyse d'ingénierie indépendante pour comprendre l'exposition technique, tester la solidité d'une réclamation ou appuyer une décision commerciale avant ou parallèlement à une procédure formelle.
 
@@ -112,8 +112,8 @@ Services de diligence raisonnable pour l’approvisionnement de mégaprojets. No
 
 ### Principaux livrables
 
-- Audit des capacités et des capacités des fournisseurs
-- Contrôles contractuels de conformité des flux descendants
+- Audit des compétences et de la capacité opérationnelle des fournisseurs
+- Vérification de la répercussion des obligations contractuelles dans les contrats de sous-traitance
 - Examen de la garantie de bonne exécution et de l’adéquation des garanties
 - Profilage des risques des sous-traitants
 

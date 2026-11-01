@@ -9,6 +9,20 @@ const { readDictionary } = require("../lib/i18n-renderer");
 const resources = ["/about", "/counterparties", "/why-saudi", "/faq", "/ethics", "/mandate-checklist", "/privacy", "/terms"];
 const core = ["/", "/services", "/insights", "/fidic-claims-saudi-arabia"];
 const dictionary = readDictionary();
+const quantumKeys = ["Loss and expense quantum modeling", "Quantum calculation and documentation packaging"];
+const physicsTerms = /quantique|cuántic|quantistic|Quanten|حساب الكم|نمذجة الكم/iu;
+for (const code of ["ar", "fr", "es", "it", "de"]) {
+  for (const key of quantumKeys) {
+    assert(dictionary[code][key] && !physicsTerms.test(dictionary[code][key]), `${code}: financial quantum mistranslated`);
+  }
+  const values = Object.values(dictionary[code]).join("\n");
+  assert(!/الطب الشرعي|متخصصي الكم|spécialistes quantiques|especialistas cuánticos|specialisti quantistici|Quantenspezialisten/.test(values), `${code}: advisory terminology regression`);
+  assert(!/concurrence|concorrenza/.test(dictionary[code]["Concurrency evaluation"]), `${code}: concurrent delays must not mean competition`);
+}
+const servicesSource = fs.readFileSync(path.join(__dirname, "../site/services.html"), "utf8");
+assert(!/content:\s*["']&(?:rarr|larr);/.test(servicesSource), "CSS must use Unicode escapes, not HTML entities");
+assert(servicesSource.includes('content: "\\2192"') && servicesSource.includes('content: "\\2190"'), "directional service markers required");
+assert(servicesSource.includes("padding-inline-start: 1.5rem") && servicesSource.includes("inset-inline-start: 0"), "service markers must respect RTL");
 
 for (const { code } of SUPPORTED_LANGUAGES) {
   const pages = new Map();
