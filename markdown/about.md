@@ -65,19 +65,19 @@ Strata Saudi is positioned between engineering execution, commercial exposure, a
 - Selective engagement only where mandate fit, confidentiality, and independence can be maintained.
 - Technical seriousness over performative consulting.
 - Evidence, chronology, and notice discipline before narrative inflation.
-- Premium adapters reserved for high-risk reasoning and final implementation work.
+- Independent technical and commercial judgment, with legal advice reserved for qualified counsel.
 
-**1**
+**01**
 
-operating model spanning site, GTM, agents, analytics, RevOps, and browser governance
+Engineering-led review of Saudi project and contract risk.
 
-**47**
+**02**
 
-Paperclip agents structured across premium, core, and utility lanes
+Technical and commercial analysis that complements, but does not replace, legal advice.
 
-**28+**
+**03**
 
-skills covering research, evidence mapping, GTM, analytics, CRM, and authority operations
+Selective mandates based on fit, independence, and the decision required.
 
 ## Public JSON-LD Structured Data
 ```json

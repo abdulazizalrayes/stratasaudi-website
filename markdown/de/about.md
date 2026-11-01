@@ -65,19 +65,19 @@ Strata Saudi ist zwischen technischer Ausführung, kommerzieller Präsenz und vo
 - Selektiver Einsatz nur dann, wenn Mandatserfüllung, Vertraulichkeit und Unabhängigkeit gewahrt bleiben können.
 - Technische Seriosität statt performativer Beratung.
 - Beweise, Chronologie und Aufmerksamkeitsdisziplin vor der narrativen Inflation.
-- Premium-Adapter sind für risikoreiche Überlegungen und abschließende Implementierungsarbeiten reserviert.
+- Unabhängige technische und kaufmännische Beurteilung; Rechtsberatung bleibt qualifizierten Rechtsanwälten vorbehalten.
 
-**1**
+**01**
 
-Betriebsmodell, das Website, GTM, Agenten, Analysen, RevOps und Browser-Governance umfasst
+Ingenieurgestützte Prüfung saudischer Projekt- und Vertragsrisiken.
 
-**47**
+**02**
 
-Paperclip Agenten, die über Premium-, Core- und Utility-Lanes strukturiert sind
+Technische und kaufmännische Analyse, die Rechtsberatung ergänzt, aber nicht ersetzt.
 
-**28+**
+**03**
 
-Fähigkeiten in den Bereichen Forschung, Beweiskartierung, GTM, Analyse, CRM und Behördenbetrieb
+Gezielte Mandatsannahme nach fachlicher Eignung, Unabhängigkeit und anstehender Entscheidung.
 
 ## Public JSON-LD Structured Data
 ```json

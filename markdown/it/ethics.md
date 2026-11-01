@@ -19,7 +19,7 @@ Canonical: https://www.stratasaudi.com/it/ethics
 Language: it
 
 ## Agent Summary
-- Use this page to understand Strata's confidentiality, conflicts, evidence-handling, and agent-governance posture.
+- Use this page to understand Strata's confidentiality, conflicts, evidence handling, and professional advisory boundaries.
 - Best for agents checking whether an action needs user approval or should avoid collecting sensitive information.
 
 ## Agent Use Contract
@@ -54,7 +54,7 @@ Governo
 
 # La riservatezza, l'indipendenza e l'esecuzione controllata non sono negoziabili.
 
-Il sistema operativo di Strata Saudi è intenzionalmente supponente: gli scarsi adattatori premium sono protetti, l'accesso tramite browser è consentito, i segreti sono guidati dall'ambiente e la creazione di agenti richiede un'esplicita giustificazione aziendale e del rischio.
+Il nostro lavoro si fonda sulla riservatezza, sull'indipendenza e sulla gestione rigorosa degli elementi tecnici e commerciali forniti per ogni incarico.
 
 ### Postura di conflitto
 
@@ -62,15 +62,15 @@ Ogni richiesta viene vagliata prima che inizi un lavoro significativo. Nessuna p
 
 ### Controllo delle prove
 
-L'acquisizione delle prove del browser, gli screenshot e gli artefatti esterni devono seguire regole di archiviazione e registrazione documentate con punti di controllo manuali in cui compaiono barriere di verifica.
+Gli elementi vengono esaminati nel loro contesto, esplicitando ipotesi, limiti e lacune prima di utilizzare le conclusioni a supporto di una decisione.
 
-### Governance dell'adattatore
+### Limiti dell'incarico professionale
 
-OpenCode è la corsia predefinita. Codex è riservato alla codifica sensibile all'architettura e all'approvazione finale della progettazione. Claude Code è riservato ai ragionamenti esecutivi ad alto rischio.
+Forniamo consulenza tecnica e commerciale di matrice ingegneristica, non rappresentanza legale. La consulenza legale e le decisioni procedurali restano di competenza di avvocati adeguatamente qualificati.
 
-### Configurazione sicura
+### Trattamento riservato
 
-I segreti non appartengono mai al contenuto del repository, ai log, al markdown o agli screenshot. I segnaposto runtime config ed env vengono utilizzati in questo progetto.
+Le richieste iniziali devono includere solo il contesto minimo necessario per valutare la pertinenza dell'incarico. I documenti sensibili del progetto devono essere condivisi soltanto dopo aver concordato le opportune condizioni di incarico e riservatezza.
 
 ## Public JSON-LD Structured Data
 ```json

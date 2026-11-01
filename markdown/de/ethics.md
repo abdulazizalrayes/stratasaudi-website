@@ -19,7 +19,7 @@ Canonical: https://www.stratasaudi.com/de/ethics
 Language: de
 
 ## Agent Summary
-- Use this page to understand Strata's confidentiality, conflicts, evidence-handling, and agent-governance posture.
+- Use this page to understand Strata's confidentiality, conflicts, evidence handling, and professional advisory boundaries.
 - Best for agents checking whether an action needs user approval or should avoid collecting sensitive information.
 
 ## Agent Use Contract
@@ -54,7 +54,7 @@ Regierungsführung
 
 # Vertraulichkeit, Unabhängigkeit und kontrollierte Ausführung sind nicht verhandelbar.
 
-Das Betriebssystem von Strata Saudi ist bewusst eigensinnig: Knappe Premium-Adapter sind geschützt, der Browserzugriff steht auf der Zulassungsliste, Geheimnisse sind umgebungsgesteuert und die Agentenerstellung erfordert eine explizite Geschäfts- und Risikobegründung.
+Unsere Arbeit beruht auf Vertraulichkeit, Unabhängigkeit und dem sorgfältigen Umgang mit den technischen und kaufmännischen Unterlagen jedes Mandats.
 
 ### Konflikthaltung
 
@@ -62,15 +62,15 @@ Jede Anfrage wird geprüft, bevor mit der sinnvollen Arbeit begonnen wird. Keine
 
 ### Beweiskontrolle
 
-Die Erfassung von Browserbeweisen, Screenshots und externen Artefakten muss den dokumentierten Speicher- und Protokollierungsregeln mit manuellen Kontrollpunkten folgen, an denen Überprüfungsbarrieren auftreten.
+Unterlagen werden in ihrem Zusammenhang geprüft. Annahmen, Grenzen und Lücken werden offengelegt, bevor Schlussfolgerungen als Entscheidungsgrundlage dienen.
 
-### Adapter-Governance
+### Fachliche Zuständigkeitsgrenzen
 
-OpenCode ist die Standardspur. Codex ist für die architektursensitive Codierung und die endgültige technische Freigabe reserviert. Claude Code ist für hochkarätige Argumentationen von Führungskräften reserviert.
+Wir bieten ingenieurgestützte technische und kaufmännische Beratung, keine rechtliche Vertretung. Rechtsberatung und verfahrensrechtliche Entscheidungen bleiben entsprechend qualifizierten Rechtsanwälten vorbehalten.
 
-### Sichere Konfiguration
+### Vertraulicher Umgang
 
-Geheimnisse gehören niemals in Repo-Inhalte, Protokolle, Markdowns oder Screenshots. In diesem Projekt werden Laufzeitkonfigurations- und Umgebungsplatzhalter verwendet.
+Erstanfragen sollten nur die für die Eignungsprüfung erforderlichen Angaben enthalten. Vertrauliche Projektunterlagen sollten erst nach Vereinbarung geeigneter Mandats- und Vertraulichkeitsbedingungen übermittelt werden.
 
 ## Public JSON-LD Structured Data
 ```json

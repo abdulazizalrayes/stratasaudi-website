@@ -117,6 +117,7 @@
         '    <div class="footer__column"><h3>Authority</h3><ul class="footer__list">' +
         "      <li><a href=\"/insights\">Insights hub</a></li>" +
         "      <li><a href=\"/faq\">FAQ</a></li>" +
+        "      <li><a href=\"/mandate-checklist\">Mandate checklist</a></li>" +
         "      <li><a href=\"/ethics\">Governance</a></li>" +
         "    </ul></div>" +
         '    <div class="footer__column"><h3>Company</h3><ul class="footer__list">' +

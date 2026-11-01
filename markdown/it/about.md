@@ -65,19 +65,19 @@ Strata Saudi si posiziona tra l'esecuzione ingegneristica, l'esposizione commerc
 - Impegno selettivo solo laddove è possibile mantenere l'idoneità del mandato, la riservatezza e l'indipendenza.
 - Serietà tecnica rispetto alla consulenza performativa.
 - Prove, cronologia e disciplina degli avvisi prima dell'inflazione narrativa.
-- Adattatori premium riservati al ragionamento ad alto rischio e al lavoro di implementazione finale.
+- Valutazione tecnica e commerciale indipendente, con la consulenza legale riservata ad avvocati qualificati.
 
-**1**
+**01**
 
-modello operativo che abbraccia sito, GTM, agenti, analisi, RevOps e governance del browser
+Analisi ingegneristica dei rischi di progetto e contrattuali in Arabia Saudita.
 
-**47**
+**02**
 
-Paperclip agenti strutturati in corsie premium, core e utility
+Analisi tecnica e commerciale che integra, ma non sostituisce, la consulenza legale.
 
-**28+**
+**03**
 
-competenze riguardanti ricerca, mappatura delle prove, GTM, analisi, CRM e operazioni di autorità
+Incarichi selezionati in base alla pertinenza, all'indipendenza e alla decisione da supportare.
 
 ## Public JSON-LD Structured Data
 ```json

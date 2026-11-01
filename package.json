@@ -9,7 +9,7 @@
     "validate:instructions": "node scripts/validate-instruction-integrity.js",
     "validate:agents": "node scripts/validate-agent-registry.js",
     "validate:agents:full": "STRATA_REQUIRE_AGENT_REGISTRY=true node scripts/validate-agent-registry.js",
-    "validate:seo": "node scripts/audit-multilingual-seo.js",
+    "validate:seo": "node scripts/audit-multilingual-seo.js && node scripts/test-public-navigation.js",
     "validate:localization": "node scripts/audit-i18n-coverage.js && node scripts/validate-localized-rendering.js",
     "validate:analytics": "node scripts/validate-analytics-privacy.js && node scripts/test-browser-analytics.js",
     "validate:agent-readiness": "node scripts/validate-agent-readiness.js",

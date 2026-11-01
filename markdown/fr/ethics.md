@@ -19,7 +19,7 @@ Canonical: https://www.stratasaudi.com/fr/ethics
 Language: fr
 
 ## Agent Summary
-- Use this page to understand Strata's confidentiality, conflicts, evidence-handling, and agent-governance posture.
+- Use this page to understand Strata's confidentiality, conflicts, evidence handling, and professional advisory boundaries.
 - Best for agents checking whether an action needs user approval or should avoid collecting sensitive information.
 
 ## Agent Use Contract
@@ -54,7 +54,7 @@ Gouvernance
 
 # La confidentialité, l'indépendance et l'exécution contrôlée ne sont pas négociables.
 
-Le système d'exploitation de Strata Saudi est intentionnellement opiniâtre : les rares adaptateurs premium sont protégés, l'accès au navigateur est autorisé, les secrets sont déterminés par l'environnement et la création d'agents nécessite une justification commerciale et des risques explicite.
+Notre travail repose sur la confidentialité, l'indépendance et le traitement rigoureux des éléments techniques et commerciaux fournis pour chaque mission.
 
 ### Posture de conflit
 
@@ -62,15 +62,15 @@ Chaque demande est examinée avant le début d’un travail significatif. Aucune
 
 ### Contrôle des preuves
 
-La capture de preuves du navigateur, les captures d'écran et les artefacts externes doivent suivre des règles de stockage et de journalisation documentées avec des points de contrôle manuels où apparaissent des barrières de vérification.
+Les éléments sont examinés dans leur contexte. Les hypothèses, limites et lacunes sont explicitées avant que les conclusions ne servent à éclairer une décision.
 
-### Gouvernance de l'adaptateur
+### Limites de notre intervention
 
-OpenCode est la voie par défaut. Codex est réservé au codage sensible à l'architecture et à l'approbation finale de l'ingénierie. Claude Code est réservé au raisonnement exécutif à enjeux élevés.
+Nous proposons un conseil technique et commercial fondé sur l'ingénierie, et non une représentation juridique. Les conseils juridiques et les décisions procédurales restent du ressort d'avocats dûment qualifiés.
 
-### Configuration sécurisée
+### Traitement confidentiel
 
-Les secrets n'ont jamais leur place dans le contenu du dépôt, les journaux, les démarques ou les captures d'écran. La configuration d'exécution et les espaces réservés d'environnement sont utilisés tout au long de ce projet.
+Les demandes initiales doivent se limiter au contexte nécessaire pour évaluer la pertinence d'une mission. Les documents sensibles du projet ne doivent être communiqués qu'après accord sur les modalités de mission et de confidentialité appropriées.
 
 ## Public JSON-LD Structured Data
 ```json
