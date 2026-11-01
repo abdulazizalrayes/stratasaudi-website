@@ -1,10 +1,10 @@
 (function () {
+  if (window.StrataTracking) return;
   var runtime = window.STRATA_RUNTIME_CONFIG || {};
   var dataLayer = (window.dataLayer = window.dataLayer || []);
   var SESSION_KEY = "strata_session_id";
   var FIRST_TOUCH_KEY = "strata_first_touch";
   var LATEST_TOUCH_KEY = "strata_latest_touch";
-  var PAGE_VIEW_KEY = "strata_page_view_sent";
   var PENDING_EVENTS_KEY = "strata_pending_events";
   var PENDING_EVENT_MAX_AGE_MS = 15 * 60 * 1000;
 
@@ -151,7 +151,6 @@
       page_path: window.location.pathname,
       page_title: document.title,
       page_referrer: document.referrer || "",
-      session_id: touch.session_id || "",
       first_touch_source: touch.first_touch && touch.first_touch.source ? touch.first_touch.source : "",
       first_touch_medium: touch.first_touch && touch.first_touch.medium ? touch.first_touch.medium : "",
       first_touch_campaign: touch.first_touch && touch.first_touch.campaign ? touch.first_touch.campaign : "",
@@ -229,11 +228,8 @@
   }
 
   function markPageView() {
-    var session = storage("sessionStorage");
-    var key = PAGE_VIEW_KEY + ":" + window.location.pathname;
-    if (session && session.getItem(key)) return;
-    if (session) session.setItem(key, "1");
-    pushEvent("page_view_custom", {
+    // GA4 owns its session ID; count each document load, including revisits.
+    pushEvent("page_view", {
       page_template: document.body.getAttribute("data-page-template") || "default",
     });
   }
