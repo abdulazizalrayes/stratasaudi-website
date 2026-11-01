@@ -99,9 +99,9 @@ Unabhängige technische Bewertung für streitnahe Entscheidungen, erbracht als b
 
 ### Wichtigste Ergebnisse
 
-- Programmforensik und CPM-Analyse
+- Forensische Terminplananalyse und Analyse des kritischen Pfads (CPM)
 - Kausalmeinungen zu Verzögerungen und Störungen
-- Parallelitätsbewertung
+- Bewertung gleichzeitiger Verzögerungen
 - Modellierung der Höhe von Verlusten und Aufwendungen
 
 **Für wen es ist:** Aufsichtsgremien, Projektträger, Auftragnehmer und Rechtsteams, die unabhängige technische Analysen benötigen, um technische Exponierung zu verstehen, die Stärke eines Anspruchs zu prüfen oder kommerzielle Entscheidungen vor oder parallel zu formellen Verfahren zu unterstützen.

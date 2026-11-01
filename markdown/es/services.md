@@ -99,9 +99,9 @@ Evaluación de ingeniería independiente para decisiones vinculadas a disputas, 
 
 ### Entregables clave
 
-- Programa forense y análisis CPM
+- Análisis forense del cronograma y del camino crítico (CPM)
 - Opiniones de causalidad sobre retrasos e interrupciones
-- Evaluación de concurrencia
+- Evaluación de retrasos concurrentes
 - Modelización del importe de pérdidas y gastos
 
 **Para quién es:** Consejos de administración, propietarios de proyectos, contratistas y equipos legales que requieren análisis de ingeniería independiente para comprender la exposición técnica, probar la solidez de una reclamación o apoyar decisiones comerciales antes de procedimientos formales o en paralelo con ellos.
@@ -112,8 +112,8 @@ Servicios de debida diligencia para la contratación de megaproyectos. Realizamo
 
 ### Entregables clave
 
-- Capacidad del proveedor y auditoría de capacidad.
-- Verificaciones contractuales de cumplimiento de flujo descendente
+- Auditoría de competencias y capacidad operativa de los proveedores
+- Verificación del traslado de obligaciones contractuales a los subcontratos
 - Revisión de adecuación de garantías y bonos de cumplimiento
 - Perfil de riesgo del subcontratista
 

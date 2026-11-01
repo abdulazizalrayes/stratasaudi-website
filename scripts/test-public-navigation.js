@@ -15,6 +15,9 @@ for (const code of ["ar", "fr", "es", "it", "de"]) {
   for (const key of quantumKeys) {
     assert(dictionary[code][key] && !physicsTerms.test(dictionary[code][key]), `${code}: financial quantum mistranslated`);
   }
+  const values = Object.values(dictionary[code]).join("\n");
+  assert(!/الطب الشرعي|متخصصي الكم|spécialistes quantiques|especialistas cuánticos|specialisti quantistici|Quantenspezialisten/.test(values), `${code}: advisory terminology regression`);
+  assert(!/concurrence|concorrenza/.test(dictionary[code]["Concurrency evaluation"]), `${code}: concurrent delays must not mean competition`);
 }
 const servicesSource = fs.readFileSync(path.join(__dirname, "../site/services.html"), "utf8");
 assert(!/content:\s*["']&(?:rarr|larr);/.test(servicesSource), "CSS must use Unicode escapes, not HTML entities");
