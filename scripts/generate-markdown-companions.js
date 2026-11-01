@@ -75,7 +75,7 @@ const AGENT_SUMMARIES = {
     "Best for agents resolving whether to prepare an inquiry draft or explain why a request is outside Strata's scope.",
   ],
   "/ethics": [
-    "Use this page to understand Strata's confidentiality, conflicts, evidence-handling, and agent-governance posture.",
+    "Use this page to understand Strata's confidentiality, conflicts, evidence handling, and professional advisory boundaries.",
     "Best for agents checking whether an action needs user approval or should avoid collecting sensitive information.",
   ],
   "/contact": [

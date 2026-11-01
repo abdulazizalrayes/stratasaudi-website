@@ -19,7 +19,7 @@ Canonical: https://www.stratasaudi.com/ethics
 Language: en
 
 ## Agent Summary
-- Use this page to understand Strata's confidentiality, conflicts, evidence-handling, and agent-governance posture.
+- Use this page to understand Strata's confidentiality, conflicts, evidence handling, and professional advisory boundaries.
 - Best for agents checking whether an action needs user approval or should avoid collecting sensitive information.
 
 ## Agent Use Contract
@@ -54,7 +54,7 @@ Governance
 
 # Confidentiality, independence, and controlled execution are non-negotiable.
 
-Strata Saudi’s operating system is intentionally opinionated: scarce premium adapters are protected, browser access is allowlisted, secrets are environment-driven, and agent creation requires explicit business and risk justification.
+Our work is grounded in confidentiality, independence, and disciplined handling of the technical and commercial evidence supplied for each mandate.
 
 ### Conflict posture
 
@@ -62,15 +62,15 @@ Every enquiry is screened before meaningful work begins. No assumption of fit, n
 
 ### Evidence control
 
-Browser evidence capture, screenshots, and external artifacts must follow documented storage and logging rules with manual checkpoints where verification barriers appear.
+Evidence is reviewed in context, with assumptions, limitations, and gaps made explicit before conclusions are used to support a decision.
 
-### Adapter governance
+### Professional boundaries
 
-OpenCode is the default lane. Codex is reserved for architecture-sensitive coding and final engineering sign-off. Claude Code is reserved for high-stakes executive reasoning.
+We provide engineering-led technical and commercial advisory, not legal representation. Legal advice and procedural decisions remain with appropriately qualified counsel.
 
-### Secure configuration
+### Confidential handling
 
-Secrets never belong in repo content, logs, markdown, or screenshots. Runtime config and env placeholders are used throughout this project.
+Initial enquiries should include only the minimum context needed to assess fit. Sensitive project documents should be shared only after the appropriate engagement and confidentiality arrangements are agreed.
 
 ## Public JSON-LD Structured Data
 ```json

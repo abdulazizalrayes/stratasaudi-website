@@ -65,19 +65,19 @@ Strata Saudi se ubica entre la ejecución de ingeniería, la exposición comerci
 - Participación selectiva sólo cuando se pueda mantener la adecuación al mandato, la confidencialidad y la independencia.
 - Seriedad técnica por encima de la consultoría performativa.
 - Evidencia, cronología y disciplina de aviso ante la inflación narrativa.
-- Adaptadores premium reservados para razonamientos de alto riesgo y trabajos de implementación final.
+- Criterio técnico y comercial independiente, con el asesoramiento jurídico reservado a abogados cualificados.
 
-**1**
+**01**
 
-modelo operativo que abarca el sitio, GTM, agentes, análisis, RevOps y gobernanza del navegador
+Revisión de riesgos de proyectos y contratos saudíes desde una perspectiva de ingeniería.
 
-**47**
+**02**
 
-Paperclip agentes estructurados en carriles premium, principales y de servicios públicos
+Análisis técnico y comercial que complementa, pero no sustituye, el asesoramiento jurídico.
 
-**28+**
+**03**
 
-Habilidades que cubren investigación, mapeo de evidencia, GTM, análisis, CRM y operaciones de autoridad.
+Encargos seleccionados según su adecuación, la independencia y la decisión que deba fundamentarse.
 
 ## Public JSON-LD Structured Data
 ```json

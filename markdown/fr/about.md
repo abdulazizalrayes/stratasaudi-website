@@ -65,19 +65,19 @@ Strata Saudi se positionne entre l'exécution de l'ingénierie, l'exposition com
 - Engagement sélectif uniquement lorsque le mandat correspond, la confidentialité et l’indépendance peuvent être maintenues.
 - Le sérieux technique plutôt que le conseil performatif.
 - Preuve, chronologie et discipline des avis avant l’inflation narrative.
-- Adaptateurs premium réservés au raisonnement à haut risque et au travail de mise en œuvre final.
+- Une appréciation technique et commerciale indépendante, les conseils juridiques relevant d'avocats qualifiés.
 
-**1**
+**01**
 
-modèle opérationnel couvrant le site, GTM, les agents, les analyses, RevOps et la gouvernance du navigateur
+Analyse des risques de projets et de contrats saoudiens fondée sur l'ingénierie.
 
-**47**
+**02**
 
-Agents Paperclip structurés en lignes premium, principales et utilitaires
+Une analyse technique et commerciale qui complète, sans remplacer, les conseils juridiques.
 
-**28+**
+**03**
 
-compétences couvrant la recherche, la cartographie des preuves, GTM, l'analyse, le CRM et les opérations d'autorité
+Des missions sélectionnées selon leur pertinence, notre indépendance et la décision à éclairer.
 
 ## Public JSON-LD Structured Data
 ```json

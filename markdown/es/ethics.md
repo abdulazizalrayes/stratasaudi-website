@@ -19,7 +19,7 @@ Canonical: https://www.stratasaudi.com/es/ethics
 Language: es
 
 ## Agent Summary
-- Use this page to understand Strata's confidentiality, conflicts, evidence-handling, and agent-governance posture.
+- Use this page to understand Strata's confidentiality, conflicts, evidence handling, and professional advisory boundaries.
 - Best for agents checking whether an action needs user approval or should avoid collecting sensitive information.
 
 ## Agent Use Contract
@@ -54,7 +54,7 @@ Gobernancia
 
 # La confidencialidad, la independencia y la ejecución controlada no son negociables.
 
-El sistema operativo de Strata Saudi es intencionalmente obstinado: los escasos adaptadores premium están protegidos, el acceso al navegador está en la lista permitida, los secretos están impulsados ​​por el entorno y la creación de agentes requiere una justificación explícita del negocio y del riesgo.
+Nuestro trabajo se basa en la confidencialidad, la independencia y el tratamiento riguroso de la documentación técnica y comercial facilitada para cada encargo.
 
 ### Postura de conflicto
 
@@ -62,15 +62,15 @@ Cada consulta se examina antes de que comience un trabajo significativo. Sin sup
 
 ### control de pruebas
 
-La captura de evidencia del navegador, las capturas de pantalla y los artefactos externos deben seguir reglas de registro y almacenamiento documentadas con puntos de control manuales donde aparecen barreras de verificación.
+La documentación se revisa en su contexto, explicitando las hipótesis, limitaciones y carencias antes de utilizar las conclusiones para fundamentar una decisión.
 
-### Gobernanza del adaptador
+### Límites de nuestra intervención
 
-OpenCode es el carril predeterminado. Codex está reservado para codificación sensible a la arquitectura y aprobación final de ingeniería. Claude Code está reservado para razonamiento ejecutivo de alto riesgo.
+Prestamos asesoramiento técnico y comercial basado en la ingeniería, no representación jurídica. El asesoramiento jurídico y las decisiones procesales corresponden a abogados debidamente cualificados.
 
-### Configuración segura
+### Tratamiento confidencial
 
-Los secretos nunca pertenecen al contenido del repositorio, a los registros, a las rebajas ni a las capturas de pantalla. En este proyecto se utilizan marcadores de posición de entorno y configuración de tiempo de ejecución.
+Las consultas iniciales deben incluir únicamente el contexto mínimo necesario para evaluar la adecuación del encargo. Los documentos sensibles del proyecto solo deben compartirse una vez acordadas las condiciones de contratación y confidencialidad pertinentes.
 
 ## Public JSON-LD Structured Data
 ```json
