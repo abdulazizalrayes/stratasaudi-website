@@ -50,7 +50,7 @@ Language: ar
 - Extraction scope: public main content, with navigation, contact bars, forms, scripts, styles, hidden content, and internal/private material removed.
 - Content-Signal policy: ai-train=no, search=yes, ai-input=yes
 
-الملف الشخصي للشركة
+نبذة عن الشركة
 
 # استشارات هندسية مصممة للقرارات السعودية ذات الأهمية العالية.
 

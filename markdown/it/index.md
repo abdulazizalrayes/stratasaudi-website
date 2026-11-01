@@ -234,7 +234,7 @@ Gruppo consultivo
 
 ## Con sede in Arabia Saudita. Commercialmente esperto. Pronto per la distribuzione.
 
-I mandati di consulenza di Strata sono supportati da un team accuratamente selezionato di professionisti senior con sede in Arabia Saudita, ciascuno con una vasta esperienza nel panorama delle costruzioni e delle infrastrutture del Regno. Tra i nostri collaboratori figurano analisti dei ritardi, specialisti quantistici, amministratori di contratti ed esperti di controllo dei documenti, impegnati su base di progetto per mantenere operazioni snelle senza compromettere la profondità.
+I mandati di consulenza di Strata sono supportati da un team accuratamente selezionato di professionisti senior con sede in Arabia Saudita, ciascuno con una vasta esperienza nel panorama delle costruzioni e delle infrastrutture del Regno. Tra i nostri collaboratori figurano analisti dei ritardi, specialisti nella quantificazione delle richieste, amministratori di contratti ed esperti di controllo dei documenti, impegnati su base di progetto per mantenere operazioni snelle senza compromettere la profondità.
 
 Questo modello garantisce che ogni mandato sia dotato di professionisti che comprendono il mercato locale dal basso: non osservatori teorici, ma professionisti che hanno gestito progetti reali, controversie reali e una reale esposizione commerciale all’interno dell’ambiente saudita.
 

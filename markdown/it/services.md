@@ -86,8 +86,8 @@ Supporto alla preparazione delle controversie guidato dall'ingegneria prima di p
 
 ### Risultati chiave
 
-- Analisi dei ritardi (come pianificato vs come costruito, collasso come costruito, impatto temporale)
-- Calcolo quantistico e confezionamento della documentazione
+- Analisi dei ritardi (confronto tra programma previsto ed effettivo, ricostruzione del programma effettivo senza i ritardi, analisi dell'impatto temporale)
+- Quantificazione delle richieste e preparazione della documentazione a supporto
 - Supporto alla narrazione tecnica e alla cronologia delle evidenze
 - Supporto alla negoziazione per la risoluzione delle controversie
 
@@ -102,7 +102,7 @@ Valutazione ingegneristica indipendente per decisioni connesse a controversie, f
 - Programma forense e analisi CPM
 - Opinioni di causalità su ritardi e disservizi
 - Valutazione della concorrenza
-- Modellazione quantistica di perdite e spese
+- Modellazione dell'importo delle perdite e delle spese
 
 **Per chi è:** Consigli di amministrazione, committenti, appaltatori e team legali che richiedono analisi ingegneristiche indipendenti per comprendere l'esposizione tecnica, testare la solidità di una richiesta o supportare decisioni commerciali prima o parallelamente a procedimenti formali.
 

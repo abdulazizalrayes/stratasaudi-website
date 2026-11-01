@@ -234,7 +234,7 @@ Beratungsteam
 
 ## Sitz in Saudi-Arabien. Kaufmännisch erfahren. Bereit für den Einsatz.
 
-Die Beratungsmandate von Strata werden von einem sorgfältig ausgewählten Team hochrangiger Fachleute mit Sitz in Saudi-Arabien unterstützt, die alle über umfassende Erfahrung in der Bau- und Infrastrukturlandschaft des Königreichs verfügen. Zu unseren Mitarbeitern gehören Verzögerungsanalysten, Quantenspezialisten, Vertragsadministratoren und Dokumentenkontrollexperten, die auf Projektbasis eingesetzt werden, um schlanke Abläufe aufrechtzuerhalten, ohne Kompromisse bei der Tiefe einzugehen.
+Die Beratungsmandate von Strata werden von einem sorgfältig ausgewählten Team hochrangiger Fachleute mit Sitz in Saudi-Arabien unterstützt, die alle über umfassende Erfahrung in der Bau- und Infrastrukturlandschaft des Königreichs verfügen. Zu unseren Mitarbeitern gehören Verzögerungsanalysten, Fachleuten für die Bezifferung von Ansprüchen, Vertragsadministratoren und Dokumentenkontrollexperten, die auf Projektbasis eingesetzt werden, um schlanke Abläufe aufrechtzuerhalten, ohne Kompromisse bei der Tiefe einzugehen.
 
 Dieses Modell stellt sicher, dass jedes Mandat mit Fachleuten besetzt wird, die den lokalen Markt von Grund auf verstehen – keine theoretischen Beobachter, sondern Praktiker, die reale Projekte, echte Streitigkeiten und echte kommerzielle Präsenz im saudischen Umfeld gemanagt haben.
 

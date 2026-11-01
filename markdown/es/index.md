@@ -234,7 +234,7 @@ Equipo Asesor
 
 ## Con sede en Arabia Saudita. Con experiencia comercial. Listo para la implementación.
 
-Los mandatos de asesoría de Strata cuentan con el respaldo de un equipo cuidadosamente seleccionado de profesionales senior con sede en Arabia Saudita, cada uno con amplia experiencia en el panorama de construcción e infraestructura del Reino. Nuestros asociados incluyen analistas de retrasos, especialistas cuánticos, administradores de contratos y expertos en control de documentos, comprometidos por proyecto para mantener operaciones eficientes sin comprometer la profundidad.
+Los mandatos de asesoría de Strata cuentan con el respaldo de un equipo cuidadosamente seleccionado de profesionales senior con sede en Arabia Saudita, cada uno con amplia experiencia en el panorama de construcción e infraestructura del Reino. Nuestros asociados incluyen analistas de retrasos, especialistas en cuantificación de reclamaciones, administradores de contratos y expertos en control de documentos, comprometidos por proyecto para mantener operaciones eficientes sin comprometer la profundidad.
 
 Este modelo garantiza que cada mandato cuente con profesionales que comprenden el mercado local desde el nivel básico: no observadores teóricos, sino profesionales que han gestionado proyectos reales, disputas reales y exposición comercial real dentro del entorno saudí.
 

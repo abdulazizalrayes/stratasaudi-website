@@ -86,8 +86,8 @@ Apoyo de preparación para disputas dirigido desde la ingeniería antes de proce
 
 ### Entregables clave
 
-- Análisis de retrasos (según lo planeado versus según lo construido, colapsado según lo construido, impacto en el tiempo)
-- Embalaje de documentación y cálculo cuántico.
+- Análisis de retrasos (comparación del programa previsto y ejecutado, reconstrucción del programa ejecutado sin los retrasos, análisis de impacto temporal)
+- Cuantificación de reclamaciones y preparación de documentación justificativa
 - Apoyo al relato técnico y a la cronología de evidencias
 - Soporte de negociación para evitar disputas
 
@@ -102,7 +102,7 @@ Evaluación de ingeniería independiente para decisiones vinculadas a disputas, 
 - Programa forense y análisis CPM
 - Opiniones de causalidad sobre retrasos e interrupciones
 - Evaluación de concurrencia
-- Modelado cuántico de pérdidas y gastos.
+- Modelización del importe de pérdidas y gastos
 
 **Para quién es:** Consejos de administración, propietarios de proyectos, contratistas y equipos legales que requieren análisis de ingeniería independiente para comprender la exposición técnica, probar la solidez de una reclamación o apoyar decisiones comerciales antes de procedimientos formales o en paralelo con ellos.
 

@@ -234,7 +234,7 @@ Son travail fait le lien entre ce qui se passe réellement sur site et ce que di
 
 ## Basé en Arabie saoudite. Commercialement expérimenté. Prêt pour le déploiement.
 
-Les mandats de conseil de Strata sont soutenus par une équipe soigneusement sélectionnée de professionnels chevronnés basés en Arabie saoudite, chacun possédant une vaste expérience du paysage de la construction et des infrastructures du Royaume. Nos associés comprennent des analystes des retards, des spécialistes quantiques, des administrateurs de contrats et des experts en contrôle de documents – engagés sur une base de projet pour maintenir des opérations allégées sans compromettre la profondeur.
+Les mandats de conseil de Strata sont soutenus par une équipe soigneusement sélectionnée de professionnels chevronnés basés en Arabie saoudite, chacun possédant une vaste expérience du paysage de la construction et des infrastructures du Royaume. Nos associés comprennent des analystes des retards, des spécialistes du chiffrage des réclamations, des administrateurs de contrats et des experts en contrôle de documents – engagés sur une base de projet pour maintenir des opérations allégées sans compromettre la profondeur.
 
 Ce modèle garantit que chaque mandat est doté de professionnels qui comprennent le marché local depuis le terrain – non pas des observateurs théoriques, mais des praticiens qui ont géré de vrais projets, de vrais litiges et une réelle exposition commerciale dans l'environnement saoudien.
 
