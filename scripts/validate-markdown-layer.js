@@ -318,17 +318,22 @@ function validateDiscoveryDocs() {
   for (const nonstandardDirective of ["LLMs:", "LLMs-Full:", "Agent-Card:", "MCP:", "OpenAPI:"]) {
     assert(!robots.includes(nonstandardDirective), `robots.txt: nonstandard ${nonstandardDirective} directive remains`);
   }
-  for (const trainingBot of ["GPTBot", "Google-Extended", "CCBot", "anthropic-ai", "Bytespider", "ClaudeBot"]) {
+  for (const trainingBot of ["GPTBot", "Google-Extended", "CCBot", "anthropic-ai", "Bytespider", "ClaudeBot", "KimiBot", "meta-externalagent"]) {
     assert(
       robots.includes(`User-agent: ${trainingBot}\nDisallow: /`),
       `robots.txt: ${trainingBot} must be excluded from training/bulk-corpus crawling`,
     );
   }
-  for (const retrievalBot of ["OAI-SearchBot", "ChatGPT-User", "Claude-SearchBot", "Claude-User", "PerplexityBot"]) {
+  for (const retrievalBot of ["OAI-SearchBot", "ChatGPT-User", "Claude-SearchBot", "Claude-User", "PerplexityBot", "Googlebot", "bingbot", "Kimi-SearchBot", "Kimi-User", "meta-webindexer", "meta-externalfetcher", "facebookexternalhit"]) {
     assert(
       robots.includes(`User-agent: ${retrievalBot}\nAllow: /`),
       `robots.txt: ${retrievalBot} must remain available for search or user-initiated retrieval`,
     );
+    const group = robots.split(`User-agent: ${retrievalBot}\n`)[1].split("User-agent:")[0];
+    const defaultGroup = robots.split("User-agent: *\n")[1].split("User-agent:")[0];
+    for (const rule of defaultGroup.split("\n").filter((line) => line.startsWith("Disallow:"))) {
+      assert(group.split("\n").includes(rule), `${retrievalBot}: missing private-path exclusion ${rule}`);
+    }
   }
 }
 
