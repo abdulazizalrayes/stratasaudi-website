@@ -16,26 +16,174 @@ Sitemap: https://www.stratasaudi.com/image-sitemap.xml
 Agentmap: https://www.stratasaudi.com/.well-known/ai-catalog.json
 Content-Signal: ai-train=no, search=yes, ai-input=yes
 
-# AI search and user-initiated retrieval
+# Search and user-directed retrieval; each named group repeats private exclusions.
 User-agent: OAI-SearchBot
 Allow: /
+Disallow: /api/contact
+Disallow: /api/a2a
+Disallow: /api/a2a/message:send
 Disallow: /api/private/
+Disallow: /thank-you
+Disallow: /tmp/
+Disallow: /logs/
+Disallow: /ops/
+Disallow: /paperclip/
+Disallow: /project/
+Disallow: /project%202/
 
 User-agent: ChatGPT-User
 Allow: /
+Disallow: /api/contact
+Disallow: /api/a2a
+Disallow: /api/a2a/message:send
 Disallow: /api/private/
+Disallow: /thank-you
+Disallow: /tmp/
+Disallow: /logs/
+Disallow: /ops/
+Disallow: /paperclip/
+Disallow: /project/
+Disallow: /project%202/
 
 User-agent: Claude-SearchBot
 Allow: /
+Disallow: /api/contact
+Disallow: /api/a2a
+Disallow: /api/a2a/message:send
 Disallow: /api/private/
+Disallow: /thank-you
+Disallow: /tmp/
+Disallow: /logs/
+Disallow: /ops/
+Disallow: /paperclip/
+Disallow: /project/
+Disallow: /project%202/
 
 User-agent: Claude-User
 Allow: /
+Disallow: /api/contact
+Disallow: /api/a2a
+Disallow: /api/a2a/message:send
 Disallow: /api/private/
+Disallow: /thank-you
+Disallow: /tmp/
+Disallow: /logs/
+Disallow: /ops/
+Disallow: /paperclip/
+Disallow: /project/
+Disallow: /project%202/
 
 User-agent: PerplexityBot
 Allow: /
+Disallow: /api/contact
+Disallow: /api/a2a
+Disallow: /api/a2a/message:send
 Disallow: /api/private/
+Disallow: /thank-you
+Disallow: /tmp/
+Disallow: /logs/
+Disallow: /ops/
+Disallow: /paperclip/
+Disallow: /project/
+Disallow: /project%202/
+
+User-agent: Googlebot
+Allow: /
+Disallow: /api/contact
+Disallow: /api/a2a
+Disallow: /api/a2a/message:send
+Disallow: /api/private/
+Disallow: /thank-you
+Disallow: /tmp/
+Disallow: /logs/
+Disallow: /ops/
+Disallow: /paperclip/
+Disallow: /project/
+Disallow: /project%202/
+
+User-agent: bingbot
+Allow: /
+Disallow: /api/contact
+Disallow: /api/a2a
+Disallow: /api/a2a/message:send
+Disallow: /api/private/
+Disallow: /thank-you
+Disallow: /tmp/
+Disallow: /logs/
+Disallow: /ops/
+Disallow: /paperclip/
+Disallow: /project/
+Disallow: /project%202/
+
+User-agent: Kimi-SearchBot
+Allow: /
+Disallow: /api/contact
+Disallow: /api/a2a
+Disallow: /api/a2a/message:send
+Disallow: /api/private/
+Disallow: /thank-you
+Disallow: /tmp/
+Disallow: /logs/
+Disallow: /ops/
+Disallow: /paperclip/
+Disallow: /project/
+Disallow: /project%202/
+
+User-agent: Kimi-User
+Allow: /
+Disallow: /api/contact
+Disallow: /api/a2a
+Disallow: /api/a2a/message:send
+Disallow: /api/private/
+Disallow: /thank-you
+Disallow: /tmp/
+Disallow: /logs/
+Disallow: /ops/
+Disallow: /paperclip/
+Disallow: /project/
+Disallow: /project%202/
+
+User-agent: meta-webindexer
+Allow: /
+Disallow: /api/contact
+Disallow: /api/a2a
+Disallow: /api/a2a/message:send
+Disallow: /api/private/
+Disallow: /thank-you
+Disallow: /tmp/
+Disallow: /logs/
+Disallow: /ops/
+Disallow: /paperclip/
+Disallow: /project/
+Disallow: /project%202/
+
+User-agent: meta-externalfetcher
+Allow: /
+Disallow: /api/contact
+Disallow: /api/a2a
+Disallow: /api/a2a/message:send
+Disallow: /api/private/
+Disallow: /thank-you
+Disallow: /tmp/
+Disallow: /logs/
+Disallow: /ops/
+Disallow: /paperclip/
+Disallow: /project/
+Disallow: /project%202/
+
+User-agent: facebookexternalhit
+Allow: /
+Disallow: /api/contact
+Disallow: /api/a2a
+Disallow: /api/a2a/message:send
+Disallow: /api/private/
+Disallow: /thank-you
+Disallow: /tmp/
+Disallow: /logs/
+Disallow: /ops/
+Disallow: /paperclip/
+Disallow: /project/
+Disallow: /project%202/
 
 # AI training and bulk-corpus collection opt-out
 User-agent: GPTBot
@@ -54,4 +202,10 @@ User-agent: Bytespider
 Disallow: /
 
 User-agent: ClaudeBot
+Disallow: /
+
+User-agent: KimiBot
+Disallow: /
+
+User-agent: meta-externalagent
 Disallow: /
