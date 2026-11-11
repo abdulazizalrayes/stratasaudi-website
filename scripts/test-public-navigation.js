@@ -9,6 +9,17 @@ const { readDictionary } = require("../lib/i18n-renderer");
 const resources = ["/about", "/counterparties", "/why-saudi", "/faq", "/ethics", "/mandate-checklist", "/privacy", "/terms"];
 const core = ["/", "/services", "/insights", "/fidic-claims-saudi-arabia"];
 const dictionary = readDictionary();
+const homeSource = fs.readFileSync(path.join(__dirname, "../site/index.html"), "utf8");
+assert(homeSource.includes("nav#navbar {"), "fixed navigation must target the header only");
+assert(!/\bnav(?:\.scrolled)?\s*\{/.test(homeSource), "generic navigation rules must not pin footer resources");
+const arabicContact = parse(readHtmlForPath("/ar/contact"));
+for (const option of arabicContact.querySelectorAll('select[name="projectValueBand"] option[value]')) {
+  if (!option.getAttribute("value")) continue;
+  assert(option.text.includes("مليون دولار أمريكي"), "Arabic monetary bands must specify USD millions");
+  assert(!/متر/.test(option.text), "monetary amounts must not be translated as metres");
+}
+assert(arabicContact.querySelector("h1").text.includes("التكليف الاستشاري"));
+assert(!/تناول الولاية|موقف الصراع|تناول انتقائي/.test(arabicContact.text));
 const quantumKeys = ["Loss and expense quantum modeling", "Quantum calculation and documentation packaging"];
 const physicsTerms = /quantique|cuántic|quantistic|Quanten|حساب الكم|نمذجة الكم/iu;
 for (const code of ["ar", "fr", "es", "it", "de"]) {
