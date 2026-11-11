@@ -45,8 +45,8 @@
     return !!element.closest("script, style, noscript, svg, canvas, code, pre");
   }
 
-  function translateTextNodes(lang) {
-    var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+  function translateTextNodes(lang, root) {
+    var walker = document.createTreeWalker(root || document.body, NodeFilter.SHOW_TEXT, {
       acceptNode: function (node) {
         if (shouldSkipNode(node) || !isTranslatable(node.nodeValue)) {
           return NodeFilter.FILTER_REJECT;
@@ -65,8 +65,8 @@
     });
   }
 
-  function translateAttributes(lang) {
-    Array.prototype.forEach.call(document.querySelectorAll("*"), function (element) {
+  function translateAttributes(lang, root) {
+    Array.prototype.forEach.call((root || document).querySelectorAll("*"), function (element) {
       textAttributes.forEach(function (attribute) {
         if (!element.hasAttribute(attribute)) return;
         var key = "i18nSource" + attribute.replace(/(^|-)([a-z])/g, function (_match, _dash, letter) {
@@ -146,6 +146,17 @@
       translateHead(next);
       translateTextNodes(next);
       translateAttributes(next);
+    } else if (next !== "en") {
+      // site.js inserts the shared shell after the server has translated the page.
+      document.querySelectorAll("[data-site-shell]").forEach(function (shell) {
+        translateTextNodes(next, shell);
+        translateAttributes(next, shell);
+        shell.querySelectorAll('a[href^="/"]').forEach(function (link) {
+          var href = link.getAttribute("href");
+          if (href.startsWith("//") || /^\/(ar|fr|es|it|de)(?=\/|$)/.test(href)) return;
+          link.setAttribute("href", "/" + next + (href === "/" ? "" : href));
+        });
+      });
     }
     updateSwitcherState(next);
   }
