@@ -1,7 +1,8 @@
 const crypto = require("crypto");
 const net = require("net");
 const tls = require("tls");
-const { APPROVED_BUSINESS_MAILBOX } = require("../lib/private-email-client");
+const { APPROVED_BUSINESS_MAILBOX, mailboxConfig } = require("../lib/private-email-client");
+const { classifyContactIntent } = require("../lib/contact-intent");
 const { setSecurityHeaders } = require("../lib/security-headers");
 
 const MAX_BODY_BYTES = 32 * 1024;
@@ -282,6 +283,7 @@ function buildMessage(payload) {
     ["Referrer", payload.referrer || ""],
     ["User agent", payload.userAgent || "unknown"],
     ["Lead score", String(payload.leadScore)],
+    ["Qualification status", payload.qualificationStatus || "pending_review"],
     ...serializeTouchpoint("First touch", payload.firstTouch),
     ...serializeTouchpoint("Latest touch", payload.latestTouch),
   ];
@@ -515,7 +517,34 @@ async function sendLeadEmail(payload) {
   });
 }
 
+async function quarantineSolicitation(payload) {
+  const { ImapFlow } = require("imapflow");
+  const config = mailboxConfig();
+  const client = new ImapFlow({
+    ...config.imap, logger: false,
+    connectionTimeout: 8000, greetingTimeout: 8000, socketTimeout: 10000,
+  });
+  try {
+    await client.connect();
+    const folders = await client.list();
+    const junk = folders.find((folder) => folder.specialUse === "\\Junk");
+    if (!junk) throw new Error("Spam folder unavailable");
+    const message = buildMessage(payload);
+    const result = await client.append(junk.path, buildRawEmail({
+      from: APPROVED_BUSINESS_MAILBOX,
+      to: APPROVED_BUSINESS_MAILBOX,
+      replyTo: payload.email,
+      subject: `[Review: unsolicited offer] Strata enquiry from ${payload.company}`,
+      ...message,
+    }), ["$Junk"]);
+    if (!result) throw new Error("Spam retention failed");
+  } finally {
+    await client.logout().catch(() => {});
+  }
+}
+
 async function sendGa4MeasurementProtocolEvent(payload) {
+  if (payload.qualificationStatus !== "pending_review") return;
   const measurementId = process.env.GA_MEASUREMENT_ID;
   const apiSecret = process.env.GA_API_SECRET;
   
@@ -542,6 +571,7 @@ async function sendGa4MeasurementProtocolEvent(payload) {
           confidentiality_required: payload.confidentialityRequired ? 1 : 0,
           counterparty_type: payload.counterpartyType,
           project_value_band: payload.projectValueBand || "",
+          qualification_status: "pending_review",
           form_page: "https://www.stratasaudi.com/contact"
         }
       }]
@@ -627,7 +657,8 @@ module.exports = async (req, res) => {
       userAgent: sanitize(req.headers["user-agent"], 1000),
     };
 
-    payload.leadScore = leadScore(payload);
+    payload.qualificationStatus = classifyContactIntent(payload.message);
+    payload.leadScore = payload.qualificationStatus === "suspected_solicitation" ? 0 : leadScore(payload);
 
     const errors = validate(payload);
     if (Object.keys(errors).length > 0) {
@@ -635,7 +666,17 @@ module.exports = async (req, res) => {
       return;
     }
 
-      await sendLeadEmail(payload);
+      if (payload.qualificationStatus === "suspected_solicitation") {
+        try {
+          await quarantineSolicitation(payload);
+        } catch (_error) {
+          // Preserve the enquiry if the recoverable spam folder is unavailable.
+          console.warn("strata_contact_quarantine_fallback");
+          await sendLeadEmail(payload);
+        }
+      } else {
+        await sendLeadEmail(payload);
+      }
 
       const auxiliaryResults = await Promise.allSettled([
         sendGa4MeasurementProtocolEvent(payload),
